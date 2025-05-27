@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ContentDialog x:ConnectionId='1'
+    x:Class="vuapos.Presentation.Views.Product.AddProductDialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:vuapos.Presentation.Views.Product"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    Title="Add New Product"
+    PrimaryButtonText="Save"
+    CloseButtonText="Cancel"
+                                            
+    DefaultButton="Primary">
+    <StackPanel Spacing="10">
+        <TextBlock x:ConnectionId='2' x:Name="errorTextBlock" Foreground="Red" Visibility="Collapsed" />
+        <TextBox x:ConnectionId='3' Header="Product Code" x:Name="ProductCodeTextBox" PlaceholderText="Enter product code" />
+        <TextBox x:ConnectionId='4' Header="Product Name" x:Name="ProductNameTextBox" PlaceholderText="Enter product name" />
+        <ComboBox x:ConnectionId='5' Header="Category"
+                  x:Name="CategoryComboBox"
+                  PlaceholderText="Select a category"
+                  DisplayMemberPath="Name"
+                  SelectedValuePath="Category_Id"
+                  Width="300" />
+        <TextBox x:ConnectionId='6' Header="Price" x:Name="PriceTextBox" PlaceholderText="Enter price" InputScope="Number" />
+        <TextBox x:ConnectionId='7' Header="Cost Price" x:Name="CostPriceTextBox" PlaceholderText="Enter cost price" InputScope="Number" />
+        <TextBox x:ConnectionId='8' Header="Stock Quantity" x:Name="StockQuantityTextBox" PlaceholderText="Enter stock quantity" InputScope="Number" />
+        <Button x:ConnectionId='9' Content="Choose Image" x:Name="ChooseImageButton"                           Width="300" HorizontalAlignment="Left" />
+        <TextBlock x:ConnectionId='10' x:Name="ImageFilePathTextBlock" TextWrapping="Wrap" />
+    </StackPanel>
+</ContentDialog>
+

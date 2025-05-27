@@ -1,0 +1,53 @@
+﻿<UserControl x:ConnectionId='1'
+    x:Class="vuapos.Presentation.Views.Staff.StaffDialogContent"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:vuapos.Presentation.Views.Staff"
+    xmlns:converter="using:vuapos.Presentation.Helpers"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <UserControl.Resources>
+        <converter:InverseBoolToVisibilityConverter x:Key="InverseBoolToVisibilityConverter"/>
+    </UserControl.Resources>
+
+    <StackPanel Spacing="8" Padding="0,10,0,10" HorizontalAlignment="Stretch">
+        <!-- Thông tin nhân viên -->
+        <TextBlock Text="Tên nhân viên"/>
+        <TextBox x:ConnectionId='2' x:Name="NameTextBox" 
+                                                                       
+                 PlaceholderText="Nhập tên nhân viên"/>
+
+        <TextBlock Text="Số điện thoại"/>
+        <TextBox x:ConnectionId='3' x:Name="PhoneTextBox" 
+                                                                    
+                 PlaceholderText="Nhập số điện thoại"/>
+
+        <TextBlock Text="Role"/>
+        <ComboBox x:ConnectionId='4' x:Name="RoleComboBox" 
+                                                                          
+              SelectedValuePath="Tag"
+              HorizontalAlignment="Stretch">
+            <ComboBoxItem Content="MANAGER" Tag="MANAGER"/>
+            <ComboBoxItem Content="STAFF" Tag="STAFF"/>
+        </ComboBox>
+
+        <!-- Mật khẩu -->
+        <TextBlock x:ConnectionId='5'                                              />
+        <PasswordBox x:ConnectionId='6' x:Name="PasswordBox" 
+                                                                    
+                     PlaceholderText="Nhập mật khẩu"/>
+
+        <TextBlock Text="Xác nhận mật khẩu"/>
+        <PasswordBox x:ConnectionId='7' x:Name="ConfirmPasswordBox" 
+                                                                        
+                     PlaceholderText="Nhập lại mật khẩu"/>
+
+        <!-- Thông báo lỗi mật khẩu -->
+        <TextBlock x:ConnectionId='8'                                              
+                   Foreground="Red"
+                                                                                                                                     />
+    </StackPanel>
+</UserControl>
+

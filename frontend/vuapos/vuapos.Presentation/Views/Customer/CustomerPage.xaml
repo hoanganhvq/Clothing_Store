@@ -1,0 +1,179 @@
+﻿<UserControl
+    x:Class="vuapos.Presentation.Views.Customer.CustomerPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:vuapos.Presentation.Views.Customer"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    x:Name="CustomerRoot"
+     xmlns:models="using:vuapos.Presentation.Models"
+    mc:Ignorable="d">
+
+    <Grid Background="White" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" Margin="20" HorizontalAlignment="Stretch">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <Button  Content="Create New Customer" Width="180" Height="40" 
+                    Click="OnCreateCustomerClicked" Background="#C19256" Foreground="White" 
+                    BorderBrush="Transparent" CornerRadius="5" Grid.Column="0"
+                     >
+                <Button.ContentTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <FontIcon Glyph="&#xE710;" FontFamily="Segoe MDL2 Assets" FontSize="12" Margin="0,0,8,0"/>
+                            <TextBlock Text="Create New Customer"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </Button.ContentTemplate>
+            </Button>
+
+            <StackPanel Grid.Column="2" 
+              Orientation="Horizontal" 
+              HorizontalAlignment="Right">
+                <TextBlock Text="Filter by" 
+                 VerticalAlignment="Center" 
+                 Margin="0,0,10,0"/>
+                <TextBox Width="200" 
+               x:Name="SearchTextBox"
+               Text="{x:Bind ViewModel.SearchText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+               PlaceholderText="Search in Customers..." 
+               VerticalAlignment="Center"/>
+            </StackPanel>
+
+        </Grid>
+
+        <Grid Grid.Row="1" Padding="10" Background="#F5F5F5" BorderBrush="#D3D3D3" BorderThickness="0,0,0,1" 
+              Margin="20,0,20,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" MinWidth="150"/>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="80"/>
+                <ColumnDefinition Width="250"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="Name" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,0" Grid.Column="0"/>
+            <TextBlock Text="Phone" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,0" Grid.Column="1"/>
+            <TextBlock Text="Email" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,0" Grid.Column="2"/>
+            <TextBlock Text="Points" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,0" Grid.Column="3"/>
+            <TextBlock Text="Actions" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,0" Grid.Column="4"/>
+        </Grid>
+
+        <ScrollViewer Grid.Row="2" VerticalScrollBarVisibility="Auto" Margin="20,0,20,20">
+            <ListView x:Name="CustomerListView" ItemsSource="{x:Bind ViewModel.Customers, Mode=OneWay}" 
+                      HorizontalAlignment="Stretch" VerticalAlignment="Stretch" CornerRadius="5">
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="models:Customer">
+                        <Grid Margin="0,5" Padding="10" Background="White" BorderBrush="#E0E0E0" BorderThickness="0,0,0,1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" MinWidth="150"/>
+                                <ColumnDefinition Width="200"/>
+                                <ColumnDefinition Width="200"/>
+                                <ColumnDefinition Width="80"/>
+                                <ColumnDefinition Width="250"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="{x:Bind Name}" VerticalAlignment="Center" FontSize="16" 
+                                       HorizontalAlignment="Left" Margin="10,0" Grid.Column="0"/>
+                            <TextBlock Text="{x:Bind Phone}" VerticalAlignment="Center" FontSize="16" 
+                                       HorizontalAlignment="Left" Margin="10,0" Grid.Column="1"/>
+                            <TextBlock Text="{x:Bind Email}" VerticalAlignment="Center" FontSize="16" 
+                                       HorizontalAlignment="Left" Margin="10,0" Grid.Column="2"/>
+                            <TextBlock Text="{x:Bind Point}" VerticalAlignment="Center" FontSize="16" 
+                                       HorizontalAlignment="Left" Margin="10,0" Grid.Column="3"/>
+
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center" 
+                                        Grid.Column="4" Margin="10,0">
+
+                                <Button Style="{StaticResource ActionButtonStyle}" Tag="{Binding}" Click="OnDetailClicked">
+                                    <FontIcon Glyph="&#xE779;" FontFamily="Segoe MDL2 Assets" Foreground="#5B5FC7"/>
+                                </Button>
+                                <Button Style="{StaticResource ActionButtonStyle}" Tag="{Binding}" Click="OnEditClicked">
+                                    <FontIcon Glyph="&#xE70F;" FontFamily="Segoe MDL2 Assets" Foreground="#5B5FC7"/>
+                                </Button>
+                                <Button Style="{StaticResource ActionButtonStyle}" Margin="5,0,0,0" Tag="{Binding}" Click="OnDeleteClicked">
+                                    <FontIcon Glyph="&#xE74D;" FontFamily="Segoe MDL2 Assets"  Foreground="#E74C3C"/>
+                                </Button>
+                            </StackPanel>
+                        </Grid>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </ScrollViewer>
+        <!-- Phần phân trang -->
+        <StackPanel Grid.Row="3" 
+         Orientation="Horizontal" 
+         HorizontalAlignment="Center" 
+         VerticalAlignment="Center"
+         Margin="0,20,0,10">
+
+            <Button Content="&lt;&lt;" 
+         Command="{x:Bind ViewModel.PaginationViewModel.FirstPageCommand}" 
+         Margin="2,0"
+         Width="50"
+         Height="32"/>
+
+            <Button Content="&lt;" 
+             Command="{x:Bind ViewModel.PaginationViewModel.PreviousPageCommand}" 
+             Margin="2,0"
+             Width="50"
+             Height="32"/>
+
+
+            <!-- Các nút số trang với xử lý đặc biệt cho dấu ... -->
+            <ItemsControl ItemsSource="{x:Bind ViewModel.PaginationViewModel.PageNumbers}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel Orientation="Horizontal"/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <!-- Hiển thị nút số trang khi giá trị là số dương -->
+                            <Button Content="{Binding}" 
+                         Command="{Binding DataContext.PaginationViewModel.GoToPageCommand, ElementName=CustomerRoot}"
+                         CommandParameter="{Binding}"
+                         Width="40"
+                         Height="32"
+                         Margin="2,0"
+                         Background="{Binding Converter={StaticResource PageBackgroundConverter}, ConverterParameter={Binding DataContext.PaginationViewModel.CurrentPage, ElementName=CustomerRoot}}"
+                         Foreground="{Binding Converter={StaticResource PageForegroundConverter}, ConverterParameter={Binding DataContext.PaginationViewModel.CurrentPage, ElementName=CustomerRoot}}"
+                         Visibility="{Binding Converter={StaticResource PageButtonVisibilityConverter}}"/>
+                        </Grid>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+
+                <Button Content="&gt;" 
+             Command="{x:Bind ViewModel.PaginationViewModel.NextPageCommand}" 
+             Margin="2,0"
+             Width="50"
+             Height="32"/>
+                <Button Content="&gt;&gt;" 
+             Command="{x:Bind ViewModel.PaginationViewModel.LastPageCommand}" 
+             Margin="2,0"
+             Width="50"
+             Height="32"/>
+
+                <!-- Hiển thị thông tin trang hiện tại -->
+                <TextBlock Text="{x:Bind ViewModel.PaginationViewModel.CurrentPage, Mode=OneWay}" 
+                VerticalAlignment="Center" 
+                Margin="10,0,0,0"/>
+                <TextBlock Text="of" 
+                VerticalAlignment="Center" 
+                Margin="5,0"/>
+                <TextBlock Text="{x:Bind ViewModel.PaginationViewModel.TotalPages, Mode=OneWay}" 
+                VerticalAlignment="Center"/>
+        </StackPanel>
+    </Grid>
+</UserControl>

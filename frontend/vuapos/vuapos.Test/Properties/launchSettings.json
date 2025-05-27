@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "vuapos.Test (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "vuapos.Test (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}

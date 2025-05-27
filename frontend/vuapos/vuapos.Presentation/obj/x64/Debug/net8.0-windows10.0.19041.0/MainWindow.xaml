@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Window
+    x:Class="vuapos.Presentation.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Title="vuaPOS"
+    xmlns:local="using:vuapos.Presentation.Views.Shared">
+
+    <Grid Background="#FFFF">
+        <NavigationView x:ConnectionId='2' x:Name="MainNavigationView"
+                        IsSettingsVisible="False"
+                        IsBackButtonVisible="Collapsed"
+                                                                              
+                        PaneDisplayMode="Left"
+                        IsPaneOpen="False">
+            <!-- User Profile Header -->
+            <NavigationView.PaneHeader>
+                <Grid Margin="12,5" Height="60">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- User Avatar -->
+                    <Grid Grid.Row="0"
+                          Width="50" Height="50"
+                          HorizontalAlignment="Center"
+                          VerticalAlignment="Top">  
+                        <Ellipse Stroke="#0078D7" StrokeThickness="2">
+                            <Ellipse.Fill>
+                                <ImageBrush ImageSource="/Assets/images.jpg" Stretch="UniformToFill"/>
+                            </Ellipse.Fill>
+                        </Ellipse>
+                    </Grid>
+
+
+
+                    <!-- User Information -->
+                    <StackPanel Grid.Column="1" Margin="10,0,0,0" VerticalAlignment="Center">
+                        <TextBlock x:ConnectionId='3' x:Name="UserNameTextBlock" Text="User Name" 
+                                   FontWeight="SemiBold" FontSize="14"/>
+                        <TextBlock x:ConnectionId='4' x:Name="UserRoleTextBlock" Text="Staff Role"
+                                   FontSize="12" Opacity="0.7"/>
+                    </StackPanel>
+                </Grid>
+            </NavigationView.PaneHeader>
+
+            <NavigationView.MenuItems>
+                <NavigationViewItem Content="Customers" Tag="customers">
+                    <NavigationViewItem.Icon>
+                        <FontIcon Glyph="&#xE716;" />
+                    </NavigationViewItem.Icon>
+                </NavigationViewItem>
+                <NavigationViewItem Content="Categories" Tag="categories">
+                    <NavigationViewItem.Icon>
+                        <FontIcon Glyph="&#xED25;" />
+                    </NavigationViewItem.Icon>
+                </NavigationViewItem>
+                <NavigationViewItem Content="Products" Tag="products">
+                    <NavigationViewItem.Icon>
+                        <FontIcon Glyph="&#xE8EC;" />
+                    </NavigationViewItem.Icon>
+                </NavigationViewItem>
+
+                <NavigationViewItem Content="Promotions" Tag="promotions">
+                    <NavigationViewItem.Icon>
+                        <FontIcon Glyph="&#xE8D3;" />
+                        <!--<ImageIcon Source="/Assets/Promotion.jpg" />-->
+                    </NavigationViewItem.Icon>
+                </NavigationViewItem>
+                <NavigationViewItem Content="Frequently Bought Together Products" Tag="frequentlyboughttogether">
+                    <NavigationViewItem.Icon>
+                        <FontIcon Glyph="&#xE9D2;" />
+                    </NavigationViewItem.Icon>
+                </NavigationViewItem>
+                <NavigationViewItem x:ConnectionId='5' Content="Staffs" Tag="staffs" x:Name="staffsTag">
+                    <NavigationViewItem.Icon>
+                        <FontIcon Glyph="&#xE77B;" />
+                    </NavigationViewItem.Icon>
+                </NavigationViewItem>
+                <NavigationViewItem Content="Orders" Tag="orders">
+                    <NavigationViewItem.Icon>
+                        <FontIcon Glyph="&#xE7BF;" />
+                    </NavigationViewItem.Icon>
+                </NavigationViewItem>
+                <NavigationViewItem x:ConnectionId='6' Content="Cash Register" Tag="cash" x:Name="cashTag">
+                    <NavigationViewItem.Icon>
+                        <FontIcon Glyph="&#xE8C7;" />
+                    </NavigationViewItem.Icon>
+                </NavigationViewItem>
+
+                <NavigationViewItem x:ConnectionId='7' Content="Reports" Tag="reports" x:Name="reportTag">
+                    <NavigationViewItem.Icon>
+                        <FontIcon Glyph="&#xE8C8;" />
+                    </NavigationViewItem.Icon>
+                </NavigationViewItem>
+                
+            </NavigationView.MenuItems>
+
+            <NavigationView.FooterMenuItems>
+                <NavigationViewItem Content="Logout" Tag="logout">
+                    <NavigationViewItem.Icon>
+                        <FontIcon Glyph="&#xE7E8;" />
+                    </NavigationViewItem.Icon>
+                </NavigationViewItem>
+            </NavigationView.FooterMenuItems>
+
+            <local:_Layout x:ConnectionId='8' x:Name="MainLayout"/>
+        </NavigationView>
+    </Grid>
+</Window>
+

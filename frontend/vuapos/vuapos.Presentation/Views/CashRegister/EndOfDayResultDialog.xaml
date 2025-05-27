@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<UserControl
+    x:Class="vuapos.Presentation.Views.CashRegister.EndOfDayResultDialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:vuapos.Presentation.Views.CashRegister"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <StackPanel Width="400">
+        <Grid Margin="0,0,0,16">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Grid.Row="0" Grid.Column="0"
+                       Text="End of Day Time:"
+                       Style="{StaticResource BodyTextBlockStyle}"
+                       Margin="0,0,12,8"/>
+            <TextBlock Grid.Row="0" Grid.Column="1"
+                       x:Name="reportDateText"
+                       Text="{x:Bind ViewModel.Report.ReportDate, Mode=OneWay}"
+                       Style="{StaticResource BodyStrongTextBlockStyle}"
+                       Margin="0,0,0,8"/>
+
+            <TextBlock Grid.Row="1" Grid.Column="0"
+                       Text="System Balance:"
+                       Style="{StaticResource BodyTextBlockStyle}"
+                       Margin="0,0,12,8"/>
+            <TextBlock Grid.Row="1" Grid.Column="1"
+                       x:Name="systemBalanceText"
+                       Text="{x:Bind ViewModel.Report.SystemBalance}"
+                       Style="{StaticResource BodyStrongTextBlockStyle}"
+                       Margin="0,0,0,8"/>
+
+            <TextBlock Grid.Row="2" Grid.Column="0"
+                       Text="Actual Balance:"
+                       Style="{StaticResource BodyTextBlockStyle}"
+                       Margin="0,0,12,8"/>
+            <TextBlock Grid.Row="2" Grid.Column="1"
+                       x:Name="actualBalanceText"
+                       Text="{x:Bind ViewModel.Report.ActualBalance}"
+                       Style="{StaticResource BodyStrongTextBlockStyle}"
+                       Margin="0,0,0,8"/>
+
+            <TextBlock Grid.Row="3" Grid.Column="0"
+                       Text="Difference:"
+                       Style="{StaticResource BodyTextBlockStyle}"
+                       Margin="0,0,12,8"/>
+            <TextBlock Grid.Row="3" Grid.Column="1"
+                       x:Name="differenceText"
+                       Text="{x:Bind ViewModel.Report.Difference}"
+                       Style="{StaticResource BodyStrongTextBlockStyle}"
+                       Margin="0,0,0,8"/>
+        </Grid>
+
+        <StackPanel x:Name="notesPanel" Margin="0,0,0,16">
+            <TextBlock Text="Notes:"
+                       Style="{StaticResource BodyTextBlockStyle}"
+                       Margin="0,0,0,8"/>
+            <Border Background="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}"
+                    BorderBrush="{ThemeResource SystemControlForegroundBaseLowBrush}"
+                    BorderThickness="1"
+                    Padding="12"
+                    CornerRadius="4">
+                <TextBlock x:Name="notesText"
+                           Text="{x:Bind ViewModel.Report.Notes, Mode=OneWay}"
+                           Style="{StaticResource BodyTextBlockStyle}"
+                           TextWrapping="Wrap"/>
+            </Border>
+        </StackPanel>
+
+        <InfoBar Title="Success"
+                 Message="End of day closing completed successfully"
+                 Severity="Success"
+                 IsOpen="True"/>
+    </StackPanel>
+</UserControl>
