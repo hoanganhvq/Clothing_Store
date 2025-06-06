@@ -4,6 +4,8 @@ import cit.backend.Enum.Role;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "staffs")
 @NoArgsConstructor
@@ -22,4 +24,6 @@ public class Staff {
 
     @Column(nullable = false, name = "role")
     private Role role;
+
+
 }
