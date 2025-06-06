@@ -1,4 +1,4 @@
-package ttl.example.backend;
+package cit.backend;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
