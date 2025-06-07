@@ -33,7 +33,7 @@ public class OrderItem {
     private Order order;
 
     @ManyToOne
-    @MapsId("product_id") //EmbeddedID
+    @MapsId("productId") //EmbeddedID
     @JoinColumn(name = "product_id")
     private Product product;
 

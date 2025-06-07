@@ -4,8 +4,9 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import net.minidev.json.annotate.JsonIgnore;
 
+import java.math.BigDecimal;
+import java.security.Timestamp;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -25,6 +26,7 @@ public class Order {
     @Column(name = "status")
     private String status;
 
+
     @ManyToOne
     @JoinColumn(name = "customer_id", referencedColumnName = "id") //Create column customer_id and referrence to id of ustomer
     private Customer customer;
@@ -37,6 +39,11 @@ public class Order {
     @JoinColumn(name = "staff_id", referencedColumnName = "id")
     private Staff staff;
 
+    @ManyToOne
+    @JoinColumn(name = "promotion_id", referencedColumnName = "id")
+    private Promotion promotion;
 
 
+    @Column(name = "totalAmount")
+    private BigDecimal totalAmount;
 }

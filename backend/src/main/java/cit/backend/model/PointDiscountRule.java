@@ -11,7 +11,7 @@ import java.math.BigDecimal;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "customers")
+@Table(name = "pointDiscountRules")
 public class PointDiscountRule {
     @Id
     private int id;
@@ -25,7 +25,7 @@ public class PointDiscountRule {
     @Column( nullable = true, name = "discount")
     private BigDecimal discount;
 
-    @OneToOne(mappedBy = "pointDiscoutRule")
+    @OneToOne(mappedBy = "pointDiscountRule")
     private Customer customer;
 
 }

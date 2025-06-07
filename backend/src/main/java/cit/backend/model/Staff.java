@@ -4,13 +4,11 @@ import cit.backend.Enum.Role;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.List;
 
 @Entity
 @Table(name = "staffs")
 @NoArgsConstructor
-@AllArgsConstructor
-@Data
+@AllArgsConstructor@Data
 public class Staff {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,8 +20,8 @@ public class Staff {
     @Column(nullable = false, name = "password")
     private String password;
 
+    @Enumerated(EnumType.STRING)
     @Column(nullable = false, name = "role")
     private Role role;
-
 
 }

@@ -1,12 +1,13 @@
 package cit.backend.model;
 
 import cit.backend.Enum.PromotionStatus;
+import cit.backend.Enum.PromotionType;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.security.Timestamp;
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Data
@@ -14,16 +15,29 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @Entity
 @Table(name = "promotions")
-public class Promotions {
+public class Promotion {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(name = "title")
-    private String title;
+    @Column(name = "code")
+    private String code;
+
+    @Column(name = "type")
+    private PromotionType type;
+
 
     @Column(name = "discount")
-    private Float discount;
+    private BigDecimal value;
+
+    @Column(name = "max_uses")
+    private int max_uses;
+
+    @Column(name = "used_count")
+    private int used_count;
+
+    @Column(name = "min_order_amount")
+    private BigDecimal min_order_amount;
 
     @Column(name = "startDate")
     private LocalDateTime startDate;

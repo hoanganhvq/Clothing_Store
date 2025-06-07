@@ -24,6 +24,9 @@ public class Product {
     @Column(name = "price")
     private double price;
 
+    @Column(name = "costPrice")
+    private double costPrice;
+
     @Column(name = "desciption")
     private String description;
 
@@ -36,9 +39,17 @@ public class Product {
     @Column(name = "color")
     private String color;
 
+    @Column(name = "imageUrl")
+    private String imageUrl;
+
     @OneToMany(mappedBy = "product")
     @JsonIgnore
     private List<OrderItem> orderItemList;
+
+    @ManyToOne
+    @JoinColumn(name = "catagory_id",referencedColumnName = "id")
+    private Catagory catagory;
+
 
 
 }

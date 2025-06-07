@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 
 import lombok.*;
 
+import java.util.List;
+
 @Entity
 @Data
 @NoArgsConstructor
@@ -16,4 +18,7 @@ public class Catagory {
 
     @Column(name = "name")
     private String name;
+
+    @OneToMany(mappedBy = "catagory")
+    private List<Product> products;
 }

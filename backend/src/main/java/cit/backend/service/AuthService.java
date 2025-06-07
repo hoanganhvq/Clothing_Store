@@ -1,11 +1,12 @@
 package cit.backend.service;
 
+import cit.backend.Enum.Role;
 import cit.backend.dto.respone.AuthRespone;
 import cit.backend.dto.request.LoginRequest;
 import cit.backend.dto.request.RegisterRequest;
 import cit.backend.exception.UserAlreadyExit;
 import cit.backend.model.Staff;
-import cit.backend.repository.UserRepository;
+import cit.backend.repository.StaffRepository;
 import cit.backend.security.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -19,7 +20,7 @@ public class AuthService {
     private AuthenticationManager authManager;
 
     @Autowired
-    private UserRepository userRepository;
+    private StaffRepository userRepository;
 
     @Autowired
     private PasswordEncoder passwordEncoder;
@@ -40,7 +41,7 @@ public class AuthService {
         Staff staff = new Staff();
         staff.setUsername(registerRequest.getUsername());
         staff.setPassword(passwordEncoder.encode(registerRequest.getPassword()));
-        staff.setRole("USER");
+        staff.setRole(Role.Staff);
 
         userRepository.save(staff);
         return jwtUtil.generateToken(staff.getUsername());
