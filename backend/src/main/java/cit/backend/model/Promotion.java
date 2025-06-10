@@ -23,6 +23,7 @@ public class Promotion {
     @Column(name = "code")
     private String code;
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "type")
     private PromotionType type;
 
@@ -45,6 +46,7 @@ public class Promotion {
     @Column(name = "endDate")
     private LocalDateTime endDate;
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "status")
     private PromotionStatus status;
 

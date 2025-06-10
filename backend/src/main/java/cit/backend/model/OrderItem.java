@@ -13,7 +13,7 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "orderItems")
+@Table(name = "order_items")
 public class OrderItem {
     @EmbeddedId
     private OrderItemKey id;

@@ -23,5 +23,4 @@ public class Staff {
     @Enumerated(EnumType.STRING)
     @Column(nullable = false, name = "role")
     private Role role;
-
 }

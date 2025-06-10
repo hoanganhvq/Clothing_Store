@@ -1,5 +1,6 @@
 package cit.backend.model;
 
+import cit.backend.Enum.OrderStatus;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -23,8 +24,9 @@ public class Order {
     @Column(name = "orderDate")
     private LocalDate orderDate;
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "status")
-    private String status;
+    private OrderStatus status;
 
 
     @ManyToOne

@@ -27,13 +27,13 @@ public class Product {
     @Column(name = "costPrice")
     private double costPrice;
 
-    @Column(name = "desciption")
+    @Column(name = "description")
     private String description;
 
     @Column(name = "stockQuantity")
     private int stockQuantity;
 
-    @Column(name = "size")
+    @Column(name = "size", length = 50)
     private String size;
 
     @Column(name = "color")
@@ -47,9 +47,8 @@ public class Product {
     private List<OrderItem> orderItemList;
 
     @ManyToOne
-    @JoinColumn(name = "catagory_id",referencedColumnName = "id")
-    private Catagory catagory;
-
+    @JoinColumn(name = "category_id",referencedColumnName = "id")
+    private Category category;
 
 
 }

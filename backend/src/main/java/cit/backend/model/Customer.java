@@ -24,7 +24,7 @@ public class Customer {
     @Column(name = "lname", nullable = true, length = 50)
     private String lname;
 
-    @Column(length = 100, name = "phone")
+    @Column(length = 100, name = "phone", unique = true)
     private String phone;
 
     @Column(name = "email", unique = true, length = 50)
@@ -41,7 +41,7 @@ public class Customer {
     private List<Order> orders;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "pointDisCountRule_id", referencedColumnName = "id")
+    @JoinColumn(name = "pointDiscountRule_id", referencedColumnName = "id")
     private PointDiscountRule pointDiscountRule;
 
 }
