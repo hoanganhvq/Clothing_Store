@@ -36,5 +36,4 @@ public class OrderItem {
     @MapsId("productId") //EmbeddedID
     @JoinColumn(name = "product_id")
     private Product product;
-
 }

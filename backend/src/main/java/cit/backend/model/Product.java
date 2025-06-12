@@ -1,14 +1,14 @@
 package cit.backend.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import net.minidev.json.annotate.JsonIgnore;
 
 
+import java.math.BigDecimal;
 import java.util.List;
 @Data
+
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
@@ -22,10 +22,10 @@ public class Product {
     private String name;
 
     @Column(name = "price")
-    private double price;
+    private BigDecimal price;
 
     @Column(name = "costPrice")
-    private double costPrice;
+    private BigDecimal costPrice;
 
     @Column(name = "description")
     private String description;

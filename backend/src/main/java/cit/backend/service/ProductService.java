@@ -2,6 +2,7 @@ package cit.backend.service;
 
 import cit.backend.dto.request.ProductRequest;
 import cit.backend.dto.respone.ProductResponse;
+import cit.backend.exception.CategoryNotFoundException;
 import cit.backend.exception.ProductNotFoundException;
 
 import cit.backend.mapper.ProductMapper;
@@ -36,26 +37,28 @@ public class ProductService {
         return productMapper.toResponse(product);
     }
 
-    public ProductResponse createProduct (ProductRequest productRequest) {
-
+    public ProductResponse createProduct(ProductRequest productRequest) {
         Product product = new Product();
-        productRequest.getName();
-        productRequest.getPrice();
-        productRequest.getCostPrice();
-        productRequest.getDescription();
-        productRequest.getStockQuantity();
-        productRequest.getSize();
-        productRequest.getColor();
-        productRequest.getImageUrl();
 
-        //Tim xem co category do chua
+        product.setName(productRequest.getName());
+        product.setPrice(productRequest.getPrice());
+        product.setCostPrice(productRequest.getCostPrice());
+        product.setDescription(productRequest.getDescription());
+        product.setStockQuantity(productRequest.getStockQuantity());
+        product.setSize(productRequest.getSize());
+        product.setColor(productRequest.getColor());
+        product.setImageUrl(productRequest.getImageUrl());
+
+        // Tìm category
         Category category = categoryRepository.findById(productRequest.getCategoryId())
-                .orElseThrow(()-> new RuntimeException("Category not found"));
+                .orElseThrow(() -> new CategoryNotFoundException("Category not found"));
 
         product.setCategory(category);
 
+        // Lưu và trả về response
         return productMapper.toResponse(productRepository.save(product));
     }
+
 
     public ProductResponse updateProduct (int id, ProductRequest productRequest) {
         Product product = productRepository.findById(id).orElseThrow(()->new ProductNotFoundException("Product not found"));

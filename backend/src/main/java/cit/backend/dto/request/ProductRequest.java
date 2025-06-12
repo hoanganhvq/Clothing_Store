@@ -4,6 +4,8 @@ import jakarta.persistence.Column;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.math.BigDecimal;
+
 @Getter
 @Setter
 public class ProductRequest {
@@ -11,10 +13,10 @@ public class ProductRequest {
     private String name;
 
 
-    private double price;
+    private BigDecimal price;
 
 
-    private double costPrice;
+    private BigDecimal costPrice;
 
 
     private String description;
