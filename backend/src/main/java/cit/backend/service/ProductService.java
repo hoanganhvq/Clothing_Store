@@ -79,9 +79,7 @@ public class ProductService {
         return productMapper.toResponse(productRepository.save(product));
     }
 
-    public List<Product> getProductsByCategory(String category) {
-        return productRepository.findAllByCategory(category);
-    }
+ 
 
 
     public void deleteProduct(int id){
