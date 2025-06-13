@@ -1,5 +1,6 @@
 package cit.backend.dto.respone;
 
+import cit.backend.model.Category;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -34,5 +35,5 @@ public class ProductResponse {
 
     private String imageUrl;
 
-    private int categoryId;
+    private Category category;
 }

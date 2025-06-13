@@ -17,10 +17,10 @@ public class PointDiscountRule {
     private int id;
 
     @Column(nullable=false, name = "minPoints")
-    private int minPoints;
+    private Integer minPoints;
 
-    @Column(nullable = true, name = "maxPoints")
-    private int maxPoints;
+    @Column(nullable = false, name = "maxPoints")
+    private Integer maxPoints;
 
     @Column( nullable = true, name = "discount")
     private BigDecimal discount;

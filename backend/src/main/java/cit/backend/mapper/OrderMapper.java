@@ -6,6 +6,7 @@ import cit.backend.dto.respone.ProductResponse;
 import cit.backend.model.Order;
 import cit.backend.model.Product;
 import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 
 import java.util.List;
 
