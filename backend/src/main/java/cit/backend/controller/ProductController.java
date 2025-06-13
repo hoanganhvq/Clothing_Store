@@ -7,6 +7,7 @@ import cit.backend.exception.ProductNotFoundException;
 import cit.backend.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -18,7 +19,8 @@ public class ProductController {
     private ProductService productService;
 
     @GetMapping
-    public ResponseEntity<List<ProductResponse>> getAllProducts() {
+    public ResponseEntity<List<ProductResponse>> getAllProducts(Authentication auth) {
+        System.out.println("authorities hien tai: " + auth.getAuthorities());
         return ResponseEntity.ok(productService.getAll());
     }
 

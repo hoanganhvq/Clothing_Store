@@ -20,7 +20,7 @@ public class AuthService {
     private AuthenticationManager authManager;
 
     @Autowired
-    private StaffRepository userRepository;
+    private StaffRepository staffRepository;
 
     @Autowired
     private PasswordEncoder passwordEncoder;
@@ -28,24 +28,40 @@ public class AuthService {
     @Autowired
     private JwtUtil jwtUtil;
 
-    public AuthRespone login(LoginRequest loginRequest){
-         authManager.authenticate(new UsernamePasswordAuthenticationToken(loginRequest.getUsername(), loginRequest.getPassword()));
-        String accessToken = jwtUtil.generateToken(loginRequest.getUsername());
-        return new AuthRespone(accessToken);
+    public AuthRespone login(LoginRequest request) {
+        // tìm người dùng từ DB (ví dụ là bảng staffs)
+        Staff user = staffRepository.findByUsername(request.getUsername())
+                .orElseThrow(() -> new RuntimeException("User not found"));
+
+        if (!passwordEncoder.matches(request.getPassword(), user.getPassword())) {
+            throw new RuntimeException("Invalid credentials");
+        }
+
+        //  tạo token với role
+        String token = jwtUtil.generateToken(user.getUsername(), user.getRole());
+
+        return new AuthRespone(token);
     }
 
-    public String register(RegisterRequest registerRequest){
-        if(userRepository.findByUsername(registerRequest.getUsername()).isPresent()){
-            throw new UserAlreadyExit("User already exits");
+
+    public String register(RegisterRequest registerRequest) {
+        if (staffRepository.findByUsername(registerRequest.getUsername()).isPresent()) {
+            throw new UserAlreadyExit("User already exists");
         }
+
+        if (registerRequest.getPassword() == null || registerRequest.getPassword().isBlank()) {
+            throw new IllegalArgumentException("Password cannot be null or blank");
+        }
+
         Staff staff = new Staff();
         staff.setUsername(registerRequest.getUsername());
         staff.setPassword(passwordEncoder.encode(registerRequest.getPassword()));
         staff.setRole(Role.Staff);
 
-        userRepository.save(staff);
-        return jwtUtil.generateToken(staff.getUsername());
+        staffRepository.save(staff);
+        return jwtUtil.generateToken(staff.getUsername(), staff.getRole());
     }
+
 
 
 

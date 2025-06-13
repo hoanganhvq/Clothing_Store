@@ -3,6 +3,8 @@ package cit.backend.dto.respone;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.math.BigDecimal;
+
 @Getter
 @Setter
 public class ProductResponse {
@@ -12,10 +14,10 @@ public class ProductResponse {
     private String name;
 
 
-    private double price;
+    private BigDecimal price;
 
 
-    private double costPrice;
+    private BigDecimal costPrice;
 
 
     private String description;

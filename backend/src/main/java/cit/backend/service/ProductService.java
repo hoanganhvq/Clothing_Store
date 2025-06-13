@@ -78,10 +78,7 @@ public class ProductService {
 
         return productMapper.toResponse(productRepository.save(product));
     }
-
- 
-
-
+    
     public void deleteProduct(int id){
         Product product = productRepository.findById(id).orElseThrow(()-> new ProductNotFoundException("Product not found"));
          productRepository.delete(product);

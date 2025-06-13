@@ -1,6 +1,7 @@
 package cit.backend.security;
 
 
+import cit.backend.Enum.Role;
 import io.jsonwebtoken.JwtException;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
@@ -18,9 +19,10 @@ public class JwtUtil{
     @Value("${spring.security.jwt.expiration}")
     private Duration expiration;
 
-    public String generateToken(String username ) {
+    public String generateToken(String username, Role role ) {
         return Jwts.builder()
                 .setSubject(username)
+                .claim("role", role) //Doc luon role
                 .setIssuedAt(new Date())
                 .setExpiration(new Date(System.currentTimeMillis() + expiration.toMillis()))
                 .signWith(SignatureAlgorithm.HS256, secret)
@@ -32,11 +34,19 @@ public class JwtUtil{
         return Jwts.parserBuilder().setSigningKey(secret).build().parseClaimsJws(token).getBody().getSubject();
     }
 
+    public String extractRole(String token) {
+        return Jwts.parserBuilder()
+                .setSigningKey(secret)
+                .build()
+                .parseClaimsJws(token)
+                .getBody()
+                .get("role", String.class);
+    }
 
     public boolean validateToken(String token){
         try{
-           Jwts.parserBuilder().setSigningKey(token).build().parseClaimsJws(token);
-           return true;
+            Jwts.parserBuilder().setSigningKey(secret).build().parseClaimsJws(token);
+            return true;
         }catch(JwtException | IllegalArgumentException e){
             return false;
         }
