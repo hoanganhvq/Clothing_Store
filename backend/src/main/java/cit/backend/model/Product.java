@@ -1,5 +1,6 @@
 package cit.backend.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.*;
 import net.minidev.json.annotate.JsonIgnore;
@@ -42,12 +43,13 @@ public class Product {
     @Column(name = "imageUrl")
     private String imageUrl;
 
-    @OneToMany(mappedBy = "product")
     @JsonIgnore
+    @OneToMany(mappedBy = "product")
     private List<OrderItem> orderItemList;
 
     @ManyToOne
     @JoinColumn(name = "category_id",referencedColumnName = "id")
+    @JsonBackReference
     private Category category;
 
 

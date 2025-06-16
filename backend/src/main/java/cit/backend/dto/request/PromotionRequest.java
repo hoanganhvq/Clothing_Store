@@ -1,23 +1,22 @@
-package cit.backend.dto.respone;
+package cit.backend.dto.request;
 
 import cit.backend.Enum.PromotionStatus;
 import cit.backend.Enum.PromotionType;
-import lombok.AllArgsConstructor;
+import jakarta.persistence.*;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
-public class PromotionResponse {
+public class PromotionRequest {
+
     private int id;
 
     private String code;
 
     private PromotionType type;
+
 
     private BigDecimal value;
 
@@ -32,5 +31,4 @@ public class PromotionResponse {
     private LocalDateTime endDate;
 
     private PromotionStatus status;
-
 }

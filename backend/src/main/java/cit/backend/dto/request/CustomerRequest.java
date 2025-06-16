@@ -1,13 +1,14 @@
-package cit.backend.dto.respone;
+package cit.backend.dto.request;
+
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
-public class CustomerResponse {
+@NoArgsConstructor
+public class CustomerRequest {
 
     private int id;
 
@@ -21,8 +22,6 @@ public class CustomerResponse {
 
     private String address;
 
-    private int point;
-
-    private PointDiscountRuleResponse pointDiscountRule;
+    private int point = 0;
 
 }

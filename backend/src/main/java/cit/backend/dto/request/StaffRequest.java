@@ -1,4 +1,4 @@
-package cit.backend.dto.respone;
+package cit.backend.dto.request;
 
 import cit.backend.Enum.Role;
 import lombok.AllArgsConstructor;
@@ -6,13 +6,13 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
-public class StaffResponse {
-
-    private int id;
+@NoArgsConstructor
+public class StaffRequest {
 
     private String username;
+
+    private String password;
 
     private Role role;
 }

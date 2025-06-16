@@ -50,4 +50,6 @@ public class Promotion {
     @Column(name = "status")
     private PromotionStatus status;
 
+    //Chua them quan he voi Order
+
 }

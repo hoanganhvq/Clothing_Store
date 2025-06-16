@@ -29,16 +29,15 @@ public class Order {
     @Column(name = "status")
     private OrderStatus status;
 
+    @Column(name = "totalAmount")
+    private BigDecimal totalAmount;
+
 
     @ManyToOne
     @JsonIgnore
     @JoinColumn(name = "customer_id", referencedColumnName = "id") //Create column customer_id and referrence to id of ustomer
     private Customer customer;
 
-
-    @JsonIgnore
-    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
-    private List<OrderItem> orderItemList;
 
     @ManyToOne
     @JoinColumn(name = "staff_id", referencedColumnName = "id")
@@ -49,6 +48,9 @@ public class Order {
     private Promotion promotion;
 
 
-    @Column(name = "totalAmount")
-    private BigDecimal totalAmount;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
+    private List<OrderItem> orderItemList;
+
 }
