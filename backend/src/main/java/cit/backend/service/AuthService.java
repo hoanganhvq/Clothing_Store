@@ -29,19 +29,24 @@ public class AuthService {
     private JwtUtil jwtUtil;
 
     public AuthRespone login(LoginRequest request) {
-        // tìm người dùng từ DB (ví dụ là bảng staffs)
+        System.out.println("login");
+        // Bắt buộc Spring xác thực người dùng chính thức
+        authManager.authenticate(
+                new UsernamePasswordAuthenticationToken(request.getUsername(), request.getPassword())
+        );
+
+        // Tìm user để lấy role (phục vụ cho JWT token)
         Staff user = staffRepository.findByUsername(request.getUsername())
                 .orElseThrow(() -> new RuntimeException("User not found"));
 
-        if (!passwordEncoder.matches(request.getPassword(), user.getPassword())) {
-            throw new RuntimeException("Invalid credentials");
-        }
-
-        //  tạo token với role
+        // Tạo token với role
         String token = jwtUtil.generateToken(user.getUsername(), user.getRole());
 
-        return new AuthRespone(token);
+
+
+        return new AuthRespone(token, user.getRole(), user.getId());
     }
+
 
 
     public String register(RegisterRequest registerRequest) {

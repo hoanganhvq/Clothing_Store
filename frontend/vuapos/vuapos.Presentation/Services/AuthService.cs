@@ -23,12 +23,13 @@ namespace vuapos.Presentation.Services
         public async Task<LoginResult> LoginAsync(LoginRequest loginRequest)
         {
             Debug.WriteLine($"LoginRequest: {loginRequest}");
-            var res = await SendRequestAsync<LoginResult>(HttpMethod.Post, "auth/login", loginRequest);
+            var res = await SendRequestAsync<LoginResult>(HttpMethod.Post, "api/auth/login", loginRequest);
+            Debug.WriteLine($"Hello : {loginRequest}");
             if (res != null)
             {
                 _userSession.role = res.Role;
                 _userSession.Token = res.Access_token;
-                _userSession.UserId = res.Staff_id;
+                _userSession.UserId = $"{res.Staff_id}";
                 _userSession.Username = loginRequest.username;
                 return res;
             }

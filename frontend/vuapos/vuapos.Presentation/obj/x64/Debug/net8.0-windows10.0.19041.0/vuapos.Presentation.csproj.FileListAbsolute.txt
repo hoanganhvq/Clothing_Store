@@ -458,6 +458,7 @@ D:\My Project\Clothing_Store\frontend\vuapos\vuapos.Presentation\obj\x64\Debug\n
 D:\My Project\Clothing_Store\frontend\vuapos\vuapos.Presentation\obj\x64\Debug\net8.0-windows10.0.19041.0\vuapos.Presentation.AssemblyInfoInputs.cache
 D:\My Project\Clothing_Store\frontend\vuapos\vuapos.Presentation\obj\x64\Debug\net8.0-windows10.0.19041.0\vuapos.Presentation.AssemblyInfo.cs
 D:\My Project\Clothing_Store\frontend\vuapos\vuapos.Presentation\obj\x64\Debug\net8.0-windows10.0.19041.0\vuapos.Presentation.csproj.CoreCompileInputs.cache
+D:\My Project\Clothing_Store\frontend\vuapos\vuapos.Presentation\obj\x64\Debug\net8.0-windows10.0.19041.0\vuapos.Presentation.sourcelink.json
 D:\My Project\Clothing_Store\frontend\vuapos\vuapos.Presentation\obj\x64\Debug\net8.0-windows10.0.19041.0\vuapos.P.19C366EF.Up2Date
 D:\My Project\Clothing_Store\frontend\vuapos\vuapos.Presentation\obj\x64\Debug\net8.0-windows10.0.19041.0\vuapos.Presentation.dll
 D:\My Project\Clothing_Store\frontend\vuapos\vuapos.Presentation\obj\x64\Debug\net8.0-windows10.0.19041.0\refint\vuapos.Presentation.dll

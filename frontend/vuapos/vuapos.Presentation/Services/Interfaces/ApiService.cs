@@ -13,7 +13,7 @@ namespace vuapos.Presentation.Services
     public abstract class ApiService
     {
         protected readonly HttpClient _httpClient;
-        private static readonly string _baseUrl = Environment.GetEnvironmentVariable("API_BASE_URL") ?? "http://localhost:3000/";
+        private static readonly string _baseUrl = "http://localhost:8080/";
 
         private string? _token;
         public string? Token
@@ -42,11 +42,14 @@ namespace vuapos.Presentation.Services
         protected async Task<T?> SendRequestAsync<T>(HttpMethod method, string endpoint, object? data = null)
         {
             var request = new HttpRequestMessage(method, endpoint);
-            Console.WriteLine($"Request: {request}");
+           
             if (data != null)
             {
-                Debug.WriteLine($"Data: {data}");
+
+          
+
                 string jsonData = JsonSerializer.Serialize(data);
+                Debug.WriteLine($"✅ Serialized JSON to send: {jsonData}");
                 request.Content = new StringContent(jsonData, System.Text.Encoding.UTF8, "application/json");
             }
 
@@ -58,7 +61,15 @@ namespace vuapos.Presentation.Services
                     PropertyNameCaseInsensitive = true
                 };
                 options.Converters.Add(new DecimalJsonConverter());
-                response.EnsureSuccessStatusCode();
+
+                if (!response.IsSuccessStatusCode)
+                {
+                    string error = await response.Content.ReadAsStringAsync();
+                    Debug.WriteLine($"❌ Request failed: {(int)response.StatusCode} {response.StatusCode}");
+                    Debug.WriteLine($"❌ Error body: {error}");
+                    return default;
+                }
+
                 string responseBody = await response.Content.ReadAsStringAsync();
                 Debug.WriteLine($"Response: {responseBody}");
                 return JsonSerializer.Deserialize<T>(responseBody, options);

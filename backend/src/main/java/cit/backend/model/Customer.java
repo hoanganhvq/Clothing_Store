@@ -18,11 +18,8 @@ public class Customer {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(nullable = true, name = "fname", length = 50)
-    private String fname;
-
-    @Column(name = "lname", nullable = true, length = 50)
-    private String lname;
+    @Column(name = "name", nullable = true, length = 50)
+    private String name;
 
     @Column(length = 100, name = "phone", unique = true)
     private String phone;
@@ -30,8 +27,6 @@ public class Customer {
     @Column(name = "email", unique = true, length = 50)
     private String email;
 
-    @Column(name = "address", length = 255)
-    private String address;
 
     @Column(name = "point")
     private int point;

@@ -18,6 +18,9 @@ public class Staff {
     @Column(nullable = false, unique = true, name = "username")
     private String username;
 
+    @Column(name = "phone")
+    private String phone;
+
     @Column(nullable = false, name = "password")
     private String password;
 

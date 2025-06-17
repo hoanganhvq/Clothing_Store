@@ -1,4 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
+
+
 <UserControl x:ConnectionId='1'
     x:Class="vuapos.Presentation.Views.Login.LoginUserControl"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
@@ -89,7 +91,8 @@
 
                     <Button x:ConnectionId='3' Content="SIGN IN" HorizontalAlignment="Stretch" 
                                                                      
-                            Height="45" FontSize="15" FontWeight="SemiBold">
+                            Height="45" FontSize="15" FontWeight="SemiBold"
+                           >
                         <Button.Resources>
                             <ResourceDictionary>
                                 <Style TargetType="Button">
