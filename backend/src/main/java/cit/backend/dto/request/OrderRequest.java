@@ -11,9 +11,6 @@ import java.util.List;
 @Getter
 @Setter
 public class OrderRequest {
-    private LocalDate orderDate;
-
-    private OrderStatus status;
 
     private int customerId;
 
@@ -22,6 +19,4 @@ public class OrderRequest {
     private Integer promotionId;
 
     private BigDecimal totalAmount;
-
-    private List<OrderItemRequest> orderItems;
 }

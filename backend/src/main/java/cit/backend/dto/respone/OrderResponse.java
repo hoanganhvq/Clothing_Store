@@ -3,6 +3,7 @@ package cit.backend.dto.respone;
 import cit.backend.Enum.OrderStatus;
 import cit.backend.dto.request.OrderItemRequest;
 
+import cit.backend.model.OrderItem;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -29,4 +30,7 @@ public class OrderResponse {
     private PromotionResponse promotionResponse;
 
     private BigDecimal totalAmount;
+
+    private List<OrderDe> orderItemList;
+
 }
