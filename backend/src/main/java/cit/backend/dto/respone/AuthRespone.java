@@ -1,5 +1,6 @@
 package cit.backend.dto.respone;
 
+import cit.backend.Enum.Role;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -8,5 +9,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class AuthRespone {
-        private String accesstoken;
+
+        private String Access_token;
+        private Role Role;
+        private int Staff_id;
         }

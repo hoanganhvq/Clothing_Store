@@ -95,49 +95,71 @@ namespace vuapos.Presentation.ViewModels
 
         private async void Login()
         {
+            Debug.WriteLine("Login() started");
+
             if (CanLogin())
             {
                 IsLoading = true;
                 ErrorMessage = string.Empty;
+                Debug.WriteLine("CanLogin: true");
             }
             else
             {
                 ErrorMessage = "Vui lòng nhập tên đăng nhập và mật khẩu.";
+                Debug.WriteLine("CanLogin: false - thiếu username hoặc password");
                 return;
             }
 
             try
             {
-
-                 var loginRequest = new LoginRequest
+                var loginRequest = new LoginRequest
                 {
                     username = Username,
                     password = Password
                 };
+
+                Debug.WriteLine($"Sending login request with username: {Username}");
+
                 var result = await _authService.LoginAsync(loginRequest);
+
+                if (result != null)
+                {
+                    Debug.WriteLine("✅ Login result:");
+                    Debug.WriteLine($"   AccessToken: {result.Access_token}");
+                    Debug.WriteLine($"   Role: {result.Role}");
+                    Debug.WriteLine($"   StaffId: {result.Staff_id}");  
+                }
+                else
+                {
+                    Debug.WriteLine("❌ Login result: null");
+                }
 
 
                 if (result != null && !string.IsNullOrWhiteSpace(result.Access_token))
                 {
+                    Debug.WriteLine("Login successful. Access token: " + result.Access_token);
 
-                    //// Đăng nhập thành công - chuyển tới màn hình chính
+                    // Đăng nhập thành công - chuyển tới màn hình chính
                     LoginSuccessful?.Invoke(this, EventArgs.Empty);
-
                 }
                 else
                 {
                     ErrorMessage = "Login failed. Please check your account information.";
+                    Debug.WriteLine("Login failed - no access token returned");
                 }
             }
             catch (Exception ex)
             {
                 ErrorMessage = $"Error: {ex.Message}";
+                Debug.WriteLine($"Exception during login: {ex}");
             }
             finally
             {
                 IsLoading = false;
+                Debug.WriteLine("Login() finished");
             }
         }
+
 
         public void OnLoginSuccess()
         {

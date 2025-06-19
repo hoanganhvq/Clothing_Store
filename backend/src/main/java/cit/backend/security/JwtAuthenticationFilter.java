@@ -37,12 +37,18 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         if (authHeader != null && authHeader.startsWith("Bearer ")) {
             token = authHeader.substring(7);
             username = jwtUtil.extractUsername(token);
+
+            System.out.println("AuthHeader: " + authHeader); // ✅ in ra header
+            System.out.println("Token: " + token); // ✅ token tách được
+            System.out.println("Username: " + username);
         }
 
 
         if (username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
             if (jwtUtil.validateToken(token)) {
-                String role = jwtUtil.extractRole(token);
+                String rawRole = jwtUtil.extractRole(token); // "Staff" từ token
+                String role = "ROLE_" + rawRole.toUpperCase(); // "ROLE_STAFF"
+                System.out.println("Mapped Role: " + role);
                 List<GrantedAuthority> authorities = List.of(new SimpleGrantedAuthority(role));
 
                 UsernamePasswordAuthenticationToken authToken =

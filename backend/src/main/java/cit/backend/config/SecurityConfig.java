@@ -39,7 +39,6 @@ public class SecurityConfig {
         return http
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/api/auth/**").permitAll()
-                        .requestMatchers("/api/products/**").hasAnyAuthority("Admin", "Staff")
                         .anyRequest().authenticated()
                 )
                 .userDetailsService(userDetailsService)

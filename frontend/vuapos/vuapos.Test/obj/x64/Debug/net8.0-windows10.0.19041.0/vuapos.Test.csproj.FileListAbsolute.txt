@@ -1,0 +1,12 @@
+D:\My Project\Clothing_Store\frontend\vuapos\vuapos.Test\obj\x64\Debug\net8.0-windows10.0.19041.0\vuapos.Test.csproj.AssemblyReference.cache
+D:\My Project\Clothing_Store\frontend\vuapos\vuapos.Test\obj\x64\Debug\net8.0-windows10.0.19041.0\UnitTestApp.g.i.cs
+D:\My Project\Clothing_Store\frontend\vuapos\vuapos.Test\obj\x64\Debug\net8.0-windows10.0.19041.0\UnitTestApp.g.cs
+D:\My Project\Clothing_Store\frontend\vuapos\vuapos.Test\obj\x64\Debug\net8.0-windows10.0.19041.0\UnitTestAppWindow.g.i.cs
+D:\My Project\Clothing_Store\frontend\vuapos\vuapos.Test\obj\x64\Debug\net8.0-windows10.0.19041.0\UnitTestAppWindow.g.cs
+D:\My Project\Clothing_Store\frontend\vuapos\vuapos.Test\obj\x64\Debug\net8.0-windows10.0.19041.0\XamlTypeInfo.g.cs
+D:\My Project\Clothing_Store\frontend\vuapos\vuapos.Test\obj\x64\Debug\net8.0-windows10.0.19041.0\UnitTestApp.xaml
+D:\My Project\Clothing_Store\frontend\vuapos\vuapos.Test\obj\x64\Debug\net8.0-windows10.0.19041.0\UnitTestAppWindow.xaml
+D:\My Project\Clothing_Store\frontend\vuapos\vuapos.Test\obj\x64\Debug\net8.0-windows10.0.19041.0\UnitTestApp.xbf
+D:\My Project\Clothing_Store\frontend\vuapos\vuapos.Test\obj\x64\Debug\net8.0-windows10.0.19041.0\UnitTestAppWindow.xbf
+D:\My Project\Clothing_Store\frontend\vuapos\vuapos.Test\obj\x64\Debug\net8.0-windows10.0.19041.0\XamlSaveStateFile.xml
+D:\My Project\Clothing_Store\frontend\vuapos\vuapos.Test\obj\x64\Debug\net8.0-windows10.0.19041.0\vuapos.Test.GeneratedMSBuildEditorConfig.editorconfig
