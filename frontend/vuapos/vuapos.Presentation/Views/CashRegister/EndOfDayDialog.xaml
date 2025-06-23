@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<UserControl
+    x:Class="vuapos.Presentation.Views.CashRegister.EndOfDayDialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:vuapos.Presentation.Views.CashRegister"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <StackPanel Width="400">
+        <TextBlock Text="System Balance:" 
+                   Style="{StaticResource TitleTextBlockStyle}"
+                   Margin="0,0,0,8"/>
+
+        <TextBlock x:Name="systemBalanceText"
+                   Text="{Binding ActiveRegister.CurrentBalance, Converter={StaticResource CurrencyConverter}}"
+                   Style="{StaticResource SubtitleTextBlockStyle}"
+                   Margin="0,0,0,16"/>
+
+        <TextBox x:Name="actualBalanceBox"
+                 Header="Enter Actual Balance:"
+                 Text="{Binding ActualBalance, Converter={StaticResource DecimalToStringConverter}, Mode=TwoWay}"
+                 InputScope="Number"
+                 TextChanged="ActualBalanceBox_TextChanged"
+                 Margin="0,0,0,16"/>
+
+        <StackPanel Orientation="Horizontal" Margin="0,0,0,16">
+            <TextBlock Text="Difference: " 
+                       Style="{StaticResource BodyStrongTextBlockStyle}"/>
+            <TextBlock x:Name="differenceText"
+                       Text="{Binding Difference, Converter={StaticResource CurrencyConverter}, Mode=OneWay}"
+                       Style="{StaticResource BodyStrongTextBlockStyle}"/>
+        </StackPanel>
+
+        <TextBox x:Name="notesBox"
+                 Header="Notes:" 
+                 TextWrapping="Wrap"
+                 AcceptsReturn="True"
+                 Text="{Binding NoteEndOfDay, Mode=TwoWay}"
+                 Height="100"
+                 Margin="0,0,0,16"/>
+
+        <TextBlock x:Name="errorText" 
+                   Foreground="Red" 
+                   Text="{Binding ErrorMessage, Mode=OneWay}"
+                   TextWrapping="Wrap"/>
+    </StackPanel>
+
+</UserControl>

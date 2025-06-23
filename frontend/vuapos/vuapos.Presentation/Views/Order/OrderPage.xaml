@@ -1,0 +1,247 @@
+﻿<UserControl
+    x:Class="vuapos.Presentation.Views.Order.OrderPage"
+    x:Name="MainRoot"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:vuapos.Presentation.Views.Order"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid Padding="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Create Order Button -->
+            
+            <Button Content="Create Order"         Width="150" Height="40" 
+        Background="#C19256" Foreground="White" 
+        BorderBrush="Transparent" CornerRadius="5" Grid.Column="0"
+        Click="CreateOrder_Click"
+       >
+                <Button.ContentTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <FontIcon Glyph="&#xE710;" 
+                          FontFamily="Segoe MDL2 Assets" 
+                          FontSize="12" 
+                          Margin="0,0,8,0"/>
+                            <TextBlock Text="Create order"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </Button.ContentTemplate>
+            </Button>
+            <!-- Date Range Filter Controls -->
+            <StackPanel Grid.Column="2" Orientation="Horizontal" VerticalAlignment="Center">
+                <TextBlock Text="From:" VerticalAlignment="Center" Margin="0,0,5,0"/>
+                <DatePicker x:Name="StartDatePicker" 
+                            Width="140" 
+                            DateChanged="DateFilter_DateChanged"/>
+
+                <TextBlock Text="To:" VerticalAlignment="Center" Margin="10,0,5,0"/>
+                <DatePicker x:Name="EndDatePicker" 
+                            Width="140" 
+                            DateChanged="DateFilter_DateChanged"/>
+
+                <Button Content="Apply" 
+                        Margin="10,0,0,0" 
+                        Background="#0078D7" 
+                        Foreground="White"
+                        Click="ApplyDateFilter_Click"/>
+
+                <Button Content="Clear" 
+                        Margin="5,0,0,0"
+                        Click="ClearDateFilter_Click"/>
+            </StackPanel>
+        </Grid>
+
+        <ProgressRing IsActive="{x:Bind ViewModel.IsLoading, Mode=OneWay}" 
+                      HorizontalAlignment="Center" Width="24" Height="24" 
+                      Foreground="#0078D7"
+                      Visibility="{x:Bind ViewModel.IsLoading, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}"/>
+
+        <Grid Grid.Row="1"
+              Background="#F5F5F5"
+              Margin="0,15,0,0"
+              Padding="5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="180"/>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="80"/>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Grid.Column="0" FontWeight="Bold" Text="#" VerticalAlignment="Center" Margin="5,0"/>
+            <TextBlock Grid.Column="1" FontWeight="Bold" Text="Customer Name" VerticalAlignment="Center" Margin="5,0"/>
+            <TextBlock Grid.Column="2" FontWeight="Bold" Text="Phone" VerticalAlignment="Center" Margin="5,0"/>
+            <TextBlock Grid.Column="3" FontWeight="Bold" Text="Email" VerticalAlignment="Center" Margin="5,0"/>
+            <TextBlock Grid.Column="4" FontWeight="Bold" Text="Date" VerticalAlignment="Center" Margin="5,0"/>
+            <TextBlock Grid.Column="5" FontWeight="Bold" Text="Total" VerticalAlignment="Center" Margin="5,0"/>
+            <TextBlock Grid.Column="6" FontWeight="Bold" Text="Status" VerticalAlignment="Center" Margin="5,0"/>
+            <TextBlock Grid.Column="7" FontWeight="Bold" Text="Actions" VerticalAlignment="Center" Margin="5,0"/>
+        </Grid>
+
+        <Grid Grid.Row="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <ListView Grid.Row="0"
+                      ItemsSource="{Binding Orders}"
+                      SelectedItem="{Binding SelectedOrder, Mode=TwoWay}"
+                      SelectionMode="Single"
+                      Padding="0"
+                      Background="Transparent"
+                      BorderThickness="0">
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                        <Setter Property="Padding" Value="0"/>
+                        <Setter Property="MinHeight" Value="48"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="ListViewItem">
+                                    <Grid x:Name="ContentBorder"
+                                          Background="{TemplateBinding Background}"
+                                          BorderThickness="0,0,0,1"
+                                          BorderBrush="#EEEEEE">
+                                        <ContentPresenter Content="{TemplateBinding Content}"/>
+                                    </Grid>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </ListView.ItemContainerStyle>
+
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Padding="5,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="50"/>
+                                <ColumnDefinition Width="200"/>
+                                <ColumnDefinition Width="200"/>
+                                <ColumnDefinition Width="180"/>
+                                <ColumnDefinition Width="100"/>
+                                <ColumnDefinition Width="80"/>
+                                <ColumnDefinition Width="100"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Grid.Column="0" Text="{Binding Order_Id}" VerticalAlignment="Center" Margin="5,0"/>
+                            <TextBlock Grid.Column="1" Text="{Binding customer.Name}" VerticalAlignment="Center" Margin="5,0"/>
+                            <TextBlock Grid.Column="2" Text="{Binding customer.Phone}" VerticalAlignment="Center" Margin="5,0"/>
+                            <TextBlock Grid.Column="3" Text="{Binding customer.Email}" VerticalAlignment="Center" Margin="5,0"/>
+                            <TextBlock Grid.Column="4" Text="{Binding Order_Date}" VerticalAlignment="Center" Margin="5,0"/>
+                            <TextBlock Grid.Column="5" Text="{Binding Total_Amount}" VerticalAlignment="Center" Margin="5,0"/>
+                            <TextBlock Grid.Column="6" Text="{Binding Order_status}" VerticalAlignment="Center" Margin="5,0"/>
+
+                            <StackPanel Grid.Column="7" Orientation="Horizontal" HorizontalAlignment="Left" Margin="5,0">
+                                <Button Content="Details"
+                                        Tag="{Binding}"
+                                        Click="ViewOrder_Click"
+                                        Margin="0,0,10,0"/>
+
+                                <Button Content="Cancel"
+                                        Background="Red"
+                                        Foreground="White"
+                                        Command="{Binding DataContext.RemoveOrderCommand, ElementName=MainRoot}"
+                                        CommandParameter="{Binding}"
+                                        Margin="0,0,10,0"
+                                        Visibility="{Binding Order_status, Converter={StaticResource StatusToVisibilityConverter}, ConverterParameter='Đang xử lí'}"
+                                />
+
+                                <Button Content="Send mail"
+                                        Background="#0078D7"
+                                        Foreground="White"
+                                        Command="{Binding DataContext.SendMailCommand, ElementName=MainRoot}"
+                                        CommandParameter="{Binding}"
+                                        Visibility="{Binding Order_status, Converter={StaticResource StatusToVisibilityConverter}, ConverterParameter='Đã thanh toán'}"
+                                />
+                            </StackPanel>
+                        </Grid>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <StackPanel Grid.Row="1" 
+                        Orientation="Horizontal" 
+                        HorizontalAlignment="Center" 
+                        VerticalAlignment="Center"
+                        Margin="0,20,0,10">
+
+                <Button Content="&lt;&lt;" 
+                        Command="{x:Bind ViewModel.PaginationViewModel.FirstPageCommand}" 
+                        Margin="2,0"
+                        Width="50"
+                        Height="32"/>
+
+                <Button Content="&lt;" 
+                        Command="{x:Bind ViewModel.PaginationViewModel.PreviousPageCommand}" 
+                        Margin="2,0"
+                        Width="50"
+                        Height="32"/>
+
+                <!-- Các nút số trang với xử lý đặc biệt cho dấu ... -->
+                <ItemsControl ItemsSource="{x:Bind ViewModel.PaginationViewModel.PageNumbers}">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Orientation="Horizontal"/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <!-- Hiển thị nút số trang khi giá trị là số dương -->
+                                <Button Content="{Binding}" 
+                                        Command="{Binding DataContext.PaginationViewModel.GoToPageCommand, ElementName=MainRoot}"
+                                        CommandParameter="{Binding}"
+                                        Width="40"
+                                        Height="32"
+                                        Margin="2,0"
+                                        Background="{Binding Converter={StaticResource PageBackgroundConverter}, ConverterParameter={Binding DataContext.PaginationViewModel.CurrentPage, ElementName=MainRoot}}"
+                                        Foreground="{Binding Converter={StaticResource PageForegroundConverter}, ConverterParameter={Binding DataContext.PaginationViewModel.CurrentPage, ElementName=MainRoot}}"
+                                        Visibility="{Binding Converter={StaticResource PageButtonVisibilityConverter}}"/>
+                            </Grid>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+
+                <Button Content="&gt;" 
+                        Command="{x:Bind ViewModel.PaginationViewModel.NextPageCommand}" 
+                        Margin="2,0"
+                        Width="50"
+                        Height="32"/>
+                <Button Content="&gt;&gt;" 
+                        Command="{x:Bind ViewModel.PaginationViewModel.LastPageCommand}" 
+                        Margin="2,0"
+                        Width="50"
+                        Height="32"/>
+
+                <!-- Hiển thị thông tin trang hiện tại -->
+                <TextBlock Text="{x:Bind ViewModel.PaginationViewModel.CurrentPage, Mode=OneWay}" 
+                           VerticalAlignment="Center" 
+                           Margin="10,0,0,0"/>
+                <TextBlock Text="of" 
+                           VerticalAlignment="Center" 
+                           Margin="5,0"/>
+                <TextBlock Text="{x:Bind ViewModel.PaginationViewModel.TotalPages, Mode=OneWay}" 
+                           VerticalAlignment="Center"/>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</UserControl>

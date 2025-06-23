@@ -1,0 +1,153 @@
+﻿<Window
+    x:Class="vuapos.Presentation.Views.Customer.CustomerDetailDialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:models="using:vuapos.Presentation.Models"
+    Title="Customer Details">
+
+    <Border CornerRadius="8" Margin="10" Background="White" BorderBrush="{StaticResource BorderColor}" BorderThickness="1">
+        <ScrollViewer Padding="0,0,15,0">
+            <Grid Padding="25">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <!-- Header -->
+                <StackPanel Grid.Row="0">
+                    <TextBlock Text="Customer Details" Style="{StaticResource HeaderStyle}"/>
+                    <Rectangle Height="2" Fill="{StaticResource PrimaryLightColor}" Margin="0,0,0,15"/>
+                </StackPanel>
+
+                <!-- Customer Information -->
+                <Border Grid.Row="1" Style="{StaticResource CustomerInfoCardStyle}" Margin="0,5,0,20">
+                    <StackPanel>
+                        <TextBlock Text="Name:" Style="{StaticResource LabelStyle}" Foreground="{StaticResource PrimaryDarkColor}"/>
+                        <TextBlock Text="{x:Bind Customer.Name, Mode=OneWay}" FontSize="18" FontWeight="Medium" Margin="15,0,0,10"/>
+
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <StackPanel Grid.Column="0">
+                                <TextBlock Text="Phone:" Style="{StaticResource LabelStyle}" Foreground="{StaticResource PrimaryDarkColor}"/>
+                                <TextBlock Text="{x:Bind Customer.Phone, Mode=OneWay}" Margin="15,0,0,5"/>
+                            </StackPanel>
+
+                            <StackPanel Grid.Column="1">
+                                <TextBlock Text="Email:" Style="{StaticResource LabelStyle}" Foreground="{StaticResource PrimaryDarkColor}"/>
+                                <TextBlock Text="{x:Bind Customer.Email, Mode=OneWay}" Margin="15,0,0,5"/>
+                            </StackPanel>
+                        </Grid>
+
+                        <Border Background="#FFEFCC" CornerRadius="6" Padding="12,8" Margin="0,10,0,0">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <TextBlock Grid.Column="0" Text="Loyalty Points:" Style="{StaticResource LabelStyle}" VerticalAlignment="Center" 
+                                           Foreground="{StaticResource PrimaryDarkColor}" Margin="0"/>
+
+                                <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">
+                                    <TextBlock Text="{x:Bind Customer.Point, Mode=OneWay}" Style="{StaticResource PointsStyle}"/>
+                                    <TextBlock Text=" points" FontSize="14" VerticalAlignment="Bottom" Margin="5,0,0,0"/>
+                                </StackPanel>
+                            </Grid>
+                        </Border>
+                    </StackPanel>
+                </Border>
+
+                <!-- Date Filter -->
+                <Border Grid.Row="2" Style="{StaticResource FilterCardStyle}">
+                    <StackPanel>
+                        <TextBlock Text="Filter Order History" Style="{StaticResource SectionHeaderStyle}"/>
+                        <Grid Margin="0,5,0,5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+
+                            <StackPanel Grid.Column="0" Margin="0,0,10,0">
+                                <TextBlock Text="Start Date" FontWeight="Medium" Margin="0,0,0,5"/>
+                                <DatePicker x:Name="StartDatePicker" Width="Auto" HorizontalAlignment="Stretch"/>
+                            </StackPanel>
+
+                            <StackPanel Grid.Column="1" Margin="10,0,10,0">
+                                <TextBlock Text="End Date" FontWeight="Medium" Margin="0,0,0,5"/>
+                                <DatePicker x:Name="EndDatePicker" Width="Auto" HorizontalAlignment="Stretch"/>
+                            </StackPanel>
+
+                            <Button Grid.Column="2" Content="Search" Style="{StaticResource ActionButtonOrderStyle}" 
+                                    Click="OnSearchClicked" VerticalAlignment="Bottom" Margin="10,0,0,0"/>
+                        </Grid>
+                    </StackPanel>
+                </Border>
+
+                <!-- Order History -->
+                <StackPanel Grid.Row="3" Margin="0,20,0,0">
+                    <TextBlock Text="Order History" Style="{StaticResource SectionHeaderStyle}"/>
+                    <ListView ItemsSource="{x:Bind CustomerOrders, Mode=OneWay}" Margin="0,5,0,0"
+                              BorderThickness="0" Background="Transparent">
+                        <ListView.ItemContainerStyle>
+                            <Style TargetType="ListViewItem">
+                                <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                                <Setter Property="Padding" Value="0"/>
+                                <Setter Property="Margin" Value="0,0,0,8"/>
+                            </Style>
+                        </ListView.ItemContainerStyle>
+                        <ListView.ItemTemplate>
+                            <DataTemplate x:DataType="models:Order">
+                                <Border Style="{StaticResource OrderItemStyle}">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                        </Grid.RowDefinitions>
+
+                                        <StackPanel Grid.Column="0" Grid.Row="0">
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock Text="Order #" FontWeight="SemiBold" Foreground="{StaticResource AccentColor}"/>
+                                                <TextBlock Text="{x:Bind Order_Id}" FontWeight="SemiBold" Foreground="{StaticResource AccentColor}"/>
+                                            </StackPanel>
+                                            <TextBlock Text="{x:Bind Order_Date}" Margin="0,3,0,0" Style="{StaticResource CaptionTextBlockStyle}"/>
+                                        </StackPanel>
+
+                                        <StackPanel Grid.Column="1" Grid.Row="0" HorizontalAlignment="Right">
+                                            <TextBlock Text="Staff:" Style="{StaticResource CaptionTextBlockStyle}"/>
+                                            <TextBlock Text="{x:Bind staff.Username}" FontWeight="Medium"/>
+                                        </StackPanel>
+
+                                        <Border Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1" 
+                                                Background="{StaticResource BackgroundLight}" CornerRadius="4" Margin="0,10,0,0" Padding="12,8">
+                                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                                                <TextBlock Text="Total Amount: " FontWeight="SemiBold"/>
+                                                <TextBlock Text="{x:Bind Total_Amount}" FontWeight="Bold" Foreground="{StaticResource PrimaryDarkColor}"/>
+                                            </StackPanel>
+                                        </Border>
+                                    </Grid>
+                                </Border>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackPanel>
+
+                <!-- Buttons -->
+                <StackPanel Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,20,0,0">
+                    <Button Content="Close" Style="{StaticResource SecondaryButtonStyle}" Click="OnCloseClicked"/>
+                </StackPanel>
+            </Grid>
+        </ScrollViewer>
+    </Border>
+</Window>
