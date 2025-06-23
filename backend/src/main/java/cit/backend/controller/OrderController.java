@@ -5,14 +5,16 @@ import cit.backend.dto.respone.OrderResponse;
 import cit.backend.exception.*;
 import cit.backend.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController
-@RequestMapping("api/orders")
+@RequestMapping("order")
 public class OrderController {
     @Autowired
     private OrderService orderService;
@@ -50,4 +52,16 @@ public class OrderController {
         }
     }
 
+//    @GetMapping("")
+//    public ResponseEntity<List<OrderResponse>> getCustomerOrderByDate(
+//            @RequestParam int customerId,
+//            @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDateTime startDate,
+//            @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDateTime endDate){
+//        try{
+//
+//        }catch (){
+//
+//        }
+//    }
+    
 }

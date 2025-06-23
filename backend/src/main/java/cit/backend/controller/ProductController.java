@@ -1,6 +1,7 @@
 package cit.backend.controller;
 
 import cit.backend.dto.request.ProductRequest;
+import cit.backend.dto.respone.PageProductResponse;
 import cit.backend.dto.respone.ProductResponse;
 import cit.backend.exception.CategoryNotFoundException;
 import cit.backend.exception.ProductNotFoundException;
@@ -13,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("api/products")
+@RequestMapping("products")
 public class ProductController {
     @Autowired
     private ProductService productService;
@@ -29,6 +30,19 @@ public class ProductController {
         try{
            return ResponseEntity.ok(productService.getProductById(id));
         } catch (ProductNotFoundException e) {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+    @GetMapping("")
+    public ResponseEntity<PageProductResponse<ProductResponse>> getProducts(
+            @RequestParam(value = "page", defaultValue = "1") int page,
+            @RequestParam(value = "size", defaultValue = "5") int size,
+            @RequestParam(value = "search", required = false) String search) {
+
+        try{
+            return ResponseEntity.ok(productService.getProducts(page, size, search));
+        } catch (RuntimeException e){
             return ResponseEntity.notFound().build();
         }
     }
@@ -52,6 +66,8 @@ public class ProductController {
             return ResponseEntity.notFound().build();
         }
     }
+
+
 
     @DeleteMapping("/{id}")
     public ResponseEntity<ProductResponse> deleteProduct(@PathVariable int id) {

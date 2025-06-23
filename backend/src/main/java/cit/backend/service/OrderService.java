@@ -12,6 +12,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -107,9 +109,14 @@ public class OrderService {
 
     }
 
-//    public OrderResponse updateOrder(int id, OrderRequest orderRequest) {
-//
-//    }
+    public List<OrderResponse> getCustomerOrderByDate(int customerId, LocalDateTime startDate, LocalDateTime endDate){
+           Customer customer = customerRepository.findById(customerId)
+                   .orElseThrow(()->new CustomerNotFoundException("Customer Not Found : " + customerId));
+
+           List<Order> orders = orderRepository.findByCustomerIdAndCreatedAtBetween(customerId, startDate, endDate);
+
+        return orderMapper.toResponseList(orders);
+    }
 
 
 }
