@@ -7,6 +7,7 @@ import lombok.Setter;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,11 +23,11 @@ public class OrderRequest {
 
     private BigDecimal totalAmount;
 
-    private LocalDate orderDate = LocalDate.now();
+    private LocalDateTime orderDate = LocalDateTime.now().now();
 
     private OrderStatus status = OrderStatus.values()[2];
 
 
 //    private List<OrderItemRequest> orderItems;
 
-}
+} //DUng roi

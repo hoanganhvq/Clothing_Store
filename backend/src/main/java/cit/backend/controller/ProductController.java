@@ -21,7 +21,6 @@ public class ProductController {
 
     @GetMapping
     public ResponseEntity<List<ProductResponse>> getAllProducts(Authentication auth) {
-        System.out.println("authorities hien tai: " + auth.getAuthorities());
         return ResponseEntity.ok(productService.getAll());
     }
 

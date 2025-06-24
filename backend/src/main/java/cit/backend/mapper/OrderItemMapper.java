@@ -8,20 +8,19 @@ import org.mapstruct.Mapping;
 
 import java.util.List;
 
-@Mapper(componentModel = "spring")
+@Mapper(componentModel = "spring", uses = {ProductMapper.class})
 public interface OrderItemMapper {
 
-    @Mapping(source = "product.name", target = "productName")
-    @Mapping(source = "id.product", target = "productId")
-    @Mapping(source = "id.orderId", target = "orderId")
+    @Mapping(source = "product", target = "product")
     OrderItemResponse toResponse(OrderItem item);
 
     @Mapping(target = "id.orderId", source = "orderId")
     @Mapping(target = "id.productId", source = "productId")
-    @Mapping(target = "order", ignore = true)   // set trong service
+    @Mapping(target = "order", ignore = true)
     @Mapping(target = "product", ignore = true)
     OrderItem toEntity(OrderItemRequest request);
 
     List<OrderItemResponse> toDtoList(List<OrderItem> items);
 }
+
 

@@ -10,6 +10,7 @@ import net.minidev.json.annotate.JsonIgnore;
 import java.math.BigDecimal;
 import java.security.Timestamp;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
@@ -23,7 +24,7 @@ public class Order {
     private int id;
 
     @Column(name = "orderDate")
-    private LocalDate orderDate;
+    private LocalDateTime orderDate;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "status")
@@ -51,6 +52,6 @@ public class Order {
 
     @JsonIgnore
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
-    private List<OrderItem> orderItemList;
+    private List<OrderItem> items;
 
 }

@@ -20,10 +20,10 @@ import java.util.List;
 public class OrderResponse {
     private int orderId;
     private LocalDateTime orderDate;
-    private int customerId;
-    private int staffId;
+    private CustomerResponse customer;
+    private StaffResponse staff;
     private BigDecimal totalAmount;
     private List<OrderItemResponse> items;
 //    private PromotionResponse promotionResponse;
 
-}
+} //Dung roi

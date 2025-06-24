@@ -56,32 +56,33 @@ public class OrderController {
             return ResponseEntity.badRequest().body(null); // HTTP 400 nếu dữ liệu sai
         }
     }
-    @GetMapping
+    // /order/by-customer-date?search=1&startDate=...&endDate=...
+    @GetMapping("/by-customer-date")
     public ResponseEntity<List<OrderResponse>> getCustomerOrdersByDate(
             @RequestParam("search") int customerId,
             @RequestParam("startDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime startDate,
             @RequestParam("endDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime endDate
     ) {
-        try{
+        try {
             List<OrderResponse> orders = orderService.getCustomerOrderByDate(customerId, startDate, endDate);
             return ResponseEntity.ok(orders);
-        }catch(CustomerNotFoundException e){
+        } catch (CustomerNotFoundException e) {
             return ResponseEntity.notFound().build();
         }
-
     }
 
-    @GetMapping
-    public ResponseEntity<org.springframework.data.domain.Page<OrderResponse>> getOrderByDate(
+    // /order/by-date?startDate=...&endDate=...&page=1
+    @GetMapping("/by-date")
+    public ResponseEntity<Page<OrderResponse>> getOrderByDate(
             @RequestParam("startDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime startDate,
             @RequestParam("endDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime endDate,
             @RequestParam(value = "page", defaultValue = "1") int page
-    ){
-        try{
+    ) {
+        try {
             Pageable pageable = PageRequest.of(page - 1, 10);
-            Page<OrderResponse> orders = orderService.getOrderByDate(startDate, endDate,pageable);
+            Page<OrderResponse> orders = orderService.getOrderByDate(startDate, endDate, pageable);
             return ResponseEntity.ok(orders);
-        }catch(CustomerNotFoundException e){
+        } catch (CustomerNotFoundException e) {
             return ResponseEntity.notFound().build();
         }
     }
