@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 
@@ -17,20 +18,12 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class OrderResponse {
-    private int id;
-
-    private LocalDate orderDate;
-
-    private OrderStatus status;
-
-    private CustomerResponse customerRespone;
-
-    private StaffResponse staffResponse;
-
-    private PromotionResponse promotionResponse;
-
+    private int orderId;
+    private LocalDateTime orderDate;
+    private int customerId;
+    private int staffId;
     private BigDecimal totalAmount;
-
-    private List<OrderDe> orderItemList;
+    private List<OrderItemResponse> items;
+//    private PromotionResponse promotionResponse;
 
 }

@@ -16,9 +16,6 @@ public class OrderItemRequest {
 
     private int quantity;
 
-    private BigDecimal subtotal;
-
     private BigDecimal productPrice;
-
 
 }
