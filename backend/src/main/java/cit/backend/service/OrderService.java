@@ -136,4 +136,11 @@ public class OrderService {
         return orderMapper.toResponse(order);
     }
 
+
+    public void sendEmail(int orderId) {
+        //Coding here
+    }
+    
+
+
 }
