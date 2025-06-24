@@ -9,6 +9,6 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class OrderDetailRequestList {
-    List<OrderDetailRequest> orderDetailRequestList;
+public class OrderItemRequestList {
+    List<OrderItemRequest> orderDetailRequestList;
 }

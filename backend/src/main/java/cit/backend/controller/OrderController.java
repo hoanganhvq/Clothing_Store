@@ -4,10 +4,15 @@ import cit.backend.dto.request.OrderRequest;
 import cit.backend.dto.respone.OrderResponse;
 import cit.backend.exception.*;
 import cit.backend.service.OrderService;
+import org.hibernate.annotations.Parameter;
+import org.springframework.data.domain.Page;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
@@ -51,17 +56,69 @@ public class OrderController {
             return ResponseEntity.badRequest().body(null); // HTTP 400 nếu dữ liệu sai
         }
     }
+    // /order/by-customer-date?search=1&startDate=...&endDate=...
+    @GetMapping("/by-customer-date")
+    public ResponseEntity<List<OrderResponse>> getCustomerOrdersByDate(
+            @RequestParam("search") int customerId,
+            @RequestParam("startDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime startDate,
+            @RequestParam("endDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime endDate
+    ) {
+        try {
+            List<OrderResponse> orders = orderService.getCustomerOrderByDate(customerId, startDate, endDate);
+            return ResponseEntity.ok(orders);
+        } catch (CustomerNotFoundException e) {
+            return ResponseEntity.notFound().build();
+        }
+    }
 
-//    @GetMapping("")
-//    public ResponseEntity<List<OrderResponse>> getCustomerOrderByDate(
-//            @RequestParam int customerId,
-//            @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDateTime startDate,
-//            @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDateTime endDate){
-//        try{
-//
-//        }catch (){
-//
-//        }
-//    }
+    // /order/by-date?startDate=...&endDate=...&page=1
+    @GetMapping("/by-date")
+    public ResponseEntity<Page<OrderResponse>> getOrderByDate(
+            @RequestParam("startDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime startDate,
+            @RequestParam("endDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime endDate,
+            @RequestParam(value = "page", defaultValue = "1") int page
+    ) {
+        try {
+            Pageable pageable = PageRequest.of(page - 1, 10);
+            Page<OrderResponse> orders = orderService.getOrderByDate(startDate, endDate, pageable);
+            return ResponseEntity.ok(orders);
+        } catch (CustomerNotFoundException e) {
+            return ResponseEntity.notFound().build();
+        }
+    }
 
+
+    @PutMapping("/{orderId}")
+    public ResponseEntity<OrderResponse> updateOrder(
+            @PathVariable int orderId,
+            @RequestBody OrderRequest orderRequest) {
+        try{
+            OrderResponse orderResponse = orderService.updateOrder(orderRequest, orderId);
+            return ResponseEntity.ok(orderResponse);
+        }catch(OrderNotFoundException  | CustomerNotFoundException | StaffNotFoundException e
+        ){
+            return ResponseEntity.notFound().build();
+        }
+
+    }
+
+    @DeleteMapping("/{orderId}")
+    public ResponseEntity<OrderResponse> deleteOrder(
+            @PathVariable int orderId
+    ){
+        try{
+            OrderResponse orderResponse = orderService.deleteOrder(orderId);
+            return ResponseEntity.ok(orderResponse);
+        } catch (OrderNotFoundException e) {
+            return ResponseEntity.notFound().build();
+        }
+
+    }
+
+    @PutMapping("/{id}/send-email")
+    public void sendEmail(
+        @PathVariable int id
+    ){
+        orderService.sendEmail(id);
+    }
 }
