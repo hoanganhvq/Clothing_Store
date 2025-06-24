@@ -19,7 +19,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController
-@RequestMapping("api/orders")
+@RequestMapping("order")
 public class OrderController {
     @Autowired
     private OrderService orderService;
@@ -56,7 +56,6 @@ public class OrderController {
             return ResponseEntity.badRequest().body(null); // HTTP 400 nếu dữ liệu sai
         }
     }
-
     @GetMapping
     public ResponseEntity<List<OrderResponse>> getCustomerOrdersByDate(
             @RequestParam("search") int customerId,

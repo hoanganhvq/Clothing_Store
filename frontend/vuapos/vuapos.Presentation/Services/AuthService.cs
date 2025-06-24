@@ -23,7 +23,7 @@ namespace vuapos.Presentation.Services
         public async Task<LoginResult> LoginAsync(LoginRequest loginRequest)
         {
             Debug.WriteLine($"LoginRequest: {loginRequest}");
-            var res = await SendRequestAsync<LoginResult>(HttpMethod.Post, "api/auth/login", loginRequest);
+            var res = await SendRequestAsync<LoginResult>(HttpMethod.Post, "auth/login", loginRequest);
             Debug.WriteLine($"Hello : {loginRequest}");
             if (res != null)
             {

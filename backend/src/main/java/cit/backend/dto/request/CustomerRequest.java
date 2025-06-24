@@ -12,15 +12,11 @@ public class CustomerRequest {
 
     private int id;
 
-    private String fname;
-
-    private String lname;
+    private String name;
 
     private String phone;
 
     private String email;
-
-    private String address;
 
     private int point = 0;
 

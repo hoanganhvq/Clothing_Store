@@ -12,24 +12,19 @@ public class ProductRequest {
 
     private String name;
 
+    private String productCode;
 
     private BigDecimal price;
 
-
     private BigDecimal costPrice;
-
 
     private String description;
 
-
     private int stockQuantity;
-
 
     private String size;
 
-
     private String color;
-
 
     private String imageUrl;
 
