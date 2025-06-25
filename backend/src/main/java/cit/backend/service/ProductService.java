@@ -3,6 +3,7 @@ package cit.backend.service;
 import cit.backend.dto.request.ProductRequest;
 import cit.backend.dto.respone.CategoryResponse;
 import cit.backend.dto.respone.PageProductResponse;
+import cit.backend.dto.respone.PageResponse;
 import cit.backend.dto.respone.ProductResponse;
 import cit.backend.exception.CategoryNotFoundException;
 import cit.backend.exception.ProductNotFoundException;
@@ -34,9 +35,6 @@ public class ProductService {
 
     @Autowired
     private ProductMapper productMapper;
-    @Qualifier("resourceHandlerMapping")
-    @Autowired
-    private HandlerMapping resourceHandlerMapping;
 
 
     public List<ProductResponse> getAll() {
@@ -53,6 +51,7 @@ public class ProductService {
         Product product = new Product();
 
         product.setName(productRequest.getName());
+        product.setProductCode(productRequest.getProductCode());
         product.setPrice(productRequest.getPrice());
         product.setCostPrice(productRequest.getCostPrice());
         product.setDescription(productRequest.getDescription());
@@ -70,6 +69,11 @@ public class ProductService {
         // Lưu và trả về response
         return productMapper.toResponse(productRepository.save(product));
     }
+
+    public void importProduct(ProductRequest productRequest) {
+        //Write code here
+    }
+
 
 
     public ProductResponse updateProduct (int id, ProductRequest productRequest) {
@@ -97,11 +101,10 @@ public class ProductService {
     }
 
 
-    public PageProductResponse<ProductResponse> getProducts(int page,int size,  String search){
+    public PageResponse<ProductResponse> getProducts(int page, String search){
         // Xác định số lượng sản phẩm mỗi trang, ví dụ 5 sản phẩm mỗi trang
-        Pageable pageable = PageRequest.of(page - 1, size);
+        Pageable pageable = PageRequest.of(page - 1, 5);
         Page<Product> productPage;
-
 
         if(search != null && !search.isEmpty()){
             //Neu co tham so tim kiem
@@ -110,12 +113,16 @@ public class ProductService {
         } else{
             productPage = productRepository.findAll(pageable);
         }
+        List<ProductResponse> content = productPage.getContent()
+                .stream()
+                .map(productMapper::toResponse)
+                .toList();
 
-        PageProductResponse<ProductResponse> response = new PageProductResponse<>();
+        PageResponse<ProductResponse> response = new PageResponse<>();
+        response.setData(content);
         response.setPage(productPage.getNumber() + 1);
-        response.setTotalItems((int) productPage.getTotalElements());
-        response.setTotalPages((int) productPage.getTotalPages());
-        response.setData(productMapper.toProductResponseList(productPage.getContent()));
+        response.setTotalPages(productPage.getTotalPages());
+        response.setTotalCount(productPage.getTotalElements());
 
         return response;
     }

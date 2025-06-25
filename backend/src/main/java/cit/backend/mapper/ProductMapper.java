@@ -14,6 +14,8 @@ import java.util.List;
 public interface ProductMapper {
     @Mapping(source = "category", target = "category")
     ProductResponse toResponse(Product product);
+
+    @Mapping(target = "category", ignore = true)
     Product toModel(ProductRequest productRequest);
     List<ProductResponse> toProductResponseList(List<Product> products);
 }

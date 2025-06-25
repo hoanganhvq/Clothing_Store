@@ -2,6 +2,7 @@ package cit.backend.controller;
 
 import cit.backend.dto.request.OrderRequest;
 import cit.backend.dto.respone.OrderResponse;
+import cit.backend.dto.respone.PageResponse;
 import cit.backend.exception.*;
 import cit.backend.service.OrderService;
 import org.hibernate.annotations.Parameter;
@@ -73,14 +74,15 @@ public class OrderController {
 
     // /order/by-date?startDate=...&endDate=...&page=1
     @GetMapping("/by-date")
-    public ResponseEntity<Page<OrderResponse>> getOrderByDate(
+    public ResponseEntity<PageResponse<OrderResponse>> getOrderByDate(
             @RequestParam("startDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime startDate,
             @RequestParam("endDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime endDate,
-            @RequestParam(value = "page", defaultValue = "1") int page
+            @RequestParam(value = "page", defaultValue = "1") String page
     ) {
         try {
-            Pageable pageable = PageRequest.of(page - 1, 10);
-            Page<OrderResponse> orders = orderService.getOrderByDate(startDate, endDate, pageable);
+            int pageNumber = Integer.parseInt(page);
+            Pageable pageable = PageRequest.of(pageNumber - 1, 10);
+            PageResponse<OrderResponse> orders = orderService.getOrderByDate(startDate, endDate, pageable);
             return ResponseEntity.ok(orders);
         } catch (CustomerNotFoundException e) {
             return ResponseEntity.notFound().build();

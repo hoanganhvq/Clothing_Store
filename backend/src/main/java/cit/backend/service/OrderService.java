@@ -3,6 +3,7 @@ package cit.backend.service;
 import cit.backend.dto.request.OrderItemRequest;
 import cit.backend.dto.request.OrderRequest;
 import cit.backend.dto.respone.OrderResponse;
+import cit.backend.dto.respone.PageResponse;
 import cit.backend.exception.*;
 import cit.backend.mapper.OrderMapper;
 import cit.backend.model.*;
@@ -95,9 +96,15 @@ public class OrderService {
 
     }
 
-    public Page<OrderResponse> getOrderByDate(LocalDateTime startDate, LocalDateTime endDate, Pageable pageable) {
+    public PageResponse<OrderResponse> getOrderByDate(LocalDateTime startDate, LocalDateTime endDate, Pageable pageable) {
         Page<Order> orders = orderRepository.findByOrderDateBetween(startDate, endDate, pageable);
-        return orders.map(orderMapper::toResponse);
+        PageResponse<OrderResponse> pageResponse = new PageResponse<>();
+        pageResponse.setPage(orders.getNumber() + 1);
+        pageResponse.setTotalPages(orders.getTotalPages());
+        pageResponse.setTotalCount(orders.getTotalElements());
+        pageResponse.setData(orderMapper.toResponseList(orders.getContent()));
+
+        return pageResponse;
     }
 
 
