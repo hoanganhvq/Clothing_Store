@@ -20,7 +20,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController
-@RequestMapping("order")
+@RequestMapping("orders")
 public class OrderController {
     @Autowired
     private OrderService orderService;

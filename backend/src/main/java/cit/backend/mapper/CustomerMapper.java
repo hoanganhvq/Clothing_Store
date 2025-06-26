@@ -2,6 +2,7 @@ package cit.backend.mapper;
 
 
 import cit.backend.dto.request.CustomerRequest;
+import cit.backend.dto.request.PointDiscountRuleRequest;
 import cit.backend.dto.respone.CustomerResponse;
 import cit.backend.model.Customer;
 import org.mapstruct.Mapper;
@@ -9,7 +10,7 @@ import org.mapstruct.Mapper;
 
 import java.util.List;
 
-@Mapper(componentModel = "spring")
+@Mapper(componentModel = "spring", uses = {PointDiscountRuleRequest.class})
 public interface CustomerMapper {
     CustomerResponse toResponse(Customer customer);
     Customer toModel (CustomerRequest customerRequest);

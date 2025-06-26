@@ -13,9 +13,9 @@ import java.math.BigDecimal;
 public class PointDiscountRuleResponse {
     private int id;
 
-    private Integer minPoints;
+    private int minPoints;
 
-    private Integer maxPoints;
+    private int maxPoints;
 
     private BigDecimal discount;
 

@@ -11,9 +11,7 @@ public class CustomerResponse {
 
     private int id;
 
-    private String fname;
-
-    private String lname;
+    private String name;
 
     private String phone;
 
