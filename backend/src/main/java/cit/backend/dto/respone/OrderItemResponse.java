@@ -11,6 +11,7 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 public class OrderItemResponse {
 
+    private OrderResponse order;
     private ProductResponse product;
     private int quantity;
     private BigDecimal productPrice;
