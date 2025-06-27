@@ -1,11 +1,10 @@
 package cit.backend.model;
 
 import cit.backend.Enum.OrderStatus;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import net.minidev.json.annotate.JsonIgnore;
+import lombok.*;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import java.math.BigDecimal;
 import java.security.Timestamp;
@@ -14,10 +13,12 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "orders")
+@ToString(exclude = {"orders", "customer", "products", "orderItemList","category"})
 public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -41,17 +42,19 @@ public class Order {
 
 
     @ManyToOne
+    @JsonIgnore
     @JoinColumn(name = "staff_id", referencedColumnName = "id")
     private Staff staff;
 
     @ManyToOne
+    @JsonIgnore
     @JoinColumn(name = "promotion_id", referencedColumnName = "id")
     private Promotion promotion;
 
 
 
-    @JsonIgnore
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
+    @JsonManagedReference
     private List<OrderItem> items;
 
 }

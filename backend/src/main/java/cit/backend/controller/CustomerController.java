@@ -1,6 +1,7 @@
 package cit.backend.controller;
 
 import cit.backend.dto.request.CustomerRequest;
+import cit.backend.dto.request.CustomerUpdateRequest;
 import cit.backend.dto.respone.CustomerResponse;
 import cit.backend.dto.respone.PageResponse;
 import cit.backend.exception.CustomerNotFoundException;
@@ -11,9 +12,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@Validated
 @RequestMapping("customers")
 public class CustomerController {
     @Autowired
@@ -21,53 +24,38 @@ public class CustomerController {
 
     @GetMapping()
     public ResponseEntity<PageResponse<CustomerResponse>> getAllCustomers(
-            @RequestParam(value = "page") String page,
-            @RequestParam(value = "search", defaultValue = "") String search
+            @RequestParam("page") String page,
+            @RequestParam("search") String search
     ){
-        try{
             int pageNumber = Integer.parseInt(page);
-            Pageable pageRequest = PageRequest.of(pageNumber, 5);
+            Pageable pageRequest = PageRequest.of(pageNumber - 1, 5);
             return ResponseEntity.ok(customerService.getAllCustomers(pageRequest, search));
-        }catch(RuntimeException e){
-            return ResponseEntity.notFound().build();
-        }
     }
 
 
     @GetMapping("/{id}")
     public ResponseEntity<CustomerResponse> getCustomerById(@PathVariable int id){
-        try{
             return ResponseEntity.ok(customerService.getCustomerById(id));
-        }catch(CustomerNotFoundException e){
-            return ResponseEntity.notFound().build();
-        }
     }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<CustomerResponse> updateCustomer(@PathVariable int id, @RequestBody CustomerRequest customerRequest){
-        try{
-            return ResponseEntity.ok(customerService.updateCustomer(id, customerRequest));
-        }catch(CustomerNotFoundException e){
-            return ResponseEntity.notFound().build();
-        }
+    @PatchMapping("/{id}")
+    public ResponseEntity<CustomerResponse> updateCustomer(
+            @PathVariable int id,
+            @Valid @RequestBody CustomerUpdateRequest customerRequest){
+        return ResponseEntity.ok(customerService.updateCustomer(id, customerRequest));
     }
 
     @PostMapping
-    public ResponseEntity<CustomerResponse> createCustomer(@Valid @RequestBody CustomerRequest customerRequest){
-        try{
+    public ResponseEntity<CustomerResponse> createCustomer(
+            @Valid @RequestBody CustomerRequest customerRequest){
             return ResponseEntity.ok(customerService.addCustomer(customerRequest));
-        }catch (Exception e){
-            return ResponseEntity.badRequest().build();
-        }
+
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<CustomerResponse> deleteCustomer(@PathVariable int id){
-        try{
             return ResponseEntity.ok(customerService.deleteCustomer(id));
-        }catch(CustomerNotFoundException e){
-            return ResponseEntity.notFound().build();
-        }
+
     }
 
 

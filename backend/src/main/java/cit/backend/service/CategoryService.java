@@ -22,11 +22,13 @@ public class CategoryService {
     @Autowired
     private CategoryMapper categoryMapper;
 
+    public List<CategoryResponse> getAllCategories () {
+        List<Category> allCategory =  categoryRepository.findAll();
+        return categoryMapper.toResponseList(allCategory);
+     }
 
-    public PageResponse<CategoryResponse> getCategories(Pageable pageable, String search, boolean returnAll) {
-       if(returnAll) {
-           pageable = Pageable.unpaged();
-       }
+    public PageResponse<CategoryResponse> getCategorySearchByName(Pageable pageable, String search) {
+
         Page<Category> categoryPage = categoryRepository.findByNameContainingIgnoreCase(search, pageable);
         List<CategoryResponse> content = categoryPage.getContent()
                 .stream()
@@ -38,7 +40,6 @@ public class CategoryService {
         pageResponse.setTotalPages(categoryPage.getTotalPages());
         pageResponse.setTotalCount(categoryPage.getTotalElements());
         pageResponse.setPage(categoryPage.getNumber() + 1); //Vi bat dau tu 0
-
 
         return pageResponse;
 

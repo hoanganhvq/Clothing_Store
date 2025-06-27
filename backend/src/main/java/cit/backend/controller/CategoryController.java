@@ -34,8 +34,18 @@ public class CategoryController {
     ) {
             int pageNumber = Integer.parseInt(page);
             boolean getAll = Boolean.parseBoolean(returnAll);
+            if (getAll) {
+                List<CategoryResponse> all = categoryService.getAllCategories(); // trả về List
+                PageResponse<CategoryResponse> response = new PageResponse<>();
+                response.setData(all);
+                response.setPage(1);
+                response.setTotalPages(1);
+                response.setTotalCount(all.size());
+
+                return ResponseEntity.ok(response);
+            }
             Pageable pageable = PageRequest.of(pageNumber - 1, 5);
-            return ResponseEntity.ok(categoryService.getCategories(pageable, search, getAll));
+            return ResponseEntity.ok(categoryService.getCategorySearchByName(pageable, search));
 
     }//Fix bug 500 -> 400 BadRequest
 
@@ -46,7 +56,7 @@ public class CategoryController {
             return ResponseEntity.ok(categoryService.getCategoryById(id));
     }
 
-    @PutMapping("/{id}")
+    @PatchMapping("/{id}")
     public ResponseEntity<CategoryResponse> updateCategory(
             @PathVariable int id,
             @Valid @RequestBody CategoryRequest categoryRequest

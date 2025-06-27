@@ -13,12 +13,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.support.ResourcePatternResolver;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class OrderService {
@@ -37,16 +39,9 @@ public class OrderService {
     @Autowired
     private OrderMapper orderMapper;
 
-    @Autowired
-    private ProductRepository productRepository;
-    @Autowired
-    private OrderItemRepository orderItemRepository;
-    private ResourcePatternResolver resourcePatternResolver;
 
 
-    public List<OrderResponse> getAllOrders() {
-        return orderMapper.toResponseList(orderRepository.findAll());
-    }
+
 
 
     public OrderResponse getOrderById(int id) {
@@ -86,15 +81,38 @@ public class OrderService {
 
 
 
-    public List<OrderResponse> getCustomerOrderByDate(int customerId, LocalDateTime startDate, LocalDateTime endDate) {
-        Customer customer = customerRepository.findById(customerId)
-                .orElseThrow(()->new CustomerNotFoundException("Customer Not Found " + customerId));
+    public PageResponse<OrderResponse> getAllOrders(
+            Integer search, // kiểu int
+            LocalDateTime startDate,
+            LocalDateTime endDate,
+            Pageable pageable
+    ) {
+        Specification<Order> spec = (root, query, cb) -> cb.or(
+                cb.equal(root.get("id"), search),
+                cb.equal(root.get("customer").get("id"), search)
+        );
 
-        List<Order> orders = orderRepository.findByCustomerAndOrderDateBetween(customer, startDate, endDate);
+        if (startDate != null && endDate != null) {
+            spec = spec.and((root, query, cb) ->
+                    cb.between(root.get("orderDate"), startDate, endDate));
+        }
 
-        return  orderMapper.toResponseList(orders);
+        Page<Order> orderPage = orderRepository.findAll(spec, pageable);
 
+        List<OrderResponse> data = orderPage.getContent().stream()
+                .map(orderMapper::toResponse)
+                .toList();
+
+        PageResponse<OrderResponse> pageResponse = new PageResponse<>();
+        pageResponse.setData(data);
+        pageResponse.setTotalPages(orderPage.getTotalPages());
+        pageResponse.setTotalCount(orderPage.getTotalElements());
+        pageResponse.setPage(orderPage.getNumber() + 1);
+
+        return pageResponse;
     }
+
+
 
     public PageResponse<OrderResponse> getOrderByDate(LocalDateTime startDate, LocalDateTime endDate, Pageable pageable) {
         Page<Order> orders = orderRepository.findByOrderDateBetween(startDate, endDate, pageable);
@@ -106,7 +124,7 @@ public class OrderService {
 
         return pageResponse;
     }
-
+//-----Toi day 
 
     public OrderResponse updateOrder(OrderRequest orderRequest, int orderId) {
         Order order = orderRepository.findById(orderId)

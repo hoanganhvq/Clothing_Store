@@ -72,10 +72,7 @@ public class GlobalExceptionHandler {
         return buildResponseEntity(HttpStatus.BAD_REQUEST, errorMessages);
     }
 
-    @ExceptionHandler(Exception.class)
-    public ResponseEntity<Object> handleOtherExceptions(Exception ex) {
-        return buildResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR, "Unexpected error: " + ex.getMessage());
-    }
+
 
     //Handle with wrong format
     @ExceptionHandler(NumberFormatException.class)
@@ -86,6 +83,18 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(HttpMessageNotReadableException.class)
     public ResponseEntity<Object> handleHttpMessageNotReadable(HttpMessageNotReadableException ex) {
         return buildResponseEntity(HttpStatus.BAD_REQUEST, "Missing or invalid request body");
+    }
+
+
+    @ExceptionHandler(DuplicateResourceException.class)
+    public ResponseEntity<Object> handleDuplicate(DuplicateResourceException ex) {
+        return buildResponseEntity(HttpStatus.CONFLICT, ex.getMessage());
+    }
+
+
+    @ExceptionHandler(Exception.class)
+    public ResponseEntity<Object> handleOtherExceptions(Exception ex) {
+        return buildResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR, "Unexpected error: " + ex.getMessage());
     }
 
 

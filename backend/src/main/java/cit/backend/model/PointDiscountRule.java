@@ -1,5 +1,6 @@
 package cit.backend.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -26,6 +27,7 @@ public class PointDiscountRule {
     private BigDecimal discount;
 
     @OneToOne(mappedBy = "pointDiscountRule")
+    @JsonIgnore
     private Customer customer;
 
 }
