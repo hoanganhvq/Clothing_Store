@@ -21,7 +21,7 @@ public class CustomerService {
     private CustomerMapper customerMapper;
 
     public PageResponse<CustomerResponse> getAllCustomers(Pageable pageable, String search) {
-        Page<Customer> pageCustomers = customerRepository.getCustomers(pageable, search);
+        Page<Customer> pageCustomers = customerRepository.findByNameContainingIgnoreCase(search, pageable);
         PageResponse<CustomerResponse> response = new PageResponse<>();
         response.setPage(pageCustomers.getNumber() + 1);
         response.setData(customerMapper.toResponseList(pageCustomers.getContent()));

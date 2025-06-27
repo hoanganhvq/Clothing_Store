@@ -9,7 +9,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class AuthRespone {
-
         private String Access_token;
         private Role Role;
         private int Staff_id;

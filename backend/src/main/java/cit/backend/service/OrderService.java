@@ -90,7 +90,7 @@ public class OrderService {
         Customer customer = customerRepository.findById(customerId)
                 .orElseThrow(()->new CustomerNotFoundException("Customer Not Found " + customerId));
 
-        List<Order> orders = orderRepository.findByCustomerIsAndOrderDateBetween(customer, startDate, endDate);
+        List<Order> orders = orderRepository.findByCustomerAndOrderDateBetween(customer, startDate, endDate);
 
         return  orderMapper.toResponseList(orders);
 

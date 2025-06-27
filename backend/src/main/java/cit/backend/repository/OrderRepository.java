@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 public interface OrderRepository  extends JpaRepository<Order, Integer> {
-    List<Order> findByCustomerIsAndOrderDateBetween(Customer customer, LocalDateTime start, LocalDateTime end);
+    List<Order> findByCustomerAndOrderDateBetween(Customer customer, LocalDateTime start, LocalDateTime end);
     Page<Order> findByOrderDateBetween(LocalDateTime start, LocalDateTime end, Pageable pageable);
 
 }

@@ -7,5 +7,5 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface CustomerRepository extends JpaRepository <Customer, Integer> {
-    Page<Customer> getCustomers(Pageable pageable, String search);
+    Page<Customer> findByNameContainingIgnoreCase(String name, Pageable pageable);
 }
