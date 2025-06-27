@@ -21,9 +21,9 @@ public class PromotionResponse {
 
     private BigDecimal value;
 
-    private int max_uses;
+    private Integer max_uses;
 
-    private int used_count;
+    private Integer used_count;
 
     private BigDecimal min_order_amount;
 

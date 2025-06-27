@@ -3,20 +3,22 @@ package cit.backend.dto.request;
 import cit.backend.Enum.PromotionStatus;
 import cit.backend.Enum.PromotionType;
 import jakarta.persistence.*;
+import jakarta.validation.Valid;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class PromotionRequest {
 
-    private int id;
-
-    private String code;
+    private String name;
 
     private PromotionType type;
-
 
     private BigDecimal value;
 

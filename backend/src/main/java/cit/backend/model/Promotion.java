@@ -20,8 +20,8 @@ public class Promotion {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(name = "code")
-    private String code;
+    @Column(name = "name")
+    private String name;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "type")
