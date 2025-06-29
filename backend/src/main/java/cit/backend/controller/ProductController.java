@@ -7,6 +7,7 @@ import cit.backend.exception.CategoryNotFoundException;
 import cit.backend.exception.ProductNotFoundException;
 import cit.backend.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
@@ -33,17 +34,21 @@ public class ProductController {
         }
     }
 
-    @GetMapping("")
-    public ResponseEntity<PageProductResponse<ProductResponse>> getProducts(
+    @GetMapping()
+    public ResponseEntity<Page<ProductResponse>> getProducts(
             @RequestParam(value = "page", defaultValue = "1") int page,
-            @RequestParam(value = "size", defaultValue = "5") int size,
             @RequestParam(value = "search", required = false) String search) {
 
         try{
-            return ResponseEntity.ok(productService.getProducts(page, size, search));
+            return ResponseEntity.ok(productService.getProducts(page, search));
         } catch (RuntimeException e){
             return ResponseEntity.notFound().build();
         }
+    }
+
+    @PostMapping("impport")
+    public ResponseEntity<ProductResponse> importProduct(@RequestBody ProductRequest productRequest) {
+
     }
 
     @PostMapping

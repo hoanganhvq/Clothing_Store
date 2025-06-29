@@ -18,13 +18,15 @@ public class ProductRequest {
 
     private BigDecimal costPrice;
 
-    private String description;
+    private int discount;
 
     private int stockQuantity;
 
     private String size;
 
     private String color;
+
+    private String description;
 
     private String imageUrl;
 

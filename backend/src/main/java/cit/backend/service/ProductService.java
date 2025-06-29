@@ -16,6 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 import org.springframework.data.domain.Pageable;
@@ -97,11 +98,10 @@ public class ProductService {
     }
 
 
-    public PageProductResponse<ProductResponse> getProducts(int page,int size,  String search){
+    public Page<ProductResponse> getProducts(int page, String search){
         // Xác định số lượng sản phẩm mỗi trang, ví dụ 5 sản phẩm mỗi trang
-        Pageable pageable = PageRequest.of(page - 1, size);
+        Pageable pageable = PageRequest.of(page - 1, 5);
         Page<Product> productPage;
-
 
         if(search != null && !search.isEmpty()){
             //Neu co tham so tim kiem
@@ -111,13 +111,8 @@ public class ProductService {
             productPage = productRepository.findAll(pageable);
         }
 
-        PageProductResponse<ProductResponse> response = new PageProductResponse<>();
-        response.setPage(productPage.getNumber() + 1);
-        response.setTotalItems((int) productPage.getTotalElements());
-        response.setTotalPages((int) productPage.getTotalPages());
-        response.setData(productMapper.toProductResponseList(productPage.getContent()));
 
-        return response;
+        return productPage.map(productMapper::toResponse);
     }
 
 
