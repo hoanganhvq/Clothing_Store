@@ -43,13 +43,12 @@ public class AuthService {
         String token = jwtUtil.generateToken(user.getUsername(), user.getRole());
 
 
-
         return new AuthRespone(token, user.getRole(), user.getId());
     }
 
 
 
-    public String register(RegisterRequest registerRequest) {
+    public AuthRespone register(RegisterRequest registerRequest) {
         if (staffRepository.findByUsername(registerRequest.getUsername()).isPresent()) {
             throw new UserAlreadyExit("User already exists");
         }
@@ -61,10 +60,14 @@ public class AuthService {
         Staff staff = new Staff();
         staff.setUsername(registerRequest.getUsername());
         staff.setPassword(passwordEncoder.encode(registerRequest.getPassword()));
-        staff.setRole(Role.Staff);
+        staff.setRole(Role.valueOf(registerRequest.getRole()));
 
         staffRepository.save(staff);
-        return jwtUtil.generateToken(staff.getUsername(), staff.getRole());
+        AuthRespone response = new AuthRespone();
+        response.setAccess_token(jwtUtil.generateToken(staff.getUsername(), staff.getRole()));
+        response.setStaff_id(staff.getId());
+        response.setRole(staff.getRole());
+        return response;
     }
 
 

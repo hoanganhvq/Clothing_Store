@@ -31,4 +31,6 @@ public class ProductRequest {
     private String imageUrl;
 
     private int categoryId;
+
+    private int discount;
 }

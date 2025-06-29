@@ -1,9 +1,9 @@
 package cit.backend.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 import lombok.*;
-import net.minidev.json.annotate.JsonIgnore;
 
 import java.util.List;
 
@@ -20,7 +20,8 @@ public class Category {
     @Column(name = "name", nullable = false)
     private String name;
 
-    @JsonIgnore
+
     @OneToMany(mappedBy = "category")
+    @JsonManagedReference
     private List<Product> products;
 }

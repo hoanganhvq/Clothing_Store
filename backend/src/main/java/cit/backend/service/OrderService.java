@@ -2,7 +2,9 @@ package cit.backend.service;
 
 import cit.backend.dto.request.OrderItemRequest;
 import cit.backend.dto.request.OrderRequest;
+import cit.backend.dto.request.OrderUpdateRequest;
 import cit.backend.dto.respone.OrderResponse;
+import cit.backend.dto.respone.PageResponse;
 import cit.backend.exception.*;
 import cit.backend.mapper.OrderMapper;
 import cit.backend.model.*;
@@ -12,12 +14,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.support.ResourcePatternResolver;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class OrderService {
@@ -36,16 +40,9 @@ public class OrderService {
     @Autowired
     private OrderMapper orderMapper;
 
-    @Autowired
-    private ProductRepository productRepository;
-    @Autowired
-    private OrderItemRepository orderItemRepository;
-    private ResourcePatternResolver resourcePatternResolver;
 
 
-    public List<OrderResponse> getAllOrders() {
-        return orderMapper.toResponseList(orderRepository.findAll());
-    }
+
 
 
     public OrderResponse getOrderById(int id) {
@@ -85,37 +82,68 @@ public class OrderService {
 
 
 
-    public List<OrderResponse> getCustomerOrderByDate(int customerId, LocalDateTime startDate, LocalDateTime endDate) {
-        Customer customer = customerRepository.findById(customerId)
-                .orElseThrow(()->new CustomerNotFoundException("Customer Not Found " + customerId));
+    public PageResponse<OrderResponse> getAllOrders(
+            Integer search, // kiểu int
+            LocalDateTime startDate,
+            LocalDateTime endDate,
+            Pageable pageable
+    ) {
+        Specification<Order> spec = (root, query, cb) -> cb.or(
+                cb.equal(root.get("id"), search),
+                cb.equal(root.get("customer").get("id"), search)
+        );
 
-        List<Order> orders = orderRepository.findByCustomerIsAndOrderDateBetween(customer, startDate, endDate);
+        if (startDate != null && endDate != null) {
+            spec = spec.and((root, query, cb) ->
+                    cb.between(root.get("orderDate"), startDate, endDate));
+        }
 
-        return  orderMapper.toResponseList(orders);
+        Page<Order> orderPage = orderRepository.findAll(spec, pageable);
 
+        List<OrderResponse> data = orderPage.getContent().stream()
+                .map(orderMapper::toResponse)
+                .toList();
+
+        PageResponse<OrderResponse> pageResponse = new PageResponse<>();
+        pageResponse.setData(data);
+        pageResponse.setTotalPages(orderPage.getTotalPages());
+        pageResponse.setTotalCount(orderPage.getTotalElements());
+        pageResponse.setPage(orderPage.getNumber() + 1);
+
+        return pageResponse;
     }
 
-    public Page<OrderResponse> getOrderByDate(LocalDateTime startDate, LocalDateTime endDate, Pageable pageable) {
+
+
+    public PageResponse<OrderResponse> getOrderByDate(LocalDateTime startDate, LocalDateTime endDate, Pageable pageable) {
         Page<Order> orders = orderRepository.findByOrderDateBetween(startDate, endDate, pageable);
-        return orders.map(orderMapper::toResponse);
+        PageResponse<OrderResponse> pageResponse = new PageResponse<>();
+        pageResponse.setPage(orders.getNumber() + 1);
+        pageResponse.setTotalPages(orders.getTotalPages());
+        pageResponse.setTotalCount(orders.getTotalElements());
+        pageResponse.setData(orderMapper.toResponseList(orders.getContent()));
+
+        return pageResponse;
     }
 
 
-    public OrderResponse updateOrder(OrderRequest orderRequest, int orderId) {
+    public OrderResponse updateOrder(OrderUpdateRequest orderRequest, int orderId) {
         Order order = orderRepository.findById(orderId)
                 .orElseThrow(()->new OrderNotFoundException("Order Not Found " + orderId));
 
-        order.setStatus(orderRequest.getStatus());
-        order.setTotalAmount(orderRequest.getTotalAmount());
-        order.setOrderDate(orderRequest.getOrderDate());
+        if(orderRequest.getTotalAmount() == null ) order.setTotalAmount(orderRequest.getTotalAmount());
+        if(orderRequest.getCustomerId() != null){
+            Customer customer = customerRepository.findById(orderRequest.getCustomerId())
+                    .orElseThrow(()->new CustomerNotFoundException("Customer Not Found" + orderRequest.getCustomerId()));
+            order.setCustomer(customer);
+        }
 
-        Customer customer = customerRepository.findById(orderRequest.getCustomerId())
-                .orElseThrow(()->new CustomerNotFoundException("Customer Not Found" + orderRequest.getCustomerId()));
-        order.setCustomer(customer);
+        if(orderRequest.getStaffId() != null){
+            Staff staff = staffRepository.findById(orderRequest.getStaffId())
+                    .orElseThrow(()->new StaffNotFoundException("Staff Not Found" + orderRequest.getStaffId()));
+            order.setStaff(staff);
+        }
 
-        Staff staff = staffRepository.findById(orderRequest.getStaffId())
-                .orElseThrow(()->new StaffNotFoundException("Staff Not Found" + orderRequest.getStaffId()));
-        order.setStaff(staff);
         //Tuy theo orderRequest co promotionId
         if (orderRequest.getPromotionId() != null) {
             Promotion promotion = promotionRepository.findById(orderRequest.getPromotionId())

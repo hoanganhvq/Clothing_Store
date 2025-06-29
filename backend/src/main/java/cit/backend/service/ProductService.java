@@ -1,8 +1,11 @@
 package cit.backend.service;
 
+import cit.backend.dto.request.ImportProductDTO;
 import cit.backend.dto.request.ProductRequest;
+import cit.backend.dto.request.ProductUpdateRequest;
 import cit.backend.dto.respone.CategoryResponse;
 import cit.backend.dto.respone.PageProductResponse;
+import cit.backend.dto.respone.PageResponse;
 import cit.backend.dto.respone.ProductResponse;
 import cit.backend.exception.CategoryNotFoundException;
 import cit.backend.exception.ProductNotFoundException;
@@ -35,9 +38,6 @@ public class ProductService {
 
     @Autowired
     private ProductMapper productMapper;
-    @Qualifier("resourceHandlerMapping")
-    @Autowired
-    private HandlerMapping resourceHandlerMapping;
 
 
     public List<ProductResponse> getAll() {
@@ -51,43 +51,59 @@ public class ProductService {
     }
 
     public ProductResponse createProduct(ProductRequest productRequest) {
-        Product product = new Product();
-
-        product.setName(productRequest.getName());
-        product.setPrice(productRequest.getPrice());
-        product.setCostPrice(productRequest.getCostPrice());
-        product.setDescription(productRequest.getDescription());
-        product.setStockQuantity(productRequest.getStockQuantity());
-        product.setSize(productRequest.getSize());
-        product.setColor(productRequest.getColor());
-        product.setImageUrl(productRequest.getImageUrl());
-
-        // Tìm category
         Category category = categoryRepository.findById(productRequest.getCategoryId())
                 .orElseThrow(() -> new CategoryNotFoundException("Category not found"));
 
+        Product product = productMapper.toModel(productRequest);
+
         product.setCategory(category);
 
-        // Lưu và trả về response
-        return productMapper.toResponse(productRepository.save(product));
+        Product savedProduct = productRepository.save(product);
+
+        return productMapper.toResponse(savedProduct);
     }
 
 
-    public ProductResponse updateProduct (int id, ProductRequest productRequest) {
+
+
+    public ProductResponse updateProduct (int id, ProductUpdateRequest productRequest) {
         Product product = productRepository.findById(id).orElseThrow(()->new ProductNotFoundException("Product not found"));
 
-        product.setName(productRequest.getName());
-        product.setPrice(productRequest.getPrice());
-        product.setCostPrice(productRequest.getCostPrice());
-        product.setDescription(productRequest.getDescription());
-        product.setStockQuantity(productRequest.getStockQuantity());
-        product.setSize(productRequest.getSize());
-        product.setColor(productRequest.getColor());
-        product.setImageUrl(productRequest.getImageUrl());
-        Category category = categoryRepository.findById(productRequest.getCategoryId())
-                .orElseThrow(()-> new RuntimeException("Category not found"));
+        if(productRequest.getName() !=null) {
+            product.setName(productRequest.getName());
+        }
+        if(productRequest.getPrice() != null)
+        {
+            product.setPrice(productRequest.getPrice());
+        }
+        if(productRequest.getDescription() !=null) {
+            product.setDescription(productRequest.getDescription());
+        }
+        if(productRequest.getImageUrl() !=null) {
+            product.setImageUrl(productRequest.getImageUrl());
+        }
+        if(productRequest.getCategoryId() !=null) {
+            Category category =  categoryRepository.findById(productRequest.getCategoryId())
+                    .orElseThrow(() -> new CategoryNotFoundException("Category not found"));
 
-        product.setCategory(category);
+            product.setCategory(category);
+        }
+        if(productRequest.getProductCode() !=null) {
+            product.setProductCode(productRequest.getProductCode());
+        }
+        if(productRequest.getCostPrice()!=null) {
+            product.setCostPrice(productRequest.getCostPrice());
+        }
+        if(productRequest.getStockQuantity()!=null) {
+            product.setStockQuantity(productRequest.getStockQuantity());
+        }
+        if(productRequest.getSize() !=null) {
+            product.setSize(productRequest.getSize());
+        }
+        if(productRequest.getColor() !=null) {
+            product.setColor(productRequest.getColor());
+        }
+
 
         return productMapper.toResponse(productRepository.save(product));
     }
@@ -98,7 +114,8 @@ public class ProductService {
     }
 
 
-    public Page<ProductResponse> getProducts(int page, String search){
+
+    public PageResponse<ProductResponse> getProducts(int page, String search){
         // Xác định số lượng sản phẩm mỗi trang, ví dụ 5 sản phẩm mỗi trang
         Pageable pageable = PageRequest.of(page - 1, 5);
         Page<Product> productPage;
@@ -110,9 +127,19 @@ public class ProductService {
         } else{
             productPage = productRepository.findAll(pageable);
         }
+        List<ProductResponse> content = productPage.getContent()
+                .stream()
+                .map(productMapper::toResponse)
+                .toList();
 
 
-        return productPage.map(productMapper::toResponse);
+        PageResponse<ProductResponse> response = new PageResponse<>();
+        response.setData(content);
+        response.setPage(productPage.getNumber() + 1);
+        response.setTotalPages(productPage.getTotalPages());
+        response.setTotalCount(productPage.getTotalElements());
+
+        return response;
     }
 
 
@@ -128,4 +155,7 @@ public class ProductService {
         return productMapper.toResponse(product);
     }
 
+    public void  importProduct (ImportProductDTO importProductDTO){
+
+    }
 }

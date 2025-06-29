@@ -1,27 +1,32 @@
-package cit.backend.dto.respone;
+package cit.backend.dto.request;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.math.BigDecimal;
 
 @Getter
 @Setter
-@NoArgsConstructor
-@AllArgsConstructor
-public class ProductResponse {
-    private int id;
+public class ProductUpdateRequest {
     private String name;
+
     private String productCode;
+
     private BigDecimal price;
+
     private BigDecimal costPrice;
+
     private String description;
-    private int stockQuantity;
+
+    private Integer stockQuantity;
+
     private String size;
+
     private String color;
+
     private String imageUrl;
 
-    private CategoryResponse category;
+    private Integer categoryId;
+
+    private Integer discount;
 }
