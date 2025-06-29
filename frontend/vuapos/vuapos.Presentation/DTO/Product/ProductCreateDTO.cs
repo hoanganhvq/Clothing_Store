@@ -11,7 +11,7 @@ namespace vuapos.Presentation.DTO.Product
     {
         public required String product_code { get; set; }
         public required String product_name { get; set; }
-        public required String category_id { get; set; }
+        public required int category_id { get; set; }
         public required Decimal price { get; set; }
         public required Decimal cost_price { get; set; }
         public required Int32 stock_quantity { get; set; }

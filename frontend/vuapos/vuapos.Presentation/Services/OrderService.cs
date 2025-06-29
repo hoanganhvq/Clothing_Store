@@ -25,8 +25,8 @@ namespace vuapos.Presentation.Services
         }
 
 
-        public async Task<Response<Order>?> GetCustomerOrderByDate(string customerId, string startDate, string endDate)
-        {
+        public async Task<Response<Order>?> GetCustomerOrderByDate(int customerId, string startDate, string endDate)
+        {  
             return await SendRequestAsync<Response<Order>>(HttpMethod.Get, $"order?search={customerId}&startDate={startDate}&endDate={endDate}");
         }
 
@@ -40,7 +40,7 @@ namespace vuapos.Presentation.Services
             return await SendRequestAsync<Response<PromotionResponse>>(HttpMethod.Get, $"promotions?search={name}");
         }
 
-        public async Task<object> SendMail(string id)
+        public async Task<object> SendMail(int id)
         {
             return await SendRequestAsync<object>(HttpMethod.Post, $"order/{id}/send-email");
         }

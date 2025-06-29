@@ -17,8 +17,8 @@ namespace vuapos.Presentation.Services
         Task<PageCategoryResponse<Category>?> GetPaginationCategoriesAsync(int page = 1);
 
         Task<Category?> AddCategoryAsync(string name);
-        Task<Category?> UpdateCategoryAsync(string customer_id, string name);
-        Task<Category?> DeleteCategoryAsync(string customer_id);
+        Task<Category?> UpdateCategoryAsync(int customer_id, string name);
+        Task<Category?> DeleteCategoryAsync(int customer_id);
     }
     public class CategoryService : ApiService, ICategoryService
     {
@@ -44,13 +44,13 @@ namespace vuapos.Presentation.Services
             return await SendRequestAsync<Category>(HttpMethod.Post, "category", categoryData);
         }
 
-        public async Task<Category?> UpdateCategoryAsync(string customer_id, string name)
+        public async Task<Category?> UpdateCategoryAsync(int customer_id, string name)
         {
             var categoryData = new { name };
             return await SendRequestAsync<Category>(HttpMethod.Patch, $"category/{customer_id}", categoryData);
         }
 
-        public async Task<Category?> DeleteCategoryAsync(string customer_id)
+        public async Task<Category?> DeleteCategoryAsync(int customer_id)
         {
             return await SendRequestAsync<Category>(HttpMethod.Delete, $"category/{customer_id}");
         }

@@ -32,7 +32,7 @@ namespace vuapos.Presentation.ViewModels
             _ => _transaction.Description
         };
 
-        public string Description => string.IsNullOrEmpty(_transaction.ReferenceNumber)
+        public string Description => _transaction.ReferenceNumber == 0
             ? _transaction.Description
             : $"{_transaction.Description} #{_transaction.ReferenceNumber}";
 

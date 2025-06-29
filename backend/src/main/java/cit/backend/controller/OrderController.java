@@ -19,11 +19,12 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController
-@RequestMapping("orders")
+@RequestMapping("order")
 @Validated
 public class OrderController {
     @Autowired
@@ -48,15 +49,14 @@ public class OrderController {
     //--
     @GetMapping()
     public ResponseEntity<PageResponse<OrderResponse>> getAllOrders(
-            @RequestParam("page") int page,
-            @RequestParam("search") Integer id ,
-            @RequestParam("startDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime startDate,
-            @RequestParam("endDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime endDate
+            @RequestParam(value = "page", required = false) Integer page,
+            @RequestParam(value = "search", defaultValue = "", required = false) Integer id ,
+            @RequestParam(value = "startDate", required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate startDate,
+            @RequestParam(value = "endDate", required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate endDate
     ) {
             Pageable pageable = PageRequest.of(page - 1, 5);
             PageResponse<OrderResponse> orders = orderService.getAllOrders(id, startDate, endDate, pageable);
             return ResponseEntity.ok(orders);
-
     }
 
     // /order/by-date?startDate=...&endDate=...&page=1

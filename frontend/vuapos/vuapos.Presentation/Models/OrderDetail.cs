@@ -7,8 +7,9 @@ namespace vuapos.Presentation.Models
 {
     public class OrderDetail : INotifyPropertyChanged
     {
-        public string Order_item_id { get; set; }
-        public string Product_id { get; set; }
+
+        public int Order_item_id { get; set; }
+        public int Product_id { get; set; }
 
         private decimal _price;
         private int _quantity;

@@ -387,7 +387,7 @@ namespace vuapos.Presentation.ViewModels
             try
             {
                 await LoadId();
-                if (_currentOrder.Customer_Id == string.Empty)
+                if (_currentOrder.Customer_Id == null)
                 {
                     await _dialogService.ShowMessageAsync(_window.Content.XamlRoot, "Error", "Customer does not exist. Please create a new customer.");
 
@@ -403,7 +403,6 @@ namespace vuapos.Presentation.ViewModels
 
                 var order = new Order
                 {
-                    Order_Id = Guid.NewGuid().ToString(),
                     Customer_Id = _currentOrder.Customer_Id,
                     Staff_Id = App.Services!.GetRequiredService<IUserSession>().UserId,
                     Order_Date = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"),

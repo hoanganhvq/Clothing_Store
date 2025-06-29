@@ -14,7 +14,7 @@ namespace vuapos.Presentation.Models
         public DateTime TransactionTime { get; set; }
         public TransactionType Type { get; set; }
         public string Description { get; set; } = string.Empty;
-        public string ReferenceNumber { get; set; } = string.Empty;// Ví dụ: Mã đơn hàng, mã phiếu nhập kho
+        public int ReferenceNumber { get; set; } = 0;// Ví dụ: Mã đơn hàng, mã phiếu nhập kho
         public string? CreatedByEmployeeId { get; set; } = string.Empty;
         public string Notes { get; set; } = string.Empty;
     }

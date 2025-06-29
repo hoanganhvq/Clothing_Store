@@ -17,15 +17,15 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @Validated
-@RequestMapping("customers")
+@RequestMapping("customer")
 public class CustomerController {
     @Autowired
     private CustomerService customerService;
 
     @GetMapping()
     public ResponseEntity<PageResponse<CustomerResponse>> getAllCustomers(
-            @RequestParam("page") String page,
-            @RequestParam("search") String search
+            @RequestParam(value = "page") String page,
+            @RequestParam(value = "search", required = false, defaultValue = "") String search
     ){
             int pageNumber = Integer.parseInt(page);
             Pageable pageRequest = PageRequest.of(pageNumber - 1, 5);
@@ -40,9 +40,10 @@ public class CustomerController {
 
     @PatchMapping("/{id}")
     public ResponseEntity<CustomerResponse> updateCustomer(
-            @PathVariable int id,
-            @Valid @RequestBody CustomerUpdateRequest customerRequest){
-        return ResponseEntity.ok(customerService.updateCustomer(id, customerRequest));
+            @PathVariable String id,
+            @RequestBody CustomerUpdateRequest customerRequest){
+        int formattedId = Integer.parseInt(id);
+        return ResponseEntity.ok(customerService.updateCustomer(formattedId, customerRequest));
     }
 
     @PostMapping
@@ -53,9 +54,9 @@ public class CustomerController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<CustomerResponse> deleteCustomer(@PathVariable int id){
-            return ResponseEntity.ok(customerService.deleteCustomer(id));
-
+    public ResponseEntity<CustomerResponse> deleteCustomer(@PathVariable String id){
+            int formattedId = Integer.parseInt(id);
+            return ResponseEntity.ok(customerService.deleteCustomer(formattedId));
     }
 
 

@@ -67,9 +67,9 @@ namespace vuapos.Presentation.Views.Product
                 if (string.IsNullOrWhiteSpace(ProductNameTextBox.Text))
                     throw new Exception("Product name is required");
                 Models.Category selectedCategory = CategoryComboBox.SelectedItem as Models.Category;
-                string categoryId = selectedCategory?.Category_Id;
+                int categoryId = selectedCategory.Category_Id;
                 Debug.WriteLine($"Selected category: {selectedCategory?.Name}, Category_Id: {categoryId}");
-                if (selectedCategory == null || string.IsNullOrWhiteSpace(categoryId))
+                if (selectedCategory == null || categoryId == null)
                     throw new Exception("Please select a category");
                 if (string.IsNullOrWhiteSpace(PriceTextBox.Text) || !decimal.TryParse(PriceTextBox.Text, out var price))
                     throw new Exception("Price must be a valid number");

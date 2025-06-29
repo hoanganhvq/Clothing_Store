@@ -172,7 +172,7 @@ namespace vuapos.Presentation.Views.Product
                     try
                     {
                         var categoryName = worksheet.Cells[row, 3].Text;
-                        string categoryId = string.Empty;
+                        int categoryId;
                         Debug.WriteLine(categoryName);
                         Debug.WriteLine(categoryName);
                         if (!string.IsNullOrWhiteSpace(categoryName))

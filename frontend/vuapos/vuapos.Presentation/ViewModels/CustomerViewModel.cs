@@ -43,7 +43,7 @@ namespace vuapos.Presentation.ViewModels
             PaginationViewModel.LoadItemsForCurrentPageCommand = new RelayCommand(async _ => await LoadCustomersForCurrentPage());
         }
 
-        public async Task getCustomerOrderAsync(string customerId)
+        public async Task getCustomerOrderAsync(int customerId)
         {
             var customerOrders = await _customerService.GetCustomerOrder(customerId);
             CustomerOrders.Clear();

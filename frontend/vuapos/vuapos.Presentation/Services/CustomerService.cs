@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Diagnostics;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.Extensions.DependencyInjection;
@@ -22,7 +24,7 @@ namespace vuapos.Presentation.Services
             return await SendRequestAsync<Response<Customer>>(HttpMethod.Get, $"customer?page={page}");
         }
 
-        public async Task<Response<Order>?> GetCustomerOrder(string id)
+        public async Task<Response<Order>?> GetCustomerOrder(int id)
         {
             return await SendRequestAsync<Response<Order>>(HttpMethod.Get, $"order?search={id}");
         }
@@ -42,13 +44,16 @@ namespace vuapos.Presentation.Services
             return await SendRequestAsync<Customer>(HttpMethod.Post, "customer", customer);
         }
 
-        public async Task<Customer?> UpdateCustomerAsync(string customerId, object updateData)
+        public async Task<Customer?> UpdateCustomerAsync(int customerId, object updateData)
         {
             return await SendRequestAsync<Customer>(HttpMethod.Patch, $"customer/{customerId}", updateData);
         }
 
-        public async Task<bool> DeleteCustomerAsync(string customerId)
+        public async Task<bool> DeleteCustomerAsync(int customerId)
         {
+           
+            Debug.WriteLine($"Deleting customer with ID: {customerId}");
+         
             var response = await SendRequestAsync<object>(HttpMethod.Delete, $"customer/{customerId}");
             return response != null;
         }

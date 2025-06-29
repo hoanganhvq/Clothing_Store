@@ -197,7 +197,7 @@ namespace vuapos.Presentation.ViewModels
                 Type = TransactionType.CashIn,
                 Amount = 0,
                 Description = "",
-                ReferenceNumber = "",
+                ReferenceNumber = 0,
                 CreatedByEmployeeId = "",
                 TransactionTime = DateTime.Now
             };

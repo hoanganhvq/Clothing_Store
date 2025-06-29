@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("vuapos.Presentation")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5e3bcc1762d1e92485b0f4289a0237e83a98d4e1")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d2c4ce3a4ef1503e0e9822843f2b43dcde8b3287")]
 [assembly: System.Reflection.AssemblyProductAttribute("vuapos.Presentation")]
 [assembly: System.Reflection.AssemblyTitleAttribute("vuapos.Presentation")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

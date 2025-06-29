@@ -32,5 +32,4 @@ public class ProductRequest {
 
     private int categoryId;
 
-    private int discount;
 }

@@ -47,7 +47,7 @@ namespace vuapos.Presentation.ViewModels
             }
         }
 
-        public async Task AddProductAsync(string productCode,string productName, string categoryId, decimal price, decimal costPrice, int stockQuantity, StorageFile imageFile = null)
+        public async Task AddProductAsync(string productCode,string productName, int categoryId, decimal price, decimal costPrice, int stockQuantity, StorageFile imageFile = null)
         {
             try
             {
@@ -142,7 +142,7 @@ namespace vuapos.Presentation.ViewModels
             }
             return false;
         }
-        public async Task<bool> DeleteProductAsync(string productId)
+        public async Task<bool> DeleteProductAsync(int productId)
         {
             var success = await _productService.DeleteProductAsync(productId);
             Debug.WriteLine($"view model Product with ID {productId} deleted: {success}");

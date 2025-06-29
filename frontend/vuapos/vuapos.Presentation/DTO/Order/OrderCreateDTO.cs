@@ -8,7 +8,7 @@ namespace vuapos.Presentation.DTO.Order
 {
     public class OrderCreateDTO
     {
-        public required String customer_id { get; set; }
+        public required int customer_id { get; set; }
         public required String staff_id { get; set; }
         public required Decimal total_amount { get; set; }
     }

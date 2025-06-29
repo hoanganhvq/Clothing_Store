@@ -1,8 +1,12 @@
-﻿namespace vuapos.Presentation.Models
+﻿using System.Text.Json.Serialization;
+
+namespace vuapos.Presentation.Models
 {
     public class Customer
     {
-        public string Customer_Id { get; set; } = string.Empty;
+        [JsonPropertyName("id")]
+        public int Customer_Id { get; set; }
+
         public string Name { get; set; } = string.Empty;
         public string Phone { get; set; } = string.Empty;
         public string Email { get; set; } = string.Empty;

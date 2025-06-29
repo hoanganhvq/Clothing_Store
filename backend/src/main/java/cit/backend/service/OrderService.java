@@ -18,6 +18,7 @@ import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -84,8 +85,8 @@ public class OrderService {
 
     public PageResponse<OrderResponse> getAllOrders(
             Integer search, // kiểu int
-            LocalDateTime startDate,
-            LocalDateTime endDate,
+            LocalDate startDate,
+            LocalDate endDate,
             Pageable pageable
     ) {
         Specification<Order> spec = (root, query, cb) -> cb.or(

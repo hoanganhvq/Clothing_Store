@@ -55,7 +55,7 @@ namespace vuapos.Presentation.Views.Customer
                 var result = await new ContentDialog
                 {
                     Title = "Delete Customer",
-                    Content = $"Are you sure you want to delete {customer.Name}?",
+                    Content = $"Are you sure you want to delete {customer.Name} {customer.Customer_Id}?",
                     PrimaryButtonText = "Delete",
                     CloseButtonText = "Cancel",
                     XamlRoot = this.XamlRoot

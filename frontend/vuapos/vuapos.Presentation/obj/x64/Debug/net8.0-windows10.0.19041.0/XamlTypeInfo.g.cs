@@ -298,12 +298,12 @@ namespace vuapos.Presentation.vuapos_Presentation_XamlTypeInfo
             _typeNameTable[68] = "System.Collections.ObjectModel.ObservableCollection`1<vuapos.Presentation.Models.Order>";
             _typeNameTable[69] = "System.Collections.ObjectModel.Collection`1<vuapos.Presentation.Models.Order>";
             _typeNameTable[70] = "vuapos.Presentation.Models.Order";
-            _typeNameTable[71] = "System.Decimal";
-            _typeNameTable[72] = "vuapos.Presentation.Models.Staff";
-            _typeNameTable[73] = "System.Collections.ObjectModel.ObservableCollection`1<vuapos.Presentation.Models.OrderDetail>";
-            _typeNameTable[74] = "System.Collections.ObjectModel.Collection`1<vuapos.Presentation.Models.OrderDetail>";
-            _typeNameTable[75] = "vuapos.Presentation.Models.OrderDetail";
-            _typeNameTable[76] = "Int32";
+            _typeNameTable[71] = "Int32";
+            _typeNameTable[72] = "System.Decimal";
+            _typeNameTable[73] = "vuapos.Presentation.Models.Staff";
+            _typeNameTable[74] = "System.Collections.ObjectModel.ObservableCollection`1<vuapos.Presentation.Models.OrderDetail>";
+            _typeNameTable[75] = "System.Collections.ObjectModel.Collection`1<vuapos.Presentation.Models.OrderDetail>";
+            _typeNameTable[76] = "vuapos.Presentation.Models.OrderDetail";
             _typeNameTable[77] = "vuapos.Presentation.Models.Product";
             _typeNameTable[78] = "vuapos.Presentation.Views.Customer.CustomerPage";
             _typeNameTable[79] = "vuapos.Presentation.ViewModels.CustomerViewModel";
@@ -422,12 +422,12 @@ namespace vuapos.Presentation.vuapos_Presentation_XamlTypeInfo
             _typeTable[68] = typeof(global::System.Collections.ObjectModel.ObservableCollection<global::vuapos.Presentation.Models.Order>);
             _typeTable[69] = typeof(global::System.Collections.ObjectModel.Collection<global::vuapos.Presentation.Models.Order>);
             _typeTable[70] = typeof(global::vuapos.Presentation.Models.Order);
-            _typeTable[71] = typeof(global::System.Decimal);
-            _typeTable[72] = typeof(global::vuapos.Presentation.Models.Staff);
-            _typeTable[73] = typeof(global::System.Collections.ObjectModel.ObservableCollection<global::vuapos.Presentation.Models.OrderDetail>);
-            _typeTable[74] = typeof(global::System.Collections.ObjectModel.Collection<global::vuapos.Presentation.Models.OrderDetail>);
-            _typeTable[75] = typeof(global::vuapos.Presentation.Models.OrderDetail);
-            _typeTable[76] = typeof(global::System.Int32);
+            _typeTable[71] = typeof(global::System.Int32);
+            _typeTable[72] = typeof(global::System.Decimal);
+            _typeTable[73] = typeof(global::vuapos.Presentation.Models.Staff);
+            _typeTable[74] = typeof(global::System.Collections.ObjectModel.ObservableCollection<global::vuapos.Presentation.Models.OrderDetail>);
+            _typeTable[75] = typeof(global::System.Collections.ObjectModel.Collection<global::vuapos.Presentation.Models.OrderDetail>);
+            _typeTable[76] = typeof(global::vuapos.Presentation.Models.OrderDetail);
             _typeTable[77] = typeof(global::vuapos.Presentation.Models.Product);
             _typeTable[78] = typeof(global::vuapos.Presentation.Views.Customer.CustomerPage);
             _typeTable[79] = typeof(global::vuapos.Presentation.ViewModels.CustomerViewModel);
@@ -539,10 +539,10 @@ namespace vuapos.Presentation.vuapos_Presentation_XamlTypeInfo
         private object Activate_68_ObservableCollection() { return new global::System.Collections.ObjectModel.ObservableCollection<global::vuapos.Presentation.Models.Order>(); }
         private object Activate_69_Collection() { return new global::System.Collections.ObjectModel.Collection<global::vuapos.Presentation.Models.Order>(); }
         private object Activate_70_Order() { return new global::vuapos.Presentation.Models.Order(); }
-        private object Activate_72_Staff() { return new global::vuapos.Presentation.Models.Staff(); }
-        private object Activate_73_ObservableCollection() { return new global::System.Collections.ObjectModel.ObservableCollection<global::vuapos.Presentation.Models.OrderDetail>(); }
-        private object Activate_74_Collection() { return new global::System.Collections.ObjectModel.Collection<global::vuapos.Presentation.Models.OrderDetail>(); }
-        private object Activate_75_OrderDetail() { return new global::vuapos.Presentation.Models.OrderDetail(); }
+        private object Activate_73_Staff() { return new global::vuapos.Presentation.Models.Staff(); }
+        private object Activate_74_ObservableCollection() { return new global::System.Collections.ObjectModel.ObservableCollection<global::vuapos.Presentation.Models.OrderDetail>(); }
+        private object Activate_75_Collection() { return new global::System.Collections.ObjectModel.Collection<global::vuapos.Presentation.Models.OrderDetail>(); }
+        private object Activate_76_OrderDetail() { return new global::vuapos.Presentation.Models.OrderDetail(); }
         private object Activate_77_Product() { return new global::vuapos.Presentation.Models.Product(); }
         private object Activate_78_CustomerPage() { return new global::vuapos.Presentation.Views.Customer.CustomerPage(); }
         private object Activate_79_CustomerViewModel() { return new global::vuapos.Presentation.ViewModels.CustomerViewModel(); }
@@ -619,11 +619,11 @@ namespace vuapos.Presentation.vuapos_Presentation_XamlTypeInfo
         private void StaticInitializer_68_ObservableCollection() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::System.Collections.ObjectModel.ObservableCollection<global::vuapos.Presentation.Models.Order>).TypeHandle);
         private void StaticInitializer_69_Collection() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::System.Collections.ObjectModel.Collection<global::vuapos.Presentation.Models.Order>).TypeHandle);
         private void StaticInitializer_70_Order() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::vuapos.Presentation.Models.Order).TypeHandle);
-        private void StaticInitializer_71_Decimal() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::System.Decimal).TypeHandle);
-        private void StaticInitializer_72_Staff() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::vuapos.Presentation.Models.Staff).TypeHandle);
-        private void StaticInitializer_73_ObservableCollection() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::System.Collections.ObjectModel.ObservableCollection<global::vuapos.Presentation.Models.OrderDetail>).TypeHandle);
-        private void StaticInitializer_74_Collection() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::System.Collections.ObjectModel.Collection<global::vuapos.Presentation.Models.OrderDetail>).TypeHandle);
-        private void StaticInitializer_75_OrderDetail() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::vuapos.Presentation.Models.OrderDetail).TypeHandle);
+        private void StaticInitializer_72_Decimal() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::System.Decimal).TypeHandle);
+        private void StaticInitializer_73_Staff() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::vuapos.Presentation.Models.Staff).TypeHandle);
+        private void StaticInitializer_74_ObservableCollection() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::System.Collections.ObjectModel.ObservableCollection<global::vuapos.Presentation.Models.OrderDetail>).TypeHandle);
+        private void StaticInitializer_75_Collection() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::System.Collections.ObjectModel.Collection<global::vuapos.Presentation.Models.OrderDetail>).TypeHandle);
+        private void StaticInitializer_76_OrderDetail() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::vuapos.Presentation.Models.OrderDetail).TypeHandle);
         private void StaticInitializer_77_Product() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::vuapos.Presentation.Models.Product).TypeHandle);
         private void StaticInitializer_78_CustomerPage() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::vuapos.Presentation.Views.Customer.CustomerPage).TypeHandle);
         private void StaticInitializer_79_CustomerViewModel() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::vuapos.Presentation.ViewModels.CustomerViewModel).TypeHandle);
@@ -689,13 +689,13 @@ namespace vuapos.Presentation.vuapos_Presentation_XamlTypeInfo
             var newItem = (global::vuapos.Presentation.Models.Order)item;
             collection.Add(newItem);
         }
-        private void VectorAdd_73_ObservableCollection(object instance, object item)
+        private void VectorAdd_74_ObservableCollection(object instance, object item)
         {
             var collection = (global::System.Collections.Generic.ICollection<global::vuapos.Presentation.Models.OrderDetail>)instance;
             var newItem = (global::vuapos.Presentation.Models.OrderDetail)item;
             collection.Add(newItem);
         }
-        private void VectorAdd_74_Collection(object instance, object item)
+        private void VectorAdd_75_Collection(object instance, object item)
         {
             var collection = (global::System.Collections.Generic.ICollection<global::vuapos.Presentation.Models.OrderDetail>)instance;
             var newItem = (global::vuapos.Presentation.Models.OrderDetail)item;
@@ -1296,41 +1296,45 @@ namespace vuapos.Presentation.vuapos_Presentation_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 71:   //  System.Decimal
+            case 71:   //  Int32
+                xamlType = new global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 72:   //  System.Decimal
                 userType = new global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.ValueType"));
-                userType.StaticInitializer = StaticInitializer_71_Decimal;
+                userType.StaticInitializer = StaticInitializer_72_Decimal;
                 userType.SetIsReturnTypeStub();
                 xamlType = userType;
                 break;
 
-            case 72:   //  vuapos.Presentation.Models.Staff
+            case 73:   //  vuapos.Presentation.Models.Staff
                 userType = new global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
-                userType.StaticInitializer = StaticInitializer_72_Staff;
+                userType.StaticInitializer = StaticInitializer_73_Staff;
                 userType.SetIsReturnTypeStub();
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 73:   //  System.Collections.ObjectModel.ObservableCollection`1<vuapos.Presentation.Models.OrderDetail>
+            case 74:   //  System.Collections.ObjectModel.ObservableCollection`1<vuapos.Presentation.Models.OrderDetail>
                 userType = new global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.Collections.ObjectModel.Collection`1<vuapos.Presentation.Models.OrderDetail>"));
-                userType.StaticInitializer = StaticInitializer_73_ObservableCollection;
-                userType.CollectionAdd = VectorAdd_73_ObservableCollection;
+                userType.StaticInitializer = StaticInitializer_74_ObservableCollection;
+                userType.CollectionAdd = VectorAdd_74_ObservableCollection;
                 userType.SetIsReturnTypeStub();
                 xamlType = userType;
                 break;
 
-            case 74:   //  System.Collections.ObjectModel.Collection`1<vuapos.Presentation.Models.OrderDetail>
+            case 75:   //  System.Collections.ObjectModel.Collection`1<vuapos.Presentation.Models.OrderDetail>
                 userType = new global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
-                userType.Activator = Activate_74_Collection;
-                userType.StaticInitializer = StaticInitializer_74_Collection;
-                userType.CollectionAdd = VectorAdd_74_Collection;
+                userType.Activator = Activate_75_Collection;
+                userType.StaticInitializer = StaticInitializer_75_Collection;
+                userType.CollectionAdd = VectorAdd_75_Collection;
                 xamlType = userType;
                 break;
 
-            case 75:   //  vuapos.Presentation.Models.OrderDetail
+            case 76:   //  vuapos.Presentation.Models.OrderDetail
                 userType = new global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
-                userType.Activator = Activate_75_OrderDetail;
-                userType.StaticInitializer = StaticInitializer_75_OrderDetail;
+                userType.Activator = Activate_76_OrderDetail;
+                userType.StaticInitializer = StaticInitializer_76_OrderDetail;
                 userType.AddMemberName("Order_item_id");
                 userType.AddMemberName("Product_id");
                 userType.AddMemberName("Price");
@@ -1338,10 +1342,6 @@ namespace vuapos.Presentation.vuapos_Presentation_XamlTypeInfo
                 userType.AddMemberName("Product");
                 userType.SetIsLocalType();
                 xamlType = userType;
-                break;
-
-            case 76:   //  Int32
-                xamlType = new global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
             case 77:   //  vuapos.Presentation.Models.Product
@@ -2483,7 +2483,7 @@ namespace vuapos.Presentation.vuapos_Presentation_XamlTypeInfo
         private void set_76_Order_Order_Id(object instance, object Value)
         {
             var that = (global::vuapos.Presentation.Models.Order)instance;
-            that.Order_Id = (global::System.String)Value;
+            that.Order_Id = (global::System.Int32)Value;
         }
         private object get_77_Order_Order_Date(object instance)
         {
@@ -2503,7 +2503,7 @@ namespace vuapos.Presentation.vuapos_Presentation_XamlTypeInfo
         private void set_78_Order_Customer_Id(object instance, object Value)
         {
             var that = (global::vuapos.Presentation.Models.Order)instance;
-            that.Customer_Id = (global::System.String)Value;
+            that.Customer_Id = (global::System.Int32)Value;
         }
         private object get_79_Order_Total_Amount(object instance)
         {
@@ -2573,7 +2573,7 @@ namespace vuapos.Presentation.vuapos_Presentation_XamlTypeInfo
         private void set_85_OrderDetail_Order_item_id(object instance, object Value)
         {
             var that = (global::vuapos.Presentation.Models.OrderDetail)instance;
-            that.Order_item_id = (global::System.String)Value;
+            that.Order_item_id = (global::System.Int32)Value;
         }
         private object get_86_OrderDetail_Product_id(object instance)
         {
@@ -2583,7 +2583,7 @@ namespace vuapos.Presentation.vuapos_Presentation_XamlTypeInfo
         private void set_86_OrderDetail_Product_id(object instance, object Value)
         {
             var that = (global::vuapos.Presentation.Models.OrderDetail)instance;
-            that.Product_id = (global::System.String)Value;
+            that.Product_id = (global::System.Int32)Value;
         }
         private object get_87_OrderDetail_Price(object instance)
         {
@@ -3608,7 +3608,7 @@ namespace vuapos.Presentation.vuapos_Presentation_XamlTypeInfo
                 break;
             case "vuapos.Presentation.Models.Order.Order_Id":
                 userType = (global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlUserType)GetXamlTypeByName("vuapos.Presentation.Models.Order");
-                xamlMember = new global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlMember(this, "Order_Id", "String");
+                xamlMember = new global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlMember(this, "Order_Id", "Int32");
                 xamlMember.Getter = get_76_Order_Order_Id;
                 xamlMember.Setter = set_76_Order_Order_Id;
                 break;
@@ -3620,7 +3620,7 @@ namespace vuapos.Presentation.vuapos_Presentation_XamlTypeInfo
                 break;
             case "vuapos.Presentation.Models.Order.Customer_Id":
                 userType = (global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlUserType)GetXamlTypeByName("vuapos.Presentation.Models.Order");
-                xamlMember = new global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlMember(this, "Customer_Id", "String");
+                xamlMember = new global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlMember(this, "Customer_Id", "Int32");
                 xamlMember.Getter = get_78_Order_Customer_Id;
                 xamlMember.Setter = set_78_Order_Customer_Id;
                 break;
@@ -3662,13 +3662,13 @@ namespace vuapos.Presentation.vuapos_Presentation_XamlTypeInfo
                 break;
             case "vuapos.Presentation.Models.OrderDetail.Order_item_id":
                 userType = (global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlUserType)GetXamlTypeByName("vuapos.Presentation.Models.OrderDetail");
-                xamlMember = new global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlMember(this, "Order_item_id", "String");
+                xamlMember = new global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlMember(this, "Order_item_id", "Int32");
                 xamlMember.Getter = get_85_OrderDetail_Order_item_id;
                 xamlMember.Setter = set_85_OrderDetail_Order_item_id;
                 break;
             case "vuapos.Presentation.Models.OrderDetail.Product_id":
                 userType = (global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlUserType)GetXamlTypeByName("vuapos.Presentation.Models.OrderDetail");
-                xamlMember = new global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlMember(this, "Product_id", "String");
+                xamlMember = new global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlMember(this, "Product_id", "Int32");
                 xamlMember.Getter = get_86_OrderDetail_Product_id;
                 xamlMember.Setter = set_86_OrderDetail_Product_id;
                 break;

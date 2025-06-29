@@ -122,7 +122,7 @@ namespace vuapos.Presentation.Views.Product
 
                 var productCode = ProductCodeTextBox.Text;
                 var productName = ProductNameTextBox.Text;
-                var categoryId = CategoryComboBox.SelectedValue.ToString();
+                var categoryId = (int)CategoryComboBox.SelectedValue;
 
                 await _productViewModel.AddProductAsync(productCode, productName, categoryId, price, costPrice, stockQuantity, _selectedImageFile);
 

@@ -24,7 +24,7 @@ namespace vuapos.Presentation.Services
             _cloudinaryService = new CloudinaryService();
 
         }
-        public async Task<Product?> GetProductAsync(string productId)
+        public async Task<Product?> GetProductAsync(int productId)
         {
             return await SendRequestAsync<Product>(HttpMethod.Get, $"product/{productId}");
         }
@@ -57,7 +57,7 @@ namespace vuapos.Presentation.Services
         }
 
 
-        public async Task<bool> DeleteProductAsync(string productId)
+        public async Task<bool> DeleteProductAsync(int productId)
         {
             var product = await GetProductAsync(productId);
             if (product == null)
@@ -123,7 +123,7 @@ namespace vuapos.Presentation.Services
             
         }
 
-        public async Task<Product?> UpdateProductAsync(string productId, ProductUpdateDTO productUpdateDTO)
+        public async Task<Product?> UpdateProductAsync(int productId, ProductUpdateDTO productUpdateDTO)
         {
             return await SendRequestAsync<Product>(HttpMethod.Patch, $"product/{productId}", productUpdateDTO);
         }

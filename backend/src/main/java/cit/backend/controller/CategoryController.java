@@ -28,8 +28,8 @@ public class CategoryController {
 
     @GetMapping //Ok
     public ResponseEntity<PageResponse<CategoryResponse>> getCategories(
-            @RequestParam("page") String page,
-            @RequestParam("search") String search,
+            @RequestParam(value = "page") String page,
+            @RequestParam(value = "search", required = false, defaultValue = "") String search,
             @RequestParam(value = "return-all",defaultValue = "false") String returnAll
     ) {
             int pageNumber = Integer.parseInt(page);
