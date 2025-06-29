@@ -1,6 +1,7 @@
 package cit.backend.service;
 
 import cit.backend.dto.request.PromotionRequest;
+import cit.backend.dto.request.PromotionUpdateRequest;
 import cit.backend.dto.respone.PageResponse;
 import cit.backend.dto.respone.PromotionResponse;
 import cit.backend.exception.PromotionNotFoundException;
@@ -38,19 +39,57 @@ public class PromotionService {
         Page<Promotion> pagePromotions = promotionRepository.findByNameContainingIgnoreCase(search, pageable);
 
         PageResponse<PromotionResponse> pageResponse = new PageResponse<>();
-        pageResponse.setPage(pagePromotions.getNumber());
+        pageResponse.setPage(pagePromotions.getNumber() + 1);
         pageResponse.setTotalCount(pagePromotions.getTotalElements());
         pageResponse.setTotalPages(pagePromotions.getTotalPages());
         pageResponse.setData(promotionMapper.toResponseList(pagePromotions.getContent()));
         return pageResponse;
     }
 
-    public PromotionResponse updatePromotionById(int id, PromotionRequest promotionRequest) {
+    public PromotionResponse updatePromotionById(int id, PromotionUpdateRequest promotionRequest) {
         Promotion promotion = promotionRepository.findById(id)
                 .orElseThrow(() -> new PromotionNotFoundException("Promotion with id " + id + " not found"));
-        Promotion result = promotionMapper.toPromotion(promotionRequest);
+
+
+        if(promotionRequest.getName()!=null) {
+            promotion.setName(promotionRequest.getName());
+        }
+
+        if(promotionRequest.getType() != null) {
+            promotion.setType(promotion.getType());
+        }
+
+        if(promotionRequest.getValue() != null) {
+            promotion.setValue(promotion.getValue());
+        }
+
+        if(promotionRequest.getMax_uses() != null){
+            promotion.setMax_uses(promotion.getMax_uses());
+        }
+
+        if(promotionRequest.getUsed_count() != null){
+            promotion.setUsed_count(promotion.getUsed_count());
+        }
+
+        if(promotionRequest.getMin_order_amount() != null){
+            promotion.setMin_order_amount(promotion.getMin_order_amount());
+        }
+
+        if(promotionRequest.getStartDate() != null){
+            promotion.setStartDate(promotion.getStartDate());
+        }
+
+        if(promotionRequest.getEndDate() != null) {
+            promotion.setEndDate(promotion.getEndDate());
+        }
+
+        if(promotionRequest.getStatus() != null) {
+            promotion.setStatus(promotion.getStatus());
+        }
+
+
         promotionRepository.save(promotion);
-        return promotionMapper.toResponse(result);
+        return promotionMapper.toResponse(promotion);
     }
 
     public Promotion deletePromotionById(int id) {

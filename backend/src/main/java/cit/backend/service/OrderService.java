@@ -2,6 +2,7 @@ package cit.backend.service;
 
 import cit.backend.dto.request.OrderItemRequest;
 import cit.backend.dto.request.OrderRequest;
+import cit.backend.dto.request.OrderUpdateRequest;
 import cit.backend.dto.respone.OrderResponse;
 import cit.backend.dto.respone.PageResponse;
 import cit.backend.exception.*;
@@ -124,23 +125,25 @@ public class OrderService {
 
         return pageResponse;
     }
-//-----Toi day 
 
-    public OrderResponse updateOrder(OrderRequest orderRequest, int orderId) {
+
+    public OrderResponse updateOrder(OrderUpdateRequest orderRequest, int orderId) {
         Order order = orderRepository.findById(orderId)
                 .orElseThrow(()->new OrderNotFoundException("Order Not Found " + orderId));
 
-        order.setStatus(orderRequest.getStatus());
-        order.setTotalAmount(orderRequest.getTotalAmount());
-        order.setOrderDate(orderRequest.getOrderDate());
+        if(orderRequest.getTotalAmount() == null ) order.setTotalAmount(orderRequest.getTotalAmount());
+        if(orderRequest.getCustomerId() != null){
+            Customer customer = customerRepository.findById(orderRequest.getCustomerId())
+                    .orElseThrow(()->new CustomerNotFoundException("Customer Not Found" + orderRequest.getCustomerId()));
+            order.setCustomer(customer);
+        }
 
-        Customer customer = customerRepository.findById(orderRequest.getCustomerId())
-                .orElseThrow(()->new CustomerNotFoundException("Customer Not Found" + orderRequest.getCustomerId()));
-        order.setCustomer(customer);
+        if(orderRequest.getStaffId() != null){
+            Staff staff = staffRepository.findById(orderRequest.getStaffId())
+                    .orElseThrow(()->new StaffNotFoundException("Staff Not Found" + orderRequest.getStaffId()));
+            order.setStaff(staff);
+        }
 
-        Staff staff = staffRepository.findById(orderRequest.getStaffId())
-                .orElseThrow(()->new StaffNotFoundException("Staff Not Found" + orderRequest.getStaffId()));
-        order.setStaff(staff);
         //Tuy theo orderRequest co promotionId
         if (orderRequest.getPromotionId() != null) {
             Promotion promotion = promotionRepository.findById(orderRequest.getPromotionId())
