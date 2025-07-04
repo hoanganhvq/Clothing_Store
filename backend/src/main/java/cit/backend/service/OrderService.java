@@ -1,5 +1,6 @@
 package cit.backend.service;
 
+import cit.backend.dto.request.CustomerUpdateRequest;
 import cit.backend.dto.request.OrderItemRequest;
 import cit.backend.dto.request.OrderRequest;
 import cit.backend.dto.request.OrderUpdateRequest;
@@ -40,10 +41,8 @@ public class OrderService {
 
     @Autowired
     private OrderMapper orderMapper;
-
-
-
-
+    @Autowired
+    private CustomerService customerService;
 
 
     public OrderResponse getOrderById(int id) {
@@ -58,6 +57,10 @@ public class OrderService {
         order.setOrderDate(orderRequest.getOrderDate());
         order.setStatus(orderRequest.getStatus());
         order.setTotalAmount(orderRequest.getTotalAmount());
+        order.setIsCash(orderRequest.getIsCash());
+        order.setPointDiscount(orderRequest.getPointDiscount());
+        order.setIsUseCustomerPoint(orderRequest.getIsUseCustomerPoint());
+
 
         Customer customer = customerRepository.findById(orderRequest.getCustomerId())
                 .orElseThrow(()->new CustomerNotFoundException("Customer Not found" + orderRequest.getCustomerId()));
@@ -71,33 +74,62 @@ public class OrderService {
                     .orElseThrow(()->new PromotionNotFoundException("Promotion Not Found" + orderRequest.getPromotionId()));
         }
 
+
+
         order.setCustomer(customer);
         order.setStaff(staff);
         order.setPromotion(promotion);
 
-        //Add diem them cho Customer
-        Order savedOrder = orderRepository.save(order);
-        return orderMapper.toResponse(savedOrder);
+        //Su dung customer point discount
+        if(orderRequest.getIsUseCustomerPoint()){
+            CustomerUpdateRequest updateRequest = new CustomerUpdateRequest();
+            updateRequest.setPoint(0);
+            customerService.updateCustomer(customer.getId(), updateRequest);
+        }
+    //Add diem
+//        CustomerUpdateRequest updatePointRequest = new CustomerUpdateRequest();
+//
+//        BigDecimal totalAmount = orderRequest.getTotalAmount();
+//
+//        int addNewPoint = totalAmount.multiply(BigDecimal.valueOf(10000)).intValue();
+//
+//        updatePointRequest.setPoint(addNewPoint);
+//
+//        customerService.updateCustomer(customer.getId(), updatePointRequest);
 
+
+        Order savedOrder = orderRepository.save(order);
+
+
+        return orderMapper.toResponse(savedOrder);
     }
 
 
 
     public PageResponse<OrderResponse> getAllOrders(
-            Integer search, // kiểu int
+            Integer search,
             LocalDate startDate,
             LocalDate endDate,
             Pageable pageable
     ) {
-        Specification<Order> spec = (root, query, cb) -> cb.or(
-                cb.equal(root.get("id"), search),
-                cb.equal(root.get("customer").get("id"), search)
-        );
+
+        Specification<Order> spec = null;
+
+        if (search != null) {
+            Specification<Order> searchSpec = (root, query, cb) -> cb.or(
+                    cb.equal(root.get("id"), search),
+                    cb.equal(root.get("customer").get("id"), search)
+            );
+            spec = (spec == null) ? searchSpec : spec.and(searchSpec);
+            System.out.println("Search không null");
+        }
 
         if (startDate != null && endDate != null) {
-            spec = spec.and((root, query, cb) ->
-                    cb.between(root.get("orderDate"), startDate, endDate));
+            Specification<Order> dateSpec = (root, query, cb) ->
+                    cb.between(root.get("orderDate"), startDate, endDate);
+            spec = (spec == null) ? dateSpec : spec.and(dateSpec);
         }
+
 
         Page<Order> orderPage = orderRepository.findAll(spec, pageable);
 
@@ -110,6 +142,9 @@ public class OrderService {
         pageResponse.setTotalPages(orderPage.getTotalPages());
         pageResponse.setTotalCount(orderPage.getTotalElements());
         pageResponse.setPage(orderPage.getNumber() + 1);
+
+        System.out.println("page: " + pageResponse.getPage());
+        System.out.println("in ra: " + pageResponse.getData().size() + " orders");
 
         return pageResponse;
     }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
@@ -22,6 +23,7 @@ namespace vuapos.Presentation.Services
         public async Task<Response<Order>?> GetAllOrdersAsync(int page)
         {
             return await SendRequestAsync<Response<Order>>(HttpMethod.Get, $"order?page={page}");
+            
         }
 
 
@@ -35,8 +37,11 @@ namespace vuapos.Presentation.Services
             return await SendRequestAsync<Response<Order>>(HttpMethod.Get, $"order?startDate={startDate}&endDate={endDate}&page={page}");
         }
 
+        
+
         public async Task<Response<PromotionResponse>?> GetPromotionOrder(string name)
         {
+            Debug.WriteLine($"Searching promotion with name: {name}");
             return await SendRequestAsync<Response<PromotionResponse>>(HttpMethod.Get, $"promotions?search={name}");
         }
 
@@ -47,7 +52,8 @@ namespace vuapos.Presentation.Services
 
         public async Task<OrderResponse> CreateOrder(OrderCreateDTO orderData)
         {
-           return await SendRequestAsync<OrderResponse>(HttpMethod.Post, "order", orderData);
+            Debug.WriteLine($"Creating order with data to controller:");
+            return await SendRequestAsync<OrderResponse>(HttpMethod.Post, "order", orderData);
         }
 
         public async Task<List<OrderResponse>> CreateOrderDetail(OrderDetailCreateDTOList orderDetailData)

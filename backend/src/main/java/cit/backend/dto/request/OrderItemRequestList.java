@@ -1,6 +1,7 @@
 package cit.backend.dto.request;
 
 import cit.backend.model.OrderItem;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -11,6 +12,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class OrderItemRequestList {
+    @JsonProperty("items")
     private List<OrderItemRequest> orderItems;
 
 }

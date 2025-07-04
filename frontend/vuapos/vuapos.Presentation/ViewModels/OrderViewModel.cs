@@ -17,6 +17,7 @@ using Microsoft.UI.Xaml;
 using System.Net.WebSockets;
 using Microsoft.Extensions.DependencyInjection;
 using vuapos.Presentation.ViewModels.vuapos.Presentation.ViewModels.vuapos.Presentation.ViewModels;
+using Newtonsoft.Json;
 
 namespace vuapos.Presentation.ViewModels
 {
@@ -100,6 +101,10 @@ namespace vuapos.Presentation.ViewModels
         private async Task LoadOrdersForCurrentPage()
         {
             var responseOrder = await _orderService.GetAllOrdersAsync(PaginationViewModel.CurrentPage);
+
+            string json = JsonConvert.SerializeObject(responseOrder);
+            Debug.Print("Page response: " + PaginationViewModel.CurrentPage);
+            Debug.Print("LoadOrdersForCurrentPage response: " + json);
             if (responseOrder != null)
             {
                 Orders.Clear();
@@ -143,6 +148,10 @@ namespace vuapos.Presentation.ViewModels
         public async Task LoadOrders()
         {
             var responseOrder = await _orderService.GetAllOrdersAsync(1);
+
+            string json = JsonConvert.SerializeObject(responseOrder);
+            Debug.Print("View response: "+ json);
+
             if (responseOrder == null || responseOrder.Data == null) return;
             Orders.Clear();
             // thêm đang xử lí;

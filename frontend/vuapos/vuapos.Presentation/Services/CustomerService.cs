@@ -29,9 +29,9 @@ namespace vuapos.Presentation.Services
             return await SendRequestAsync<Response<Order>>(HttpMethod.Get, $"order?search={id}");
         }
 
-        public async Task<Response<Customer>?> SearchCustomersAsync(string name)
+        public async Task<Response<Customer>?> SearchCustomersAsync(string phone)
         {
-            return await SendRequestAsync<Response<Customer>>(HttpMethod.Get, $"customer?search={name}");
+            return await SendRequestAsync<Response<Customer>>(HttpMethod.Get, $"customer?search={phone}");
         }
 
         public async Task<Customer?> GetCustomerByIdAsync(string customerId)

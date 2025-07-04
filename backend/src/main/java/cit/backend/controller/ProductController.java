@@ -66,6 +66,7 @@ public class ProductController {
     @PatchMapping("/{id}")
     public ResponseEntity<ProductResponse> updateProduct(
             @PathVariable int id, @RequestBody ProductUpdateRequest productRequest) {
+            System.out.println("Data upda te: " + productRequest.getProductCode());
             return ResponseEntity.ok(productService.updateProduct(id, productRequest));
     }
 

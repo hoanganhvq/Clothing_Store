@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("orderitems")
+@RequestMapping("order-detail")
 @Validated
 public class OrderItemController {
     @Autowired

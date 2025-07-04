@@ -13,6 +13,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.UI.Xaml;
+using Newtonsoft.Json;
 using vuapos.Presentation.Commands;
 using vuapos.Presentation.DTO.Order;
 using vuapos.Presentation.Models;
@@ -39,6 +40,13 @@ namespace vuapos.Presentation.ViewModels
         private bool _userCustomerPoints = false;
 
         public string PromotionCode { get; set; } = string.Empty;
+
+        public int PromotionId { get; set; }
+
+        public bool isCash { get; set; } = false;
+
+        public decimal PromotionDiscount { get; set; } = 0;
+
         public string VisibilityUI { get; set; } = string.Empty;
 
 
@@ -110,18 +118,34 @@ namespace vuapos.Presentation.ViewModels
                 CustomerName = _currentOrder.customer.Name;
                 CustomerPhone = _currentOrder.customer.Phone;
                 CustomerMail = _currentOrder.customer.Email;
+                PromotionCode = _currentOrder.promotion?.Name ?? string.Empty;
+                PromotionDiscount = _currentOrder.promotion?.Discount_Percentage ?? 0;
+                UseCustomerPoints = _currentOrder.Is_Use_Customer_Point;
+                IsCash = _currentOrder.Is_Cash;
+                CustomerPointsValue = _currentOrder.Point_Discount == null ? 0 : _currentOrder.Point_Discount.Value;
+                foreach (var orderDetail in _currentOrder.OrderDetails)
+                {
+                    OrderDetails.Add(orderDetail);
+                }
+              
+                TotalDiscount = UseCustomerPoints
+                    ? (CustomerPointsValue + OrderTotal * PromotionDiscount)
+                    : (OrderTotal * PromotionDiscount);
+                Debug.Print($"CustomerPoint: {UseCustomerPoints}");
+                Debug.Print($"CustomerPoint value: {CustomerPointsValue}");
+                Debug.Print($"CustomerPoint value: {_currentOrder.Point_Discount}");
+
                 if (_currentOrder.Order_status == "Đã thanh toán")
                 {
 
                     VisibilityUI = "Collapsed";
                 }
 
+                OnPropertyChanged(nameof(TotalDiscount));
+                OnPropertyChanged(nameof(SubTotal));
+                OnPropertyChanged(nameof(OrderTotal));
+                OnPropertyChanged(nameof(CustomerPointsValue));
 
-                    // Load order details
-                    foreach (var orderDetail in _currentOrder.OrderDetails)
-                    {
-                        OrderDetails.Add(orderDetail);
-                    }
             }
             else
             {
@@ -132,7 +156,6 @@ namespace vuapos.Presentation.ViewModels
         private async void ApplyPromotionCode()
         {
             var res = await _orderService.GetPromotionOrder(PromotionCode);
-
             if (res == null)
             {
                 //thông báo giảm giá không thành công
@@ -150,6 +173,7 @@ namespace vuapos.Presentation.ViewModels
                     await _dialogService.ShowMessageAsync(_window.Content.XamlRoot, "Error", "The discount code has expired.");
                     return;
                 }
+
             }
             catch
             {
@@ -157,12 +181,16 @@ namespace vuapos.Presentation.ViewModels
                 return;
             }
 
-                var discount = Convert.ToDecimal(res!.Data[0].Discount_percentage) / 100;
+             var discount = Convert.ToDecimal(res!.Data[0].Discount_percentage) ;
 
-            await _dialogService.ShowMessageAsync(_window.Content.XamlRoot, $"Discount code {res!.Data[0].Name}", $"Discount {res!.Data[0].Discount_percentage}%");
+            await _dialogService.ShowMessageAsync(_window.Content.XamlRoot, $"Discount code {res!.Data[0].Name}", $"Discount {res!.Data[0].Discount_percentage * 100:0.##}%");
 
+            PromotionId = res.Data[0].Promotion_id;
 
-            TotalDiscount = UseCustomerPoints ? (CustomerPointsValue + OrderTotal * discount) : (OrderTotal * discount);
+            decimal promotionDiscountAmount = SubTotal * discount;
+            decimal pointDiscountAmount = UseCustomerPoints ? CustomerPointsValue : 0;
+
+            TotalDiscount = promotionDiscountAmount + pointDiscountAmount;
 
             // Update the UI
             OnPropertyChanged(nameof(TotalDiscount));
@@ -183,6 +211,7 @@ namespace vuapos.Presentation.ViewModels
                 }
             }
         }
+
 
         public string CustomerName
         {
@@ -375,29 +404,25 @@ namespace vuapos.Presentation.ViewModels
         private async Task SaveOrderAsync()
 
         {
-       
+            Debug.WriteLine("Data to create");
             if (!CanSaveOrder())
             {
                 await _dialogService.ShowMessageAsync(_window.Content.XamlRoot, "Error", "Please fill in all customer and product information.");
-
                 return;
             }
 
-            // get customer by name and staff id
             try
             {
                 await LoadId();
                 if (_currentOrder.Customer_Id == null)
                 {
                     await _dialogService.ShowMessageAsync(_window.Content.XamlRoot, "Error", "Customer does not exist. Please create a new customer.");
-
                     return;
                 }
             }
             catch
             {
                 await _dialogService.ShowMessageAsync(_window.Content.XamlRoot, "Error", "The customer does not exist. Please create a new customer.");
-
                 return;
             }
 
@@ -414,7 +439,8 @@ namespace vuapos.Presentation.ViewModels
                     },
                     Total_Amount = OrderTotal,
                     OrderDetails = OrderDetails,
-                    Order_status = "Đang xử lí"
+                    Order_status = "Đang xử lí",
+                    
                 };
       
 
@@ -425,8 +451,17 @@ namespace vuapos.Presentation.ViewModels
                     customer_id = order.Customer_Id,
                     staff_id = order.Staff_Id,
                     total_amount = order.Total_Amount,
+                    promotion_id = PromotionId,
+                    is_cash = IsCash,
+                    is_use_customer_point = UseCustomerPoints,
+                    point_discount = CustomerPointsValue
                 };
+                Debug.WriteLine($"point discount : {order.customer.Point}");
                 var response = await _orderService.CreateOrder(orderCreate);
+                string json = JsonConvert.SerializeObject(response);
+                Debug.WriteLine("abcd:");
+                Debug.WriteLine(json);
+
                 try
                 {
                     List<OrderDetailCreateDTO> items = new List<OrderDetailCreateDTO>();
@@ -442,8 +477,13 @@ namespace vuapos.Presentation.ViewModels
                         };
                         items.Add(item);
                     }
-                  
+
+                    string ab = JsonConvert.SerializeObject(items);
+                    Debug.WriteLine("Data to create");
+                    Debug.WriteLine(ab);
+
                     var res = await _orderService.CreateOrderDetail(new OrderDetailCreateDTOList { items = items });
+
                     if (res.Count > 0)
                     {
                         if (_orderViewModel.SelectedOrder != null)
@@ -496,6 +536,7 @@ namespace vuapos.Presentation.ViewModels
                 await _dialogService.ShowMessageAsync(_window.Content.XamlRoot, "Notification", "Order added successfully.");
                 _window.Close();
             }
+
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

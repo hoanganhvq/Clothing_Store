@@ -27,6 +27,10 @@ public class PromotionController {
     public ResponseEntity<PromotionResponse> createPromotion(
             @Valid @RequestBody PromotionRequest promotionRequest) {
 
+            System.out.println("name :" + promotionRequest.getName());
+            System.out.println("discount: " + promotionRequest.getValue());
+            System.out.println("start: " + promotionRequest.getStartDate());
+            System.out.println("end: " + promotionRequest.getEndDate());
             return ResponseEntity.status(HttpStatus.CREATED)
                     .body(promotionService.createPromotion(promotionRequest));
 
@@ -42,8 +46,8 @@ public class PromotionController {
 
     @GetMapping
     public ResponseEntity<PageResponse<PromotionResponse>> getPromotions(
-            @RequestParam("page") int page,
-            @RequestParam("search") String search
+            @RequestParam(value = "page", defaultValue = "1") int page,
+            @RequestParam(value = "search", defaultValue = "", required = false) String search
     ) {
 
 
@@ -58,6 +62,10 @@ public class PromotionController {
             @PathVariable int id,
             @RequestBody PromotionUpdateRequest promotionRequest) {
 
+            System.out.println("Dât:" + promotionRequest.getName());
+            System.out.println("value : " + promotionRequest.getValue());
+        System.out.println("start_Date: " + promotionRequest.getStartDate());
+            System.out.println("end_Date: " + promotionRequest.getEndDate());
             return ResponseEntity.status(HttpStatus.ACCEPTED)
                     .body(promotionService.updatePromotionById(id, promotionRequest));
 

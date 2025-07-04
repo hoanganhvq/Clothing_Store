@@ -72,7 +72,7 @@
                                        HorizontalAlignment="Left" Margin="10,0" Grid.Column="0"/>
                             <TextBlock x:ConnectionId='9'                      VerticalAlignment="Center" FontSize="16"
                                        HorizontalAlignment="Left" Margin="10,0" Grid.Column="1" TextTrimming="CharacterEllipsis"/>
-                            <TextBlock x:ConnectionId='10'                                     VerticalAlignment="Center" FontSize="16"
+                            <TextBlock x:ConnectionId='10'                                  VerticalAlignment="Center" FontSize="16"
                                        HorizontalAlignment="Left" Margin="10,0" Grid.Column="2"/>
                             <TextBlock x:ConnectionId='11'                                                                           VerticalAlignment="Center" FontSize="16"
                                        HorizontalAlignment="Left" Margin="10,0" Grid.Column="3"/>

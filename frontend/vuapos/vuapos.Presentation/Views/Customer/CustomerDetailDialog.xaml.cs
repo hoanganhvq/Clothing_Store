@@ -5,6 +5,7 @@ using System.Diagnostics;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
+using Newtonsoft.Json;
 using vuapos.Presentation.Services;
 
 namespace vuapos.Presentation.Views.Customer
@@ -51,6 +52,10 @@ namespace vuapos.Presentation.Views.Customer
                 CustomerOrders.Clear();
                 var service = App.Services!.GetRequiredService<OrderService>();
                 var response = await service.GetCustomerOrderByDate(customerId, startDate, endDate);
+
+                var json = JsonConvert.SerializeObject(response, Formatting.Indented);
+                Debug.WriteLine($"Response JSON in cc: {json}");
+
                 if (response == null || response.Data == null)
                 {
                     ContentDialog dialog = new ContentDialog

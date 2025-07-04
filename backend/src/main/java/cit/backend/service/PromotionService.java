@@ -50,43 +50,45 @@ public class PromotionService {
         Promotion promotion = promotionRepository.findById(id)
                 .orElseThrow(() -> new PromotionNotFoundException("Promotion with id " + id + " not found"));
 
+        System.out.println("Hello ");
 
-        if(promotionRequest.getName()!=null) {
+        if (promotionRequest.getName() != null) {
             promotion.setName(promotionRequest.getName());
         }
 
-        if(promotionRequest.getType() != null) {
-            promotion.setType(promotion.getType());
+        if (promotionRequest.getType() != null) {
+            promotion.setType(promotionRequest.getType());
         }
 
-        if(promotionRequest.getValue() != null) {
-            promotion.setValue(promotion.getValue());
+        if (promotionRequest.getValue() != null) {
+            promotion.setValue(promotionRequest.getValue());
         }
 
-        if(promotionRequest.getMax_uses() != null){
-            promotion.setMax_uses(promotion.getMax_uses());
+        if (promotionRequest.getMax_uses() != null) {
+            promotion.setMax_uses(promotionRequest.getMax_uses());
         }
 
-        if(promotionRequest.getUsed_count() != null){
-            promotion.setUsed_count(promotion.getUsed_count());
+        if (promotionRequest.getUsed_count() != null) {
+            promotion.setUsed_count(promotionRequest.getUsed_count());
         }
 
-        if(promotionRequest.getMin_order_amount() != null){
-            promotion.setMin_order_amount(promotion.getMin_order_amount());
+        if (promotionRequest.getMin_order_amount() != null) {
+            promotion.setMin_order_amount(promotionRequest.getMin_order_amount());
         }
 
-        if(promotionRequest.getStartDate() != null){
-            promotion.setStartDate(promotion.getStartDate());
+        if (promotionRequest.getStartDate() != null) {
+            promotion.setStartDate(promotionRequest.getStartDate());
         }
 
-        if(promotionRequest.getEndDate() != null) {
-            promotion.setEndDate(promotion.getEndDate());
+        if (promotionRequest.getEndDate() != null) {
+            promotion.setEndDate(promotionRequest.getEndDate());
         }
 
-        if(promotionRequest.getStatus() != null) {
-            promotion.setStatus(promotion.getStatus());
+        if (promotionRequest.getStatus() != null) {
+            promotion.setStatus(promotionRequest.getStatus());
         }
 
+        System.out.println("Bye ");
 
         promotionRepository.save(promotion);
         return promotionMapper.toResponse(promotion);

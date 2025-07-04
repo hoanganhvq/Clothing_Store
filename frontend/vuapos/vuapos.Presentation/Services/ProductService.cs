@@ -125,6 +125,7 @@ namespace vuapos.Presentation.Services
 
         public async Task<Product?> UpdateProductAsync(int productId, ProductUpdateDTO productUpdateDTO)
         {
+            Debug.WriteLine("update DTO date: ", productUpdateDTO);
             return await SendRequestAsync<Product>(HttpMethod.Patch, $"product/{productId}", productUpdateDTO);
         }
 

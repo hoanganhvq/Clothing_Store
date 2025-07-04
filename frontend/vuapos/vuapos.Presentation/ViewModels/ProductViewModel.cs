@@ -113,7 +113,7 @@ namespace vuapos.Presentation.ViewModels
                     Debug.WriteLine($"Uploaded new image URL: {updateDto.image_path}");
                 }
 
-                Debug.WriteLine($"Updating product: {updateDto.product_name}");
+                Debug.WriteLine($"Updating product: {updateDto.category_id}");
                 var updatedProduct = await _productService.UpdateProductAsync(product.Product_Id, updateDto);
                 Debug.WriteLine($"Response: {updatedProduct}");
                 Debug.WriteLine("------------------------------------");

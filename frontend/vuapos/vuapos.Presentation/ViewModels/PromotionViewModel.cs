@@ -27,7 +27,7 @@ namespace vuapos.Presentation.ViewModels
         public async Task LoadPromotionsAsync()
         {
             var pagedResponse = await _promotionService.GetPaginationPromotionAsync(currentPage);
-            Debug.WriteLine($"Loaded promotions.");
+            Debug.WriteLine($"Loaded promotions.", pagedResponse);
             if (pagedResponse != null)
             {
                 totalPages = pagedResponse.TotalPages;
@@ -51,7 +51,7 @@ namespace vuapos.Presentation.ViewModels
 
         }
 
-        public async Task UpdatePromotionAsync(PromotionUpdateDTO promotion, string id)
+        public async Task UpdatePromotionAsync(PromotionUpdateDTO promotion, int id)
         {
             var response = await _promotionService.UpdatePromotionAsync(promotion, id);
             if (response != null)
@@ -63,7 +63,7 @@ namespace vuapos.Presentation.ViewModels
                 }
             }
         }
-        public async Task DeletePromotionAsync(string id)
+        public async Task DeletePromotionAsync(int id)
         {
             var response = await _promotionService.DeletePromotionAsync(id);
 

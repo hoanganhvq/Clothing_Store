@@ -121,7 +121,7 @@
                                                 <TextBlock Text="Order #" FontWeight="SemiBold" Foreground="{StaticResource AccentColor}"/>
                                                 <TextBlock Text="{x:Bind Order_Id}" FontWeight="SemiBold" Foreground="{StaticResource AccentColor}"/>
                                             </StackPanel>
-                                            <TextBlock Text="{x:Bind Order_Date}" Margin="0,3,0,0" Style="{StaticResource CaptionTextBlockStyle}"/>
+                                            <TextBlock Text="{x:Bind OrderDate_Time_Format()}" Margin="0,3,0,0" Style="{StaticResource CaptionTextBlockStyle}"/>
                                         </StackPanel>
 
                                         <StackPanel Grid.Column="1" Grid.Row="0" HorizontalAlignment="Right">

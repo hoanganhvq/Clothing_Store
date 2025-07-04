@@ -11,12 +11,16 @@ import org.mapstruct.Mapping;
 
 import java.util.List;
 
-@Mapper(componentModel = "spring", uses = {OrderItemMapper.class, CustomerMapper.class, StaffMapper.class})
+@Mapper(componentModel = "spring", uses = {OrderItemMapper.class, CustomerMapper.class, StaffMapper.class, PromotionMapper.class})
 public interface OrderMapper {
 
     @Mapping(source = "id", target = "orderId")
-    @Mapping(source = "items", target = "items") // mapping List<OrderItem> -> List<OrderItemResponse>
+    @Mapping(source = "items", target = "items")
+    @Mapping(source = "isCash", target = "isCash")
+    @Mapping(source = "isUseCustomerPoint", target = "isUseCustomerPoint")
+    @Mapping(source = "pointDiscount", target = "pointDiscount")
     OrderResponse toResponse(Order order);
+
 
     @Mapping(source = "customerId", target = "customer.id")
     @Mapping(source = "staffId", target = "staff.id")

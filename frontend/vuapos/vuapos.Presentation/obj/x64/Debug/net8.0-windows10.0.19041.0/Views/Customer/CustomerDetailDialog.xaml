@@ -121,7 +121,7 @@
                                                 <TextBlock Text="Order #" FontWeight="SemiBold" Foreground="{StaticResource AccentColor}"/>
                                                 <TextBlock x:ConnectionId='9'                          FontWeight="SemiBold" Foreground="{StaticResource AccentColor}"/>
                                             </StackPanel>
-                                            <TextBlock x:ConnectionId='8'                            Margin="0,3,0,0" Style="{StaticResource CaptionTextBlockStyle}"/>
+                                            <TextBlock x:ConnectionId='8'                                         Margin="0,3,0,0" Style="{StaticResource CaptionTextBlockStyle}"/>
                                         </StackPanel>
 
                                         <StackPanel Grid.Column="1" Grid.Row="0" HorizontalAlignment="Right">

@@ -61,7 +61,12 @@ public class OrderItemService {
             orderItem.setProductId(product.getId());
 
             // Convert sang Entity và lưu
+            Order order = orderRepository.findById(orderItem.getOrderId())
+                    .orElseThrow(() -> new OrderNotFoundException("Order not found"));
+
             OrderItem entity = orderItemMapper.toEntity(orderItem);
+            entity.setOrder(order);
+            entity.setProduct(product);
             OrderItem saved = orderItemRepository.save(entity);
 
             // Convert sang DTO để trả về

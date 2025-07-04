@@ -34,6 +34,14 @@ public class Order {
     @Column(name = "totalAmount")
     private BigDecimal totalAmount;
 
+    @Column(name = "is_cash" )
+    private Boolean isCash;
+
+    @Column(name = "is_use_customer_point")
+    private Boolean isUseCustomerPoint;
+
+    @Column(name = "point_discount")
+    private BigDecimal pointDiscount;
 
     @ManyToOne
     @JsonIgnore

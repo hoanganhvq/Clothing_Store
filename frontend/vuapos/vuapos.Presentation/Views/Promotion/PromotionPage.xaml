@@ -72,7 +72,7 @@
                                        HorizontalAlignment="Left" Margin="10,0" Grid.Column="0"/>
                             <TextBlock Text="{x:Bind Name}" VerticalAlignment="Center" FontSize="16"
                                        HorizontalAlignment="Left" Margin="10,0" Grid.Column="1" TextTrimming="CharacterEllipsis"/>
-                            <TextBlock Text="{x:Bind Discount_Percentage}" VerticalAlignment="Center" FontSize="16"
+                            <TextBlock Text="{x:Bind DiscountDisplay }" VerticalAlignment="Center" FontSize="16"
                                        HorizontalAlignment="Left" Margin="10,0" Grid.Column="2"/>
                             <TextBlock Text="{x:Bind Start_Date, Converter={StaticResource DateTimeConverter1}}" VerticalAlignment="Center" FontSize="16"
                                        HorizontalAlignment="Left" Margin="10,0" Grid.Column="3"/>

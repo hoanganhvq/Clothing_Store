@@ -24,11 +24,11 @@ public class CustomerController {
 
     @GetMapping()
     public ResponseEntity<PageResponse<CustomerResponse>> getAllCustomers(
-            @RequestParam(value = "page") String page,
+            @RequestParam(value = "page", required = false,defaultValue = "1") Integer page,
             @RequestParam(value = "search", required = false, defaultValue = "") String search
     ){
-            int pageNumber = Integer.parseInt(page);
-            Pageable pageRequest = PageRequest.of(pageNumber - 1, 5);
+
+            Pageable pageRequest = PageRequest.of(page - 1, 5);
             return ResponseEntity.ok(customerService.getAllCustomers(pageRequest, search));
     }
 

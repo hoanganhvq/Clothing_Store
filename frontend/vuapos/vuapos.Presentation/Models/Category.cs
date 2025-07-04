@@ -11,6 +11,7 @@ namespace vuapos.Presentation.Models
     {
         [JsonPropertyName("id")]
         public int Category_Id { get; set; }
+        [JsonPropertyName("name")]
         public string Name { get; set; } = string.Empty;
     }
 }

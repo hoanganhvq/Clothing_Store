@@ -38,8 +38,6 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
             token = authHeader.substring(7);
             username = jwtUtil.extractUsername(token);
 
-            System.out.println("AuthHeader: " + authHeader); // ✅ in ra header
-            System.out.println("Token: " + token); // ✅ token tách được
             System.out.println("Username: " + username);
         }
 

@@ -43,17 +43,21 @@ public class OrderController {
     @PostMapping
     public ResponseEntity<OrderResponse> createOrder(
             @Valid @RequestBody OrderRequest orderRequest) {
+            System.out.println("Call to controller");
             return ResponseEntity.status(HttpStatus.CREATED)
                     .body(orderService.addOrder(orderRequest));
     }
     //--
+
+
     @GetMapping()
     public ResponseEntity<PageResponse<OrderResponse>> getAllOrders(
-            @RequestParam(value = "page", required = false) Integer page,
-            @RequestParam(value = "search", defaultValue = "", required = false) Integer id ,
+            @RequestParam(value = "page", required = false, defaultValue = "1") Integer page,
+            @RequestParam(value = "search", required = false) Integer id ,
             @RequestParam(value = "startDate", required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate startDate,
             @RequestParam(value = "endDate", required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate endDate
     ) {
+        System.out.print("Goi ham nay: ");
             Pageable pageable = PageRequest.of(page - 1, 5);
             PageResponse<OrderResponse> orders = orderService.getAllOrders(id, startDate, endDate, pageable);
             return ResponseEntity.ok(orders);

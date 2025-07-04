@@ -11,24 +11,27 @@ namespace vuapos.Presentation.Models
     {
         [JsonPropertyName("id")]
         public int Product_Id { get; set; }
-        [JsonPropertyName("product_code")]
+        [JsonPropertyName("productCode")]
         public string Product_Code { get; set; } = string.Empty;
-        //[JsonPropertyName("id")]
-        public string Product_Name { get; set; } = string.Empty;
-        //[JsonPropertyName("id")]
-        public int Stock_Quantity { get; set; }
-        //[JsonPropertyName("id")]
-        public int Category_Id { get; set; } 
 
+        [JsonPropertyName("name")]
+        public string Product_Name { get; set; } = string.Empty;
+        [JsonPropertyName("stockQuantity")]
+        public int Stock_Quantity { get; set; }
+
+        [JsonPropertyName("price")]
         public decimal Price { get; set; }
         //[JsonPropertyName("id")]
         public int Discount { get; set; }
-        //[JsonPropertyName("id")]
+        [JsonPropertyName("costPrice")]
         public decimal Cost_Price { get; set; }
-        //[JsonPropertyName("id")]
+        [JsonPropertyName("imageUrl")]
         public string Image_Path { get; set; } = string.Empty;
-        //[JsonPropertyName("id")]
+        [JsonPropertyName("categoryName")]
         public string Category_Name { get; set; } = string.Empty;
+
+        [JsonPropertyName("categoryId")]
+        public int Category_Id { get; set; }
     }
 
 }

@@ -31,7 +31,7 @@ namespace vuapos.Presentation.Views.Promotion
             this.InitializeComponent();
             _promotionViewModel = promotionViewModel;
             PromotionNameTextBox.Text= promotion.Name;
-            DiscountPercentageTextBox.Text = promotion.Discount_Percentage;
+            DiscountPercentageTextBox.Text = (promotion.Discount_Percentage * 100).ToString("0.##");
             StartDatePicker.Date = promotion.Start_Date;
             EndDatePicker.Date = promotion.End_Date;
             _promotion = promotion;
