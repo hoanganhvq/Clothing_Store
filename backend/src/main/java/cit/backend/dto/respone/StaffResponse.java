@@ -15,4 +15,6 @@ public class StaffResponse {
     private String username;
 
     private Role role;
+
+    private String phone;
 }

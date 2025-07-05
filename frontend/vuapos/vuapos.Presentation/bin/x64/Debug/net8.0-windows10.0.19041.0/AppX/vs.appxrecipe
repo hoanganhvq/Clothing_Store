@@ -29,13 +29,13 @@
     <AppXManifest Include="D:\My Project\Clothing_Store\frontend\vuapos\vuapos.Presentation\bin\x64\Debug\net8.0-windows10.0.19041.0\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2025-07-04T16:51:51.001</Modified>
+      <Modified>2025-07-05T10:47:19.795</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="D:\My Project\Clothing_Store\frontend\vuapos\vuapos.Presentation\bin\x64\Debug\net8.0-windows10.0.19041.0\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2025-07-01T08:36:54.756</Modified>
+      <Modified>2025-07-05T09:34:03.328</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\My Project\Clothing_Store\frontend\vuapos\vuapos.Presentation\bin\x64\Debug\net8.0-windows10.0.19041.0\vuapos.Presentation.runtimeconfig.json">
       <PackagePath>vuapos.Presentation.runtimeconfig.json</PackagePath>
@@ -43,11 +43,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\My Project\Clothing_Store\frontend\vuapos\vuapos.Presentation\bin\x64\Debug\net8.0-windows10.0.19041.0\vuapos.Presentation.dll">
       <PackagePath>vuapos.Presentation.dll</PackagePath>
-      <Modified>2025-07-04T16:51:49.343</Modified>
+      <Modified>2025-07-05T10:47:17.303</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\My Project\Clothing_Store\frontend\vuapos\vuapos.Presentation\obj\x64\Debug\net8.0-windows10.0.19041.0\apphost.exe">
       <PackagePath>vuapos.Presentation.exe</PackagePath>
-      <Modified>2025-07-04T16:51:49.851</Modified>
+      <Modified>2025-07-05T10:47:18.651</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\MyPC\.nuget\packages\microsoft.windows.sdk.net.ref\10.0.19041.57\lib\net8.0\Microsoft.Windows.SDK.NET.dll">
       <PackagePath>Microsoft.Windows.SDK.NET.dll</PackagePath>

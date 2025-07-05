@@ -20,6 +20,10 @@ public class RegisterRequest {
     @Size(min = 6, message = "Password must be at least 8 characters long")
     private String password;
 
+
+    @NotBlank(message = "Phone is requires")
+    public String phone;
+
     @NotBlank(message = "Role is required")
     @Pattern(
             regexp = "^(Admin|Staff)$",

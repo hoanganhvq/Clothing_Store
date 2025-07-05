@@ -15,6 +15,9 @@
         <TextBox x:ConnectionId='3' PlaceholderText="Phone" x:Name="PhoneInput"/>
         <TextBox x:ConnectionId='4' PlaceholderText="Email" x:Name="EmailInput"/>
         <Button x:ConnectionId='5' Content="Create"                        />
+        <TextBlock x:ConnectionId='6' x:Name="ErrorTextBlock" Foreground="Red" Visibility="Collapsed"/>
     </StackPanel>
+
+ 
 </Window>
 

@@ -27,27 +27,25 @@ public class CategoryController {
 
 
     @GetMapping //Ok
-    public ResponseEntity<PageResponse<CategoryResponse>> getCategories(
-            @RequestParam(value = "page") String page,
+    public ResponseEntity<?> getCategories(
+            @RequestParam(value = "page", required = false) Integer page,
             @RequestParam(value = "search", required = false, defaultValue = "") String search,
             @RequestParam(value = "return-all",defaultValue = "false") String returnAll
     ) {
-            int pageNumber = Integer.parseInt(page);
             boolean getAll = Boolean.parseBoolean(returnAll);
-            if (getAll) {
-                List<CategoryResponse> all = categoryService.getAllCategories(); // trả về List
-                PageResponse<CategoryResponse> response = new PageResponse<>();
-                response.setData(all);
-                response.setPage(1);
-                response.setTotalPages(1);
-                response.setTotalCount(all.size());
+        if (getAll) {
+            List<CategoryResponse> all = categoryService.getAllCategories();
+            return ResponseEntity.ok(all); // Trả List thô
+        }
+        if (page == null || page <= 0) {
+            return ResponseEntity.badRequest().body("Missing or invalid 'page' parameter");
+        }
 
-                return ResponseEntity.ok(response);
-            }
-            Pageable pageable = PageRequest.of(pageNumber - 1, 5);
-            return ResponseEntity.ok(categoryService.getCategorySearchByName(pageable, search));
+        Pageable pageable = PageRequest.of(page - 1, 5);
+        return ResponseEntity.ok(categoryService.getCategorySearchByName(pageable, search));
 
     }//Fix bug 500 -> 400 BadRequest
+
 
     @GetMapping("/{id}")
     public ResponseEntity<CategoryResponse> getCategoryById(

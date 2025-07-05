@@ -9,9 +9,9 @@ namespace vuapos.Presentation.DAO.Interface
     public interface IDAO<T>
     {
         List<T> GetAll();
-        T GetById(string id);
+        T GetById(int id);
         void Add(T entity);
         void Update(T entity);
-        void Delete(string id);
+        void Delete(int id);
     }
 }

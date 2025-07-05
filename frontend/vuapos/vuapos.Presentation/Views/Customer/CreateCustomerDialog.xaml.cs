@@ -1,4 +1,4 @@
-using Microsoft.UI.Xaml;
+﻿using Microsoft.UI.Xaml;
 using vuapos.Presentation.ViewModels;
 
 namespace vuapos.Presentation.Views.Customer

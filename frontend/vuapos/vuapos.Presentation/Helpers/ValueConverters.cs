@@ -44,7 +44,7 @@ namespace vuapos.Presentation.Helpers
         {
             if (value is DateTime dateTime)
             {
-                return $"Cập nhật: {dateTime:dd/MM/yyyy HH:mm}";
+                return $"{dateTime:dd/MM/yyyy}";
             }
 
             return string.Empty;
@@ -135,7 +135,7 @@ namespace vuapos.Presentation.Helpers
                         "Icon" => "\uE783", // Warning Icon
                         _ => null
                     };
-                }
+                } 
                 else
                 {
                     return mode switch

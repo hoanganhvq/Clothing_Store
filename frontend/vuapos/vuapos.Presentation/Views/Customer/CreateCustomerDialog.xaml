@@ -15,5 +15,8 @@
         <TextBox PlaceholderText="Phone" x:Name="PhoneInput"/>
         <TextBox PlaceholderText="Email" x:Name="EmailInput"/>
         <Button Content="Create" Click="OnCreateClicked"/>
+        <TextBlock x:Name="ErrorTextBlock" Foreground="Red" Visibility="Collapsed"/>
     </StackPanel>
+
+ 
 </Window>

@@ -39,10 +39,16 @@ namespace vuapos.Presentation.Services
             return await SendRequestAsync<Customer>(HttpMethod.Get, $"customer/{customerId}");
         }
 
+        //public async Task<Customer?> CreateCustomerAsync(CustomerCreateDTO customer)
+        //{
+        //    return await SendRequestAsync<Customer>(HttpMethod.Post, "customer", customer);
+        //}
+
         public async Task<Customer?> CreateCustomerAsync(CustomerCreateDTO customer)
         {
             return await SendRequestAsync<Customer>(HttpMethod.Post, "customer", customer);
         }
+
 
         public async Task<Customer?> UpdateCustomerAsync(int customerId, object updateData)
         {

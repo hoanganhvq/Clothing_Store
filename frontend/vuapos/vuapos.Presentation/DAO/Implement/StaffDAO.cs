@@ -12,9 +12,9 @@ namespace vuapos.Presentation.DAO.Implement
     {
         private static List<Staff> _staffList = new List<Staff>
         {
-            new Staff { Staff_Id = "ST001", Username = "alice", Password = "123456", Role = "Manager", Phone = "0123456789" },
-            new Staff { Staff_Id = "ST002", Username = "bob", Password = "abcdef", Role = "Coach", Phone = "0987654321" },
-            new Staff { Staff_Id = "ST003", Username = "charlie", Password = "pass123", Role = "Trainer", Phone = "0111222333" }
+            new Staff { Staff_Id = 123312, Username = "alice", Password = "123456", Role = "Manager", Phone = "0123456789" },
+            new Staff { Staff_Id = 12231, Username = "bob", Password = "abcdef", Role = "Coach", Phone = "0987654321" },
+            new Staff { Staff_Id = 123231, Username = "charlie", Password = "pass123", Role = "Trainer", Phone = "0111222333" }
         };
 
         public List<Staff> GetAll()
@@ -22,7 +22,7 @@ namespace vuapos.Presentation.DAO.Implement
             return _staffList;
         }
 
-        public Staff GetById(string id)
+        public Staff GetById(int id)
         {
             return _staffList.FirstOrDefault(s => s.Staff_Id == id);
         }
@@ -44,7 +44,7 @@ namespace vuapos.Presentation.DAO.Implement
             }
         }
 
-        public void Delete(string id)
+        public void Delete(int id)
         {
             var staff = GetById(id);
             if (staff != null)

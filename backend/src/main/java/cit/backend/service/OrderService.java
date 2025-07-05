@@ -19,6 +19,7 @@ import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -44,6 +45,8 @@ public class OrderService {
     @Autowired
     private CustomerService customerService;
 
+    @Autowired
+    private PointDiscountService pointDiscountService;
 
     public OrderResponse getOrderById(int id) {
         Order order = orderRepository.findById(id)
@@ -59,6 +62,7 @@ public class OrderService {
         order.setTotalAmount(orderRequest.getTotalAmount());
         order.setIsCash(orderRequest.getIsCash());
         order.setPointDiscount(orderRequest.getPointDiscount());
+        order.setPointDiscount(orderRequest.getPointDiscount());
         order.setIsUseCustomerPoint(orderRequest.getIsUseCustomerPoint());
 
 
@@ -69,9 +73,10 @@ public class OrderService {
                 .orElseThrow(()-> new StaffNotFoundException("Staff Not Found" + orderRequest.getStaffId()));
 
         Promotion promotion = null;
-        if(orderRequest.getPromotionId() != null){
-             promotion = promotionRepository.findById(orderRequest.getPromotionId())
-                    .orElseThrow(()->new PromotionNotFoundException("Promotion Not Found" + orderRequest.getPromotionId()));
+        if (orderRequest.getPromotionId() != null && orderRequest.getPromotionId() > 0 ) {
+            promotion = promotionRepository.findById(orderRequest.getPromotionId())
+                    .orElseThrow(() -> new PromotionNotFoundException("Promotion Not Found " + orderRequest.getPromotionId()));
+
         }
 
 
@@ -80,23 +85,36 @@ public class OrderService {
         order.setStaff(staff);
         order.setPromotion(promotion);
 
-        //Su dung customer point discount
-        if(orderRequest.getIsUseCustomerPoint()){
-            CustomerUpdateRequest updateRequest = new CustomerUpdateRequest();
-            updateRequest.setPoint(0);
-            customerService.updateCustomer(customer.getId(), updateRequest);
-        }
-    //Add diem
-//        CustomerUpdateRequest updatePointRequest = new CustomerUpdateRequest();
-//
-//        BigDecimal totalAmount = orderRequest.getTotalAmount();
-//
-//        int addNewPoint = totalAmount.multiply(BigDecimal.valueOf(10000)).intValue();
-//
-//        updatePointRequest.setPoint(addNewPoint);
-//
-//        customerService.updateCustomer(customer.getId(), updatePointRequest);
 
+
+        //Cong diem
+        BigDecimal pointPerAmount = BigDecimal.valueOf(10_000); // mỗi 10k VNĐ
+        int pointPerUnit = 1000; // được 1000 điểm
+
+        BigDecimal totalAmount = orderRequest.getTotalAmount();
+
+        //Neu kh su dung diem thi cong them
+        if (!orderRequest.getIsUseCustomerPoint()) { // nếu đơn hàng ≥ 200k
+
+            int unitCount = totalAmount.divide(pointPerAmount, RoundingMode.FLOOR).intValue();
+            int addedPoint = unitCount * pointPerUnit;
+
+            if (addedPoint > 0) {
+                CustomerUpdateRequest updatePointRequest = new CustomerUpdateRequest();
+                updatePointRequest.setPoint(customer.getPoint() + addedPoint);
+                customerService.updateCustomer(customer.getId(), updatePointRequest);
+            }
+
+
+        } else{ //Neu su dung diem thi diem ve 0
+//            BigDecimal discount = pointDiscountService.calculateDiscount(totalAmount, customer.getPoint());
+//            order.setPointDiscount(discount);
+            CustomerUpdateRequest request = new CustomerUpdateRequest();
+            request.setPoint(0);
+            customerService.updateCustomer(customer.getId(), request);
+        }
+
+//
 
         Order savedOrder = orderRepository.save(order);
 

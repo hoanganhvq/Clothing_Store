@@ -28,7 +28,8 @@ public class OrderResponse {
 //    @JsonProperty("is_cash")
     private Boolean isCash;
 
-//    @JsonProperty("is_use_customer_point")    private Boolean isUseCustomerPoint;
+//    @JsonProperty("is_use_customer_point")
+    private Boolean isUseCustomerPoint;
 
 //    @JsonProperty("point_discount")
     private BigDecimal pointDiscount;

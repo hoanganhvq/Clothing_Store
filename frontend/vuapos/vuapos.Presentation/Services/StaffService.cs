@@ -33,7 +33,7 @@ namespace vuapos.Presentation.Services
         }
 
 
-        public async Task<Staff?> GetStaffByIdAsync(string id)
+        public async Task<Staff?> GetStaffByIdAsync(int id)
         {
             return await SendRequestAsync<Staff>(HttpMethod.Get, $"staff/{id}");
         }
@@ -42,13 +42,13 @@ namespace vuapos.Presentation.Services
             var response = await SendRequestAsync<Staff>(HttpMethod.Post, "staff", staff);
             return response != null;
         }
-        public async Task<bool> UpdateStaffAsync(string staffId, StaffDTO updateData)
+        public async Task<bool> UpdateStaffAsync(int staffId, StaffDTO updateData)
         {
             var response = await SendRequestAsync<Staff>(HttpMethod.Patch, $"staff/{staffId}", updateData);
             return response != null;
         }
 
-        public async Task<bool> DeleteStaffAsync(string staffId)
+        public async Task<bool> DeleteStaffAsync(int staffId)
         {
             var response = await SendRequestAsync<object>(HttpMethod.Delete, $"staff/{staffId}");
             return response != null;

@@ -29,8 +29,7 @@ public class AuthService {
     private JwtUtil jwtUtil;
 
     public AuthRespone login(LoginRequest request) {
-        System.out.println("login");
-        // Bắt buộc Spring xác thực người dùng chính thức
+
         authManager.authenticate(
                 new UsernamePasswordAuthenticationToken(request.getUsername(), request.getPassword())
         );

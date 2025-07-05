@@ -22,7 +22,7 @@ public class OrderRequest {
     private int staffId;
 
     @JsonProperty("promotion_id")
-    @Positive(message = "Promotion ID must be greater than 0")
+//    @Positive(message = "Promotion ID must be greater than 0")
     private Integer promotionId; // Nullable (optional promotion)
 
     @JsonProperty("total_amount")

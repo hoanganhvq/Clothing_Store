@@ -303,14 +303,14 @@ namespace vuapos.Presentation.Views.Staff
                     }
                 }
             }
-            private void Update_Staff_Id(global::System.String obj, int phase)
+            private void Update_Staff_Id(global::System.Int32 obj, int phase)
             {
                 if ((phase & ((1 << 0) | NOT_PHASED )) != 0)
                 {
                     // Views\Staff\StaffPage.xaml line 135
                     if (!isobj15TextDisabled)
                     {
-                        XamlBindingSetters.Set_Microsoft_UI_Xaml_Controls_TextBlock_Text(this.obj15, obj, null);
+                        XamlBindingSetters.Set_Microsoft_UI_Xaml_Controls_TextBlock_Text(this.obj15, obj.ToString(), null);
                     }
                 }
             }

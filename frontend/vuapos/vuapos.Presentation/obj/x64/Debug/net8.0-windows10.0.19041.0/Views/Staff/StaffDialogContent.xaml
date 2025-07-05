@@ -29,8 +29,8 @@
                                                                           
               SelectedValuePath="Tag"
               HorizontalAlignment="Stretch">
-            <ComboBoxItem Content="MANAGER" Tag="MANAGER"/>
-            <ComboBoxItem Content="STAFF" Tag="STAFF"/>
+            <ComboBoxItem Content="ADMIN" Tag="Admin"/>
+            <ComboBoxItem Content="STAFF" Tag="Admin"/>
         </ComboBox>
 
         <!-- Mật khẩu -->

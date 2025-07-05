@@ -165,15 +165,25 @@ namespace vuapos.Presentation.ViewModels
 
             try
             {
+                var promo = res.Data[0];
+
                 if (DateTime.TryParse(res.Data[0].Start_date, out var startDate) &&
-                    DateTime.TryParse(_currentOrder.Order_Date, out var orderDate) &&
-                    (startDate > DateTime.Now || orderDate > DateTime.Now))
+                    DateTime.TryParse(promo.End_date, out var endDate))
                 {
-                    // thông báo mã giảm giá không hợp lệ
-                    await _dialogService.ShowMessageAsync(_window.Content.XamlRoot, "Error", "The discount code has expired.");
+                    var now = DateTime.Now;
+
+                    if (now < startDate || now > endDate)
+                    {
+                        // Mã giảm giá chưa có hiệu lực hoặc đã hết hạn
+                        await _dialogService.ShowMessageAsync(_window.Content.XamlRoot, "Error", "The discount code is expired.");
+                        return;
+                    }
+                }
+                else
+                {
+                    await _dialogService.ShowMessageAsync(_window.Content.XamlRoot, "Error", "Failed to read the promotion dates.");
                     return;
                 }
-
             }
             catch
             {
@@ -181,7 +191,8 @@ namespace vuapos.Presentation.ViewModels
                 return;
             }
 
-             var discount = Convert.ToDecimal(res!.Data[0].Discount_percentage) ;
+
+            var discount = Convert.ToDecimal(res!.Data[0].Discount_percentage) ;
 
             await _dialogService.ShowMessageAsync(_window.Content.XamlRoot, $"Discount code {res!.Data[0].Name}", $"Discount {res!.Data[0].Discount_percentage * 100:0.##}%");
 

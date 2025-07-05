@@ -133,7 +133,7 @@ namespace vuapos.Presentation
         private void ConfigureNavigationItemsByRole()
         {
             // Ẩn/hiện các mục menu dựa trên vai trò người dùng
-            if (_userSession.role != "MANAGER")
+            if (_userSession.role != "Admin")
             {
                 staffsTag.Visibility = Visibility.Collapsed;
             }
