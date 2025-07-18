@@ -24,6 +24,7 @@ public class OrderResponse {
     private CustomerResponse customer;
     private StaffResponse staff;
     private BigDecimal totalAmount;
+    private BigDecimal subTotal;
     private PromotionResponse promotion;
 //    @JsonProperty("is_cash")
     private Boolean isCash;

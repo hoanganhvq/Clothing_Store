@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("vuapos.Test")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+95590aa449b25cd2159e73cc788c7045f51151ff")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+02bd380ff6888472c5ffb65465b59ce83c1119c9")]
 [assembly: System.Reflection.AssemblyProductAttribute("vuapos.Test")]
 [assembly: System.Reflection.AssemblyTitleAttribute("vuapos.Test")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

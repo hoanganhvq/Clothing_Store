@@ -1,6 +1,7 @@
 ﻿using CloudinaryDotNet;
 using CloudinaryDotNet.Actions;
 using Microsoft.Extensions.Configuration;
+using System;
 using System.Diagnostics;
 using System.IO;
 using System.Threading.Tasks;
@@ -14,9 +15,21 @@ namespace vuapos.Presentation.Services
 
         public CloudinaryService()
         {
-            var cloudName = "do91sjc9r";
-            var apiKey = "478469748329754";
-            var apiSecret = "RCOSPzxyxCkZoofNwdZc9vaWMSQ";
+
+            //var apiKey = Environment.GetEnvironmentVariable("API_KEY");
+            //var cloudName = Environment.GetEnvironmentVariable("CLOUD_NAME");
+            //var apiSecret = Environment.GetEnvironmentVariable("API_SECRET");
+
+            //Debug.Print("API key: ", apiKey);
+            //Debug.Print("cloudName: ", cloudName);
+            //Debug.Print("apiSecret", apiSecret);
+            //if (string.IsNullOrEmpty(apiKey) || string.IsNullOrEmpty(cloudName) || string.IsNullOrEmpty(apiSecret))
+            //{
+            //    Debug.Print("⚠️ Thiếu biến môi trường. Vui lòng thiết lập API_KEY, CLOUD_NAME và API_SECRET.");
+            //}
+            var cloudName = "dnuqb888u";
+            var apiKey = "611365346874752";
+            var apiSecret = "pS0SEcGZp_JXmAiPbgNB63UJHOU";
 
             var account = new Account(cloudName, apiKey, apiSecret);
             _cloudinary = new Cloudinary(account);

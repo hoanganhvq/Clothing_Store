@@ -45,9 +45,9 @@ namespace vuapos.Presentation.Services
             return await SendRequestAsync<Response<PromotionResponse>>(HttpMethod.Get, $"promotions?search={name}");
         }
 
-        public async Task<object> SendMail(int id)
+        public async Task<string> SendMail(int id)
         {
-            return await SendRequestAsync<object>(HttpMethod.Post, $"order/{id}/send-email");
+            return await SendRequestAsync<string>(HttpMethod.Post, $"order/{id}/send-email");
         }
 
         public async Task<OrderResponse> CreateOrder(OrderCreateDTO orderData)

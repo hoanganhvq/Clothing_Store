@@ -463,6 +463,7 @@ namespace vuapos.Presentation.ViewModels
                     staff_id = order.Staff_Id,
                     total_amount = order.Total_Amount,
                     promotion_id = PromotionId,
+                    sub_total = SubTotal,
                     is_cash = IsCash,
                     is_use_customer_point = UseCustomerPoints,
                     point_discount = CustomerPointsValue

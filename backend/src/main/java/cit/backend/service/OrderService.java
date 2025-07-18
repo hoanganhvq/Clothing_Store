@@ -1,7 +1,6 @@
 package cit.backend.service;
 
 import cit.backend.dto.request.CustomerUpdateRequest;
-import cit.backend.dto.request.OrderItemRequest;
 import cit.backend.dto.request.OrderRequest;
 import cit.backend.dto.request.OrderUpdateRequest;
 import cit.backend.dto.respone.OrderResponse;
@@ -10,9 +9,9 @@ import cit.backend.exception.*;
 import cit.backend.mapper.OrderMapper;
 import cit.backend.model.*;
 import cit.backend.repository.*;
+import jakarta.mail.MessagingException;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.io.support.ResourcePatternResolver;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
@@ -22,9 +21,8 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class OrderService {
@@ -46,6 +44,9 @@ public class OrderService {
     private CustomerService customerService;
 
     @Autowired
+    private EmailService emailService;
+
+    @Autowired
     private PointDiscountService pointDiscountService;
 
     public OrderResponse getOrderById(int id) {
@@ -61,6 +62,7 @@ public class OrderService {
         order.setStatus(orderRequest.getStatus());
         order.setTotalAmount(orderRequest.getTotalAmount());
         order.setIsCash(orderRequest.getIsCash());
+        order.setSubTotal(orderRequest.getSubTotal());
         order.setPointDiscount(orderRequest.getPointDiscount());
         order.setPointDiscount(orderRequest.getPointDiscount());
         order.setIsUseCustomerPoint(orderRequest.getIsUseCustomerPoint());
@@ -219,10 +221,88 @@ public class OrderService {
     }
 
 
-    public void sendEmail(int orderId) {
-        //Coding here
+    public String sendEmail(int orderId) {
+        System.out.println("Send email Order");
+        Order order = orderRepository.findById(orderId)
+                .orElseThrow(() -> new OrderNotFoundException("Order not found: " + orderId));
+
+        String customerEmail = order.getCustomer().getEmail();
+        if (customerEmail == null) {
+            throw new CustomerEmailNotFound("Customer's Email not found");
+        }
+
+        String subject = "Thank you for your order #" + orderId;
+
+        StringBuilder content = new StringBuilder();
+        content.append(String.format(
+                "<h1>Thank you for your order!</h1>" +
+                        "<p>Dear %s,</p>" +
+                        "<p><strong>Order Date:</strong> %s</p>" +
+                        "<p><strong>Processed by staff:</strong> %s</p>" +
+                        "<p>Below are the details of your order:</p>" +
+                        "<table border='1' cellpadding='5' cellspacing='0'>" +
+                        "<thead><tr><th>Product</th><th>Quantity</th><th>Price</th></tr></thead><tbody>",
+                order.getCustomer().getName(),
+                order.getOrderDate().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss")),
+                order.getStaff().getUsername()
+        ));
+
+        for (OrderItem item : order.getItems()) {
+            content.append(String.format(
+                    "<tr><td>%s</td><td>%d</td><td>%,.0f₫</td></tr>",
+                    item.getProduct().getName(),
+                    item.getQuantity(),
+                    item.getProductPrice()
+
+            ));
+            BigDecimal totalAmount = item.getProductPrice().multiply(new BigDecimal(item.getQuantity()));
+        }
+
+        content.append("</tbody></table>");
+
+        BigDecimal promotionDiscount = BigDecimal.ZERO;
+        System.out.println("promotion Discount "+order.getPromotion().getValue());
+        System.out.println("Total Amout "+ order.getTotalAmount());
+        if (order.getPromotion() != null) {
+            promotionDiscount = order.getSubTotal().multiply(order.getPromotion().getValue());
+        }
+
+
+        BigDecimal pointDiscount = order.getIsUseCustomerPoint()
+                ? order.getPointDiscount()
+                : BigDecimal.ZERO;
+
+
+
+
+        content.append(String.format("<p><strong>Original Total:</strong> %,.0f₫</p>",order.getSubTotal()));
+
+        if (promotionDiscount.compareTo(BigDecimal.ZERO) > 0) {
+            content.append(String.format("<p><strong>Promotion Discount:</strong> -%,.0f₫ (%s)</p>",
+                    promotionDiscount, order.getPromotion().getName()));
+        }
+
+        if (pointDiscount.compareTo(BigDecimal.ZERO) > 0) {
+            content.append(String.format("<p><strong>Point Discount:</strong> -%,.0f₫</p>", pointDiscount));
+        }
+
+        content.append(String.format(
+                "<p><strong>Final Total:</strong> <span style='color:green'>%,.0f₫</span></p>",
+                order.getTotalAmount()
+        ));
+
+        content.append("<p>We hope to serve you again soon!</p>");
+
+        try {
+            emailService.sendEmail(customerEmail, subject, content.toString());
+        } catch (MessagingException e) {
+            e.printStackTrace();
+            return "Fail to send email.";
+        }
+
+        return "Email sent successfully to " + customerEmail;
     }
-    
+
 
 
 }

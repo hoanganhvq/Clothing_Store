@@ -3,8 +3,6 @@ package cit.backend.service;
 import cit.backend.dto.request.ImportProductDTO;
 import cit.backend.dto.request.ProductRequest;
 import cit.backend.dto.request.ProductUpdateRequest;
-import cit.backend.dto.respone.CategoryResponse;
-import cit.backend.dto.respone.PageProductResponse;
 import cit.backend.dto.respone.PageResponse;
 import cit.backend.dto.respone.ProductResponse;
 import cit.backend.exception.CategoryNotFoundException;
@@ -15,15 +13,13 @@ import cit.backend.model.Category;
 import cit.backend.model.Product;
 import cit.backend.repository.CategoryRepository;
 import cit.backend.repository.ProductRepository;
+import jakarta.mail.MessagingException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.util.StringUtils;
 import org.springframework.data.domain.Pageable;
-import org.springframework.web.servlet.HandlerMapping;
 
 import java.util.List;
 
@@ -39,7 +35,11 @@ public class ProductService {
     @Autowired
     private ProductMapper productMapper;
 
+    @Autowired
+    private EmailService emailService;
 
+    @Value("${spring.mail.username}")
+    private String userEmail;
     public List<ProductResponse> getAll() {
         return productMapper.toProductResponseList(productRepository.findAll());
     }
@@ -95,7 +95,12 @@ public class ProductService {
             product.setCostPrice(productRequest.getCostPrice());
         }
         if(productRequest.getStockQuantity()!=null) {
+
             product.setStockQuantity(productRequest.getStockQuantity());
+
+            if(productRequest.getStockQuantity()<=5){
+                sendLowWarningQuantityEmail(userEmail, product.getName(), productRequest.getStockQuantity());
+            }
         }
         if(productRequest.getSize() !=null) {
             product.setSize(productRequest.getSize());
@@ -107,7 +112,26 @@ public class ProductService {
 
         return productMapper.toResponse(productRepository.save(product));
     }
-    
+    public String sendLowWarningQuantityEmail(String to, String productName, int quantity){
+        try{
+            System.out.println("Send email warning");
+            String subject = "Warning: Low Product Quantity";
+
+            String content = String.format(
+                    "<p>Dear admin,</p>" +
+                            "<p>We would like to inform you that the product \"<strong>%s</strong>\" has a low quantity of <strong>%d</strong>.</p>" +
+                            "<p>Best regards,<br>VuaPos</p>",
+                    productName, quantity
+            );
+
+            emailService.sendEmail(to, subject, content);
+            return "Success to send email warning";
+        }catch(MessagingException e){
+            e.printStackTrace();
+            return "Fail to send low warning quantity";
+        }
+    }
+
     public void deleteProduct(int id){
         Product product = productRepository.findById(id).orElseThrow(()-> new ProductNotFoundException("Product not found"));
          productRepository.delete(product);

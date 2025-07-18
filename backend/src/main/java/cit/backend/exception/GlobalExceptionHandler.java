@@ -67,6 +67,11 @@ public class GlobalExceptionHandler {
         return buildResponseEntity(HttpStatus.NOT_FOUND, ex.getMessage());
     }
 
+    @ExceptionHandler(CustomerEmailNotFound.class)
+    public ResponseEntity<Object> handleCustomerEmailNotFound(CustomerEmailNotFound ex) {
+        return buildResponseEntity(HttpStatus.NOT_FOUND, ex.getMessage());
+    }
+
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<Object> handleValidationException(MethodArgumentNotValidException ex) {
         String errorMessages = ex.getBindingResult()

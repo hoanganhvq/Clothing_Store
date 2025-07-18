@@ -3,6 +3,7 @@ package cit.backend.service;
 import cit.backend.dto.request.OrderItemRequest;
 import cit.backend.dto.request.OrderItemRequestList;
 import cit.backend.dto.request.OrderItemUpdateRequest;
+import cit.backend.dto.request.ProductUpdateRequest;
 import cit.backend.dto.respone.OrderItemResponse;
 import cit.backend.dto.respone.OrderResponse;
 import cit.backend.exception.OrderItemNotFound;
@@ -34,6 +35,8 @@ public class OrderItemService {
     private OrderItemMapper orderItemMapper;
     @Autowired
     private OrderRepository orderRepository;
+    @Autowired
+    private ProductService productService;
 
     @Transactional
     public List<OrderItemResponse> createOrderItems(OrderItemRequestList orderItems) {
@@ -51,8 +54,9 @@ public class OrderItemService {
             }
 
             // Giảm tồn kho và lưu lại
-            product.setStockQuantity(currentStock - orderQuantity);
-            productRepository.save(product);
+            ProductUpdateRequest productUpdateRequest = new ProductUpdateRequest();
+            productUpdateRequest.setStockQuantity(currentStock - orderQuantity);
+            productService.updateProduct(product.getId(), productUpdateRequest);
 
             // Gán thông tin từ Product vào DTO
             orderItem.setProductPrice(product.getPrice());

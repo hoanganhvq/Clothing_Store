@@ -11,3 +11,14 @@
     }
   }
 }
+
+//{
+//  "profiles": {
+//    "vuapos.Presentation": {
+//      "commandName": "Project",
+//      "environmentVariables": {
+//        "API_BASE_URL": "http://localhost:3000"
+//      }
+//    }
+//  }
+//}

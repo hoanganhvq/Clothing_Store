@@ -300,9 +300,9 @@ namespace vuapos.Presentation.vuapos_Presentation_XamlTypeInfo
             _typeNameTable[70] = "vuapos.Presentation.Models.Order";
             _typeNameTable[71] = "Int32";
             _typeNameTable[72] = "System.Decimal";
-            _typeNameTable[73] = "vuapos.Presentation.Models.Staff";
-            _typeNameTable[74] = "vuapos.Presentation.Models.Promotion";
-            _typeNameTable[75] = "System.Nullable`1<System.Decimal>";
+            _typeNameTable[73] = "System.Nullable`1<System.Decimal>";
+            _typeNameTable[74] = "vuapos.Presentation.Models.Staff";
+            _typeNameTable[75] = "vuapos.Presentation.Models.Promotion";
             _typeNameTable[76] = "System.Collections.ObjectModel.ObservableCollection`1<vuapos.Presentation.Models.OrderDetail>";
             _typeNameTable[77] = "System.Collections.ObjectModel.Collection`1<vuapos.Presentation.Models.OrderDetail>";
             _typeNameTable[78] = "vuapos.Presentation.Models.OrderDetail";
@@ -426,9 +426,9 @@ namespace vuapos.Presentation.vuapos_Presentation_XamlTypeInfo
             _typeTable[70] = typeof(global::vuapos.Presentation.Models.Order);
             _typeTable[71] = typeof(global::System.Int32);
             _typeTable[72] = typeof(global::System.Decimal);
-            _typeTable[73] = typeof(global::vuapos.Presentation.Models.Staff);
-            _typeTable[74] = typeof(global::vuapos.Presentation.Models.Promotion);
-            _typeTable[75] = typeof(global::System.Nullable<global::System.Decimal>);
+            _typeTable[73] = typeof(global::System.Nullable<global::System.Decimal>);
+            _typeTable[74] = typeof(global::vuapos.Presentation.Models.Staff);
+            _typeTable[75] = typeof(global::vuapos.Presentation.Models.Promotion);
             _typeTable[76] = typeof(global::System.Collections.ObjectModel.ObservableCollection<global::vuapos.Presentation.Models.OrderDetail>);
             _typeTable[77] = typeof(global::System.Collections.ObjectModel.Collection<global::vuapos.Presentation.Models.OrderDetail>);
             _typeTable[78] = typeof(global::vuapos.Presentation.Models.OrderDetail);
@@ -543,8 +543,8 @@ namespace vuapos.Presentation.vuapos_Presentation_XamlTypeInfo
         private object Activate_68_ObservableCollection() { return new global::System.Collections.ObjectModel.ObservableCollection<global::vuapos.Presentation.Models.Order>(); }
         private object Activate_69_Collection() { return new global::System.Collections.ObjectModel.Collection<global::vuapos.Presentation.Models.Order>(); }
         private object Activate_70_Order() { return new global::vuapos.Presentation.Models.Order(); }
-        private object Activate_73_Staff() { return new global::vuapos.Presentation.Models.Staff(); }
-        private object Activate_74_Promotion() { return new global::vuapos.Presentation.Models.Promotion(); }
+        private object Activate_74_Staff() { return new global::vuapos.Presentation.Models.Staff(); }
+        private object Activate_75_Promotion() { return new global::vuapos.Presentation.Models.Promotion(); }
         private object Activate_76_ObservableCollection() { return new global::System.Collections.ObjectModel.ObservableCollection<global::vuapos.Presentation.Models.OrderDetail>(); }
         private object Activate_77_Collection() { return new global::System.Collections.ObjectModel.Collection<global::vuapos.Presentation.Models.OrderDetail>(); }
         private object Activate_78_OrderDetail() { return new global::vuapos.Presentation.Models.OrderDetail(); }
@@ -625,9 +625,9 @@ namespace vuapos.Presentation.vuapos_Presentation_XamlTypeInfo
         private void StaticInitializer_69_Collection() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::System.Collections.ObjectModel.Collection<global::vuapos.Presentation.Models.Order>).TypeHandle);
         private void StaticInitializer_70_Order() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::vuapos.Presentation.Models.Order).TypeHandle);
         private void StaticInitializer_72_Decimal() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::System.Decimal).TypeHandle);
-        private void StaticInitializer_73_Staff() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::vuapos.Presentation.Models.Staff).TypeHandle);
-        private void StaticInitializer_74_Promotion() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::vuapos.Presentation.Models.Promotion).TypeHandle);
-        private void StaticInitializer_75_Nullable() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::System.Nullable<global::System.Decimal>).TypeHandle);
+        private void StaticInitializer_73_Nullable() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::System.Nullable<global::System.Decimal>).TypeHandle);
+        private void StaticInitializer_74_Staff() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::vuapos.Presentation.Models.Staff).TypeHandle);
+        private void StaticInitializer_75_Promotion() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::vuapos.Presentation.Models.Promotion).TypeHandle);
         private void StaticInitializer_76_ObservableCollection() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::System.Collections.ObjectModel.ObservableCollection<global::vuapos.Presentation.Models.OrderDetail>).TypeHandle);
         private void StaticInitializer_77_Collection() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::System.Collections.ObjectModel.Collection<global::vuapos.Presentation.Models.OrderDetail>).TypeHandle);
         private void StaticInitializer_78_OrderDetail() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::vuapos.Presentation.Models.OrderDetail).TypeHandle);
@@ -1294,6 +1294,7 @@ namespace vuapos.Presentation.vuapos_Presentation_XamlTypeInfo
                 userType.AddMemberName("Order_Date");
                 userType.AddMemberName("Customer_Id");
                 userType.AddMemberName("Total_Amount");
+                userType.AddMemberName("Sub_Total");
                 userType.AddMemberName("Staff_Id");
                 userType.AddMemberName("customer");
                 userType.AddMemberName("staff");
@@ -1318,28 +1319,28 @@ namespace vuapos.Presentation.vuapos_Presentation_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 73:   //  vuapos.Presentation.Models.Staff
-                userType = new global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
-                userType.StaticInitializer = StaticInitializer_73_Staff;
-                userType.SetIsReturnTypeStub();
-                userType.SetIsLocalType();
-                xamlType = userType;
-                break;
-
-            case 74:   //  vuapos.Presentation.Models.Promotion
-                userType = new global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
-                userType.StaticInitializer = StaticInitializer_74_Promotion;
-                userType.SetIsReturnTypeStub();
-                userType.SetIsLocalType();
-                xamlType = userType;
-                break;
-
-            case 75:   //  System.Nullable`1<System.Decimal>
+            case 73:   //  System.Nullable`1<System.Decimal>
                 userType = new global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.ValueType"));
                 userType.SetBoxedType(GetXamlTypeByName("System.Decimal"));
                 userType.BoxInstance = userType.BoxType<global::System.Decimal>;
-                userType.StaticInitializer = StaticInitializer_75_Nullable;
+                userType.StaticInitializer = StaticInitializer_73_Nullable;
                 userType.SetIsReturnTypeStub();
+                xamlType = userType;
+                break;
+
+            case 74:   //  vuapos.Presentation.Models.Staff
+                userType = new global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType.StaticInitializer = StaticInitializer_74_Staff;
+                userType.SetIsReturnTypeStub();
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 75:   //  vuapos.Presentation.Models.Promotion
+                userType = new global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType.StaticInitializer = StaticInitializer_75_Promotion;
+                userType.SetIsReturnTypeStub();
+                userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
@@ -2543,607 +2544,617 @@ namespace vuapos.Presentation.vuapos_Presentation_XamlTypeInfo
             var that = (global::vuapos.Presentation.Models.Order)instance;
             that.Total_Amount = (global::System.Decimal)Value;
         }
-        private object get_80_Order_Staff_Id(object instance)
+        private object get_80_Order_Sub_Total(object instance)
+        {
+            var that = (global::vuapos.Presentation.Models.Order)instance;
+            return that.Sub_Total;
+        }
+        private void set_80_Order_Sub_Total(object instance, object Value)
+        {
+            var that = (global::vuapos.Presentation.Models.Order)instance;
+            that.Sub_Total = (global::System.Nullable<global::System.Decimal>)Value;
+        }
+        private object get_81_Order_Staff_Id(object instance)
         {
             var that = (global::vuapos.Presentation.Models.Order)instance;
             return that.Staff_Id;
         }
-        private void set_80_Order_Staff_Id(object instance, object Value)
+        private void set_81_Order_Staff_Id(object instance, object Value)
         {
             var that = (global::vuapos.Presentation.Models.Order)instance;
             that.Staff_Id = (global::System.String)Value;
         }
-        private object get_81_Order_customer(object instance)
+        private object get_82_Order_customer(object instance)
         {
             var that = (global::vuapos.Presentation.Models.Order)instance;
             return that.customer;
         }
-        private void set_81_Order_customer(object instance, object Value)
+        private void set_82_Order_customer(object instance, object Value)
         {
             var that = (global::vuapos.Presentation.Models.Order)instance;
             that.customer = (global::vuapos.Presentation.Models.Customer)Value;
         }
-        private object get_82_Order_staff(object instance)
+        private object get_83_Order_staff(object instance)
         {
             var that = (global::vuapos.Presentation.Models.Order)instance;
             return that.staff;
         }
-        private void set_82_Order_staff(object instance, object Value)
+        private void set_83_Order_staff(object instance, object Value)
         {
             var that = (global::vuapos.Presentation.Models.Order)instance;
             that.staff = (global::vuapos.Presentation.Models.Staff)Value;
         }
-        private object get_83_Order_promotion(object instance)
+        private object get_84_Order_promotion(object instance)
         {
             var that = (global::vuapos.Presentation.Models.Order)instance;
             return that.promotion;
         }
-        private void set_83_Order_promotion(object instance, object Value)
+        private void set_84_Order_promotion(object instance, object Value)
         {
             var that = (global::vuapos.Presentation.Models.Order)instance;
             that.promotion = (global::vuapos.Presentation.Models.Promotion)Value;
         }
-        private object get_84_Order_Order_status(object instance)
+        private object get_85_Order_Order_status(object instance)
         {
             var that = (global::vuapos.Presentation.Models.Order)instance;
             return that.Order_status;
         }
-        private void set_84_Order_Order_status(object instance, object Value)
+        private void set_85_Order_Order_status(object instance, object Value)
         {
             var that = (global::vuapos.Presentation.Models.Order)instance;
             that.Order_status = (global::System.String)Value;
         }
-        private object get_85_Order_Is_Cash(object instance)
+        private object get_86_Order_Is_Cash(object instance)
         {
             var that = (global::vuapos.Presentation.Models.Order)instance;
             return that.Is_Cash;
         }
-        private void set_85_Order_Is_Cash(object instance, object Value)
+        private void set_86_Order_Is_Cash(object instance, object Value)
         {
             var that = (global::vuapos.Presentation.Models.Order)instance;
             that.Is_Cash = (global::System.Boolean)Value;
         }
-        private object get_86_Order_Is_Use_Customer_Point(object instance)
+        private object get_87_Order_Is_Use_Customer_Point(object instance)
         {
             var that = (global::vuapos.Presentation.Models.Order)instance;
             return that.Is_Use_Customer_Point;
         }
-        private void set_86_Order_Is_Use_Customer_Point(object instance, object Value)
+        private void set_87_Order_Is_Use_Customer_Point(object instance, object Value)
         {
             var that = (global::vuapos.Presentation.Models.Order)instance;
             that.Is_Use_Customer_Point = (global::System.Boolean)Value;
         }
-        private object get_87_Order_Point_Discount(object instance)
+        private object get_88_Order_Point_Discount(object instance)
         {
             var that = (global::vuapos.Presentation.Models.Order)instance;
             return that.Point_Discount;
         }
-        private void set_87_Order_Point_Discount(object instance, object Value)
+        private void set_88_Order_Point_Discount(object instance, object Value)
         {
             var that = (global::vuapos.Presentation.Models.Order)instance;
             that.Point_Discount = (global::System.Nullable<global::System.Decimal>)Value;
         }
-        private object get_88_Order_OrderDetails(object instance)
+        private object get_89_Order_OrderDetails(object instance)
         {
             var that = (global::vuapos.Presentation.Models.Order)instance;
             return that.OrderDetails;
         }
-        private void set_88_Order_OrderDetails(object instance, object Value)
+        private void set_89_Order_OrderDetails(object instance, object Value)
         {
             var that = (global::vuapos.Presentation.Models.Order)instance;
             that.OrderDetails = (global::System.Collections.ObjectModel.ObservableCollection<global::vuapos.Presentation.Models.OrderDetail>)Value;
         }
-        private object get_89_OrderDetail_Order_item_id(object instance)
+        private object get_90_OrderDetail_Order_item_id(object instance)
         {
             var that = (global::vuapos.Presentation.Models.OrderDetail)instance;
             return that.Order_item_id;
         }
-        private void set_89_OrderDetail_Order_item_id(object instance, object Value)
+        private void set_90_OrderDetail_Order_item_id(object instance, object Value)
         {
             var that = (global::vuapos.Presentation.Models.OrderDetail)instance;
             that.Order_item_id = (global::System.Int32)Value;
         }
-        private object get_90_OrderDetail_Product_id(object instance)
+        private object get_91_OrderDetail_Product_id(object instance)
         {
             var that = (global::vuapos.Presentation.Models.OrderDetail)instance;
             return that.Product_id;
         }
-        private void set_90_OrderDetail_Product_id(object instance, object Value)
+        private void set_91_OrderDetail_Product_id(object instance, object Value)
         {
             var that = (global::vuapos.Presentation.Models.OrderDetail)instance;
             that.Product_id = (global::System.Int32)Value;
         }
-        private object get_91_OrderDetail_Price(object instance)
+        private object get_92_OrderDetail_Price(object instance)
         {
             var that = (global::vuapos.Presentation.Models.OrderDetail)instance;
             return that.Price;
         }
-        private void set_91_OrderDetail_Price(object instance, object Value)
+        private void set_92_OrderDetail_Price(object instance, object Value)
         {
             var that = (global::vuapos.Presentation.Models.OrderDetail)instance;
             that.Price = (global::System.Decimal)Value;
         }
-        private object get_92_OrderDetail_Quantity(object instance)
+        private object get_93_OrderDetail_Quantity(object instance)
         {
             var that = (global::vuapos.Presentation.Models.OrderDetail)instance;
             return that.Quantity;
         }
-        private void set_92_OrderDetail_Quantity(object instance, object Value)
+        private void set_93_OrderDetail_Quantity(object instance, object Value)
         {
             var that = (global::vuapos.Presentation.Models.OrderDetail)instance;
             that.Quantity = (global::System.Int32)Value;
         }
-        private object get_93_OrderDetail_Product(object instance)
+        private object get_94_OrderDetail_Product(object instance)
         {
             var that = (global::vuapos.Presentation.Models.OrderDetail)instance;
             return that.Product;
         }
-        private void set_93_OrderDetail_Product(object instance, object Value)
+        private void set_94_OrderDetail_Product(object instance, object Value)
         {
             var that = (global::vuapos.Presentation.Models.OrderDetail)instance;
             that.Product = (global::vuapos.Presentation.Models.Product)Value;
         }
-        private object get_94_Order_OrderDateFormatted(object instance)
+        private object get_95_Order_OrderDateFormatted(object instance)
         {
             var that = (global::vuapos.Presentation.Models.Order)instance;
             return that.OrderDateFormatted;
         }
-        private object get_95_CustomerPage_ViewModel(object instance)
+        private object get_96_CustomerPage_ViewModel(object instance)
         {
             var that = (global::vuapos.Presentation.Views.Customer.CustomerPage)instance;
             return that.ViewModel;
         }
-        private object get_96_EditCustomerDialog_Customer(object instance)
+        private object get_97_EditCustomerDialog_Customer(object instance)
         {
             var that = (global::vuapos.Presentation.Views.Customer.EditCustomerDialog)instance;
             return that.Customer;
         }
-        private object get_97_FrequentlyBoughtTogether_TotalGroups(object instance)
+        private object get_98_FrequentlyBoughtTogether_TotalGroups(object instance)
         {
             var that = (global::vuapos.Presentation.Views.FrequentlyBoughtTogether.FrequentlyBoughtTogether)instance;
             return that.TotalGroups;
         }
-        private void set_97_FrequentlyBoughtTogether_TotalGroups(object instance, object Value)
+        private void set_98_FrequentlyBoughtTogether_TotalGroups(object instance, object Value)
         {
             var that = (global::vuapos.Presentation.Views.FrequentlyBoughtTogether.FrequentlyBoughtTogether)instance;
             that.TotalGroups = (global::System.Int32)Value;
         }
-        private object get_98_FrequentlyBoughtTogether_Groups(object instance)
+        private object get_99_FrequentlyBoughtTogether_Groups(object instance)
         {
             var that = (global::vuapos.Presentation.Views.FrequentlyBoughtTogether.FrequentlyBoughtTogether)instance;
             return that.Groups;
         }
-        private void set_98_FrequentlyBoughtTogether_Groups(object instance, object Value)
+        private void set_99_FrequentlyBoughtTogether_Groups(object instance, object Value)
         {
             var that = (global::vuapos.Presentation.Views.FrequentlyBoughtTogether.FrequentlyBoughtTogether)instance;
             that.Groups = (global::System.Collections.Generic.List<global::vuapos.Presentation.Views.FrequentlyBoughtTogether.ProductGroup>)Value;
         }
-        private object get_99_ProductGroup_GroupItems(object instance)
+        private object get_100_ProductGroup_GroupItems(object instance)
         {
             var that = (global::vuapos.Presentation.Views.FrequentlyBoughtTogether.ProductGroup)instance;
             return that.GroupItems;
         }
-        private void set_99_ProductGroup_GroupItems(object instance, object Value)
+        private void set_100_ProductGroup_GroupItems(object instance, object Value)
         {
             var that = (global::vuapos.Presentation.Views.FrequentlyBoughtTogether.ProductGroup)instance;
             that.GroupItems = (global::System.Collections.Generic.List<global::vuapos.Presentation.Views.FrequentlyBoughtTogether.Product>)Value;
         }
-        private object get_100_Product_ProductId(object instance)
+        private object get_101_Product_ProductId(object instance)
         {
             var that = (global::vuapos.Presentation.Views.FrequentlyBoughtTogether.Product)instance;
             return that.ProductId;
         }
-        private void set_100_Product_ProductId(object instance, object Value)
+        private void set_101_Product_ProductId(object instance, object Value)
         {
             var that = (global::vuapos.Presentation.Views.FrequentlyBoughtTogether.Product)instance;
             that.ProductId = (global::System.String)Value;
         }
-        private object get_101_Product_ProductCode(object instance)
+        private object get_102_Product_ProductCode(object instance)
         {
             var that = (global::vuapos.Presentation.Views.FrequentlyBoughtTogether.Product)instance;
             return that.ProductCode;
         }
-        private void set_101_Product_ProductCode(object instance, object Value)
+        private void set_102_Product_ProductCode(object instance, object Value)
         {
             var that = (global::vuapos.Presentation.Views.FrequentlyBoughtTogether.Product)instance;
             that.ProductCode = (global::System.String)Value;
         }
-        private object get_102_Product_ProductName(object instance)
+        private object get_103_Product_ProductName(object instance)
         {
             var that = (global::vuapos.Presentation.Views.FrequentlyBoughtTogether.Product)instance;
             return that.ProductName;
         }
-        private void set_102_Product_ProductName(object instance, object Value)
+        private void set_103_Product_ProductName(object instance, object Value)
         {
             var that = (global::vuapos.Presentation.Views.FrequentlyBoughtTogether.Product)instance;
             that.ProductName = (global::System.String)Value;
         }
-        private object get_103_Product_CategoryId(object instance)
+        private object get_104_Product_CategoryId(object instance)
         {
             var that = (global::vuapos.Presentation.Views.FrequentlyBoughtTogether.Product)instance;
             return that.CategoryId;
         }
-        private void set_103_Product_CategoryId(object instance, object Value)
+        private void set_104_Product_CategoryId(object instance, object Value)
         {
             var that = (global::vuapos.Presentation.Views.FrequentlyBoughtTogether.Product)instance;
             that.CategoryId = (global::System.String)Value;
         }
-        private object get_104_Product_Price(object instance)
+        private object get_105_Product_Price(object instance)
         {
             var that = (global::vuapos.Presentation.Views.FrequentlyBoughtTogether.Product)instance;
             return that.Price;
         }
-        private void set_104_Product_Price(object instance, object Value)
+        private void set_105_Product_Price(object instance, object Value)
         {
             var that = (global::vuapos.Presentation.Views.FrequentlyBoughtTogether.Product)instance;
             that.Price = (global::System.Decimal)Value;
         }
-        private object get_105_Product_CostPrice(object instance)
+        private object get_106_Product_CostPrice(object instance)
         {
             var that = (global::vuapos.Presentation.Views.FrequentlyBoughtTogether.Product)instance;
             return that.CostPrice;
         }
-        private void set_105_Product_CostPrice(object instance, object Value)
+        private void set_106_Product_CostPrice(object instance, object Value)
         {
             var that = (global::vuapos.Presentation.Views.FrequentlyBoughtTogether.Product)instance;
             that.CostPrice = (global::System.Decimal)Value;
         }
-        private object get_106_Product_StockQuantity(object instance)
+        private object get_107_Product_StockQuantity(object instance)
         {
             var that = (global::vuapos.Presentation.Views.FrequentlyBoughtTogether.Product)instance;
             return that.StockQuantity;
         }
-        private void set_106_Product_StockQuantity(object instance, object Value)
+        private void set_107_Product_StockQuantity(object instance, object Value)
         {
             var that = (global::vuapos.Presentation.Views.FrequentlyBoughtTogether.Product)instance;
             that.StockQuantity = (global::System.Int32)Value;
         }
-        private object get_107_Product_Discount(object instance)
+        private object get_108_Product_Discount(object instance)
         {
             var that = (global::vuapos.Presentation.Views.FrequentlyBoughtTogether.Product)instance;
             return that.Discount;
         }
-        private void set_107_Product_Discount(object instance, object Value)
+        private void set_108_Product_Discount(object instance, object Value)
         {
             var that = (global::vuapos.Presentation.Views.FrequentlyBoughtTogether.Product)instance;
             that.Discount = (global::System.Decimal)Value;
         }
-        private object get_108_Product_ImagePath(object instance)
+        private object get_109_Product_ImagePath(object instance)
         {
             var that = (global::vuapos.Presentation.Views.FrequentlyBoughtTogether.Product)instance;
             return that.ImagePath;
         }
-        private void set_108_Product_ImagePath(object instance, object Value)
+        private void set_109_Product_ImagePath(object instance, object Value)
         {
             var that = (global::vuapos.Presentation.Views.FrequentlyBoughtTogether.Product)instance;
             that.ImagePath = (global::System.String)Value;
         }
-        private object get_109_Product_Category(object instance)
+        private object get_110_Product_Category(object instance)
         {
             var that = (global::vuapos.Presentation.Views.FrequentlyBoughtTogether.Product)instance;
             return that.Category;
         }
-        private void set_109_Product_Category(object instance, object Value)
+        private void set_110_Product_Category(object instance, object Value)
         {
             var that = (global::vuapos.Presentation.Views.FrequentlyBoughtTogether.Product)instance;
             that.Category = (global::vuapos.Presentation.Views.FrequentlyBoughtTogether.Category)Value;
         }
-        private object get_110_ProductGroup_OrderCount(object instance)
+        private object get_111_ProductGroup_OrderCount(object instance)
         {
             var that = (global::vuapos.Presentation.Views.FrequentlyBoughtTogether.ProductGroup)instance;
             return that.OrderCount;
         }
-        private void set_110_ProductGroup_OrderCount(object instance, object Value)
+        private void set_111_ProductGroup_OrderCount(object instance, object Value)
         {
             var that = (global::vuapos.Presentation.Views.FrequentlyBoughtTogether.ProductGroup)instance;
             that.OrderCount = (global::System.Int32)Value;
         }
-        private object get_111_ProductGroup_GroupName(object instance)
+        private object get_112_ProductGroup_GroupName(object instance)
         {
             var that = (global::vuapos.Presentation.Views.FrequentlyBoughtTogether.ProductGroup)instance;
             return that.GroupName;
         }
-        private void set_111_ProductGroup_GroupName(object instance, object Value)
+        private void set_112_ProductGroup_GroupName(object instance, object Value)
         {
             var that = (global::vuapos.Presentation.Views.FrequentlyBoughtTogether.ProductGroup)instance;
             that.GroupName = (global::System.String)Value;
         }
-        private object get_112_FrequentlyBoughtTogether_ViewModel(object instance)
+        private object get_113_FrequentlyBoughtTogether_ViewModel(object instance)
         {
             var that = (global::vuapos.Presentation.Views.FrequentlyBoughtTogether.FrequentlyBoughtTogether)instance;
             return that.ViewModel;
         }
-        private object get_113_LoginUserControl_ViewModel(object instance)
+        private object get_114_LoginUserControl_ViewModel(object instance)
         {
             var that = (global::vuapos.Presentation.Views.Login.LoginUserControl)instance;
             return that.ViewModel;
         }
-        private object get_114_NumberBox_Value(object instance)
+        private object get_115_NumberBox_Value(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
             return that.Value;
         }
-        private void set_114_NumberBox_Value(object instance, object Value)
+        private void set_115_NumberBox_Value(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
             that.Value = (global::System.Double)Value;
         }
-        private object get_115_NumberBox_Minimum(object instance)
+        private object get_116_NumberBox_Minimum(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
             return that.Minimum;
         }
-        private void set_115_NumberBox_Minimum(object instance, object Value)
+        private void set_116_NumberBox_Minimum(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
             that.Minimum = (global::System.Double)Value;
         }
-        private object get_116_NumberBox_SpinButtonPlacementMode(object instance)
+        private object get_117_NumberBox_SpinButtonPlacementMode(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
             return that.SpinButtonPlacementMode;
         }
-        private void set_116_NumberBox_SpinButtonPlacementMode(object instance, object Value)
+        private void set_117_NumberBox_SpinButtonPlacementMode(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
             that.SpinButtonPlacementMode = (global::Microsoft.UI.Xaml.Controls.NumberBoxSpinButtonPlacementMode)Value;
         }
-        private object get_117_NumberBox_SmallChange(object instance)
+        private object get_118_NumberBox_SmallChange(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
             return that.SmallChange;
         }
-        private void set_117_NumberBox_SmallChange(object instance, object Value)
+        private void set_118_NumberBox_SmallChange(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
             that.SmallChange = (global::System.Double)Value;
         }
-        private object get_118_NumberBox_AcceptsExpression(object instance)
+        private object get_119_NumberBox_AcceptsExpression(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
             return that.AcceptsExpression;
         }
-        private void set_118_NumberBox_AcceptsExpression(object instance, object Value)
+        private void set_119_NumberBox_AcceptsExpression(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
             that.AcceptsExpression = (global::System.Boolean)Value;
         }
-        private object get_119_NumberBox_Description(object instance)
+        private object get_120_NumberBox_Description(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
             return that.Description;
         }
-        private void set_119_NumberBox_Description(object instance, object Value)
+        private void set_120_NumberBox_Description(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
             that.Description = (global::System.Object)Value;
         }
-        private object get_120_NumberBox_Header(object instance)
+        private object get_121_NumberBox_Header(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
             return that.Header;
         }
-        private void set_120_NumberBox_Header(object instance, object Value)
+        private void set_121_NumberBox_Header(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
             that.Header = (global::System.Object)Value;
         }
-        private object get_121_NumberBox_HeaderTemplate(object instance)
+        private object get_122_NumberBox_HeaderTemplate(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
             return that.HeaderTemplate;
         }
-        private void set_121_NumberBox_HeaderTemplate(object instance, object Value)
+        private void set_122_NumberBox_HeaderTemplate(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
             that.HeaderTemplate = (global::Microsoft.UI.Xaml.DataTemplate)Value;
         }
-        private object get_122_NumberBox_IsWrapEnabled(object instance)
+        private object get_123_NumberBox_IsWrapEnabled(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
             return that.IsWrapEnabled;
         }
-        private void set_122_NumberBox_IsWrapEnabled(object instance, object Value)
+        private void set_123_NumberBox_IsWrapEnabled(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
             that.IsWrapEnabled = (global::System.Boolean)Value;
         }
-        private object get_123_NumberBox_LargeChange(object instance)
+        private object get_124_NumberBox_LargeChange(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
             return that.LargeChange;
         }
-        private void set_123_NumberBox_LargeChange(object instance, object Value)
+        private void set_124_NumberBox_LargeChange(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
             that.LargeChange = (global::System.Double)Value;
         }
-        private object get_124_NumberBox_Maximum(object instance)
+        private object get_125_NumberBox_Maximum(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
             return that.Maximum;
         }
-        private void set_124_NumberBox_Maximum(object instance, object Value)
+        private void set_125_NumberBox_Maximum(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
             that.Maximum = (global::System.Double)Value;
         }
-        private object get_125_NumberBox_NumberFormatter(object instance)
+        private object get_126_NumberBox_NumberFormatter(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
             return that.NumberFormatter;
         }
-        private void set_125_NumberBox_NumberFormatter(object instance, object Value)
+        private void set_126_NumberBox_NumberFormatter(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
             that.NumberFormatter = (global::Windows.Globalization.NumberFormatting.INumberFormatter2)Value;
         }
-        private object get_126_NumberBox_PlaceholderText(object instance)
+        private object get_127_NumberBox_PlaceholderText(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
             return that.PlaceholderText;
         }
-        private void set_126_NumberBox_PlaceholderText(object instance, object Value)
+        private void set_127_NumberBox_PlaceholderText(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
             that.PlaceholderText = (global::System.String)Value;
         }
-        private object get_127_NumberBox_PreventKeyboardDisplayOnProgrammaticFocus(object instance)
+        private object get_128_NumberBox_PreventKeyboardDisplayOnProgrammaticFocus(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
             return that.PreventKeyboardDisplayOnProgrammaticFocus;
         }
-        private void set_127_NumberBox_PreventKeyboardDisplayOnProgrammaticFocus(object instance, object Value)
+        private void set_128_NumberBox_PreventKeyboardDisplayOnProgrammaticFocus(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
             that.PreventKeyboardDisplayOnProgrammaticFocus = (global::System.Boolean)Value;
         }
-        private object get_128_NumberBox_SelectionFlyout(object instance)
+        private object get_129_NumberBox_SelectionFlyout(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
             return that.SelectionFlyout;
         }
-        private void set_128_NumberBox_SelectionFlyout(object instance, object Value)
+        private void set_129_NumberBox_SelectionFlyout(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
             that.SelectionFlyout = (global::Microsoft.UI.Xaml.Controls.Primitives.FlyoutBase)Value;
         }
-        private object get_129_NumberBox_SelectionHighlightColor(object instance)
+        private object get_130_NumberBox_SelectionHighlightColor(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
             return that.SelectionHighlightColor;
         }
-        private void set_129_NumberBox_SelectionHighlightColor(object instance, object Value)
+        private void set_130_NumberBox_SelectionHighlightColor(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
             that.SelectionHighlightColor = (global::Microsoft.UI.Xaml.Media.SolidColorBrush)Value;
         }
-        private object get_130_NumberBox_Text(object instance)
+        private object get_131_NumberBox_Text(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
             return that.Text;
         }
-        private void set_130_NumberBox_Text(object instance, object Value)
+        private void set_131_NumberBox_Text(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
             that.Text = (global::System.String)Value;
         }
-        private object get_131_NumberBox_TextReadingOrder(object instance)
+        private object get_132_NumberBox_TextReadingOrder(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
             return that.TextReadingOrder;
         }
-        private void set_131_NumberBox_TextReadingOrder(object instance, object Value)
+        private void set_132_NumberBox_TextReadingOrder(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
             that.TextReadingOrder = (global::Microsoft.UI.Xaml.TextReadingOrder)Value;
         }
-        private object get_132_NumberBox_ValidationMode(object instance)
+        private object get_133_NumberBox_ValidationMode(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
             return that.ValidationMode;
         }
-        private void set_132_NumberBox_ValidationMode(object instance, object Value)
+        private void set_133_NumberBox_ValidationMode(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.NumberBox)instance;
             that.ValidationMode = (global::Microsoft.UI.Xaml.Controls.NumberBoxValidationMode)Value;
         }
-        private object get_133_OrderDetailPage_ViewModel(object instance)
+        private object get_134_OrderDetailPage_ViewModel(object instance)
         {
             var that = (global::vuapos.Presentation.Views.OrderDetail.OrderDetailPage)instance;
             return that.ViewModel;
         }
-        private void set_133_OrderDetailPage_ViewModel(object instance, object Value)
+        private void set_134_OrderDetailPage_ViewModel(object instance, object Value)
         {
             var that = (global::vuapos.Presentation.Views.OrderDetail.OrderDetailPage)instance;
             that.ViewModel = (global::vuapos.Presentation.ViewModels.OrderDetailViewModel)Value;
         }
-        private object get_134_OrderPage_ViewModel(object instance)
+        private object get_135_OrderPage_ViewModel(object instance)
         {
             var that = (global::vuapos.Presentation.Views.Order.OrderPage)instance;
             return that.ViewModel;
         }
-        private void set_134_OrderPage_ViewModel(object instance, object Value)
+        private void set_135_OrderPage_ViewModel(object instance, object Value)
         {
             var that = (global::vuapos.Presentation.Views.Order.OrderPage)instance;
             that.ViewModel = (global::vuapos.Presentation.ViewModels.OrderViewModel)Value;
         }
-        private object get_135_EditProductDialog_SelectedCategory(object instance)
+        private object get_136_EditProductDialog_SelectedCategory(object instance)
         {
             var that = (global::vuapos.Presentation.Views.Product.EditProductDialog)instance;
             return that.SelectedCategory;
         }
-        private void set_135_EditProductDialog_SelectedCategory(object instance, object Value)
+        private void set_136_EditProductDialog_SelectedCategory(object instance, object Value)
         {
             var that = (global::vuapos.Presentation.Views.Product.EditProductDialog)instance;
             that.SelectedCategory = (global::vuapos.Presentation.Models.Category)Value;
         }
-        private object get_136_ProductPage_ViewModel(object instance)
+        private object get_137_ProductPage_ViewModel(object instance)
         {
             var that = (global::vuapos.Presentation.Views.Product.ProductPage)instance;
             return that.ViewModel;
         }
-        private object get_137_PromotionPage_ViewModel(object instance)
+        private object get_138_PromotionPage_ViewModel(object instance)
         {
             var that = (global::vuapos.Presentation.Views.Promotion.PromotionPage)instance;
             return that.ViewModel;
         }
-        private object get_138_ReportPage_ViewModel(object instance)
+        private object get_139_ReportPage_ViewModel(object instance)
         {
             var that = (global::vuapos.Presentation.Views.Report.ReportPage)instance;
             return that.ViewModel;
         }
-        private object get_139_StaffDialogContent_VM(object instance)
+        private object get_140_StaffDialogContent_VM(object instance)
         {
             var that = (global::vuapos.Presentation.Views.Staff.StaffDialogContent)instance;
             return that.VM;
         }
-        private object get_140_TreeViewNode_Children(object instance)
+        private object get_141_TreeViewNode_Children(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TreeViewNode)instance;
             return that.Children;
         }
-        private object get_141_TreeViewNode_Content(object instance)
+        private object get_142_TreeViewNode_Content(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TreeViewNode)instance;
             return that.Content;
         }
-        private void set_141_TreeViewNode_Content(object instance, object Value)
+        private void set_142_TreeViewNode_Content(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TreeViewNode)instance;
             that.Content = (global::System.Object)Value;
         }
-        private object get_142_TreeViewNode_Depth(object instance)
+        private object get_143_TreeViewNode_Depth(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TreeViewNode)instance;
             return that.Depth;
         }
-        private object get_143_TreeViewNode_HasChildren(object instance)
+        private object get_144_TreeViewNode_HasChildren(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TreeViewNode)instance;
             return that.HasChildren;
         }
-        private object get_144_TreeViewNode_HasUnrealizedChildren(object instance)
+        private object get_145_TreeViewNode_HasUnrealizedChildren(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TreeViewNode)instance;
             return that.HasUnrealizedChildren;
         }
-        private void set_144_TreeViewNode_HasUnrealizedChildren(object instance, object Value)
+        private void set_145_TreeViewNode_HasUnrealizedChildren(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TreeViewNode)instance;
             that.HasUnrealizedChildren = (global::System.Boolean)Value;
         }
-        private object get_145_TreeViewNode_IsExpanded(object instance)
+        private object get_146_TreeViewNode_IsExpanded(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TreeViewNode)instance;
             return that.IsExpanded;
         }
-        private void set_145_TreeViewNode_IsExpanded(object instance, object Value)
+        private void set_146_TreeViewNode_IsExpanded(object instance, object Value)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TreeViewNode)instance;
             that.IsExpanded = (global::System.Boolean)Value;
         }
-        private object get_146_TreeViewNode_Parent(object instance)
+        private object get_147_TreeViewNode_Parent(object instance)
         {
             var that = (global::Microsoft.UI.Xaml.Controls.TreeViewNode)instance;
             return that.Parent;
@@ -3703,429 +3714,435 @@ namespace vuapos.Presentation.vuapos_Presentation_XamlTypeInfo
                 xamlMember.Getter = get_79_Order_Total_Amount;
                 xamlMember.Setter = set_79_Order_Total_Amount;
                 break;
+            case "vuapos.Presentation.Models.Order.Sub_Total":
+                userType = (global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlUserType)GetXamlTypeByName("vuapos.Presentation.Models.Order");
+                xamlMember = new global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlMember(this, "Sub_Total", "System.Nullable`1<System.Decimal>");
+                xamlMember.Getter = get_80_Order_Sub_Total;
+                xamlMember.Setter = set_80_Order_Sub_Total;
+                break;
             case "vuapos.Presentation.Models.Order.Staff_Id":
                 userType = (global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlUserType)GetXamlTypeByName("vuapos.Presentation.Models.Order");
                 xamlMember = new global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlMember(this, "Staff_Id", "String");
-                xamlMember.Getter = get_80_Order_Staff_Id;
-                xamlMember.Setter = set_80_Order_Staff_Id;
+                xamlMember.Getter = get_81_Order_Staff_Id;
+                xamlMember.Setter = set_81_Order_Staff_Id;
                 break;
             case "vuapos.Presentation.Models.Order.customer":
                 userType = (global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlUserType)GetXamlTypeByName("vuapos.Presentation.Models.Order");
                 xamlMember = new global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlMember(this, "customer", "vuapos.Presentation.Models.Customer");
-                xamlMember.Getter = get_81_Order_customer;
-                xamlMember.Setter = set_81_Order_customer;
+                xamlMember.Getter = get_82_Order_customer;
+                xamlMember.Setter = set_82_Order_customer;
                 break;
             case "vuapos.Presentation.Models.Order.staff":
                 userType = (global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlUserType)GetXamlTypeByName("vuapos.Presentation.Models.Order");
                 xamlMember = new global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlMember(this, "staff", "vuapos.Presentation.Models.Staff");
-                xamlMember.Getter = get_82_Order_staff;
-                xamlMember.Setter = set_82_Order_staff;
+                xamlMember.Getter = get_83_Order_staff;
+                xamlMember.Setter = set_83_Order_staff;
                 break;
             case "vuapos.Presentation.Models.Order.promotion":
                 userType = (global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlUserType)GetXamlTypeByName("vuapos.Presentation.Models.Order");
                 xamlMember = new global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlMember(this, "promotion", "vuapos.Presentation.Models.Promotion");
-                xamlMember.Getter = get_83_Order_promotion;
-                xamlMember.Setter = set_83_Order_promotion;
+                xamlMember.Getter = get_84_Order_promotion;
+                xamlMember.Setter = set_84_Order_promotion;
                 break;
             case "vuapos.Presentation.Models.Order.Order_status":
                 userType = (global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlUserType)GetXamlTypeByName("vuapos.Presentation.Models.Order");
                 xamlMember = new global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlMember(this, "Order_status", "String");
-                xamlMember.Getter = get_84_Order_Order_status;
-                xamlMember.Setter = set_84_Order_Order_status;
+                xamlMember.Getter = get_85_Order_Order_status;
+                xamlMember.Setter = set_85_Order_Order_status;
                 break;
             case "vuapos.Presentation.Models.Order.Is_Cash":
                 userType = (global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlUserType)GetXamlTypeByName("vuapos.Presentation.Models.Order");
                 xamlMember = new global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlMember(this, "Is_Cash", "Boolean");
-                xamlMember.Getter = get_85_Order_Is_Cash;
-                xamlMember.Setter = set_85_Order_Is_Cash;
+                xamlMember.Getter = get_86_Order_Is_Cash;
+                xamlMember.Setter = set_86_Order_Is_Cash;
                 break;
             case "vuapos.Presentation.Models.Order.Is_Use_Customer_Point":
                 userType = (global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlUserType)GetXamlTypeByName("vuapos.Presentation.Models.Order");
                 xamlMember = new global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlMember(this, "Is_Use_Customer_Point", "Boolean");
-                xamlMember.Getter = get_86_Order_Is_Use_Customer_Point;
-                xamlMember.Setter = set_86_Order_Is_Use_Customer_Point;
+                xamlMember.Getter = get_87_Order_Is_Use_Customer_Point;
+                xamlMember.Setter = set_87_Order_Is_Use_Customer_Point;
                 break;
             case "vuapos.Presentation.Models.Order.Point_Discount":
                 userType = (global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlUserType)GetXamlTypeByName("vuapos.Presentation.Models.Order");
                 xamlMember = new global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlMember(this, "Point_Discount", "System.Nullable`1<System.Decimal>");
-                xamlMember.Getter = get_87_Order_Point_Discount;
-                xamlMember.Setter = set_87_Order_Point_Discount;
+                xamlMember.Getter = get_88_Order_Point_Discount;
+                xamlMember.Setter = set_88_Order_Point_Discount;
                 break;
             case "vuapos.Presentation.Models.Order.OrderDetails":
                 userType = (global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlUserType)GetXamlTypeByName("vuapos.Presentation.Models.Order");
                 xamlMember = new global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlMember(this, "OrderDetails", "System.Collections.ObjectModel.ObservableCollection`1<vuapos.Presentation.Models.OrderDetail>");
-                xamlMember.Getter = get_88_Order_OrderDetails;
-                xamlMember.Setter = set_88_Order_OrderDetails;
+                xamlMember.Getter = get_89_Order_OrderDetails;
+                xamlMember.Setter = set_89_Order_OrderDetails;
                 break;
             case "vuapos.Presentation.Models.OrderDetail.Order_item_id":
                 userType = (global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlUserType)GetXamlTypeByName("vuapos.Presentation.Models.OrderDetail");
                 xamlMember = new global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlMember(this, "Order_item_id", "Int32");
-                xamlMember.Getter = get_89_OrderDetail_Order_item_id;
-                xamlMember.Setter = set_89_OrderDetail_Order_item_id;
+                xamlMember.Getter = get_90_OrderDetail_Order_item_id;
+                xamlMember.Setter = set_90_OrderDetail_Order_item_id;
                 break;
             case "vuapos.Presentation.Models.OrderDetail.Product_id":
                 userType = (global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlUserType)GetXamlTypeByName("vuapos.Presentation.Models.OrderDetail");
                 xamlMember = new global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlMember(this, "Product_id", "Int32");
-                xamlMember.Getter = get_90_OrderDetail_Product_id;
-                xamlMember.Setter = set_90_OrderDetail_Product_id;
+                xamlMember.Getter = get_91_OrderDetail_Product_id;
+                xamlMember.Setter = set_91_OrderDetail_Product_id;
                 break;
             case "vuapos.Presentation.Models.OrderDetail.Price":
                 userType = (global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlUserType)GetXamlTypeByName("vuapos.Presentation.Models.OrderDetail");
                 xamlMember = new global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlMember(this, "Price", "System.Decimal");
-                xamlMember.Getter = get_91_OrderDetail_Price;
-                xamlMember.Setter = set_91_OrderDetail_Price;
+                xamlMember.Getter = get_92_OrderDetail_Price;
+                xamlMember.Setter = set_92_OrderDetail_Price;
                 break;
             case "vuapos.Presentation.Models.OrderDetail.Quantity":
                 userType = (global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlUserType)GetXamlTypeByName("vuapos.Presentation.Models.OrderDetail");
                 xamlMember = new global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlMember(this, "Quantity", "Int32");
-                xamlMember.Getter = get_92_OrderDetail_Quantity;
-                xamlMember.Setter = set_92_OrderDetail_Quantity;
+                xamlMember.Getter = get_93_OrderDetail_Quantity;
+                xamlMember.Setter = set_93_OrderDetail_Quantity;
                 break;
             case "vuapos.Presentation.Models.OrderDetail.Product":
                 userType = (global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlUserType)GetXamlTypeByName("vuapos.Presentation.Models.OrderDetail");
                 xamlMember = new global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlMember(this, "Product", "vuapos.Presentation.Models.Product");
-                xamlMember.Getter = get_93_OrderDetail_Product;
-                xamlMember.Setter = set_93_OrderDetail_Product;
+                xamlMember.Getter = get_94_OrderDetail_Product;
+                xamlMember.Setter = set_94_OrderDetail_Product;
                 break;
             case "vuapos.Presentation.Models.Order.OrderDateFormatted":
                 userType = (global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlUserType)GetXamlTypeByName("vuapos.Presentation.Models.Order");
                 xamlMember = new global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlMember(this, "OrderDateFormatted", "String");
-                xamlMember.Getter = get_94_Order_OrderDateFormatted;
+                xamlMember.Getter = get_95_Order_OrderDateFormatted;
                 xamlMember.SetIsReadOnly();
                 break;
             case "vuapos.Presentation.Views.Customer.CustomerPage.ViewModel":
                 userType = (global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlUserType)GetXamlTypeByName("vuapos.Presentation.Views.Customer.CustomerPage");
                 xamlMember = new global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlMember(this, "ViewModel", "vuapos.Presentation.ViewModels.CustomerViewModel");
-                xamlMember.Getter = get_95_CustomerPage_ViewModel;
+                xamlMember.Getter = get_96_CustomerPage_ViewModel;
                 xamlMember.SetIsReadOnly();
                 break;
             case "vuapos.Presentation.Views.Customer.EditCustomerDialog.Customer":
                 userType = (global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlUserType)GetXamlTypeByName("vuapos.Presentation.Views.Customer.EditCustomerDialog");
                 xamlMember = new global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlMember(this, "Customer", "vuapos.Presentation.Models.Customer");
-                xamlMember.Getter = get_96_EditCustomerDialog_Customer;
+                xamlMember.Getter = get_97_EditCustomerDialog_Customer;
                 xamlMember.SetIsReadOnly();
                 break;
             case "vuapos.Presentation.Views.FrequentlyBoughtTogether.FrequentlyBoughtTogether.TotalGroups":
                 userType = (global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlUserType)GetXamlTypeByName("vuapos.Presentation.Views.FrequentlyBoughtTogether.FrequentlyBoughtTogether");
                 xamlMember = new global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlMember(this, "TotalGroups", "Int32");
-                xamlMember.Getter = get_97_FrequentlyBoughtTogether_TotalGroups;
-                xamlMember.Setter = set_97_FrequentlyBoughtTogether_TotalGroups;
+                xamlMember.Getter = get_98_FrequentlyBoughtTogether_TotalGroups;
+                xamlMember.Setter = set_98_FrequentlyBoughtTogether_TotalGroups;
                 break;
             case "vuapos.Presentation.Views.FrequentlyBoughtTogether.FrequentlyBoughtTogether.Groups":
                 userType = (global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlUserType)GetXamlTypeByName("vuapos.Presentation.Views.FrequentlyBoughtTogether.FrequentlyBoughtTogether");
                 xamlMember = new global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlMember(this, "Groups", "System.Collections.Generic.List`1<vuapos.Presentation.Views.FrequentlyBoughtTogether.ProductGroup>");
-                xamlMember.Getter = get_98_FrequentlyBoughtTogether_Groups;
-                xamlMember.Setter = set_98_FrequentlyBoughtTogether_Groups;
+                xamlMember.Getter = get_99_FrequentlyBoughtTogether_Groups;
+                xamlMember.Setter = set_99_FrequentlyBoughtTogether_Groups;
                 break;
             case "vuapos.Presentation.Views.FrequentlyBoughtTogether.ProductGroup.GroupItems":
                 userType = (global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlUserType)GetXamlTypeByName("vuapos.Presentation.Views.FrequentlyBoughtTogether.ProductGroup");
                 xamlMember = new global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlMember(this, "GroupItems", "System.Collections.Generic.List`1<vuapos.Presentation.Views.FrequentlyBoughtTogether.Product>");
-                xamlMember.Getter = get_99_ProductGroup_GroupItems;
-                xamlMember.Setter = set_99_ProductGroup_GroupItems;
+                xamlMember.Getter = get_100_ProductGroup_GroupItems;
+                xamlMember.Setter = set_100_ProductGroup_GroupItems;
                 break;
             case "vuapos.Presentation.Views.FrequentlyBoughtTogether.Product.ProductId":
                 userType = (global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlUserType)GetXamlTypeByName("vuapos.Presentation.Views.FrequentlyBoughtTogether.Product");
                 xamlMember = new global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlMember(this, "ProductId", "String");
-                xamlMember.Getter = get_100_Product_ProductId;
-                xamlMember.Setter = set_100_Product_ProductId;
+                xamlMember.Getter = get_101_Product_ProductId;
+                xamlMember.Setter = set_101_Product_ProductId;
                 break;
             case "vuapos.Presentation.Views.FrequentlyBoughtTogether.Product.ProductCode":
                 userType = (global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlUserType)GetXamlTypeByName("vuapos.Presentation.Views.FrequentlyBoughtTogether.Product");
                 xamlMember = new global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlMember(this, "ProductCode", "String");
-                xamlMember.Getter = get_101_Product_ProductCode;
-                xamlMember.Setter = set_101_Product_ProductCode;
+                xamlMember.Getter = get_102_Product_ProductCode;
+                xamlMember.Setter = set_102_Product_ProductCode;
                 break;
             case "vuapos.Presentation.Views.FrequentlyBoughtTogether.Product.ProductName":
                 userType = (global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlUserType)GetXamlTypeByName("vuapos.Presentation.Views.FrequentlyBoughtTogether.Product");
                 xamlMember = new global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlMember(this, "ProductName", "String");
-                xamlMember.Getter = get_102_Product_ProductName;
-                xamlMember.Setter = set_102_Product_ProductName;
+                xamlMember.Getter = get_103_Product_ProductName;
+                xamlMember.Setter = set_103_Product_ProductName;
                 break;
             case "vuapos.Presentation.Views.FrequentlyBoughtTogether.Product.CategoryId":
                 userType = (global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlUserType)GetXamlTypeByName("vuapos.Presentation.Views.FrequentlyBoughtTogether.Product");
                 xamlMember = new global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlMember(this, "CategoryId", "String");
-                xamlMember.Getter = get_103_Product_CategoryId;
-                xamlMember.Setter = set_103_Product_CategoryId;
+                xamlMember.Getter = get_104_Product_CategoryId;
+                xamlMember.Setter = set_104_Product_CategoryId;
                 break;
             case "vuapos.Presentation.Views.FrequentlyBoughtTogether.Product.Price":
                 userType = (global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlUserType)GetXamlTypeByName("vuapos.Presentation.Views.FrequentlyBoughtTogether.Product");
                 xamlMember = new global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlMember(this, "Price", "System.Decimal");
-                xamlMember.Getter = get_104_Product_Price;
-                xamlMember.Setter = set_104_Product_Price;
+                xamlMember.Getter = get_105_Product_Price;
+                xamlMember.Setter = set_105_Product_Price;
                 break;
             case "vuapos.Presentation.Views.FrequentlyBoughtTogether.Product.CostPrice":
                 userType = (global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlUserType)GetXamlTypeByName("vuapos.Presentation.Views.FrequentlyBoughtTogether.Product");
                 xamlMember = new global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlMember(this, "CostPrice", "System.Decimal");
-                xamlMember.Getter = get_105_Product_CostPrice;
-                xamlMember.Setter = set_105_Product_CostPrice;
+                xamlMember.Getter = get_106_Product_CostPrice;
+                xamlMember.Setter = set_106_Product_CostPrice;
                 break;
             case "vuapos.Presentation.Views.FrequentlyBoughtTogether.Product.StockQuantity":
                 userType = (global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlUserType)GetXamlTypeByName("vuapos.Presentation.Views.FrequentlyBoughtTogether.Product");
                 xamlMember = new global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlMember(this, "StockQuantity", "Int32");
-                xamlMember.Getter = get_106_Product_StockQuantity;
-                xamlMember.Setter = set_106_Product_StockQuantity;
+                xamlMember.Getter = get_107_Product_StockQuantity;
+                xamlMember.Setter = set_107_Product_StockQuantity;
                 break;
             case "vuapos.Presentation.Views.FrequentlyBoughtTogether.Product.Discount":
                 userType = (global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlUserType)GetXamlTypeByName("vuapos.Presentation.Views.FrequentlyBoughtTogether.Product");
                 xamlMember = new global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlMember(this, "Discount", "System.Decimal");
-                xamlMember.Getter = get_107_Product_Discount;
-                xamlMember.Setter = set_107_Product_Discount;
+                xamlMember.Getter = get_108_Product_Discount;
+                xamlMember.Setter = set_108_Product_Discount;
                 break;
             case "vuapos.Presentation.Views.FrequentlyBoughtTogether.Product.ImagePath":
                 userType = (global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlUserType)GetXamlTypeByName("vuapos.Presentation.Views.FrequentlyBoughtTogether.Product");
                 xamlMember = new global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlMember(this, "ImagePath", "String");
-                xamlMember.Getter = get_108_Product_ImagePath;
-                xamlMember.Setter = set_108_Product_ImagePath;
+                xamlMember.Getter = get_109_Product_ImagePath;
+                xamlMember.Setter = set_109_Product_ImagePath;
                 break;
             case "vuapos.Presentation.Views.FrequentlyBoughtTogether.Product.Category":
                 userType = (global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlUserType)GetXamlTypeByName("vuapos.Presentation.Views.FrequentlyBoughtTogether.Product");
                 xamlMember = new global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlMember(this, "Category", "vuapos.Presentation.Views.FrequentlyBoughtTogether.Category");
-                xamlMember.Getter = get_109_Product_Category;
-                xamlMember.Setter = set_109_Product_Category;
+                xamlMember.Getter = get_110_Product_Category;
+                xamlMember.Setter = set_110_Product_Category;
                 break;
             case "vuapos.Presentation.Views.FrequentlyBoughtTogether.ProductGroup.OrderCount":
                 userType = (global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlUserType)GetXamlTypeByName("vuapos.Presentation.Views.FrequentlyBoughtTogether.ProductGroup");
                 xamlMember = new global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlMember(this, "OrderCount", "Int32");
-                xamlMember.Getter = get_110_ProductGroup_OrderCount;
-                xamlMember.Setter = set_110_ProductGroup_OrderCount;
+                xamlMember.Getter = get_111_ProductGroup_OrderCount;
+                xamlMember.Setter = set_111_ProductGroup_OrderCount;
                 break;
             case "vuapos.Presentation.Views.FrequentlyBoughtTogether.ProductGroup.GroupName":
                 userType = (global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlUserType)GetXamlTypeByName("vuapos.Presentation.Views.FrequentlyBoughtTogether.ProductGroup");
                 xamlMember = new global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlMember(this, "GroupName", "String");
-                xamlMember.Getter = get_111_ProductGroup_GroupName;
-                xamlMember.Setter = set_111_ProductGroup_GroupName;
+                xamlMember.Getter = get_112_ProductGroup_GroupName;
+                xamlMember.Setter = set_112_ProductGroup_GroupName;
                 break;
             case "vuapos.Presentation.Views.FrequentlyBoughtTogether.FrequentlyBoughtTogether.ViewModel":
                 userType = (global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlUserType)GetXamlTypeByName("vuapos.Presentation.Views.FrequentlyBoughtTogether.FrequentlyBoughtTogether");
                 xamlMember = new global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlMember(this, "ViewModel", "vuapos.Presentation.ViewModels.FrequentlyBoughtTogetherViewModel");
-                xamlMember.Getter = get_112_FrequentlyBoughtTogether_ViewModel;
+                xamlMember.Getter = get_113_FrequentlyBoughtTogether_ViewModel;
                 xamlMember.SetIsReadOnly();
                 break;
             case "vuapos.Presentation.Views.Login.LoginUserControl.ViewModel":
                 userType = (global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlUserType)GetXamlTypeByName("vuapos.Presentation.Views.Login.LoginUserControl");
                 xamlMember = new global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlMember(this, "ViewModel", "vuapos.Presentation.ViewModels.LoginViewModel");
-                xamlMember.Getter = get_113_LoginUserControl_ViewModel;
+                xamlMember.Getter = get_114_LoginUserControl_ViewModel;
                 xamlMember.SetIsReadOnly();
                 break;
             case "Microsoft.UI.Xaml.Controls.NumberBox.Value":
                 userType = (global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NumberBox");
                 xamlMember = new global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlMember(this, "Value", "Double");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_114_NumberBox_Value;
-                xamlMember.Setter = set_114_NumberBox_Value;
+                xamlMember.Getter = get_115_NumberBox_Value;
+                xamlMember.Setter = set_115_NumberBox_Value;
                 break;
             case "Microsoft.UI.Xaml.Controls.NumberBox.Minimum":
                 userType = (global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NumberBox");
                 xamlMember = new global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlMember(this, "Minimum", "Double");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_115_NumberBox_Minimum;
-                xamlMember.Setter = set_115_NumberBox_Minimum;
+                xamlMember.Getter = get_116_NumberBox_Minimum;
+                xamlMember.Setter = set_116_NumberBox_Minimum;
                 break;
             case "Microsoft.UI.Xaml.Controls.NumberBox.SpinButtonPlacementMode":
                 userType = (global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NumberBox");
                 xamlMember = new global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlMember(this, "SpinButtonPlacementMode", "Microsoft.UI.Xaml.Controls.NumberBoxSpinButtonPlacementMode");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_116_NumberBox_SpinButtonPlacementMode;
-                xamlMember.Setter = set_116_NumberBox_SpinButtonPlacementMode;
+                xamlMember.Getter = get_117_NumberBox_SpinButtonPlacementMode;
+                xamlMember.Setter = set_117_NumberBox_SpinButtonPlacementMode;
                 break;
             case "Microsoft.UI.Xaml.Controls.NumberBox.SmallChange":
                 userType = (global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NumberBox");
                 xamlMember = new global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlMember(this, "SmallChange", "Double");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_117_NumberBox_SmallChange;
-                xamlMember.Setter = set_117_NumberBox_SmallChange;
+                xamlMember.Getter = get_118_NumberBox_SmallChange;
+                xamlMember.Setter = set_118_NumberBox_SmallChange;
                 break;
             case "Microsoft.UI.Xaml.Controls.NumberBox.AcceptsExpression":
                 userType = (global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NumberBox");
                 xamlMember = new global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlMember(this, "AcceptsExpression", "Boolean");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_118_NumberBox_AcceptsExpression;
-                xamlMember.Setter = set_118_NumberBox_AcceptsExpression;
+                xamlMember.Getter = get_119_NumberBox_AcceptsExpression;
+                xamlMember.Setter = set_119_NumberBox_AcceptsExpression;
                 break;
             case "Microsoft.UI.Xaml.Controls.NumberBox.Description":
                 userType = (global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NumberBox");
                 xamlMember = new global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlMember(this, "Description", "Object");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_119_NumberBox_Description;
-                xamlMember.Setter = set_119_NumberBox_Description;
+                xamlMember.Getter = get_120_NumberBox_Description;
+                xamlMember.Setter = set_120_NumberBox_Description;
                 break;
             case "Microsoft.UI.Xaml.Controls.NumberBox.Header":
                 userType = (global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NumberBox");
                 xamlMember = new global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlMember(this, "Header", "Object");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_120_NumberBox_Header;
-                xamlMember.Setter = set_120_NumberBox_Header;
+                xamlMember.Getter = get_121_NumberBox_Header;
+                xamlMember.Setter = set_121_NumberBox_Header;
                 break;
             case "Microsoft.UI.Xaml.Controls.NumberBox.HeaderTemplate":
                 userType = (global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NumberBox");
                 xamlMember = new global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlMember(this, "HeaderTemplate", "Microsoft.UI.Xaml.DataTemplate");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_121_NumberBox_HeaderTemplate;
-                xamlMember.Setter = set_121_NumberBox_HeaderTemplate;
+                xamlMember.Getter = get_122_NumberBox_HeaderTemplate;
+                xamlMember.Setter = set_122_NumberBox_HeaderTemplate;
                 break;
             case "Microsoft.UI.Xaml.Controls.NumberBox.IsWrapEnabled":
                 userType = (global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NumberBox");
                 xamlMember = new global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlMember(this, "IsWrapEnabled", "Boolean");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_122_NumberBox_IsWrapEnabled;
-                xamlMember.Setter = set_122_NumberBox_IsWrapEnabled;
+                xamlMember.Getter = get_123_NumberBox_IsWrapEnabled;
+                xamlMember.Setter = set_123_NumberBox_IsWrapEnabled;
                 break;
             case "Microsoft.UI.Xaml.Controls.NumberBox.LargeChange":
                 userType = (global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NumberBox");
                 xamlMember = new global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlMember(this, "LargeChange", "Double");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_123_NumberBox_LargeChange;
-                xamlMember.Setter = set_123_NumberBox_LargeChange;
+                xamlMember.Getter = get_124_NumberBox_LargeChange;
+                xamlMember.Setter = set_124_NumberBox_LargeChange;
                 break;
             case "Microsoft.UI.Xaml.Controls.NumberBox.Maximum":
                 userType = (global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NumberBox");
                 xamlMember = new global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlMember(this, "Maximum", "Double");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_124_NumberBox_Maximum;
-                xamlMember.Setter = set_124_NumberBox_Maximum;
+                xamlMember.Getter = get_125_NumberBox_Maximum;
+                xamlMember.Setter = set_125_NumberBox_Maximum;
                 break;
             case "Microsoft.UI.Xaml.Controls.NumberBox.NumberFormatter":
                 userType = (global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NumberBox");
                 xamlMember = new global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlMember(this, "NumberFormatter", "Windows.Globalization.NumberFormatting.INumberFormatter2");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_125_NumberBox_NumberFormatter;
-                xamlMember.Setter = set_125_NumberBox_NumberFormatter;
+                xamlMember.Getter = get_126_NumberBox_NumberFormatter;
+                xamlMember.Setter = set_126_NumberBox_NumberFormatter;
                 break;
             case "Microsoft.UI.Xaml.Controls.NumberBox.PlaceholderText":
                 userType = (global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NumberBox");
                 xamlMember = new global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlMember(this, "PlaceholderText", "String");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_126_NumberBox_PlaceholderText;
-                xamlMember.Setter = set_126_NumberBox_PlaceholderText;
+                xamlMember.Getter = get_127_NumberBox_PlaceholderText;
+                xamlMember.Setter = set_127_NumberBox_PlaceholderText;
                 break;
             case "Microsoft.UI.Xaml.Controls.NumberBox.PreventKeyboardDisplayOnProgrammaticFocus":
                 userType = (global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NumberBox");
                 xamlMember = new global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlMember(this, "PreventKeyboardDisplayOnProgrammaticFocus", "Boolean");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_127_NumberBox_PreventKeyboardDisplayOnProgrammaticFocus;
-                xamlMember.Setter = set_127_NumberBox_PreventKeyboardDisplayOnProgrammaticFocus;
+                xamlMember.Getter = get_128_NumberBox_PreventKeyboardDisplayOnProgrammaticFocus;
+                xamlMember.Setter = set_128_NumberBox_PreventKeyboardDisplayOnProgrammaticFocus;
                 break;
             case "Microsoft.UI.Xaml.Controls.NumberBox.SelectionFlyout":
                 userType = (global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NumberBox");
                 xamlMember = new global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlMember(this, "SelectionFlyout", "Microsoft.UI.Xaml.Controls.Primitives.FlyoutBase");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_128_NumberBox_SelectionFlyout;
-                xamlMember.Setter = set_128_NumberBox_SelectionFlyout;
+                xamlMember.Getter = get_129_NumberBox_SelectionFlyout;
+                xamlMember.Setter = set_129_NumberBox_SelectionFlyout;
                 break;
             case "Microsoft.UI.Xaml.Controls.NumberBox.SelectionHighlightColor":
                 userType = (global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NumberBox");
                 xamlMember = new global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlMember(this, "SelectionHighlightColor", "Microsoft.UI.Xaml.Media.SolidColorBrush");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_129_NumberBox_SelectionHighlightColor;
-                xamlMember.Setter = set_129_NumberBox_SelectionHighlightColor;
+                xamlMember.Getter = get_130_NumberBox_SelectionHighlightColor;
+                xamlMember.Setter = set_130_NumberBox_SelectionHighlightColor;
                 break;
             case "Microsoft.UI.Xaml.Controls.NumberBox.Text":
                 userType = (global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NumberBox");
                 xamlMember = new global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlMember(this, "Text", "String");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_130_NumberBox_Text;
-                xamlMember.Setter = set_130_NumberBox_Text;
+                xamlMember.Getter = get_131_NumberBox_Text;
+                xamlMember.Setter = set_131_NumberBox_Text;
                 break;
             case "Microsoft.UI.Xaml.Controls.NumberBox.TextReadingOrder":
                 userType = (global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NumberBox");
                 xamlMember = new global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlMember(this, "TextReadingOrder", "Microsoft.UI.Xaml.TextReadingOrder");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_131_NumberBox_TextReadingOrder;
-                xamlMember.Setter = set_131_NumberBox_TextReadingOrder;
+                xamlMember.Getter = get_132_NumberBox_TextReadingOrder;
+                xamlMember.Setter = set_132_NumberBox_TextReadingOrder;
                 break;
             case "Microsoft.UI.Xaml.Controls.NumberBox.ValidationMode":
                 userType = (global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.NumberBox");
                 xamlMember = new global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlMember(this, "ValidationMode", "Microsoft.UI.Xaml.Controls.NumberBoxValidationMode");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_132_NumberBox_ValidationMode;
-                xamlMember.Setter = set_132_NumberBox_ValidationMode;
+                xamlMember.Getter = get_133_NumberBox_ValidationMode;
+                xamlMember.Setter = set_133_NumberBox_ValidationMode;
                 break;
             case "vuapos.Presentation.Views.OrderDetail.OrderDetailPage.ViewModel":
                 userType = (global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlUserType)GetXamlTypeByName("vuapos.Presentation.Views.OrderDetail.OrderDetailPage");
                 xamlMember = new global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlMember(this, "ViewModel", "vuapos.Presentation.ViewModels.OrderDetailViewModel");
-                xamlMember.Getter = get_133_OrderDetailPage_ViewModel;
-                xamlMember.Setter = set_133_OrderDetailPage_ViewModel;
+                xamlMember.Getter = get_134_OrderDetailPage_ViewModel;
+                xamlMember.Setter = set_134_OrderDetailPage_ViewModel;
                 break;
             case "vuapos.Presentation.Views.Order.OrderPage.ViewModel":
                 userType = (global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlUserType)GetXamlTypeByName("vuapos.Presentation.Views.Order.OrderPage");
                 xamlMember = new global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlMember(this, "ViewModel", "vuapos.Presentation.ViewModels.OrderViewModel");
-                xamlMember.Getter = get_134_OrderPage_ViewModel;
-                xamlMember.Setter = set_134_OrderPage_ViewModel;
+                xamlMember.Getter = get_135_OrderPage_ViewModel;
+                xamlMember.Setter = set_135_OrderPage_ViewModel;
                 break;
             case "vuapos.Presentation.Views.Product.EditProductDialog.SelectedCategory":
                 userType = (global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlUserType)GetXamlTypeByName("vuapos.Presentation.Views.Product.EditProductDialog");
                 xamlMember = new global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlMember(this, "SelectedCategory", "vuapos.Presentation.Models.Category");
-                xamlMember.Getter = get_135_EditProductDialog_SelectedCategory;
-                xamlMember.Setter = set_135_EditProductDialog_SelectedCategory;
+                xamlMember.Getter = get_136_EditProductDialog_SelectedCategory;
+                xamlMember.Setter = set_136_EditProductDialog_SelectedCategory;
                 break;
             case "vuapos.Presentation.Views.Product.ProductPage.ViewModel":
                 userType = (global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlUserType)GetXamlTypeByName("vuapos.Presentation.Views.Product.ProductPage");
                 xamlMember = new global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlMember(this, "ViewModel", "vuapos.Presentation.ViewModels.ProductViewModel");
-                xamlMember.Getter = get_136_ProductPage_ViewModel;
+                xamlMember.Getter = get_137_ProductPage_ViewModel;
                 xamlMember.SetIsReadOnly();
                 break;
             case "vuapos.Presentation.Views.Promotion.PromotionPage.ViewModel":
                 userType = (global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlUserType)GetXamlTypeByName("vuapos.Presentation.Views.Promotion.PromotionPage");
                 xamlMember = new global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlMember(this, "ViewModel", "vuapos.Presentation.ViewModels.PromotionViewModel");
-                xamlMember.Getter = get_137_PromotionPage_ViewModel;
+                xamlMember.Getter = get_138_PromotionPage_ViewModel;
                 xamlMember.SetIsReadOnly();
                 break;
             case "vuapos.Presentation.Views.Report.ReportPage.ViewModel":
                 userType = (global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlUserType)GetXamlTypeByName("vuapos.Presentation.Views.Report.ReportPage");
                 xamlMember = new global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlMember(this, "ViewModel", "vuapos.Presentation.ViewModels.ReportViewModel");
-                xamlMember.Getter = get_138_ReportPage_ViewModel;
+                xamlMember.Getter = get_139_ReportPage_ViewModel;
                 xamlMember.SetIsReadOnly();
                 break;
             case "vuapos.Presentation.Views.Staff.StaffDialogContent.VM":
                 userType = (global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlUserType)GetXamlTypeByName("vuapos.Presentation.Views.Staff.StaffDialogContent");
                 xamlMember = new global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlMember(this, "VM", "vuapos.Presentation.ViewModels.StaffViewModel");
-                xamlMember.Getter = get_139_StaffDialogContent_VM;
+                xamlMember.Getter = get_140_StaffDialogContent_VM;
                 xamlMember.SetIsReadOnly();
                 break;
             case "Microsoft.UI.Xaml.Controls.TreeViewNode.Children":
                 userType = (global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TreeViewNode");
                 xamlMember = new global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlMember(this, "Children", "System.Collections.Generic.IList`1<Microsoft.UI.Xaml.Controls.TreeViewNode>");
-                xamlMember.Getter = get_140_TreeViewNode_Children;
+                xamlMember.Getter = get_141_TreeViewNode_Children;
                 xamlMember.SetIsReadOnly();
                 break;
             case "Microsoft.UI.Xaml.Controls.TreeViewNode.Content":
                 userType = (global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TreeViewNode");
                 xamlMember = new global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlMember(this, "Content", "Object");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_141_TreeViewNode_Content;
-                xamlMember.Setter = set_141_TreeViewNode_Content;
+                xamlMember.Getter = get_142_TreeViewNode_Content;
+                xamlMember.Setter = set_142_TreeViewNode_Content;
                 break;
             case "Microsoft.UI.Xaml.Controls.TreeViewNode.Depth":
                 userType = (global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TreeViewNode");
                 xamlMember = new global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlMember(this, "Depth", "Int32");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_142_TreeViewNode_Depth;
+                xamlMember.Getter = get_143_TreeViewNode_Depth;
                 xamlMember.SetIsReadOnly();
                 break;
             case "Microsoft.UI.Xaml.Controls.TreeViewNode.HasChildren":
                 userType = (global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TreeViewNode");
                 xamlMember = new global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlMember(this, "HasChildren", "Boolean");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_143_TreeViewNode_HasChildren;
+                xamlMember.Getter = get_144_TreeViewNode_HasChildren;
                 xamlMember.SetIsReadOnly();
                 break;
             case "Microsoft.UI.Xaml.Controls.TreeViewNode.HasUnrealizedChildren":
                 userType = (global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TreeViewNode");
                 xamlMember = new global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlMember(this, "HasUnrealizedChildren", "Boolean");
-                xamlMember.Getter = get_144_TreeViewNode_HasUnrealizedChildren;
-                xamlMember.Setter = set_144_TreeViewNode_HasUnrealizedChildren;
+                xamlMember.Getter = get_145_TreeViewNode_HasUnrealizedChildren;
+                xamlMember.Setter = set_145_TreeViewNode_HasUnrealizedChildren;
                 break;
             case "Microsoft.UI.Xaml.Controls.TreeViewNode.IsExpanded":
                 userType = (global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TreeViewNode");
                 xamlMember = new global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlMember(this, "IsExpanded", "Boolean");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_145_TreeViewNode_IsExpanded;
-                xamlMember.Setter = set_145_TreeViewNode_IsExpanded;
+                xamlMember.Getter = get_146_TreeViewNode_IsExpanded;
+                xamlMember.Setter = set_146_TreeViewNode_IsExpanded;
                 break;
             case "Microsoft.UI.Xaml.Controls.TreeViewNode.Parent":
                 userType = (global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Microsoft.UI.Xaml.Controls.TreeViewNode");
                 xamlMember = new global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlMember(this, "Parent", "Microsoft.UI.Xaml.Controls.TreeViewNode");
-                xamlMember.Getter = get_146_TreeViewNode_Parent;
+                xamlMember.Getter = get_147_TreeViewNode_Parent;
                 xamlMember.SetIsReadOnly();
                 break;
             }

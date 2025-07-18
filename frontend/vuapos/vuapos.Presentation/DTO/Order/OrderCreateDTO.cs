@@ -11,6 +11,7 @@ namespace vuapos.Presentation.DTO.Order
         public required int customer_id { get; set; }   
         public required String staff_id { get; set; }
         public required Decimal total_amount { get; set; }
+        public  required Decimal sub_total { get; set; }
 
         public int? promotion_id { get; set; }
 

@@ -29,25 +29,25 @@
     <AppXManifest Include="D:\My Project\Clothing_Store\frontend\vuapos\vuapos.Presentation\bin\x64\Debug\net8.0-windows10.0.19041.0\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2025-07-05T10:47:19.795</Modified>
+      <Modified>2025-07-06T11:46:04.485</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="D:\My Project\Clothing_Store\frontend\vuapos\vuapos.Presentation\bin\x64\Debug\net8.0-windows10.0.19041.0\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2025-07-05T09:34:03.328</Modified>
+      <Modified>2025-07-05T14:19:34.340</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\My Project\Clothing_Store\frontend\vuapos\vuapos.Presentation\bin\x64\Debug\net8.0-windows10.0.19041.0\vuapos.Presentation.runtimeconfig.json">
       <PackagePath>vuapos.Presentation.runtimeconfig.json</PackagePath>
-      <Modified>2025-06-17T02:36:43.199</Modified>
+      <Modified>2025-07-05T14:19:33.624</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\My Project\Clothing_Store\frontend\vuapos\vuapos.Presentation\bin\x64\Debug\net8.0-windows10.0.19041.0\vuapos.Presentation.dll">
       <PackagePath>vuapos.Presentation.dll</PackagePath>
-      <Modified>2025-07-05T10:47:17.303</Modified>
+      <Modified>2025-07-06T11:46:01.079</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\My Project\Clothing_Store\frontend\vuapos\vuapos.Presentation\obj\x64\Debug\net8.0-windows10.0.19041.0\apphost.exe">
       <PackagePath>vuapos.Presentation.exe</PackagePath>
-      <Modified>2025-07-05T10:47:18.651</Modified>
+      <Modified>2025-07-06T11:46:02.476</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\MyPC\.nuget\packages\microsoft.windows.sdk.net.ref\10.0.19041.57\lib\net8.0\Microsoft.Windows.SDK.NET.dll">
       <PackagePath>Microsoft.Windows.SDK.NET.dll</PackagePath>
@@ -299,7 +299,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\My Project\Clothing_Store\frontend\vuapos\vuapos.Presentation\bin\x64\Debug\net8.0-windows10.0.19041.0\vuapos.Presentation.deps.json">
       <PackagePath>vuapos.Presentation.deps.json</PackagePath>
-      <Modified>2025-06-17T02:36:43.112</Modified>
+      <Modified>2025-07-05T14:19:33.547</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\My Project\Clothing_Store\frontend\vuapos\vuapos.Presentation\Assets\ava.jpg">
       <PackagePath>Assets\ava.jpg</PackagePath>

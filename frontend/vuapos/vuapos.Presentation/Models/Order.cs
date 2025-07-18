@@ -21,6 +21,10 @@ namespace vuapos.Presentation.Models
         public int Customer_Id { get; set; }
         [JsonPropertyName("totalAmount")]
         public decimal Total_Amount { get; set; }
+
+        [JsonPropertyName("subTotal")]
+        public decimal? Sub_Total { get; set; }
+
         public string Staff_Id { get; set; }
         public Customer customer { get; set; } = new Customer();
 

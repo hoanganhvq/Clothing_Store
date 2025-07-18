@@ -44,6 +44,8 @@ public class OrderController {
     public ResponseEntity<OrderResponse> createOrder(
             @Valid @RequestBody OrderRequest orderRequest) {
             System.out.println("Call to controller");
+
+            System.out.println("order reqauest: "+  orderRequest);
             return ResponseEntity.status(HttpStatus.CREATED)
                     .body(orderService.addOrder(orderRequest));
     }
@@ -97,10 +99,10 @@ public class OrderController {
             return ResponseEntity.ok(orderResponse);
     }
 
-    @PutMapping("/{id}/send-email")
-    public void sendEmail(
+    @PostMapping("/{id}/send-email")
+    public ResponseEntity<String> sendEmail(
         @PathVariable int id
     ){
-        orderService.sendEmail(id);
+        return ResponseEntity.ok(orderService.sendEmail(id));
     }
 }

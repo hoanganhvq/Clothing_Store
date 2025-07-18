@@ -29,6 +29,10 @@ public class OrderRequest {
     @NotNull(message = "Total amount is required")
     private BigDecimal totalAmount;
 
+    @JsonProperty("sub_total")
+    @NotNull(message = "Total amount is required")
+    private BigDecimal subTotal;
+
     @PastOrPresent(message = "Order date cannot be in the future")
     private LocalDateTime orderDate = LocalDateTime.now();
 

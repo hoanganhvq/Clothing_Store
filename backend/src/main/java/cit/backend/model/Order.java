@@ -31,11 +31,16 @@ public class Order {
     @Column(name = "status")
     private OrderStatus status;
 
+    @Column(name = "subTotal")
+    private BigDecimal subTotal;
+
     @Column(name = "totalAmount")
     private BigDecimal totalAmount;
 
     @Column(name = "is_cash" )
     private Boolean isCash;
+
+
 
     @Column(name = "is_use_customer_point")
     private Boolean isUseCustomerPoint;
