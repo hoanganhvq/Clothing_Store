@@ -1,0 +1,13 @@
+version: '3'
+services:
+  springboot-backend:
+    build:
+      context: ./backend  # Đường dẫn tới thư mục chứa Dockerfile cho Spring Boot
+    ports:
+      - "8080:8080"  # Mở cổng 8080 cho Spring Boot
+
+  fastapi-ai:
+    build:
+      context: ./AI  # Đường dẫn tới thư mục chứa Dockerfile cho FastAPI
+    ports:
+      - "5000:5000"  # Mở cổng 5000 cho FastAPI
