@@ -7,7 +7,9 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.*;
 import org.springframework.data.repository.query.Param;
 
+import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 public interface ProductRepository extends JpaRepository<Product, Integer> {
     Page<Product> findByNameContainingIgnoreCase(String name, Pageable pageable);
@@ -17,4 +19,6 @@ public interface ProductRepository extends JpaRepository<Product, Integer> {
     @Transactional
     @Query("UPDATE Product p SET p.stockQuantity = p.stockQuantity - :point WHERE p.id = :productId")
     void updatePointById(@Param("productId") int productId, @Param("point") int point);
+
+    List<Product> findAllByProductCode(Set<String> productCodes);
 }

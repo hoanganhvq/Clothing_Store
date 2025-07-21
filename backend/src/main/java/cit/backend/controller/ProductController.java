@@ -1,6 +1,7 @@
 package cit.backend.controller;
 
 import cit.backend.dto.request.ImportProductDTO;
+import cit.backend.dto.request.ProductImportDTOList;
 import cit.backend.dto.request.ProductRequest;
 import cit.backend.dto.request.ProductUpdateRequest;
 import cit.backend.dto.respone.PageProductResponse;
@@ -50,9 +51,9 @@ public class ProductController {
             return ResponseEntity.ok(productService.getProducts(page, search));
     }
 
-    @PostMapping("impport")
-    public void importProduct(@RequestBody ProductRequest productRequest) {
-
+    @PostMapping("import")
+    public ResponseEntity<List<ProductResponse>> importProduct(@RequestBody ProductImportDTOList productRequest) {
+        return  ResponseEntity.ok(productService.importProduct(productRequest.items));
     }
 
     @PostMapping
