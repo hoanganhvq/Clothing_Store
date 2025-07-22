@@ -46,12 +46,13 @@ public class ProductService {
 
     @Value("${spring.mail.username}")
     private String userEmail;
+
     public List<ProductResponse> getAll() {
         return productMapper.toProductResponseList(productRepository.findAll());
     }
 
     public ProductResponse getProductById(int id) {
-        Product product = productRepository.findById(id).orElseThrow(()-> new ProductNotFoundException("Product not found"));
+        Product product = productRepository.findById(id).orElseThrow(() -> new ProductNotFoundException("Product not found"));
 
         return productMapper.toResponse(product);
     }
@@ -70,56 +71,54 @@ public class ProductService {
     }
 
 
+    public ProductResponse updateProduct(int id, ProductUpdateRequest productRequest) {
+        Product product = productRepository.findById(id).orElseThrow(() -> new ProductNotFoundException("Product not found"));
 
-
-    public ProductResponse updateProduct (int id, ProductUpdateRequest productRequest) {
-        Product product = productRepository.findById(id).orElseThrow(()->new ProductNotFoundException("Product not found"));
-
-        if(productRequest.getName() !=null) {
+        if (productRequest.getName() != null) {
             product.setName(productRequest.getName());
         }
-        if(productRequest.getPrice() != null)
-        {
+        if (productRequest.getPrice() != null) {
             product.setPrice(productRequest.getPrice());
         }
-        if(productRequest.getDescription() !=null) {
+        if (productRequest.getDescription() != null) {
             product.setDescription(productRequest.getDescription());
         }
-        if(productRequest.getImageUrl() !=null) {
+        if (productRequest.getImageUrl() != null) {
             product.setImageUrl(productRequest.getImageUrl());
         }
-        if(productRequest.getCategoryId() !=null) {
-            Category category =  categoryRepository.findById(productRequest.getCategoryId())
+        if (productRequest.getCategoryId() != null) {
+            Category category = categoryRepository.findById(productRequest.getCategoryId())
                     .orElseThrow(() -> new CategoryNotFoundException("Category not found"));
 
             product.setCategory(category);
         }
-        if(productRequest.getProductCode() !=null) {
+        if (productRequest.getProductCode() != null) {
             product.setProductCode(productRequest.getProductCode());
         }
-        if(productRequest.getCostPrice()!=null) {
+        if (productRequest.getCostPrice() != null) {
             product.setCostPrice(productRequest.getCostPrice());
         }
-        if(productRequest.getStockQuantity()!=null) {
+        if (productRequest.getStockQuantity() != null) {
 
             product.setStockQuantity(productRequest.getStockQuantity());
 
-            if(productRequest.getStockQuantity()<=5){
+            if (productRequest.getStockQuantity() <= 5) {
                 sendLowWarningQuantityEmail(userEmail, product.getName(), productRequest.getStockQuantity());
             }
         }
-        if(productRequest.getSize() !=null) {
+        if (productRequest.getSize() != null) {
             product.setSize(productRequest.getSize());
         }
-        if(productRequest.getColor() !=null) {
+        if (productRequest.getColor() != null) {
             product.setColor(productRequest.getColor());
         }
 
 
         return productMapper.toResponse(productRepository.save(product));
     }
-    public String sendLowWarningQuantityEmail(String to, String productName, int quantity){
-        try{
+
+    public String sendLowWarningQuantityEmail(String to, String productName, int quantity) {
+        try {
             System.out.println("Send email warning");
             String subject = "Warning: Low Product Quantity";
 
@@ -132,29 +131,28 @@ public class ProductService {
 
             emailService.sendEmail(to, subject, content);
             return "Success to send email warning";
-        }catch(MessagingException e){
+        } catch (MessagingException e) {
             e.printStackTrace();
             return "Fail to send low warning quantity";
         }
     }
 
-    public void deleteProduct(int id){
-        Product product = productRepository.findById(id).orElseThrow(()-> new ProductNotFoundException("Product not found"));
-         productRepository.delete(product);
+    public void deleteProduct(int id) {
+        Product product = productRepository.findById(id).orElseThrow(() -> new ProductNotFoundException("Product not found"));
+        productRepository.delete(product);
     }
 
 
-
-    public PageResponse<ProductResponse> getProducts(int page, String search){
+    public PageResponse<ProductResponse> getProducts(int page, String search) {
         // Xác định số lượng sản phẩm mỗi trang, ví dụ 5 sản phẩm mỗi trang
         Pageable pageable = PageRequest.of(page - 1, 5);
         Page<Product> productPage;
 
-        if(search != null && !search.isEmpty()){
+        if (search != null && !search.isEmpty()) {
             //Neu co tham so tim kiem
             productPage = productRepository.findByNameContainingIgnoreCase(search, pageable);
 
-        } else{
+        } else {
             productPage = productRepository.findAll(pageable);
         }
         List<ProductResponse> content = productPage.getContent()
@@ -173,113 +171,156 @@ public class ProductService {
     }
 
 
-
-    public ProductResponse searchProduct(String productCode){
+    public ProductResponse searchProduct(String productCode) {
         if (productCode == null || productCode.trim().isEmpty()) {
             throw new IllegalArgumentException("Product code must not be null or empty.");
         }
 
         Product product = productRepository.findByProductCode(productCode)
-                .orElseThrow(()->new ProductNotFoundException("Not found product "+ productCode));
+                .orElseThrow(() -> new ProductNotFoundException("Not found product " + productCode));
 
 
         return productMapper.toResponse(product);
     }
 
-    public void  importProduct (ImportProductDTO importProductDTO){
+    public void importProduct(ImportProductDTO importProductDTO) {
 
     }
 
     @Getter
     @Setter
-    public class ImportError{
+    public class ImportError {
         private String product_code;
-        private ProductResponse inputData;
+        private Object inputData;
         private String error;
+        public ImportError(Object inputData, String error) {
+            this.inputData = inputData;
+            this.error = error;
+        }
 
     }
+
     @Getter
     @Setter
-    public class ImportSummary{
+    public class ImportSummary {
         private Integer createdCount;
         private Integer updatedCount;
         private Integer errorCount;
+        public ImportSummary(int createdCount, int updatedCount, int errorCount) {
+            this.createdCount = createdCount;
+            this.updatedCount = updatedCount;
+            this.errorCount = errorCount;
+        }
+
     }
 
     @Getter
     @Setter
-    public class ImportResult{
-        List<ProductResponse> created ;
+    public class ImportResult {
+        List<ProductResponse> created;
         List<ProductResponse> updated;
-        List<ProductRequest> error ;
-        ImportSummary summary ;
+        List<ImportError> error;
+        ImportSummary summary;
+        public ImportResult() {
+            this.created = new ArrayList<>();
+            this.updated = new ArrayList<>();
+            this.error = new ArrayList<>();
+            this.summary = new ImportSummary(0, 0, 0);
+        }
+
+        // Helper methods to add to lists and increment summary counts
+        public void addCreated(ProductResponse product) {
+            this.created.add(product);
+            this.summary.createdCount++;
+        }
+
+        public void addUpdated(ProductResponse product) {
+            this.updated.add(product);
+            this.summary.updatedCount++;
+        }
+
+        public void addError(ImportError error) {
+            this.error.add(error);
+            this.summary.errorCount++;
+        }
+
     }
 
-//    public ImportResult importProduct(List<ProductRequest> importProductDTO)
-//    {
-//        ImportResult result = new ImportResult();
-//
-//        if(importProductDTO == null || importProductDTO.isEmpty()){
-//            logger.info("Import product failed");
-//            return result;
-//        }
-//
-//        Set<String> productCodes = new HashSet<>();
-//
-//        for(ProductRequest productRequest : importProductDTO){
-//            if(productRequest.getProductCode() != null || !productRequest.getProductCode().trim().isEmpty()){
-//                productCodes.add(productRequest.getProductCode());
-//            }
-//        }
-//
-//
-//        if(productCodes == null || productCodes.isEmpty()){
-//            logger.warning("Import data contains no valid product codes.");
-//            for(ProductRequest productRequest : importProductDTO){
-//                result.error.add(productRequest);
-//                result.summary.errorCount+=1;
-//            }
-//            return result;
-//        }
-//
-//        try{
-//            List<Product> existingProducts = productRepository.findAllByProductCode(productCodes);
-//            Map<String, Product>  existingProductMap = new HashMap<>();
-//            for(Product product : existingProducts){
-//                existingProductMap.put(product.getProductCode(), product);
-//            }
-//
-//            List<Product> productsToCreate = new ArrayList<>();
-//            List<Product> productsToUpdate = new ArrayList<>();
-//
-//            for(ProductRequest productRequest : importProductDTO){
-//                if(productRequest.getProductCode() == null || !productRequest.getProductCode().trim().isEmpty()){
-//                    result.error.add(productRequest);
-//                    result.summary.errorCount+=1;
-//                    continue;
-//                }
-//
-//                Product existingProduct = existingProductMap.get(productRequest.getProductCode());
-//                if(existingProduct != null){
-//                    int newQuantity = existingProduct.getStockQuantity() + productRequest.getStockQuantity();
-//                    existingProduct.setStockQuantity(newQuantity);
-//                    productsToUpdate.add(existingProduct);
-//;                } else{
-//                    try{
-//                        Product productAdd = productMapper.toModel(productRequest);
-//                        productRepository.save(productAdd);
-//
-//                        Category category  = categoryRepository.findById(productRequest.getCategoryId()).orElseThrow(()->new CategoryNotFoundException("Category not found"));
-//                        result.error.add(productRequest);
-//                        result.summary.errorCount+=1;
-//                        continue;
-//                    }
-//                    productsToCreate.add(ProductAdd);
-//                }
-//
-//            }
-//        }catch(Exception e){
-//
-//        }
+    public ImportResult importProducts(List<ProductRequest> productsToImport) {
+        ImportResult results = new ImportResult();
+
+        if (productsToImport == null || productsToImport.isEmpty()) {
+            logger.warning("No products provided for import.");
+            return results;
+        }
+
+        List<String> productCodes = new ArrayList<>();
+        for (ProductRequest product : productsToImport) {
+            if (product.getProductCode() != null) {
+                productCodes.add(product.getProductCode());
+            }
+        }
+
+        if (productCodes.isEmpty()) {
+            logger.warning("Import data contains no valid product codes.");
+            return results;
+        }
+
+        List<Product> existingProducts = productRepository.findByProductCodeIn(productCodes);
+        Map<String, Product> existingProductMap = new HashMap<>();
+        for (Product product : existingProducts) {
+            existingProductMap.put(product.getProductCode(), product);
+        }
+
+        List<Product> productsToCreate = new ArrayList<>();
+        List<Product> productsToUpdate = new ArrayList<>();
+
+        for (ProductRequest productDto : productsToImport) {
+            if (productDto.getProductCode() == null) {
+                logger.warning(String.format("Skipping item due to missing product_code: %s", productDto.getProductCode()));
+                results.addError(new ImportError(productDto, "Missing product_code"));
+                continue;
+            }
+
+            Product existingProduct = existingProductMap.get(productDto.getProductCode());
+
+            if (existingProduct != null) {
+                int newQuantity = existingProduct.getStockQuantity() + productDto.getStockQuantity();
+                existingProduct.setStockQuantity(newQuantity);
+                productsToUpdate.add(existingProduct);
+            } else {
+                Product newProduct = new Product();
+                newProduct.setName(productDto.getName());
+                newProduct.setProductCode(productDto.getProductCode());
+                newProduct.setPrice(productDto.getPrice());
+                newProduct.setCostPrice(productDto.getCostPrice());
+                newProduct.setStockQuantity(productDto.getStockQuantity());
+                productsToCreate.add(newProduct);
+            }
+        }
+
+        try {
+            if (!productsToCreate.isEmpty()) {
+                productRepository.saveAll(productsToCreate);
+                for (Product product : productsToCreate) {
+                    results.addCreated(productMapper.toResponse(product));
+                }
+            }
+
+            if (!productsToUpdate.isEmpty()) {
+                productRepository.saveAll(productsToUpdate);
+                for (Product product : productsToUpdate) {
+                    results.addUpdated(productMapper.toResponse(product));
+                }
+            }
+
+        } catch (Exception e) {
+            logger.warning("Error during product import");
+            results.addError(new ImportError("Transaction Level", e.getMessage()));
+        }
+
+
+        return results;
+    }
 
 }

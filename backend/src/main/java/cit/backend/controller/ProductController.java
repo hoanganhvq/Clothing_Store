@@ -51,9 +51,10 @@ public class ProductController {
             return ResponseEntity.ok(productService.getProducts(page, search));
     }
 
-    @PostMapping("import")
-    public ResponseEntity<List<ProductResponse>> importProduct(@RequestBody ProductImportDTOList productRequest) {
-        return  ResponseEntity.ok(productService.importProduct(productRequest.items));
+    @PostMapping("/import")
+    public ResponseEntity<ProductService.ImportResult> importProduct(@RequestBody List<ProductRequest> productRequest) {
+        return  ResponseEntity.ok(productService.importProducts(productRequest));
+
     }
 
     @PostMapping
@@ -79,8 +80,5 @@ public class ProductController {
             return ResponseEntity.noContent().build();
     }
 
-    @PostMapping("/import")
-    public void importProduct (ImportProductDTO importProductDTO){
-        productService.importProduct(importProductDTO);
-    }
+
 }
