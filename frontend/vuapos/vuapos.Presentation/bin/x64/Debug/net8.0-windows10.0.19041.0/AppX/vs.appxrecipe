@@ -29,7 +29,7 @@
     <AppXManifest Include="D:\My Project\Clothing_Store\frontend\vuapos\vuapos.Presentation\bin\x64\Debug\net8.0-windows10.0.19041.0\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2025-07-06T11:46:04.485</Modified>
+      <Modified>2025-07-23T14:48:10.161</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
@@ -43,11 +43,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\My Project\Clothing_Store\frontend\vuapos\vuapos.Presentation\bin\x64\Debug\net8.0-windows10.0.19041.0\vuapos.Presentation.dll">
       <PackagePath>vuapos.Presentation.dll</PackagePath>
-      <Modified>2025-07-06T11:46:01.079</Modified>
+      <Modified>2025-07-23T14:48:08.336</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\My Project\Clothing_Store\frontend\vuapos\vuapos.Presentation\obj\x64\Debug\net8.0-windows10.0.19041.0\apphost.exe">
       <PackagePath>vuapos.Presentation.exe</PackagePath>
-      <Modified>2025-07-06T11:46:02.476</Modified>
+      <Modified>2025-07-23T14:48:09.025</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\MyPC\.nuget\packages\microsoft.windows.sdk.net.ref\10.0.19041.57\lib\net8.0\Microsoft.Windows.SDK.NET.dll">
       <PackagePath>Microsoft.Windows.SDK.NET.dll</PackagePath>

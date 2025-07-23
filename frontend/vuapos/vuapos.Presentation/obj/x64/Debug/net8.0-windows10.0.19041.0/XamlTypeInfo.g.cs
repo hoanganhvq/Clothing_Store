@@ -226,7 +226,7 @@ namespace vuapos.Presentation.vuapos_Presentation_XamlTypeInfo
         
         private void InitTypeTables()
         {
-            _typeNameTable = new string[124];
+            _typeNameTable = new string[123];
             _typeNameTable[0] = "Microsoft.UI.Xaml.Controls.XamlControlsResources";
             _typeNameTable[1] = "Microsoft.UI.Xaml.ResourceDictionary";
             _typeNameTable[2] = "Object";
@@ -316,43 +316,42 @@ namespace vuapos.Presentation.vuapos_Presentation_XamlTypeInfo
             _typeNameTable[86] = "vuapos.Presentation.Views.FrequentlyBoughtTogether.ProductGroup";
             _typeNameTable[87] = "System.Collections.Generic.List`1<vuapos.Presentation.Views.FrequentlyBoughtTogether.Product>";
             _typeNameTable[88] = "vuapos.Presentation.Views.FrequentlyBoughtTogether.Product";
-            _typeNameTable[89] = "vuapos.Presentation.Views.FrequentlyBoughtTogether.Category";
-            _typeNameTable[90] = "vuapos.Presentation.ViewModels.FrequentlyBoughtTogetherViewModel";
-            _typeNameTable[91] = "vuapos.Presentation.Views.Login.LoginUserControl";
-            _typeNameTable[92] = "vuapos.Presentation.ViewModels.LoginViewModel";
-            _typeNameTable[93] = "vuapos.Presentation.Views.Module1.Page1Content";
-            _typeNameTable[94] = "vuapos.Presentation.Views.Module1.Page2Content";
-            _typeNameTable[95] = "Microsoft.UI.Xaml.Controls.NumberBox";
-            _typeNameTable[96] = "Microsoft.UI.Xaml.Controls.NumberBoxSpinButtonPlacementMode";
-            _typeNameTable[97] = "Windows.Globalization.NumberFormatting.INumberFormatter2";
-            _typeNameTable[98] = "Microsoft.UI.Xaml.Controls.Primitives.FlyoutBase";
-            _typeNameTable[99] = "Microsoft.UI.Xaml.Media.SolidColorBrush";
-            _typeNameTable[100] = "Microsoft.UI.Xaml.TextReadingOrder";
-            _typeNameTable[101] = "Microsoft.UI.Xaml.Controls.NumberBoxValidationMode";
-            _typeNameTable[102] = "vuapos.Presentation.Views.OrderDetail.OrderDetailPage";
-            _typeNameTable[103] = "vuapos.Presentation.ViewModels.OrderDetailViewModel";
-            _typeNameTable[104] = "Microsoft.UI.Xaml.Controls.ListViewItem";
-            _typeNameTable[105] = "vuapos.Presentation.Views.Order.OrderPage";
-            _typeNameTable[106] = "vuapos.Presentation.ViewModels.OrderViewModel";
-            _typeNameTable[107] = "vuapos.Presentation.Views.Product.AddProductDialog";
-            _typeNameTable[108] = "Microsoft.UI.Xaml.Controls.ContentDialog";
-            _typeNameTable[109] = "vuapos.Presentation.Views.Product.EditProductDialog";
-            _typeNameTable[110] = "vuapos.Presentation.Models.Category";
-            _typeNameTable[111] = "vuapos.Presentation.Views.Product.ImportExcelProduct";
-            _typeNameTable[112] = "vuapos.Presentation.Views.Product.ProductPage";
-            _typeNameTable[113] = "vuapos.Presentation.ViewModels.ProductViewModel";
-            _typeNameTable[114] = "vuapos.Presentation.Views.Promotion.AddPromotionDialog";
-            _typeNameTable[115] = "vuapos.Presentation.Views.Promotion.EditPromotionDialog";
-            _typeNameTable[116] = "vuapos.Presentation.Views.Promotion.PromotionPage";
-            _typeNameTable[117] = "vuapos.Presentation.ViewModels.PromotionViewModel";
-            _typeNameTable[118] = "vuapos.Presentation.Views.Report.ReportPage";
-            _typeNameTable[119] = "vuapos.Presentation.ViewModels.ReportViewModel";
-            _typeNameTable[120] = "vuapos.Presentation.Helpers.InverseBoolToVisibilityConverter";
-            _typeNameTable[121] = "vuapos.Presentation.Views.Staff.StaffDialogContent";
-            _typeNameTable[122] = "Microsoft.UI.Xaml.Controls.TreeViewNode";
-            _typeNameTable[123] = "System.Collections.Generic.IList`1<Microsoft.UI.Xaml.Controls.TreeViewNode>";
+            _typeNameTable[89] = "vuapos.Presentation.ViewModels.FrequentlyBoughtTogetherViewModel";
+            _typeNameTable[90] = "vuapos.Presentation.Views.Login.LoginUserControl";
+            _typeNameTable[91] = "vuapos.Presentation.ViewModels.LoginViewModel";
+            _typeNameTable[92] = "vuapos.Presentation.Views.Module1.Page1Content";
+            _typeNameTable[93] = "vuapos.Presentation.Views.Module1.Page2Content";
+            _typeNameTable[94] = "Microsoft.UI.Xaml.Controls.NumberBox";
+            _typeNameTable[95] = "Microsoft.UI.Xaml.Controls.NumberBoxSpinButtonPlacementMode";
+            _typeNameTable[96] = "Windows.Globalization.NumberFormatting.INumberFormatter2";
+            _typeNameTable[97] = "Microsoft.UI.Xaml.Controls.Primitives.FlyoutBase";
+            _typeNameTable[98] = "Microsoft.UI.Xaml.Media.SolidColorBrush";
+            _typeNameTable[99] = "Microsoft.UI.Xaml.TextReadingOrder";
+            _typeNameTable[100] = "Microsoft.UI.Xaml.Controls.NumberBoxValidationMode";
+            _typeNameTable[101] = "vuapos.Presentation.Views.OrderDetail.OrderDetailPage";
+            _typeNameTable[102] = "vuapos.Presentation.ViewModels.OrderDetailViewModel";
+            _typeNameTable[103] = "Microsoft.UI.Xaml.Controls.ListViewItem";
+            _typeNameTable[104] = "vuapos.Presentation.Views.Order.OrderPage";
+            _typeNameTable[105] = "vuapos.Presentation.ViewModels.OrderViewModel";
+            _typeNameTable[106] = "vuapos.Presentation.Views.Product.AddProductDialog";
+            _typeNameTable[107] = "Microsoft.UI.Xaml.Controls.ContentDialog";
+            _typeNameTable[108] = "vuapos.Presentation.Views.Product.EditProductDialog";
+            _typeNameTable[109] = "vuapos.Presentation.Models.Category";
+            _typeNameTable[110] = "vuapos.Presentation.Views.Product.ImportExcelProduct";
+            _typeNameTable[111] = "vuapos.Presentation.Views.Product.ProductPage";
+            _typeNameTable[112] = "vuapos.Presentation.ViewModels.ProductViewModel";
+            _typeNameTable[113] = "vuapos.Presentation.Views.Promotion.AddPromotionDialog";
+            _typeNameTable[114] = "vuapos.Presentation.Views.Promotion.EditPromotionDialog";
+            _typeNameTable[115] = "vuapos.Presentation.Views.Promotion.PromotionPage";
+            _typeNameTable[116] = "vuapos.Presentation.ViewModels.PromotionViewModel";
+            _typeNameTable[117] = "vuapos.Presentation.Views.Report.ReportPage";
+            _typeNameTable[118] = "vuapos.Presentation.ViewModels.ReportViewModel";
+            _typeNameTable[119] = "vuapos.Presentation.Helpers.InverseBoolToVisibilityConverter";
+            _typeNameTable[120] = "vuapos.Presentation.Views.Staff.StaffDialogContent";
+            _typeNameTable[121] = "Microsoft.UI.Xaml.Controls.TreeViewNode";
+            _typeNameTable[122] = "System.Collections.Generic.IList`1<Microsoft.UI.Xaml.Controls.TreeViewNode>";
 
-            _typeTable = new global::System.Type[124];
+            _typeTable = new global::System.Type[123];
             _typeTable[0] = typeof(global::Microsoft.UI.Xaml.Controls.XamlControlsResources);
             _typeTable[1] = typeof(global::Microsoft.UI.Xaml.ResourceDictionary);
             _typeTable[2] = typeof(global::System.Object);
@@ -442,41 +441,40 @@ namespace vuapos.Presentation.vuapos_Presentation_XamlTypeInfo
             _typeTable[86] = typeof(global::vuapos.Presentation.Views.FrequentlyBoughtTogether.ProductGroup);
             _typeTable[87] = typeof(global::System.Collections.Generic.List<global::vuapos.Presentation.Views.FrequentlyBoughtTogether.Product>);
             _typeTable[88] = typeof(global::vuapos.Presentation.Views.FrequentlyBoughtTogether.Product);
-            _typeTable[89] = typeof(global::vuapos.Presentation.Views.FrequentlyBoughtTogether.Category);
-            _typeTable[90] = typeof(global::vuapos.Presentation.ViewModels.FrequentlyBoughtTogetherViewModel);
-            _typeTable[91] = typeof(global::vuapos.Presentation.Views.Login.LoginUserControl);
-            _typeTable[92] = typeof(global::vuapos.Presentation.ViewModels.LoginViewModel);
-            _typeTable[93] = typeof(global::vuapos.Presentation.Views.Module1.Page1Content);
-            _typeTable[94] = typeof(global::vuapos.Presentation.Views.Module1.Page2Content);
-            _typeTable[95] = typeof(global::Microsoft.UI.Xaml.Controls.NumberBox);
-            _typeTable[96] = typeof(global::Microsoft.UI.Xaml.Controls.NumberBoxSpinButtonPlacementMode);
-            _typeTable[97] = typeof(global::Windows.Globalization.NumberFormatting.INumberFormatter2);
-            _typeTable[98] = typeof(global::Microsoft.UI.Xaml.Controls.Primitives.FlyoutBase);
-            _typeTable[99] = typeof(global::Microsoft.UI.Xaml.Media.SolidColorBrush);
-            _typeTable[100] = typeof(global::Microsoft.UI.Xaml.TextReadingOrder);
-            _typeTable[101] = typeof(global::Microsoft.UI.Xaml.Controls.NumberBoxValidationMode);
-            _typeTable[102] = typeof(global::vuapos.Presentation.Views.OrderDetail.OrderDetailPage);
-            _typeTable[103] = typeof(global::vuapos.Presentation.ViewModels.OrderDetailViewModel);
-            _typeTable[104] = typeof(global::Microsoft.UI.Xaml.Controls.ListViewItem);
-            _typeTable[105] = typeof(global::vuapos.Presentation.Views.Order.OrderPage);
-            _typeTable[106] = typeof(global::vuapos.Presentation.ViewModels.OrderViewModel);
-            _typeTable[107] = typeof(global::vuapos.Presentation.Views.Product.AddProductDialog);
-            _typeTable[108] = typeof(global::Microsoft.UI.Xaml.Controls.ContentDialog);
-            _typeTable[109] = typeof(global::vuapos.Presentation.Views.Product.EditProductDialog);
-            _typeTable[110] = typeof(global::vuapos.Presentation.Models.Category);
-            _typeTable[111] = typeof(global::vuapos.Presentation.Views.Product.ImportExcelProduct);
-            _typeTable[112] = typeof(global::vuapos.Presentation.Views.Product.ProductPage);
-            _typeTable[113] = typeof(global::vuapos.Presentation.ViewModels.ProductViewModel);
-            _typeTable[114] = typeof(global::vuapos.Presentation.Views.Promotion.AddPromotionDialog);
-            _typeTable[115] = typeof(global::vuapos.Presentation.Views.Promotion.EditPromotionDialog);
-            _typeTable[116] = typeof(global::vuapos.Presentation.Views.Promotion.PromotionPage);
-            _typeTable[117] = typeof(global::vuapos.Presentation.ViewModels.PromotionViewModel);
-            _typeTable[118] = typeof(global::vuapos.Presentation.Views.Report.ReportPage);
-            _typeTable[119] = typeof(global::vuapos.Presentation.ViewModels.ReportViewModel);
-            _typeTable[120] = typeof(global::vuapos.Presentation.Helpers.InverseBoolToVisibilityConverter);
-            _typeTable[121] = typeof(global::vuapos.Presentation.Views.Staff.StaffDialogContent);
-            _typeTable[122] = typeof(global::Microsoft.UI.Xaml.Controls.TreeViewNode);
-            _typeTable[123] = typeof(global::System.Collections.Generic.IList<global::Microsoft.UI.Xaml.Controls.TreeViewNode>);
+            _typeTable[89] = typeof(global::vuapos.Presentation.ViewModels.FrequentlyBoughtTogetherViewModel);
+            _typeTable[90] = typeof(global::vuapos.Presentation.Views.Login.LoginUserControl);
+            _typeTable[91] = typeof(global::vuapos.Presentation.ViewModels.LoginViewModel);
+            _typeTable[92] = typeof(global::vuapos.Presentation.Views.Module1.Page1Content);
+            _typeTable[93] = typeof(global::vuapos.Presentation.Views.Module1.Page2Content);
+            _typeTable[94] = typeof(global::Microsoft.UI.Xaml.Controls.NumberBox);
+            _typeTable[95] = typeof(global::Microsoft.UI.Xaml.Controls.NumberBoxSpinButtonPlacementMode);
+            _typeTable[96] = typeof(global::Windows.Globalization.NumberFormatting.INumberFormatter2);
+            _typeTable[97] = typeof(global::Microsoft.UI.Xaml.Controls.Primitives.FlyoutBase);
+            _typeTable[98] = typeof(global::Microsoft.UI.Xaml.Media.SolidColorBrush);
+            _typeTable[99] = typeof(global::Microsoft.UI.Xaml.TextReadingOrder);
+            _typeTable[100] = typeof(global::Microsoft.UI.Xaml.Controls.NumberBoxValidationMode);
+            _typeTable[101] = typeof(global::vuapos.Presentation.Views.OrderDetail.OrderDetailPage);
+            _typeTable[102] = typeof(global::vuapos.Presentation.ViewModels.OrderDetailViewModel);
+            _typeTable[103] = typeof(global::Microsoft.UI.Xaml.Controls.ListViewItem);
+            _typeTable[104] = typeof(global::vuapos.Presentation.Views.Order.OrderPage);
+            _typeTable[105] = typeof(global::vuapos.Presentation.ViewModels.OrderViewModel);
+            _typeTable[106] = typeof(global::vuapos.Presentation.Views.Product.AddProductDialog);
+            _typeTable[107] = typeof(global::Microsoft.UI.Xaml.Controls.ContentDialog);
+            _typeTable[108] = typeof(global::vuapos.Presentation.Views.Product.EditProductDialog);
+            _typeTable[109] = typeof(global::vuapos.Presentation.Models.Category);
+            _typeTable[110] = typeof(global::vuapos.Presentation.Views.Product.ImportExcelProduct);
+            _typeTable[111] = typeof(global::vuapos.Presentation.Views.Product.ProductPage);
+            _typeTable[112] = typeof(global::vuapos.Presentation.ViewModels.ProductViewModel);
+            _typeTable[113] = typeof(global::vuapos.Presentation.Views.Promotion.AddPromotionDialog);
+            _typeTable[114] = typeof(global::vuapos.Presentation.Views.Promotion.EditPromotionDialog);
+            _typeTable[115] = typeof(global::vuapos.Presentation.Views.Promotion.PromotionPage);
+            _typeTable[116] = typeof(global::vuapos.Presentation.ViewModels.PromotionViewModel);
+            _typeTable[117] = typeof(global::vuapos.Presentation.Views.Report.ReportPage);
+            _typeTable[118] = typeof(global::vuapos.Presentation.ViewModels.ReportViewModel);
+            _typeTable[119] = typeof(global::vuapos.Presentation.Helpers.InverseBoolToVisibilityConverter);
+            _typeTable[120] = typeof(global::vuapos.Presentation.Views.Staff.StaffDialogContent);
+            _typeTable[121] = typeof(global::Microsoft.UI.Xaml.Controls.TreeViewNode);
+            _typeTable[122] = typeof(global::System.Collections.Generic.IList<global::Microsoft.UI.Xaml.Controls.TreeViewNode>);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -557,21 +555,20 @@ namespace vuapos.Presentation.vuapos_Presentation_XamlTypeInfo
         private object Activate_86_ProductGroup() { return new global::vuapos.Presentation.Views.FrequentlyBoughtTogether.ProductGroup(); }
         private object Activate_87_List() { return new global::System.Collections.Generic.List<global::vuapos.Presentation.Views.FrequentlyBoughtTogether.Product>(); }
         private object Activate_88_Product() { return new global::vuapos.Presentation.Views.FrequentlyBoughtTogether.Product(); }
-        private object Activate_89_Category() { return new global::vuapos.Presentation.Views.FrequentlyBoughtTogether.Category(); }
-        private object Activate_90_FrequentlyBoughtTogetherViewModel() { return new global::vuapos.Presentation.ViewModels.FrequentlyBoughtTogetherViewModel(); }
-        private object Activate_91_LoginUserControl() { return new global::vuapos.Presentation.Views.Login.LoginUserControl(); }
-        private object Activate_93_Page1Content() { return new global::vuapos.Presentation.Views.Module1.Page1Content(); }
-        private object Activate_94_Page2Content() { return new global::vuapos.Presentation.Views.Module1.Page2Content(); }
-        private object Activate_95_NumberBox() { return new global::Microsoft.UI.Xaml.Controls.NumberBox(); }
-        private object Activate_105_OrderPage() { return new global::vuapos.Presentation.Views.Order.OrderPage(); }
-        private object Activate_110_Category() { return new global::vuapos.Presentation.Models.Category(); }
-        private object Activate_112_ProductPage() { return new global::vuapos.Presentation.Views.Product.ProductPage(); }
-        private object Activate_113_ProductViewModel() { return new global::vuapos.Presentation.ViewModels.ProductViewModel(); }
-        private object Activate_116_PromotionPage() { return new global::vuapos.Presentation.Views.Promotion.PromotionPage(); }
-        private object Activate_117_PromotionViewModel() { return new global::vuapos.Presentation.ViewModels.PromotionViewModel(); }
-        private object Activate_118_ReportPage() { return new global::vuapos.Presentation.Views.Report.ReportPage(); }
-        private object Activate_120_InverseBoolToVisibilityConverter() { return new global::vuapos.Presentation.Helpers.InverseBoolToVisibilityConverter(); }
-        private object Activate_122_TreeViewNode() { return new global::Microsoft.UI.Xaml.Controls.TreeViewNode(); }
+        private object Activate_89_FrequentlyBoughtTogetherViewModel() { return new global::vuapos.Presentation.ViewModels.FrequentlyBoughtTogetherViewModel(); }
+        private object Activate_90_LoginUserControl() { return new global::vuapos.Presentation.Views.Login.LoginUserControl(); }
+        private object Activate_92_Page1Content() { return new global::vuapos.Presentation.Views.Module1.Page1Content(); }
+        private object Activate_93_Page2Content() { return new global::vuapos.Presentation.Views.Module1.Page2Content(); }
+        private object Activate_94_NumberBox() { return new global::Microsoft.UI.Xaml.Controls.NumberBox(); }
+        private object Activate_104_OrderPage() { return new global::vuapos.Presentation.Views.Order.OrderPage(); }
+        private object Activate_109_Category() { return new global::vuapos.Presentation.Models.Category(); }
+        private object Activate_111_ProductPage() { return new global::vuapos.Presentation.Views.Product.ProductPage(); }
+        private object Activate_112_ProductViewModel() { return new global::vuapos.Presentation.ViewModels.ProductViewModel(); }
+        private object Activate_115_PromotionPage() { return new global::vuapos.Presentation.Views.Promotion.PromotionPage(); }
+        private object Activate_116_PromotionViewModel() { return new global::vuapos.Presentation.ViewModels.PromotionViewModel(); }
+        private object Activate_117_ReportPage() { return new global::vuapos.Presentation.Views.Report.ReportPage(); }
+        private object Activate_119_InverseBoolToVisibilityConverter() { return new global::vuapos.Presentation.Helpers.InverseBoolToVisibilityConverter(); }
+        private object Activate_121_TreeViewNode() { return new global::Microsoft.UI.Xaml.Controls.TreeViewNode(); }
         private void StaticInitializer_0_XamlControlsResources() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Microsoft.UI.Xaml.Controls.XamlControlsResources).TypeHandle);
         private void StaticInitializer_4_CurrencyConverter() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::vuapos.Presentation.Helpers.CurrencyConverter).TypeHandle);
         private void StaticInitializer_5_StockConverter() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::vuapos.Presentation.Helpers.StockConverter).TypeHandle);
@@ -641,36 +638,35 @@ namespace vuapos.Presentation.vuapos_Presentation_XamlTypeInfo
         private void StaticInitializer_86_ProductGroup() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::vuapos.Presentation.Views.FrequentlyBoughtTogether.ProductGroup).TypeHandle);
         private void StaticInitializer_87_List() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::System.Collections.Generic.List<global::vuapos.Presentation.Views.FrequentlyBoughtTogether.Product>).TypeHandle);
         private void StaticInitializer_88_Product() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::vuapos.Presentation.Views.FrequentlyBoughtTogether.Product).TypeHandle);
-        private void StaticInitializer_89_Category() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::vuapos.Presentation.Views.FrequentlyBoughtTogether.Category).TypeHandle);
-        private void StaticInitializer_90_FrequentlyBoughtTogetherViewModel() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::vuapos.Presentation.ViewModels.FrequentlyBoughtTogetherViewModel).TypeHandle);
-        private void StaticInitializer_91_LoginUserControl() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::vuapos.Presentation.Views.Login.LoginUserControl).TypeHandle);
-        private void StaticInitializer_92_LoginViewModel() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::vuapos.Presentation.ViewModels.LoginViewModel).TypeHandle);
-        private void StaticInitializer_93_Page1Content() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::vuapos.Presentation.Views.Module1.Page1Content).TypeHandle);
-        private void StaticInitializer_94_Page2Content() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::vuapos.Presentation.Views.Module1.Page2Content).TypeHandle);
-        private void StaticInitializer_95_NumberBox() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Microsoft.UI.Xaml.Controls.NumberBox).TypeHandle);
-        private void StaticInitializer_96_NumberBoxSpinButtonPlacementMode() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Microsoft.UI.Xaml.Controls.NumberBoxSpinButtonPlacementMode).TypeHandle);
-        private void StaticInitializer_97_INumberFormatter2() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Windows.Globalization.NumberFormatting.INumberFormatter2).TypeHandle);
-        private void StaticInitializer_101_NumberBoxValidationMode() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Microsoft.UI.Xaml.Controls.NumberBoxValidationMode).TypeHandle);
-        private void StaticInitializer_102_OrderDetailPage() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::vuapos.Presentation.Views.OrderDetail.OrderDetailPage).TypeHandle);
-        private void StaticInitializer_103_OrderDetailViewModel() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::vuapos.Presentation.ViewModels.OrderDetailViewModel).TypeHandle);
-        private void StaticInitializer_105_OrderPage() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::vuapos.Presentation.Views.Order.OrderPage).TypeHandle);
-        private void StaticInitializer_106_OrderViewModel() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::vuapos.Presentation.ViewModels.OrderViewModel).TypeHandle);
-        private void StaticInitializer_107_AddProductDialog() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::vuapos.Presentation.Views.Product.AddProductDialog).TypeHandle);
-        private void StaticInitializer_109_EditProductDialog() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::vuapos.Presentation.Views.Product.EditProductDialog).TypeHandle);
-        private void StaticInitializer_110_Category() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::vuapos.Presentation.Models.Category).TypeHandle);
-        private void StaticInitializer_111_ImportExcelProduct() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::vuapos.Presentation.Views.Product.ImportExcelProduct).TypeHandle);
-        private void StaticInitializer_112_ProductPage() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::vuapos.Presentation.Views.Product.ProductPage).TypeHandle);
-        private void StaticInitializer_113_ProductViewModel() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::vuapos.Presentation.ViewModels.ProductViewModel).TypeHandle);
-        private void StaticInitializer_114_AddPromotionDialog() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::vuapos.Presentation.Views.Promotion.AddPromotionDialog).TypeHandle);
-        private void StaticInitializer_115_EditPromotionDialog() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::vuapos.Presentation.Views.Promotion.EditPromotionDialog).TypeHandle);
-        private void StaticInitializer_116_PromotionPage() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::vuapos.Presentation.Views.Promotion.PromotionPage).TypeHandle);
-        private void StaticInitializer_117_PromotionViewModel() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::vuapos.Presentation.ViewModels.PromotionViewModel).TypeHandle);
-        private void StaticInitializer_118_ReportPage() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::vuapos.Presentation.Views.Report.ReportPage).TypeHandle);
-        private void StaticInitializer_119_ReportViewModel() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::vuapos.Presentation.ViewModels.ReportViewModel).TypeHandle);
-        private void StaticInitializer_120_InverseBoolToVisibilityConverter() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::vuapos.Presentation.Helpers.InverseBoolToVisibilityConverter).TypeHandle);
-        private void StaticInitializer_121_StaffDialogContent() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::vuapos.Presentation.Views.Staff.StaffDialogContent).TypeHandle);
-        private void StaticInitializer_122_TreeViewNode() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Microsoft.UI.Xaml.Controls.TreeViewNode).TypeHandle);
-        private void StaticInitializer_123_IList() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::System.Collections.Generic.IList<global::Microsoft.UI.Xaml.Controls.TreeViewNode>).TypeHandle);
+        private void StaticInitializer_89_FrequentlyBoughtTogetherViewModel() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::vuapos.Presentation.ViewModels.FrequentlyBoughtTogetherViewModel).TypeHandle);
+        private void StaticInitializer_90_LoginUserControl() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::vuapos.Presentation.Views.Login.LoginUserControl).TypeHandle);
+        private void StaticInitializer_91_LoginViewModel() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::vuapos.Presentation.ViewModels.LoginViewModel).TypeHandle);
+        private void StaticInitializer_92_Page1Content() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::vuapos.Presentation.Views.Module1.Page1Content).TypeHandle);
+        private void StaticInitializer_93_Page2Content() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::vuapos.Presentation.Views.Module1.Page2Content).TypeHandle);
+        private void StaticInitializer_94_NumberBox() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Microsoft.UI.Xaml.Controls.NumberBox).TypeHandle);
+        private void StaticInitializer_95_NumberBoxSpinButtonPlacementMode() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Microsoft.UI.Xaml.Controls.NumberBoxSpinButtonPlacementMode).TypeHandle);
+        private void StaticInitializer_96_INumberFormatter2() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Windows.Globalization.NumberFormatting.INumberFormatter2).TypeHandle);
+        private void StaticInitializer_100_NumberBoxValidationMode() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Microsoft.UI.Xaml.Controls.NumberBoxValidationMode).TypeHandle);
+        private void StaticInitializer_101_OrderDetailPage() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::vuapos.Presentation.Views.OrderDetail.OrderDetailPage).TypeHandle);
+        private void StaticInitializer_102_OrderDetailViewModel() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::vuapos.Presentation.ViewModels.OrderDetailViewModel).TypeHandle);
+        private void StaticInitializer_104_OrderPage() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::vuapos.Presentation.Views.Order.OrderPage).TypeHandle);
+        private void StaticInitializer_105_OrderViewModel() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::vuapos.Presentation.ViewModels.OrderViewModel).TypeHandle);
+        private void StaticInitializer_106_AddProductDialog() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::vuapos.Presentation.Views.Product.AddProductDialog).TypeHandle);
+        private void StaticInitializer_108_EditProductDialog() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::vuapos.Presentation.Views.Product.EditProductDialog).TypeHandle);
+        private void StaticInitializer_109_Category() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::vuapos.Presentation.Models.Category).TypeHandle);
+        private void StaticInitializer_110_ImportExcelProduct() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::vuapos.Presentation.Views.Product.ImportExcelProduct).TypeHandle);
+        private void StaticInitializer_111_ProductPage() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::vuapos.Presentation.Views.Product.ProductPage).TypeHandle);
+        private void StaticInitializer_112_ProductViewModel() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::vuapos.Presentation.ViewModels.ProductViewModel).TypeHandle);
+        private void StaticInitializer_113_AddPromotionDialog() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::vuapos.Presentation.Views.Promotion.AddPromotionDialog).TypeHandle);
+        private void StaticInitializer_114_EditPromotionDialog() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::vuapos.Presentation.Views.Promotion.EditPromotionDialog).TypeHandle);
+        private void StaticInitializer_115_PromotionPage() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::vuapos.Presentation.Views.Promotion.PromotionPage).TypeHandle);
+        private void StaticInitializer_116_PromotionViewModel() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::vuapos.Presentation.ViewModels.PromotionViewModel).TypeHandle);
+        private void StaticInitializer_117_ReportPage() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::vuapos.Presentation.Views.Report.ReportPage).TypeHandle);
+        private void StaticInitializer_118_ReportViewModel() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::vuapos.Presentation.ViewModels.ReportViewModel).TypeHandle);
+        private void StaticInitializer_119_InverseBoolToVisibilityConverter() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::vuapos.Presentation.Helpers.InverseBoolToVisibilityConverter).TypeHandle);
+        private void StaticInitializer_120_StaffDialogContent() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::vuapos.Presentation.Views.Staff.StaffDialogContent).TypeHandle);
+        private void StaticInitializer_121_TreeViewNode() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::Microsoft.UI.Xaml.Controls.TreeViewNode).TypeHandle);
+        private void StaticInitializer_122_IList() => global::System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(global::System.Collections.Generic.IList<global::Microsoft.UI.Xaml.Controls.TreeViewNode>).TypeHandle);
         private void MapAdd_0_XamlControlsResources(object instance, object key, object item)
         {
             var collection = (global::System.Collections.Generic.IDictionary<global::System.Object, global::System.Object>)instance;
@@ -720,7 +716,7 @@ namespace vuapos.Presentation.vuapos_Presentation_XamlTypeInfo
             var newItem = (global::vuapos.Presentation.Views.FrequentlyBoughtTogether.Product)item;
             collection.Add(newItem);
         }
-        private void VectorAdd_123_IList(object instance, object item)
+        private void VectorAdd_122_IList(object instance, object item)
         {
             var collection = (global::System.Collections.Generic.ICollection<global::Microsoft.UI.Xaml.Controls.TreeViewNode>)instance;
             var newItem = (global::Microsoft.UI.Xaml.Controls.TreeViewNode)item;
@@ -1459,70 +1455,62 @@ namespace vuapos.Presentation.vuapos_Presentation_XamlTypeInfo
                 userType.AddMemberName("ProductId");
                 userType.AddMemberName("ProductCode");
                 userType.AddMemberName("ProductName");
-                userType.AddMemberName("CategoryId");
                 userType.AddMemberName("Price");
                 userType.AddMemberName("CostPrice");
                 userType.AddMemberName("StockQuantity");
                 userType.AddMemberName("Discount");
                 userType.AddMemberName("ImagePath");
-                userType.AddMemberName("Category");
+                userType.AddMemberName("categoryName");
+                userType.AddMemberName("categoryId");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 89:   //  vuapos.Presentation.Views.FrequentlyBoughtTogether.Category
+            case 89:   //  vuapos.Presentation.ViewModels.FrequentlyBoughtTogetherViewModel
                 userType = new global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
-                userType.StaticInitializer = StaticInitializer_89_Category;
+                userType.StaticInitializer = StaticInitializer_89_FrequentlyBoughtTogetherViewModel;
                 userType.SetIsReturnTypeStub();
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 90:   //  vuapos.Presentation.ViewModels.FrequentlyBoughtTogetherViewModel
-                userType = new global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
-                userType.StaticInitializer = StaticInitializer_90_FrequentlyBoughtTogetherViewModel;
-                userType.SetIsReturnTypeStub();
-                userType.SetIsLocalType();
-                xamlType = userType;
-                break;
-
-            case 91:   //  vuapos.Presentation.Views.Login.LoginUserControl
+            case 90:   //  vuapos.Presentation.Views.Login.LoginUserControl
                 userType = new global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Controls.UserControl"));
-                userType.Activator = Activate_91_LoginUserControl;
-                userType.StaticInitializer = StaticInitializer_91_LoginUserControl;
+                userType.Activator = Activate_90_LoginUserControl;
+                userType.StaticInitializer = StaticInitializer_90_LoginUserControl;
                 userType.AddMemberName("ViewModel");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 92:   //  vuapos.Presentation.ViewModels.LoginViewModel
+            case 91:   //  vuapos.Presentation.ViewModels.LoginViewModel
                 userType = new global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
-                userType.StaticInitializer = StaticInitializer_92_LoginViewModel;
+                userType.StaticInitializer = StaticInitializer_91_LoginViewModel;
                 userType.SetIsReturnTypeStub();
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 93:   //  vuapos.Presentation.Views.Module1.Page1Content
+            case 92:   //  vuapos.Presentation.Views.Module1.Page1Content
                 userType = new global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Controls.UserControl"));
-                userType.Activator = Activate_93_Page1Content;
-                userType.StaticInitializer = StaticInitializer_93_Page1Content;
+                userType.Activator = Activate_92_Page1Content;
+                userType.StaticInitializer = StaticInitializer_92_Page1Content;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 94:   //  vuapos.Presentation.Views.Module1.Page2Content
+            case 93:   //  vuapos.Presentation.Views.Module1.Page2Content
                 userType = new global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Controls.UserControl"));
-                userType.Activator = Activate_94_Page2Content;
-                userType.StaticInitializer = StaticInitializer_94_Page2Content;
+                userType.Activator = Activate_93_Page2Content;
+                userType.StaticInitializer = StaticInitializer_93_Page2Content;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 95:   //  Microsoft.UI.Xaml.Controls.NumberBox
+            case 94:   //  Microsoft.UI.Xaml.Controls.NumberBox
                 userType = new global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Controls.Control"));
-                userType.Activator = Activate_95_NumberBox;
-                userType.StaticInitializer = StaticInitializer_95_NumberBox;
+                userType.Activator = Activate_94_NumberBox;
+                userType.StaticInitializer = StaticInitializer_94_NumberBox;
                 userType.AddMemberName("Value");
                 userType.AddMemberName("Minimum");
                 userType.AddMemberName("SpinButtonPlacementMode");
@@ -1545,198 +1533,198 @@ namespace vuapos.Presentation.vuapos_Presentation_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 96:   //  Microsoft.UI.Xaml.Controls.NumberBoxSpinButtonPlacementMode
+            case 95:   //  Microsoft.UI.Xaml.Controls.NumberBoxSpinButtonPlacementMode
                 userType = new global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.Enum"));
-                userType.StaticInitializer = StaticInitializer_96_NumberBoxSpinButtonPlacementMode;
+                userType.StaticInitializer = StaticInitializer_95_NumberBoxSpinButtonPlacementMode;
                 userType.AddEnumValue("Hidden", global::Microsoft.UI.Xaml.Controls.NumberBoxSpinButtonPlacementMode.Hidden);
                 userType.AddEnumValue("Compact", global::Microsoft.UI.Xaml.Controls.NumberBoxSpinButtonPlacementMode.Compact);
                 userType.AddEnumValue("Inline", global::Microsoft.UI.Xaml.Controls.NumberBoxSpinButtonPlacementMode.Inline);
                 xamlType = userType;
                 break;
 
-            case 97:   //  Windows.Globalization.NumberFormatting.INumberFormatter2
+            case 96:   //  Windows.Globalization.NumberFormatting.INumberFormatter2
                 userType = new global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlUserType(this, typeName, type, null);
-                userType.StaticInitializer = StaticInitializer_97_INumberFormatter2;
+                userType.StaticInitializer = StaticInitializer_96_INumberFormatter2;
                 userType.SetIsReturnTypeStub();
                 xamlType = userType;
                 break;
 
-            case 98:   //  Microsoft.UI.Xaml.Controls.Primitives.FlyoutBase
+            case 97:   //  Microsoft.UI.Xaml.Controls.Primitives.FlyoutBase
                 xamlType = new global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 99:   //  Microsoft.UI.Xaml.Media.SolidColorBrush
+            case 98:   //  Microsoft.UI.Xaml.Media.SolidColorBrush
                 xamlType = new global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 100:   //  Microsoft.UI.Xaml.TextReadingOrder
+            case 99:   //  Microsoft.UI.Xaml.TextReadingOrder
                 xamlType = new global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 101:   //  Microsoft.UI.Xaml.Controls.NumberBoxValidationMode
+            case 100:   //  Microsoft.UI.Xaml.Controls.NumberBoxValidationMode
                 userType = new global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.Enum"));
-                userType.StaticInitializer = StaticInitializer_101_NumberBoxValidationMode;
+                userType.StaticInitializer = StaticInitializer_100_NumberBoxValidationMode;
                 userType.AddEnumValue("InvalidInputOverwritten", global::Microsoft.UI.Xaml.Controls.NumberBoxValidationMode.InvalidInputOverwritten);
                 userType.AddEnumValue("Disabled", global::Microsoft.UI.Xaml.Controls.NumberBoxValidationMode.Disabled);
                 xamlType = userType;
                 break;
 
-            case 102:   //  vuapos.Presentation.Views.OrderDetail.OrderDetailPage
+            case 101:   //  vuapos.Presentation.Views.OrderDetail.OrderDetailPage
                 userType = new global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Window"));
-                userType.StaticInitializer = StaticInitializer_102_OrderDetailPage;
+                userType.StaticInitializer = StaticInitializer_101_OrderDetailPage;
                 userType.AddMemberName("ViewModel");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 103:   //  vuapos.Presentation.ViewModels.OrderDetailViewModel
+            case 102:   //  vuapos.Presentation.ViewModels.OrderDetailViewModel
                 userType = new global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
-                userType.StaticInitializer = StaticInitializer_103_OrderDetailViewModel;
+                userType.StaticInitializer = StaticInitializer_102_OrderDetailViewModel;
                 userType.SetIsReturnTypeStub();
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 104:   //  Microsoft.UI.Xaml.Controls.ListViewItem
+            case 103:   //  Microsoft.UI.Xaml.Controls.ListViewItem
                 xamlType = new global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 105:   //  vuapos.Presentation.Views.Order.OrderPage
+            case 104:   //  vuapos.Presentation.Views.Order.OrderPage
                 userType = new global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Controls.UserControl"));
-                userType.Activator = Activate_105_OrderPage;
-                userType.StaticInitializer = StaticInitializer_105_OrderPage;
+                userType.Activator = Activate_104_OrderPage;
+                userType.StaticInitializer = StaticInitializer_104_OrderPage;
                 userType.AddMemberName("ViewModel");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 106:   //  vuapos.Presentation.ViewModels.OrderViewModel
+            case 105:   //  vuapos.Presentation.ViewModels.OrderViewModel
                 userType = new global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
-                userType.StaticInitializer = StaticInitializer_106_OrderViewModel;
+                userType.StaticInitializer = StaticInitializer_105_OrderViewModel;
                 userType.SetIsReturnTypeStub();
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 107:   //  vuapos.Presentation.Views.Product.AddProductDialog
+            case 106:   //  vuapos.Presentation.Views.Product.AddProductDialog
                 userType = new global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Controls.ContentDialog"));
-                userType.StaticInitializer = StaticInitializer_107_AddProductDialog;
+                userType.StaticInitializer = StaticInitializer_106_AddProductDialog;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 108:   //  Microsoft.UI.Xaml.Controls.ContentDialog
+            case 107:   //  Microsoft.UI.Xaml.Controls.ContentDialog
                 xamlType = new global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 109:   //  vuapos.Presentation.Views.Product.EditProductDialog
+            case 108:   //  vuapos.Presentation.Views.Product.EditProductDialog
                 userType = new global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Controls.ContentDialog"));
-                userType.StaticInitializer = StaticInitializer_109_EditProductDialog;
+                userType.StaticInitializer = StaticInitializer_108_EditProductDialog;
                 userType.AddMemberName("SelectedCategory");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 110:   //  vuapos.Presentation.Models.Category
+            case 109:   //  vuapos.Presentation.Models.Category
                 userType = new global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
-                userType.StaticInitializer = StaticInitializer_110_Category;
+                userType.StaticInitializer = StaticInitializer_109_Category;
                 userType.SetIsReturnTypeStub();
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 111:   //  vuapos.Presentation.Views.Product.ImportExcelProduct
+            case 110:   //  vuapos.Presentation.Views.Product.ImportExcelProduct
                 userType = new global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Controls.ContentDialog"));
-                userType.StaticInitializer = StaticInitializer_111_ImportExcelProduct;
+                userType.StaticInitializer = StaticInitializer_110_ImportExcelProduct;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 112:   //  vuapos.Presentation.Views.Product.ProductPage
+            case 111:   //  vuapos.Presentation.Views.Product.ProductPage
                 userType = new global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Controls.UserControl"));
-                userType.Activator = Activate_112_ProductPage;
-                userType.StaticInitializer = StaticInitializer_112_ProductPage;
+                userType.Activator = Activate_111_ProductPage;
+                userType.StaticInitializer = StaticInitializer_111_ProductPage;
                 userType.AddMemberName("ViewModel");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 113:   //  vuapos.Presentation.ViewModels.ProductViewModel
+            case 112:   //  vuapos.Presentation.ViewModels.ProductViewModel
                 userType = new global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
-                userType.StaticInitializer = StaticInitializer_113_ProductViewModel;
+                userType.StaticInitializer = StaticInitializer_112_ProductViewModel;
                 userType.SetIsReturnTypeStub();
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 114:   //  vuapos.Presentation.Views.Promotion.AddPromotionDialog
+            case 113:   //  vuapos.Presentation.Views.Promotion.AddPromotionDialog
                 userType = new global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Controls.ContentDialog"));
-                userType.StaticInitializer = StaticInitializer_114_AddPromotionDialog;
+                userType.StaticInitializer = StaticInitializer_113_AddPromotionDialog;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 115:   //  vuapos.Presentation.Views.Promotion.EditPromotionDialog
+            case 114:   //  vuapos.Presentation.Views.Promotion.EditPromotionDialog
                 userType = new global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Controls.ContentDialog"));
-                userType.StaticInitializer = StaticInitializer_115_EditPromotionDialog;
+                userType.StaticInitializer = StaticInitializer_114_EditPromotionDialog;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 116:   //  vuapos.Presentation.Views.Promotion.PromotionPage
+            case 115:   //  vuapos.Presentation.Views.Promotion.PromotionPage
                 userType = new global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Controls.UserControl"));
-                userType.Activator = Activate_116_PromotionPage;
-                userType.StaticInitializer = StaticInitializer_116_PromotionPage;
+                userType.Activator = Activate_115_PromotionPage;
+                userType.StaticInitializer = StaticInitializer_115_PromotionPage;
                 userType.AddMemberName("ViewModel");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 117:   //  vuapos.Presentation.ViewModels.PromotionViewModel
+            case 116:   //  vuapos.Presentation.ViewModels.PromotionViewModel
                 userType = new global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
-                userType.StaticInitializer = StaticInitializer_117_PromotionViewModel;
+                userType.StaticInitializer = StaticInitializer_116_PromotionViewModel;
                 userType.SetIsReturnTypeStub();
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 118:   //  vuapos.Presentation.Views.Report.ReportPage
+            case 117:   //  vuapos.Presentation.Views.Report.ReportPage
                 userType = new global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Controls.UserControl"));
-                userType.Activator = Activate_118_ReportPage;
-                userType.StaticInitializer = StaticInitializer_118_ReportPage;
+                userType.Activator = Activate_117_ReportPage;
+                userType.StaticInitializer = StaticInitializer_117_ReportPage;
                 userType.AddMemberName("ViewModel");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 119:   //  vuapos.Presentation.ViewModels.ReportViewModel
+            case 118:   //  vuapos.Presentation.ViewModels.ReportViewModel
                 userType = new global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
-                userType.StaticInitializer = StaticInitializer_119_ReportViewModel;
+                userType.StaticInitializer = StaticInitializer_118_ReportViewModel;
                 userType.SetIsReturnTypeStub();
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 120:   //  vuapos.Presentation.Helpers.InverseBoolToVisibilityConverter
+            case 119:   //  vuapos.Presentation.Helpers.InverseBoolToVisibilityConverter
                 userType = new global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
-                userType.Activator = Activate_120_InverseBoolToVisibilityConverter;
-                userType.StaticInitializer = StaticInitializer_120_InverseBoolToVisibilityConverter;
+                userType.Activator = Activate_119_InverseBoolToVisibilityConverter;
+                userType.StaticInitializer = StaticInitializer_119_InverseBoolToVisibilityConverter;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 121:   //  vuapos.Presentation.Views.Staff.StaffDialogContent
+            case 120:   //  vuapos.Presentation.Views.Staff.StaffDialogContent
                 userType = new global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.Controls.UserControl"));
-                userType.StaticInitializer = StaticInitializer_121_StaffDialogContent;
+                userType.StaticInitializer = StaticInitializer_120_StaffDialogContent;
                 userType.AddMemberName("VM");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 122:   //  Microsoft.UI.Xaml.Controls.TreeViewNode
+            case 121:   //  Microsoft.UI.Xaml.Controls.TreeViewNode
                 userType = new global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Microsoft.UI.Xaml.DependencyObject"));
-                userType.Activator = Activate_122_TreeViewNode;
-                userType.StaticInitializer = StaticInitializer_122_TreeViewNode;
+                userType.Activator = Activate_121_TreeViewNode;
+                userType.StaticInitializer = StaticInitializer_121_TreeViewNode;
                 userType.AddMemberName("Children");
                 userType.AddMemberName("Content");
                 userType.AddMemberName("Depth");
@@ -1748,10 +1736,10 @@ namespace vuapos.Presentation.vuapos_Presentation_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 123:   //  System.Collections.Generic.IList`1<Microsoft.UI.Xaml.Controls.TreeViewNode>
+            case 122:   //  System.Collections.Generic.IList`1<Microsoft.UI.Xaml.Controls.TreeViewNode>
                 userType = new global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlUserType(this, typeName, type, null);
-                userType.StaticInitializer = StaticInitializer_123_IList;
-                userType.CollectionAdd = VectorAdd_123_IList;
+                userType.StaticInitializer = StaticInitializer_122_IList;
+                userType.CollectionAdd = VectorAdd_122_IList;
                 userType.SetIsReturnTypeStub();
                 xamlType = userType;
                 break;
@@ -2747,7 +2735,7 @@ namespace vuapos.Presentation.vuapos_Presentation_XamlTypeInfo
         private void set_101_Product_ProductId(object instance, object Value)
         {
             var that = (global::vuapos.Presentation.Views.FrequentlyBoughtTogether.Product)instance;
-            that.ProductId = (global::System.String)Value;
+            that.ProductId = (global::System.Int32)Value;
         }
         private object get_102_Product_ProductCode(object instance)
         {
@@ -2769,75 +2757,75 @@ namespace vuapos.Presentation.vuapos_Presentation_XamlTypeInfo
             var that = (global::vuapos.Presentation.Views.FrequentlyBoughtTogether.Product)instance;
             that.ProductName = (global::System.String)Value;
         }
-        private object get_104_Product_CategoryId(object instance)
-        {
-            var that = (global::vuapos.Presentation.Views.FrequentlyBoughtTogether.Product)instance;
-            return that.CategoryId;
-        }
-        private void set_104_Product_CategoryId(object instance, object Value)
-        {
-            var that = (global::vuapos.Presentation.Views.FrequentlyBoughtTogether.Product)instance;
-            that.CategoryId = (global::System.String)Value;
-        }
-        private object get_105_Product_Price(object instance)
+        private object get_104_Product_Price(object instance)
         {
             var that = (global::vuapos.Presentation.Views.FrequentlyBoughtTogether.Product)instance;
             return that.Price;
         }
-        private void set_105_Product_Price(object instance, object Value)
+        private void set_104_Product_Price(object instance, object Value)
         {
             var that = (global::vuapos.Presentation.Views.FrequentlyBoughtTogether.Product)instance;
             that.Price = (global::System.Decimal)Value;
         }
-        private object get_106_Product_CostPrice(object instance)
+        private object get_105_Product_CostPrice(object instance)
         {
             var that = (global::vuapos.Presentation.Views.FrequentlyBoughtTogether.Product)instance;
             return that.CostPrice;
         }
-        private void set_106_Product_CostPrice(object instance, object Value)
+        private void set_105_Product_CostPrice(object instance, object Value)
         {
             var that = (global::vuapos.Presentation.Views.FrequentlyBoughtTogether.Product)instance;
             that.CostPrice = (global::System.Decimal)Value;
         }
-        private object get_107_Product_StockQuantity(object instance)
+        private object get_106_Product_StockQuantity(object instance)
         {
             var that = (global::vuapos.Presentation.Views.FrequentlyBoughtTogether.Product)instance;
             return that.StockQuantity;
         }
-        private void set_107_Product_StockQuantity(object instance, object Value)
+        private void set_106_Product_StockQuantity(object instance, object Value)
         {
             var that = (global::vuapos.Presentation.Views.FrequentlyBoughtTogether.Product)instance;
             that.StockQuantity = (global::System.Int32)Value;
         }
-        private object get_108_Product_Discount(object instance)
+        private object get_107_Product_Discount(object instance)
         {
             var that = (global::vuapos.Presentation.Views.FrequentlyBoughtTogether.Product)instance;
             return that.Discount;
         }
-        private void set_108_Product_Discount(object instance, object Value)
+        private void set_107_Product_Discount(object instance, object Value)
         {
             var that = (global::vuapos.Presentation.Views.FrequentlyBoughtTogether.Product)instance;
             that.Discount = (global::System.Decimal)Value;
         }
-        private object get_109_Product_ImagePath(object instance)
+        private object get_108_Product_ImagePath(object instance)
         {
             var that = (global::vuapos.Presentation.Views.FrequentlyBoughtTogether.Product)instance;
             return that.ImagePath;
         }
-        private void set_109_Product_ImagePath(object instance, object Value)
+        private void set_108_Product_ImagePath(object instance, object Value)
         {
             var that = (global::vuapos.Presentation.Views.FrequentlyBoughtTogether.Product)instance;
             that.ImagePath = (global::System.String)Value;
         }
-        private object get_110_Product_Category(object instance)
+        private object get_109_Product_categoryName(object instance)
         {
             var that = (global::vuapos.Presentation.Views.FrequentlyBoughtTogether.Product)instance;
-            return that.Category;
+            return that.categoryName;
         }
-        private void set_110_Product_Category(object instance, object Value)
+        private void set_109_Product_categoryName(object instance, object Value)
         {
             var that = (global::vuapos.Presentation.Views.FrequentlyBoughtTogether.Product)instance;
-            that.Category = (global::vuapos.Presentation.Views.FrequentlyBoughtTogether.Category)Value;
+            that.categoryName = (global::System.String)Value;
+        }
+        private object get_110_Product_categoryId(object instance)
+        {
+            var that = (global::vuapos.Presentation.Views.FrequentlyBoughtTogether.Product)instance;
+            return that.categoryId;
+        }
+        private void set_110_Product_categoryId(object instance, object Value)
+        {
+            var that = (global::vuapos.Presentation.Views.FrequentlyBoughtTogether.Product)instance;
+            that.categoryId = (global::System.Int32)Value;
         }
         private object get_111_ProductGroup_OrderCount(object instance)
         {
@@ -3842,7 +3830,7 @@ namespace vuapos.Presentation.vuapos_Presentation_XamlTypeInfo
                 break;
             case "vuapos.Presentation.Views.FrequentlyBoughtTogether.Product.ProductId":
                 userType = (global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlUserType)GetXamlTypeByName("vuapos.Presentation.Views.FrequentlyBoughtTogether.Product");
-                xamlMember = new global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlMember(this, "ProductId", "String");
+                xamlMember = new global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlMember(this, "ProductId", "Int32");
                 xamlMember.Getter = get_101_Product_ProductId;
                 xamlMember.Setter = set_101_Product_ProductId;
                 break;
@@ -3858,47 +3846,47 @@ namespace vuapos.Presentation.vuapos_Presentation_XamlTypeInfo
                 xamlMember.Getter = get_103_Product_ProductName;
                 xamlMember.Setter = set_103_Product_ProductName;
                 break;
-            case "vuapos.Presentation.Views.FrequentlyBoughtTogether.Product.CategoryId":
-                userType = (global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlUserType)GetXamlTypeByName("vuapos.Presentation.Views.FrequentlyBoughtTogether.Product");
-                xamlMember = new global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlMember(this, "CategoryId", "String");
-                xamlMember.Getter = get_104_Product_CategoryId;
-                xamlMember.Setter = set_104_Product_CategoryId;
-                break;
             case "vuapos.Presentation.Views.FrequentlyBoughtTogether.Product.Price":
                 userType = (global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlUserType)GetXamlTypeByName("vuapos.Presentation.Views.FrequentlyBoughtTogether.Product");
                 xamlMember = new global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlMember(this, "Price", "System.Decimal");
-                xamlMember.Getter = get_105_Product_Price;
-                xamlMember.Setter = set_105_Product_Price;
+                xamlMember.Getter = get_104_Product_Price;
+                xamlMember.Setter = set_104_Product_Price;
                 break;
             case "vuapos.Presentation.Views.FrequentlyBoughtTogether.Product.CostPrice":
                 userType = (global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlUserType)GetXamlTypeByName("vuapos.Presentation.Views.FrequentlyBoughtTogether.Product");
                 xamlMember = new global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlMember(this, "CostPrice", "System.Decimal");
-                xamlMember.Getter = get_106_Product_CostPrice;
-                xamlMember.Setter = set_106_Product_CostPrice;
+                xamlMember.Getter = get_105_Product_CostPrice;
+                xamlMember.Setter = set_105_Product_CostPrice;
                 break;
             case "vuapos.Presentation.Views.FrequentlyBoughtTogether.Product.StockQuantity":
                 userType = (global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlUserType)GetXamlTypeByName("vuapos.Presentation.Views.FrequentlyBoughtTogether.Product");
                 xamlMember = new global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlMember(this, "StockQuantity", "Int32");
-                xamlMember.Getter = get_107_Product_StockQuantity;
-                xamlMember.Setter = set_107_Product_StockQuantity;
+                xamlMember.Getter = get_106_Product_StockQuantity;
+                xamlMember.Setter = set_106_Product_StockQuantity;
                 break;
             case "vuapos.Presentation.Views.FrequentlyBoughtTogether.Product.Discount":
                 userType = (global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlUserType)GetXamlTypeByName("vuapos.Presentation.Views.FrequentlyBoughtTogether.Product");
                 xamlMember = new global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlMember(this, "Discount", "System.Decimal");
-                xamlMember.Getter = get_108_Product_Discount;
-                xamlMember.Setter = set_108_Product_Discount;
+                xamlMember.Getter = get_107_Product_Discount;
+                xamlMember.Setter = set_107_Product_Discount;
                 break;
             case "vuapos.Presentation.Views.FrequentlyBoughtTogether.Product.ImagePath":
                 userType = (global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlUserType)GetXamlTypeByName("vuapos.Presentation.Views.FrequentlyBoughtTogether.Product");
                 xamlMember = new global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlMember(this, "ImagePath", "String");
-                xamlMember.Getter = get_109_Product_ImagePath;
-                xamlMember.Setter = set_109_Product_ImagePath;
+                xamlMember.Getter = get_108_Product_ImagePath;
+                xamlMember.Setter = set_108_Product_ImagePath;
                 break;
-            case "vuapos.Presentation.Views.FrequentlyBoughtTogether.Product.Category":
+            case "vuapos.Presentation.Views.FrequentlyBoughtTogether.Product.categoryName":
                 userType = (global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlUserType)GetXamlTypeByName("vuapos.Presentation.Views.FrequentlyBoughtTogether.Product");
-                xamlMember = new global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlMember(this, "Category", "vuapos.Presentation.Views.FrequentlyBoughtTogether.Category");
-                xamlMember.Getter = get_110_Product_Category;
-                xamlMember.Setter = set_110_Product_Category;
+                xamlMember = new global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlMember(this, "categoryName", "String");
+                xamlMember.Getter = get_109_Product_categoryName;
+                xamlMember.Setter = set_109_Product_categoryName;
+                break;
+            case "vuapos.Presentation.Views.FrequentlyBoughtTogether.Product.categoryId":
+                userType = (global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlUserType)GetXamlTypeByName("vuapos.Presentation.Views.FrequentlyBoughtTogether.Product");
+                xamlMember = new global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlMember(this, "categoryId", "Int32");
+                xamlMember.Getter = get_110_Product_categoryId;
+                xamlMember.Setter = set_110_Product_categoryId;
                 break;
             case "vuapos.Presentation.Views.FrequentlyBoughtTogether.ProductGroup.OrderCount":
                 userType = (global::vuapos.Presentation.vuapos_Presentation_XamlTypeInfo.XamlUserType)GetXamlTypeByName("vuapos.Presentation.Views.FrequentlyBoughtTogether.ProductGroup");

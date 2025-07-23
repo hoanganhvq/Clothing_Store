@@ -21,7 +21,8 @@ namespace vuapos.Presentation.Models
 
         [JsonPropertyName("price")]
         public decimal Price { get; set; }
-        //[JsonPropertyName("id")]
+
+        [JsonPropertyName("discount")]
         public int Discount { get; set; }
         [JsonPropertyName("costPrice")]
         public decimal Cost_Price { get; set; }

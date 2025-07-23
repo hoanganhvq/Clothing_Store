@@ -7,7 +7,10 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Extensions.DependencyInjection;
 using vuapos.Presentation.Services;
+using Models = vuapos.Presentation.Models;
+using Views = vuapos.Presentation.Views.FrequentlyBoughtTogether;
 using vuapos.Presentation.Views.FrequentlyBoughtTogether;
+
 
 namespace vuapos.Presentation.ViewModels
 {
@@ -25,16 +28,18 @@ namespace vuapos.Presentation.ViewModels
         public FrequentlyBoughtTogetherViewModel()
         {
             _frequentlyBoughtTogetherService = App.Services.GetRequiredService<FrequentlyBoughtTogetherService>();
+            _productService = App.Services.GetRequiredService<ProductService>();
+            _orderService = App.Services.GetRequiredService<OrderService>();
 
         }
         public async Task<bool> LoadFrequentlyBoughtTogetherAsync()
         {
             try
             {
-
+               
                 if (_isLoaded)
                     return true;
-
+                Debug.WriteLine("Chuan bi goi ham");
                 var products = await _productService.GetAllProductsNonPagingAsync();
 
                 if (products == null || !products.Any())
@@ -42,14 +47,15 @@ namespace vuapos.Presentation.ViewModels
                     Debug.WriteLine("No products found.");
                     return false;
                 }
-
                 var orderItems = await _orderService.GetOrderDetailsAsync();
                 if (orderItems == null || !orderItems.Any())
                 {
                     Debug.WriteLine("No order items found.");
                     return false;
                 }
+
                 var response = await _frequentlyBoughtTogetherService.GetFrequentlyBoughtTogetherAsync(products, orderItems);
+
                 Debug.WriteLine("test ---------------------");
                 Debug.WriteLine(response);
 

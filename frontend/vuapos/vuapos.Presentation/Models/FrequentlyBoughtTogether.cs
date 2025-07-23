@@ -31,7 +31,7 @@ namespace vuapos.Presentation.Views.FrequentlyBoughtTogether
     public class Product
     {
         [JsonPropertyName("id")]
-        public string ProductId { get; set; }
+        public int ProductId { get; set; }
 
         [JsonPropertyName("productCode")]
         public string ProductCode { get; set; }
@@ -62,7 +62,7 @@ namespace vuapos.Presentation.Views.FrequentlyBoughtTogether
         public string categoryName { get; set; }
 
         [JsonPropertyName("categoryId")]
-        public string categoryId { get; set; }
+        public int categoryId { get; set; }
 
     }
 }

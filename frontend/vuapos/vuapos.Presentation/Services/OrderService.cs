@@ -11,6 +11,8 @@ using vuapos.Presentation.DTO.Order;
 using vuapos.Presentation.Models;
 using vuapos.Presentation.Services.Interfaces;
 using vuapos.Presentation.Views.Customer;
+using vuapos.Presentation.DTO.OrderDetail;
+
 
 namespace vuapos.Presentation.Services
 {

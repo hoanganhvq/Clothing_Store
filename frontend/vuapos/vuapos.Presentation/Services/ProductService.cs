@@ -28,9 +28,13 @@ namespace vuapos.Presentation.Services
 
         public async Task<List<Product>?> GetAllProductsNonPagingAsync()
         {
-            return await SendRequestAsync<List<Product>>(HttpMethod.Get, "product/return-all");
-        }    
-        
+            Debug.WriteLine("Calling API: /product/return-all");
+            var result = await SendRequestAsync<List<Product>>(HttpMethod.Get, "product/return-all");
+            Debug.WriteLine($"Received result: {(result == null ? "null" : result.Count.ToString())}");
+            return result;
+        }
+
+
         public async Task<Product?> GetProductAsync(int productId)
         {
             return await SendRequestAsync<Product>(HttpMethod.Get, $"product/{productId}");

@@ -1,0 +1,386 @@
+[
+    {
+        "label": "APIRouter",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "HTTPException",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "Query",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "Depends",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "FastAPI",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "AnalysisInput",
+        "importPath": "models.pydantic_models",
+        "description": "models.pydantic_models",
+        "isExtraImport": true,
+        "detail": "models.pydantic_models",
+        "documentation": {}
+    },
+    {
+        "label": "AnalysisResult",
+        "importPath": "models.pydantic_models",
+        "description": "models.pydantic_models",
+        "isExtraImport": true,
+        "detail": "models.pydantic_models",
+        "documentation": {}
+    },
+    {
+        "label": "FrequentlyBoughtTogether",
+        "importPath": "models.pydantic_models",
+        "description": "models.pydantic_models",
+        "isExtraImport": true,
+        "detail": "models.pydantic_models",
+        "documentation": {}
+    },
+    {
+        "label": "ProductInputModel",
+        "importPath": "models.pydantic_models",
+        "description": "models.pydantic_models",
+        "isExtraImport": true,
+        "detail": "models.pydantic_models",
+        "documentation": {}
+    },
+    {
+        "label": "OrderDetailInputModel",
+        "importPath": "models.pydantic_models",
+        "description": "models.pydantic_models",
+        "isExtraImport": true,
+        "detail": "models.pydantic_models",
+        "documentation": {}
+    },
+    {
+        "label": "FrequentItemset",
+        "importPath": "models.pydantic_models",
+        "description": "models.pydantic_models",
+        "isExtraImport": true,
+        "detail": "models.pydantic_models",
+        "documentation": {}
+    },
+    {
+        "label": "AssociationRule",
+        "importPath": "models.pydantic_models",
+        "description": "models.pydantic_models",
+        "isExtraImport": true,
+        "detail": "models.pydantic_models",
+        "documentation": {}
+    },
+    {
+        "label": "\\",
+        "importPath": "models.pydantic_models",
+        "description": "models.pydantic_models",
+        "isExtraImport": true,
+        "detail": "models.pydantic_models",
+        "documentation": {}
+    },
+    {
+        "label": "AnalysisResult",
+        "importPath": "models.pydantic_models",
+        "description": "models.pydantic_models",
+        "isExtraImport": true,
+        "detail": "models.pydantic_models",
+        "documentation": {}
+    },
+    {
+        "label": "FrequentlyBoughtTogether",
+        "importPath": "models.pydantic_models",
+        "description": "models.pydantic_models",
+        "isExtraImport": true,
+        "detail": "models.pydantic_models",
+        "documentation": {}
+    },
+    {
+        "label": "perform_frequent_product_analysis",
+        "importPath": "services.analysis_service",
+        "description": "services.analysis_service",
+        "isExtraImport": true,
+        "detail": "services.analysis_service",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Tuple",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Dict",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Tuple",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "BaseModel",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "Field",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "HTTPException",
+        "importPath": "http.client",
+        "description": "http.client",
+        "isExtraImport": true,
+        "detail": "http.client",
+        "documentation": {}
+    },
+    {
+        "label": "pandas",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "pandas",
+        "description": "pandas",
+        "detail": "pandas",
+        "documentation": {}
+    },
+    {
+        "label": "numpy",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "numpy",
+        "description": "numpy",
+        "detail": "numpy",
+        "documentation": {}
+    },
+    {
+        "label": "TransactionEncoder",
+        "importPath": "mlxtend.preprocessing",
+        "description": "mlxtend.preprocessing",
+        "isExtraImport": true,
+        "detail": "mlxtend.preprocessing",
+        "documentation": {}
+    },
+    {
+        "label": "fpgrowth",
+        "importPath": "mlxtend.frequent_patterns",
+        "description": "mlxtend.frequent_patterns",
+        "isExtraImport": true,
+        "detail": "mlxtend.frequent_patterns",
+        "documentation": {}
+    },
+    {
+        "label": "association_rules",
+        "importPath": "mlxtend.frequent_patterns",
+        "description": "mlxtend.frequent_patterns",
+        "isExtraImport": true,
+        "detail": "mlxtend.frequent_patterns",
+        "documentation": {}
+    },
+    {
+        "label": "router",
+        "importPath": "controllers.analysis_controller",
+        "description": "controllers.analysis_controller",
+        "isExtraImport": true,
+        "detail": "controllers.analysis_controller",
+        "documentation": {}
+    },
+    {
+        "label": "router",
+        "kind": 5,
+        "importPath": "controllers.analysis_controller",
+        "description": "controllers.analysis_controller",
+        "peekOfCode": "router = APIRouter()\n@router.post(\n    \"/analyze/frequent-products\",\n    response_model=FrequentlyBoughtTogether,\n    response_model_exclude_none=True,\n    summary=\"Analyze Frequent Product Associations\",\n    description=\"Find frequently co-purchased products using FP-Growth and generate association rules.\"\n)\nasync def analyze_frequent_products_endpoint(\n    input_data: AnalysisInput,",
+        "detail": "controllers.analysis_controller",
+        "documentation": {}
+    },
+    {
+        "label": "Category",
+        "kind": 6,
+        "importPath": "models.pydantic_models",
+        "description": "models.pydantic_models",
+        "peekOfCode": "class Category(BaseModel):\n    name: str\n# Input\nclass ProductInputModel(BaseModel):\n    product_id: int = Field(..., alias=\"id\")\n    product_code: str = Field(..., alias=\"productCode\")\n    product_name: str = Field(..., alias=\"name\")\n    product_category: Optional[str] = Field(None, alias=\"categoryName\")\n    product_price: float = Field(..., alias=\"price\")\n    product_cost_price: float = Field(..., alias=\"costPrice\")",
+        "detail": "models.pydantic_models",
+        "documentation": {}
+    },
+    {
+        "label": "ProductInputModel",
+        "kind": 6,
+        "importPath": "models.pydantic_models",
+        "description": "models.pydantic_models",
+        "peekOfCode": "class ProductInputModel(BaseModel):\n    product_id: int = Field(..., alias=\"id\")\n    product_code: str = Field(..., alias=\"productCode\")\n    product_name: str = Field(..., alias=\"name\")\n    product_category: Optional[str] = Field(None, alias=\"categoryName\")\n    product_price: float = Field(..., alias=\"price\")\n    product_cost_price: float = Field(..., alias=\"costPrice\")\n    product_stock_quantity: int = Field(..., alias=\"stockQuantity\")\n    product_discount: float = Field(..., alias=\"discount\")\n    product_image_path: str = Field(..., alias=\"imageUrl\")",
+        "detail": "models.pydantic_models",
+        "documentation": {}
+    },
+    {
+        "label": "OrderDetailInputModel",
+        "kind": 6,
+        "importPath": "models.pydantic_models",
+        "description": "models.pydantic_models",
+        "peekOfCode": "class OrderDetailInputModel(BaseModel):\n    order_id: int = Field(..., alias='orderId')\n    product_id: int = Field(..., alias='productId')\n    quantity: int = Field(..., alias='quantity', ge=1)\n    class Config:\n        validate_by_name = True\n# Dữ liệu đầu vào tổng\nclass AnalysisInput(BaseModel):\n    products: List[ProductInputModel]\n    order_details: List[OrderDetailInputModel]",
+        "detail": "models.pydantic_models",
+        "documentation": {}
+    },
+    {
+        "label": "AnalysisInput",
+        "kind": 6,
+        "importPath": "models.pydantic_models",
+        "description": "models.pydantic_models",
+        "peekOfCode": "class AnalysisInput(BaseModel):\n    products: List[ProductInputModel]\n    order_details: List[OrderDetailInputModel]\n# Xác định độ phổ biến của itemset\nclass FrequentItemset(BaseModel):\n    itemset: Tuple[int, ...]\n    support: float\nclass AssociationRule(BaseModel):\n    antecedents: Tuple[int, ...]\n    consequents: Tuple[int, ...]",
+        "detail": "models.pydantic_models",
+        "documentation": {}
+    },
+    {
+        "label": "FrequentItemset",
+        "kind": 6,
+        "importPath": "models.pydantic_models",
+        "description": "models.pydantic_models",
+        "peekOfCode": "class FrequentItemset(BaseModel):\n    itemset: Tuple[int, ...]\n    support: float\nclass AssociationRule(BaseModel):\n    antecedents: Tuple[int, ...]\n    consequents: Tuple[int, ...]\n    antecedent_support: float\n    consequent_support: float\n    support: float\n    confidence: float",
+        "detail": "models.pydantic_models",
+        "documentation": {}
+    },
+    {
+        "label": "AssociationRule",
+        "kind": 6,
+        "importPath": "models.pydantic_models",
+        "description": "models.pydantic_models",
+        "peekOfCode": "class AssociationRule(BaseModel):\n    antecedents: Tuple[int, ...]\n    consequents: Tuple[int, ...]\n    antecedent_support: float\n    consequent_support: float\n    support: float\n    confidence: float\n    lift: Optional[float]\n    leverage: float\n    conviction: Optional[float]",
+        "detail": "models.pydantic_models",
+        "documentation": {}
+    },
+    {
+        "label": "AnalysisResult",
+        "kind": 6,
+        "importPath": "models.pydantic_models",
+        "description": "models.pydantic_models",
+        "peekOfCode": "class AnalysisResult(BaseModel):\n    frequent_itemsets: List[FrequentItemset]\n    association_rules: List[AssociationRule]\n    message: Optional[str] = None\nclass Product(BaseModel):\n    id: int\n    productCode: str\n    name: str\n    price: float\n    stockQuantity: int",
+        "detail": "models.pydantic_models",
+        "documentation": {}
+    },
+    {
+        "label": "Product",
+        "kind": 6,
+        "importPath": "models.pydantic_models",
+        "description": "models.pydantic_models",
+        "peekOfCode": "class Product(BaseModel):\n    id: int\n    productCode: str\n    name: str\n    price: float\n    stockQuantity: int\n    costPrice: float\n    discount: float\n    imageUrl: str\n    categoryName: str",
+        "detail": "models.pydantic_models",
+        "documentation": {}
+    },
+    {
+        "label": "ProductGroup",
+        "kind": 6,
+        "importPath": "models.pydantic_models",
+        "description": "models.pydantic_models",
+        "peekOfCode": "class ProductGroup(BaseModel):\n    group_name: str\n    group_items: List[Product]\n    order_count: int\nclass FrequentlyBoughtTogether(BaseModel):\n    total_groups: int\n    groups: List[ProductGroup]\n    # frequent_itemsets: List[FrequentItemset]  # Thêm trường frequent_itemsets\n    # association_rules: List[AssociationRule]  # Thêm trường association_rules",
+        "detail": "models.pydantic_models",
+        "documentation": {}
+    },
+    {
+        "label": "FrequentlyBoughtTogether",
+        "kind": 6,
+        "importPath": "models.pydantic_models",
+        "description": "models.pydantic_models",
+        "peekOfCode": "class FrequentlyBoughtTogether(BaseModel):\n    total_groups: int\n    groups: List[ProductGroup]\n    # frequent_itemsets: List[FrequentItemset]  # Thêm trường frequent_itemsets\n    # association_rules: List[AssociationRule]  # Thêm trường association_rules",
+        "detail": "models.pydantic_models",
+        "documentation": {}
+    },
+    {
+        "label": "transform_data",
+        "kind": 2,
+        "importPath": "services.analysis_service",
+        "description": "services.analysis_service",
+        "peekOfCode": "def transform_data(frequent_itemsets, products):\n    print(\"frequent_itemsets:\", frequent_itemsets)\n    print(\"products:\", products)\n    groups = []\n    product_map = {product.product_id: product for product in products}\n    print(\"Product map:\", product_map)\n    group_counter = 1\n    for itemset in frequent_itemsets:\n        group_name = f\"Group #{group_counter}\"\n        group_items = []",
+        "detail": "services.analysis_service",
+        "documentation": {}
+    },
+    {
+        "label": "perform_frequent_product_analysis",
+        "kind": 2,
+        "importPath": "services.analysis_service",
+        "description": "services.analysis_service",
+        "peekOfCode": "def perform_frequent_product_analysis(\n    products: List[ProductInputModel],\n    order_details: List[OrderDetailInputModel],\n    min_support: float,\n    min_confidence: float\n) -> FrequentlyBoughtTogether:\n    \"\"\"\n    Performs the full frequent product analysis.\n    Args:\n        products: List of product details.",
+        "detail": "services.analysis_service",
+        "documentation": {}
+    },
+    {
+        "label": "app",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "app = FastAPI(\n    title=\"Product Association Analyzer\",\n    description=\"API to find frequently co-purchased products using FP-Growth\",\n    version=\"1.1.0\",\n)\napp.include_router(analysis_router, tags=[\"Analysis\"])\nif __name__ == \"__main__\":\n    import uvicorn\n    uvicorn.run(app, host=\"localhost\", port=5000)",
+        "detail": "main",
+        "documentation": {}
+    }
+]

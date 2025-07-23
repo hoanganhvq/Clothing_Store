@@ -6,7 +6,7 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-namespace vuapos.Presentation.DTO.Order
+namespace vuapos.Presentation.DTO.OrderDetail
 {
     public class OrderDetailResponse
     {
