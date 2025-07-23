@@ -24,6 +24,13 @@ namespace vuapos.Presentation.Services
             _cloudinaryService = new CloudinaryService();
 
         }
+
+
+        public async Task<List<Product>?> GetAllProductsNonPagingAsync()
+        {
+            return await SendRequestAsync<List<Product>>(HttpMethod.Get, "product/return-all");
+        }    
+        
         public async Task<Product?> GetProductAsync(int productId)
         {
             return await SendRequestAsync<Product>(HttpMethod.Get, $"product/{productId}");
@@ -32,10 +39,14 @@ namespace vuapos.Presentation.Services
         //{
         //    return await SendRequestAsync<List<Product>>(HttpMethod.Get, "product");
         //}   
+
+
         public async Task<PageProductResponse<Product>?> GetAllProductsAsync(int page = 1)
         {
             return await SendRequestAsync<PageProductResponse<Product>>(HttpMethod.Get, $"product?page={page}");
         }
+        
+
 
         public async Task<Product?> SearchProduct(string product_code)
         {

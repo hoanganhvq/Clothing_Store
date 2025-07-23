@@ -1,9 +1,13 @@
+from http.client import HTTPException
+
 import pandas as pd
 import numpy as np
 from typing import List, Optional, Dict, Tuple
 from mlxtend.preprocessing import TransactionEncoder
 from mlxtend.frequent_patterns import fpgrowth, association_rules
-from models.pydantic_models import ProductInputModel, OrderDetailInputModel, FrequentItemset, AssociationRule
+from models.pydantic_models import ProductInputModel, OrderDetailInputModel, FrequentItemset, AssociationRule, \
+    AnalysisResult, FrequentlyBoughtTogether
+
 
 def _create_product_map(products: List[ProductInputModel]) -> Dict[str, str]:
     """Creates a mapping from Product ID to Product Name."""
@@ -113,7 +117,7 @@ def _generate_association_rules(
 def _format_results(
     frequent_itemsets_df: Optional[pd.DataFrame],
     rules_df: Optional[pd.DataFrame],
-    product_map: Dict[str, str]
+    product_map: Dict[str, str,]
 ) -> Tuple[List[FrequentItemset], List[AssociationRule]]:
     """Formats the DataFrames into Pydantic model lists, mapping IDs to names."""
     output_itemsets = []
@@ -121,7 +125,7 @@ def _format_results(
 
 
     #Return a tuple of two functions to map IDs to product names
-    def map_ids(ids: frozenset) -> Tuple[str, ...]:
+    def map_ids(ids: frozenset) -> Tuple[int, ...]:
         # Map từ ProductId sang ProductName sử dụng product_map
         return tuple(product_map.get(int(id_val), f"Unknown({id_val})") for id_val in ids)
 
@@ -135,9 +139,10 @@ def _format_results(
             for _, row in frequent_itemsets_df.iterrows():
                 try:
                     output_itemsets.append(FrequentItemset(
-                        itemset=map_ids(row['itemsets']),
+                        itemset=row['itemsets'],
                         support=row['support']
                     ))
+                    print("Mk khung",output_itemsets[-1])
                 except Exception as e:
                     print(f"Error formatting itemset row: {row}. Error: {e}")
                     continue
@@ -185,12 +190,64 @@ def _format_results(
 
     return output_itemsets, output_rules
 
+
+def transform_data(frequent_itemsets, products):
+    print("frequent_itemsets:", frequent_itemsets)
+    print("products:", products)
+    groups = []
+    product_map = {product.product_id: product for product in products}
+    print("Product map:", product_map)
+    group_counter = 1
+    for itemset in frequent_itemsets:
+        group_name = f"Group #{group_counter}"
+        group_items = []
+        print("Processing itemset:", itemset)
+
+        # Lấy sản phẩm từ itemset
+        for product_id in itemset.itemset:
+            print("product_id:", product_id)
+            product = product_map.get(product_id)
+            print("productA:", product)
+            if product:
+                print("ABcd")
+                group_items.append({
+                    'id': product.product_id,
+                    'productCode': product.product_code,
+                    'name': product.product_name,
+                    'categoryName': product.product_category,
+                    'price': product.product_price,
+                    'stockQuantity': product.product_stock_quantity,
+                    'costPrice': product.product_cost_price,
+                    'discount': product.product_discount,
+                    'imageUrl': product.product_image_path,
+                    'categoryId': product.product_category_id,
+                })
+            print("Product appended: ", product)
+
+        # Số lượng đơn hàng cho nhóm này (giả sử lấy từ dữ liệu hoặc tính toán)
+        order_count = int(itemset.support * 100)  # Ví dụ tính toán theo tỷ lệ
+
+        groups.append({
+            'group_name': group_name,
+            'group_items': group_items,
+            'order_count': order_count
+        })
+        group_counter += 1
+
+    return {
+        'total_groups': len(groups),
+        'groups': groups
+    }
+
+
+from models.pydantic_models import AnalysisResult, FrequentlyBoughtTogether
+
 def perform_frequent_product_analysis(
     products: List[ProductInputModel],
     order_details: List[OrderDetailInputModel],
     min_support: float,
     min_confidence: float
-) -> Tuple[List[FrequentItemset], List[AssociationRule], Optional[str]]:
+) -> FrequentlyBoughtTogether:
     """
     Performs the full frequent product analysis.
 
@@ -201,40 +258,41 @@ def perform_frequent_product_analysis(
         min_confidence: Minimum confidence threshold.
 
     Returns:
-        A tuple containing:
-        - List of frequent itemsets (Pydantic models).
-        - List of association rules (Pydantic models).
-        - An optional message string for specific scenarios (e.g., no data).
+        An instance of FrequentlyBoughtTogether containing frequent itemsets and product groups.
     """
     if not products or not order_details:
-        return [], [], "Product list and order details cannot be empty."
+        raise HTTPException(status_code=400, detail="Product list and order details cannot be empty.")
 
     product_map = _create_product_map(products)
     if not product_map:
-         return [], [], "Product list is empty or yields no usable mapping."
+        raise HTTPException(status_code=400, detail="Product list is empty or yields no usable mapping.")
 
     transactions = _prepare_transactions(order_details)
     if not transactions:
-        return [], [], "No transactions could be formed from the order details."
+        raise HTTPException(status_code=400, detail="No transactions could be formed from the order details.")
 
     frequent_itemsets_df = _run_fpgrowth_analysis(transactions, min_support)
     if frequent_itemsets_df is None:
-        return [], [], f"No frequent itemsets found with min_support {min_support}."
+        raise HTTPException(status_code=400, detail=f"No frequent itemsets found with min_support {min_support}.")
 
     rules_df = _generate_association_rules(frequent_itemsets_df, min_confidence)
 
     output_itemsets, output_rules = _format_results(frequent_itemsets_df, rules_df, product_map)
 
-    # Prepare a message based on the results
-    print(f"Output itemsets: {output_itemsets}")
-    print(f"Output rules: {output_rules}")
-    print(f"Frequent itemsets found: {len(output_itemsets)}")
-    print(f"Association rules found: {len(output_rules)}")
-    print(f"product_map: {product_map}")
-    message = None
+    # Kiểm tra nếu không có itemsets hoặc rules
     if not output_itemsets:
-         message = f"No frequent itemsets found meeting min_support {min_support}."
-    elif rules_df is not None and rules_df.empty and output_itemsets:
-        message = f"Frequent itemsets were found, but no association rules met the min_confidence {min_confidence}."
+        raise HTTPException(status_code=400, detail="No frequent itemsets found.")
+    if not output_rules:
+        raise HTTPException(status_code=400, detail="No association rules found.")
 
-    return output_itemsets, output_rules, message
+    print("Product to transform:", products)
+    print("Frequent itemsets to transform:", frequent_itemsets_df)
+    # Sử dụng transform_data để chuẩn bị kết quả trả về
+    transformed_data = transform_data(output_itemsets, products)
+
+    return FrequentlyBoughtTogether(
+        total_groups=transformed_data['total_groups'],
+        groups=transformed_data['groups'],
+        # frequent_itemsets=output_itemsets,  # Đảm bảo trả về frequent_itemsets
+        # association_rules=output_rules     # Đảm bảo trả về association_rules
+    )

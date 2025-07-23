@@ -1,5 +1,6 @@
 package cit.backend.dto.request;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 
 import java.util.List;
@@ -9,5 +10,6 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ProductImportDTOList {
-    public List<ProductRequest> items;
+    @JsonProperty("items")
+    private List<ProductRequest> items;
 }

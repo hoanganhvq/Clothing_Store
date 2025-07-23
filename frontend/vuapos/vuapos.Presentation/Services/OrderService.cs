@@ -25,10 +25,15 @@ namespace vuapos.Presentation.Services
             return await SendRequestAsync<Response<Order>>(HttpMethod.Get, $"order?page={page}");
             
         }
+        
+        public async Task<List<OrderDetailResponse>?> GetOrderDetailsAsync()
+        {
+            return await SendRequestAsync<List<OrderDetailResponse>>(HttpMethod.Get, $"order-detail");
+        }
 
 
         public async Task<Response<Order>?> GetCustomerOrderByDate(int customerId, string startDate, string endDate)
-        {  
+        {
             return await SendRequestAsync<Response<Order>>(HttpMethod.Get, $"order?search={customerId}&startDate={startDate}&endDate={endDate}");
         }
 

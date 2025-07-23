@@ -1,12 +1,12 @@
 from fastapi import APIRouter, HTTPException, Query, Depends
-from models.pydantic_models import AnalysisInput, AnalysisResult
+from models.pydantic_models import AnalysisInput, AnalysisResult, FrequentlyBoughtTogether
 from services.analysis_service import perform_frequent_product_analysis
 
 router = APIRouter()
 
 @router.post(
     "/analyze/frequent-products",
-    response_model=AnalysisResult,
+    response_model=FrequentlyBoughtTogether,
     response_model_exclude_none=True,
     summary="Analyze Frequent Product Associations",
     description="Find frequently co-purchased products using FP-Growth and generate association rules."
@@ -27,18 +27,14 @@ async def analyze_frequent_products_endpoint(
         raise HTTPException(status_code=400, detail="Product list and order details cannot be empty.")
 
     try:
-        itemsets, rules, message = perform_frequent_product_analysis(
+        result = perform_frequent_product_analysis(
             products=input_data.products,
             order_details=input_data.order_details,
             min_support=min_support,
             min_confidence=min_confidence
         )
 
-        return AnalysisResult(
-            frequent_itemsets=itemsets,
-            association_rules=rules,
-            message=message
-        )
+        return result  # Returning the result which is an instance of FrequentlyBoughtTogether
 
     except Exception as e:
         print(f"An unexpected error occurred: {e}")

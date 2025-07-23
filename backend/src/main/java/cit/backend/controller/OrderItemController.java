@@ -25,6 +25,11 @@ public class OrderItemController {
     @Autowired
     private OrderItemService orderItemService;
 
+    @GetMapping
+    public ResponseEntity<List<OrderItemResponse>> getAllOrderItems() {
+            return ResponseEntity.ok(orderItemService.getOrderItems());
+    }
+
     @PostMapping
     public ResponseEntity<List<OrderItemResponse>> createOrderItem(
             @Valid @RequestBody OrderItemRequestList orderItems) {

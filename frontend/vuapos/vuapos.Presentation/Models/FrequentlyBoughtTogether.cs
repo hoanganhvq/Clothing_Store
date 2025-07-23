@@ -30,43 +30,39 @@ namespace vuapos.Presentation.Views.FrequentlyBoughtTogether
 
     public class Product
     {
-        [JsonPropertyName("product_id")]
+        [JsonPropertyName("id")]
         public string ProductId { get; set; }
 
-        [JsonPropertyName("product_code")]
+        [JsonPropertyName("productCode")]
         public string ProductCode { get; set; }
 
-        [JsonPropertyName("product_name")]
+        [JsonPropertyName("name")]
         public string ProductName { get; set; }
 
-        [JsonPropertyName("category_id")]
-        public string CategoryId { get; set; }
 
         [JsonPropertyName("price")]
         [JsonConverter(typeof(StringToDecimalConverter))]
         public decimal Price { get; set; }
 
-        [JsonPropertyName("cost_price")]
+        [JsonPropertyName("costPrice")]
         [JsonConverter(typeof(StringToDecimalConverter))]
         public decimal CostPrice { get; set; }
 
-        [JsonPropertyName("stock_quantity")]
+        [JsonPropertyName("stockQuantity")]
         public int StockQuantity { get; set; }
 
         [JsonPropertyName("discount")]
         [JsonConverter(typeof(StringToDecimalConverter))]
         public decimal Discount { get; set; }
 
-        [JsonPropertyName("image_path")]
+        [JsonPropertyName("imageUrl")]
         public string ImagePath { get; set; }
 
-        [JsonPropertyName("category")]
-        public Category Category { get; set; }
-    }
+        [JsonPropertyName("categoryName")]
+        public string categoryName { get; set; }
 
-    public class Category
-    {
-        [JsonPropertyName("name")]
-        public string Name { get; set; }
+        [JsonPropertyName("categoryId")]
+        public string categoryId { get; set; }
+
     }
 }

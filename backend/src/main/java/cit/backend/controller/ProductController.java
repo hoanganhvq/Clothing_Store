@@ -27,6 +27,10 @@ public class ProductController {
     @Autowired
     private ProductService productService;
 
+    @GetMapping("/return-all")
+    public ResponseEntity<List<ProductResponse>> getAllProducts() {
+        return ResponseEntity.ok(productService.getAll());
+    }
 
     @GetMapping("/{id}")
     public ResponseEntity<ProductResponse> getProductById(@PathVariable int id) {
@@ -52,7 +56,7 @@ public class ProductController {
     }
 
     @PostMapping("/import")
-    public ResponseEntity<ProductService.ImportResult> importProduct(@RequestBody List<ProductRequest> productRequest) {
+    public ResponseEntity<ProductService.ImportResult> importProduct(@RequestBody ProductImportDTOList productRequest) {
         return  ResponseEntity.ok(productService.importProducts(productRequest));
 
     }

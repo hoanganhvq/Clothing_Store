@@ -14,6 +14,12 @@ namespace vuapos.Presentation.ViewModels
     public class FrequentlyBoughtTogetherViewModel
     {
         private readonly FrequentlyBoughtTogetherService _frequentlyBoughtTogetherService;
+
+        private readonly ProductService _productService;
+
+        private readonly OrderService _orderService;
+
+
         public ObservableCollection<ProductGroup> ProductGroups { get; } = new ObservableCollection<ProductGroup>();
         private bool _isLoaded = false;
         public FrequentlyBoughtTogetherViewModel()
@@ -25,10 +31,25 @@ namespace vuapos.Presentation.ViewModels
         {
             try
             {
+
                 if (_isLoaded)
                     return true;
 
-                var response = await _frequentlyBoughtTogetherService.GetFrequentlyBoughtTogetherAsync();
+                var products = await _productService.GetAllProductsNonPagingAsync();
+
+                if (products == null || !products.Any())
+                {
+                    Debug.WriteLine("No products found.");
+                    return false;
+                }
+
+                var orderItems = await _orderService.GetOrderDetailsAsync();
+                if (orderItems == null || !orderItems.Any())
+                {
+                    Debug.WriteLine("No order items found.");
+                    return false;
+                }
+                var response = await _frequentlyBoughtTogetherService.GetFrequentlyBoughtTogetherAsync(products, orderItems);
                 Debug.WriteLine("test ---------------------");
                 Debug.WriteLine(response);
 

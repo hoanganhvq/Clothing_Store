@@ -246,7 +246,8 @@ public class ProductService {
 
     }
 
-    public ImportResult importProducts(List<ProductRequest> productsToImport) {
+    public ImportResult importProducts(ProductImportDTOList productRequest) {
+        List<ProductRequest> productsToImport = productRequest.getItems();
         ImportResult results = new ImportResult();
 
         if (productsToImport == null || productsToImport.isEmpty()) {

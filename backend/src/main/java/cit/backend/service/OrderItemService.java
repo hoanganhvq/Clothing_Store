@@ -38,6 +38,12 @@ public class OrderItemService {
     @Autowired
     private ProductService productService;
 
+    public List<OrderItemResponse> getOrderItems() {
+        List<OrderItem> orderItems = orderItemRepository.findAll();
+        return orderItemMapper.toDtoList(orderItems);
+    }
+
+
     @Transactional
     public List<OrderItemResponse> createOrderItems(OrderItemRequestList orderItems) {
         List<OrderItemResponse> result = new ArrayList<>();
