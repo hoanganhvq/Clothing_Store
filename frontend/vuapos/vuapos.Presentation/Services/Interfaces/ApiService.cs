@@ -44,39 +44,50 @@ namespace vuapos.Presentation.Services
         {
             var request = new HttpRequestMessage(method, endpoint);
 
+            // Nếu có dữ liệu để gửi (POST, PUT,...)
             if (data != null)
             {
-
-
                 string jsonData = JsonSerializer.Serialize(data);
                 Debug.WriteLine($"✅ Serialized JSON to send: {jsonData}");
+
                 request.Content = new StringContent(jsonData, System.Text.Encoding.UTF8, "application/json");
             }
 
             try
             {
                 var response = await _httpClient.SendAsync(request);
+
+                // Thiết lập deserialize
                 var options = new JsonSerializerOptions
                 {
                     PropertyNameCaseInsensitive = true
                 };
                 options.Converters.Add(new DecimalJsonConverter());
 
+                // Nếu lỗi HTTP
                 if (!response.IsSuccessStatusCode)
                 {
-                    string error = await response.Content.ReadAsStringAsync();
+                    var errorBytes = await response.Content.ReadAsByteArrayAsync();
+                    string error = System.Text.Encoding.UTF8.GetString(errorBytes); // Đảm bảo đọc đúng UTF-8
+
                     Debug.WriteLine($"❌ Request failed: {(int)response.StatusCode} {response.StatusCode}");
                     Debug.WriteLine($"❌ Error body: {error}");
+
                     return default;
                 }
 
-                string responseBody = await response.Content.ReadAsStringAsync();
-                Debug.WriteLine($"Response: {responseBody}");
+                // ✅ Đọc response bằng UTF-8 để tránh lỗi ký tự tiếng Việt
+                var responseBytes = await response.Content.ReadAsByteArrayAsync();
+                string responseBody = System.Text.Encoding.UTF8.GetString(responseBytes);
+
+                Debug.WriteLine($"✅ Response: {responseBody}");
+
+                // Parse JSON thành đối tượng
                 return JsonSerializer.Deserialize<T>(responseBody, options);
             }
             catch (Exception ex)
             {
-                Debug.WriteLine($"Error: {ex.Message}");
+                Debug.WriteLine($"🔥 Exception: {ex.Message}");
                 return default;
             }
         }
