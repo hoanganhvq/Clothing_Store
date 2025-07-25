@@ -29,12 +29,14 @@
                                     <StackPanel Orientation="Horizontal" Grid.Column="0" VerticalAlignment="Center" Margin="0,0,10,0">
                                         <TextBlock x:ConnectionId='14'                           FontSize="20" FontWeight="Bold" Foreground="Teal" VerticalAlignment="Center" />
                                     </StackPanel>
-                                    <Border Grid.Column="1" Background="Red" CornerRadius="10" Padding="5" VerticalAlignment="Center">
-                                        <TextBlock FontSize="16" Foreground="White">
-                                            <Run Text="Đã đặt: " />
-                                            <Run x:ConnectionId='13'                            />
-                                            <Run Text=" lần" />
-                                        </TextBlock>
+                                    <Border Grid.Column="1" Background="#E53935" CornerRadius="10" Padding="6" VerticalAlignment="Center">
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock FontSize="16" Foreground="White" FontWeight="Bold" Text="🛒" Margin="0,0,4,0"/>
+                                            <TextBlock FontSize="16" Foreground="White" FontWeight="SemiBold">
+                                                    <Run x:ConnectionId='13'                            />
+                                                    <Run Text="% đơn hàng" />
+                                            </TextBlock>
+                                        </StackPanel>
                                     </Border>
                                 </Grid>
 
