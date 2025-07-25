@@ -314,12 +314,14 @@ namespace vuapos.Presentation.ViewModels
                 return;
             // Search for products
             var products = await _productService.SearchProductsAsync(SearchQuery);
+            Debug.WriteLine("Chạy toi day r ");
             SearchResults.Clear();
 
             foreach (var product in products.Data)
             {
                 SearchResults.Add(product);
             }
+            Debug.WriteLine("Chạy toi day r ");
         }
 
         private bool CanAddProduct()

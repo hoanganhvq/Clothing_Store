@@ -60,10 +60,12 @@ public class OrderController {
             @RequestParam(value = "endDate", required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate endDate
     ) {
         System.out.print("Goi ham nay: ");
-            Pageable pageable = PageRequest.of(page - 1, 5);
+            Pageable pageable = PageRequest.of(page -1 , 5);
             PageResponse<OrderResponse> orders = orderService.getAllOrders(id, startDate, endDate, pageable);
             return ResponseEntity.ok(orders);
     }
+
+
 
     // /order/by-date?startDate=...&endDate=...&page=1
 //    @GetMapping("/by-date")
@@ -96,8 +98,8 @@ public class OrderController {
     ){
 
             OrderResponse orderResponse = orderService.deleteOrder(orderId);
-            return ResponseEntity.ok(orderResponse);
-    }
+            return ResponseEntity.ok(orderResponse);}
+
 
     @PostMapping("/{id}/send-email")
     public ResponseEntity<String> sendEmail(

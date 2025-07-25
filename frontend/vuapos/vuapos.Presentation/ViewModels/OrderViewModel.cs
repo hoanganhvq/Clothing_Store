@@ -185,11 +185,9 @@ namespace vuapos.Presentation.ViewModels
                 var result = await _orderService.SendMail(order.Order_Id);
                 if (result == null)
                 {
-                    await dialogService.ShowMessageAsync(_xamlRoot, "Error", "Email sending failed");
-
+                    await dialogService.ShowMessageAsync(_xamlRoot, "Notification", "Email sent successfully");
                     return;
                 }
-                await dialogService.ShowMessageAsync(_xamlRoot, "Notification", "Email sent successfully");
 
 
             }

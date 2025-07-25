@@ -141,6 +141,11 @@ namespace vuapos.Presentation.ViewModels
             set => SetProperty(ref _todayRevenue, value);
         }
 
+        public string FormattedSystemBalance => Report.SystemBalance.ToString("N0");
+        public string FormattedActualBalance => Report.ActualBalance.ToString("N0");
+        public string FormattedDifference => Difference.ToString("N0");
+
+
         public string? ErrorMessage { get; set; } = string.Empty;
 
         public ObservableCollection<CashTransactionViewModel> RecentTransactions
@@ -241,7 +246,7 @@ namespace vuapos.Presentation.ViewModels
         private async void ShowEndOfDayDialog()
         {
             ActualBalance = ActiveRegister.CurrentBalance;
-            if (App.Services!.GetRequiredService<IUserSession>().role != "MANAGER")
+            if (App.Services!.GetRequiredService<IUserSession>().role != "Admin")
                 {
                     var dialogService = App.Services!.GetRequiredService<IDialogService>();
                     await dialogService.ShowMessageAsync(_xaml, "You do not have permission to perform this action", "Access Denied");

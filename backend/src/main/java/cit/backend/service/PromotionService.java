@@ -56,26 +56,6 @@ public class PromotionService {
             promotion.setName(promotionRequest.getName());
         }
 
-        if (promotionRequest.getType() != null) {
-            promotion.setType(promotionRequest.getType());
-        }
-
-        if (promotionRequest.getValue() != null) {
-            promotion.setValue(promotionRequest.getValue());
-        }
-
-        if (promotionRequest.getMax_uses() != null) {
-            promotion.setMax_uses(promotionRequest.getMax_uses());
-        }
-
-        if (promotionRequest.getUsed_count() != null) {
-            promotion.setUsed_count(promotionRequest.getUsed_count());
-        }
-
-        if (promotionRequest.getMin_order_amount() != null) {
-            promotion.setMin_order_amount(promotionRequest.getMin_order_amount());
-        }
-
         if (promotionRequest.getStartDate() != null) {
             promotion.setStartDate(promotionRequest.getStartDate());
         }

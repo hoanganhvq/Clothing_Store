@@ -30,7 +30,7 @@
               SelectedValuePath="Tag"
               HorizontalAlignment="Stretch">
             <ComboBoxItem Content="ADMIN" Tag="Admin"/>
-            <ComboBoxItem Content="STAFF" Tag="Admin"/>
+            <ComboBoxItem Content="STAFF" Tag="Staff"/>
         </ComboBox>
 
         <!-- Mật khẩu -->

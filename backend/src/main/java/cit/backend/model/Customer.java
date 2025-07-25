@@ -35,8 +35,5 @@ public class Customer {
     @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
     private List<Order> orders;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "pointDiscountRule_id", referencedColumnName = "id")
-    private PointDiscountRule pointDiscountRule;
 
 }

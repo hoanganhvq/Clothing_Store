@@ -20,7 +20,6 @@
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-
             <TextBlock Grid.Row="0" Grid.Column="0"
                        Text="End of Day Time:"
                        Style="{StaticResource BodyTextBlockStyle}"
@@ -37,7 +36,7 @@
                        Margin="0,0,12,8"/>
             <TextBlock x:ConnectionId='5' Grid.Row="1" Grid.Column="1"
                        x:Name="systemBalanceText"
-                                                                     
+                                                                                    
                        Style="{StaticResource BodyStrongTextBlockStyle}"
                        Margin="0,0,0,8"/>
 
@@ -47,7 +46,7 @@
                        Margin="0,0,12,8"/>
             <TextBlock x:ConnectionId='6' Grid.Row="2" Grid.Column="1"
                        x:Name="actualBalanceText"
-                                                                     
+                                                                       
                        Style="{StaticResource BodyStrongTextBlockStyle}"
                        Margin="0,0,0,8"/>
 
@@ -57,7 +56,7 @@
                        Margin="0,0,12,8"/>
             <TextBlock x:ConnectionId='7' Grid.Row="3" Grid.Column="1"
                        x:Name="differenceText"
-                                                                  
+                                                                    
                        Style="{StaticResource BodyStrongTextBlockStyle}"
                        Margin="0,0,0,8"/>
         </Grid>

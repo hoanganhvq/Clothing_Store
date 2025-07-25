@@ -126,7 +126,8 @@ namespace vuapos.Presentation.Views.Product
                     resultMessage += "\n\nThe following rows could not be imported:\n";
                     foreach (var error in importErrors)
                     {
-                        resultMessage += $"Row {error.Row}: {error.Reason}\n";
+                        int row = error.Row - 1;
+                        resultMessage += $"Row {row}: {error.Reason}\n";
                     }
                 }
                 else resultMessage = "Successfully imported products.";

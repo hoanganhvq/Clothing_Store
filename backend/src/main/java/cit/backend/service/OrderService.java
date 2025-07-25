@@ -46,8 +46,6 @@ public class OrderService {
     @Autowired
     private EmailService emailService;
 
-    @Autowired
-    private PointDiscountService pointDiscountService;
 
     public OrderResponse getOrderById(int id) {
         Order order = orderRepository.findById(id)
@@ -136,10 +134,8 @@ public class OrderService {
         Specification<Order> spec = null;
 
         if (search != null) {
-            Specification<Order> searchSpec = (root, query, cb) -> cb.or(
-                    cb.equal(root.get("id"), search),
-                    cb.equal(root.get("customer").get("id"), search)
-            );
+            Specification<Order> searchSpec = (root, query, cb) ->cb.equal(root.get("customer").get("id"), search);
+
             spec = (spec == null) ? searchSpec : spec.and(searchSpec);
             System.out.println("Search không null");
         }
@@ -171,16 +167,27 @@ public class OrderService {
 
 
 
-    public PageResponse<OrderResponse> getOrderByDate(LocalDateTime startDate, LocalDateTime endDate, Pageable pageable) {
-        Page<Order> orders = orderRepository.findByOrderDateBetween(startDate, endDate, pageable);
-        PageResponse<OrderResponse> pageResponse = new PageResponse<>();
-        pageResponse.setPage(orders.getNumber() + 1);
-        pageResponse.setTotalPages(orders.getTotalPages());
-        pageResponse.setTotalCount(orders.getTotalElements());
-        pageResponse.setData(orderMapper.toResponseList(orders.getContent()));
+
+   public PageResponse<OrderResponse> getCustomerOrder(
+           Integer customerId,
+           Pageable pageable
+   ){
+        Customer customer = customerRepository.findById(customerId)
+                .orElseThrow(()->new CustomerNotFoundException("Customer not found"));
+        Page<Order> orderPage = orderRepository.findAllByCustomer(customer, pageable);
+
+       List<OrderResponse> data = orderPage.getContent().stream()
+               .map(orderMapper::toResponse)
+               .toList();
+
+       PageResponse<OrderResponse> pageResponse = new PageResponse<>();
+       pageResponse.setData(data);
+       pageResponse.setTotalPages(orderPage.getTotalPages());
+       pageResponse.setTotalCount(orderPage.getTotalElements());
+       pageResponse.setPage(orderPage.getNumber() + 1);
 
         return pageResponse;
-    }
+   }
 
 
     public OrderResponse updateOrder(OrderUpdateRequest orderRequest, int orderId) {

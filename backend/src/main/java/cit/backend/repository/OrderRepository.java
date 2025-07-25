@@ -14,4 +14,6 @@ import java.util.List;
 public interface OrderRepository  extends JpaRepository<Order, Integer>, JpaSpecificationExecutor<Order> {
     Page<Order> findByOrderDateBetween(LocalDateTime start, LocalDateTime end, Pageable pageable);
 
+    Page<Order> findAllByCustomer(Customer customer, Pageable pageable);
+
 }

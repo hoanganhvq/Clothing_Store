@@ -23,22 +23,8 @@ public class Promotion {
     @Column(name = "name")
     private String name;
 
-    @Enumerated(EnumType.STRING)
-    @Column(name = "type")
-    private PromotionType type;
-
-
     @Column(name = "discount")
     private BigDecimal value;
-
-    @Column(name = "max_uses")
-    private int max_uses;
-
-    @Column(name = "used_count")
-    private int used_count;
-
-    @Column(name = "min_order_amount")
-    private BigDecimal min_order_amount;
 
     @Column(name = "startDate")
     private LocalDateTime startDate;

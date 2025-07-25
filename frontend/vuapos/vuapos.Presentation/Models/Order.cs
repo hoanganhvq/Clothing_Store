@@ -56,6 +56,10 @@ namespace vuapos.Presentation.Models
             return Order_Date;
         }
 
+        public string TotalAmountFormatted =>
+            Total_Amount.ToString("N0", new System.Globalization.CultureInfo("vi-VN")) + " ₫";
+
+
         public string OrderDateFormatted =>
      DateTime.TryParse(Order_Date, out DateTime orderDate)
      ? orderDate.ToString("dd/MM/yyyy", new System.Globalization.CultureInfo("vi-VN"))

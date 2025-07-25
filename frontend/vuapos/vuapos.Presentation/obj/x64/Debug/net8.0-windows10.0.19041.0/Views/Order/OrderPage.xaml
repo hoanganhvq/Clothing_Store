@@ -147,7 +147,7 @@
                             <TextBlock Grid.Column="2" Text="{Binding customer.Phone}" VerticalAlignment="Center" Margin="5,0"/>
                             <TextBlock Grid.Column="3" Text="{Binding customer.Email}" VerticalAlignment="Center" Margin="5,0"/>
                             <TextBlock Grid.Column="4" Text="{Binding OrderDateFormatted}" VerticalAlignment="Center" Margin="5,0"/>
-                            <TextBlock Grid.Column="5" Text="{Binding Total_Amount}" VerticalAlignment="Center" Margin="5,0"/>
+                            <TextBlock Grid.Column="5" Text="{Binding TotalAmountFormatted}" VerticalAlignment="Center" Margin="5,0"/>
                             <TextBlock Grid.Column="6" Text="{Binding Order_status}" VerticalAlignment="Center" Margin="5,0"/>
 
                             <StackPanel Grid.Column="7" Orientation="Horizontal" HorizontalAlignment="Left" Margin="5,0">

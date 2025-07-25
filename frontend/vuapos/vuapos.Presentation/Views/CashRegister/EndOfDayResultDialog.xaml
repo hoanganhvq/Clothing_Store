@@ -20,7 +20,6 @@
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-
             <TextBlock Grid.Row="0" Grid.Column="0"
                        Text="End of Day Time:"
                        Style="{StaticResource BodyTextBlockStyle}"
@@ -37,7 +36,7 @@
                        Margin="0,0,12,8"/>
             <TextBlock Grid.Row="1" Grid.Column="1"
                        x:Name="systemBalanceText"
-                       Text="{x:Bind ViewModel.Report.SystemBalance}"
+                       Text="{x:Bind ViewModel.FormattedSystemBalance, Mode=OneWay}"
                        Style="{StaticResource BodyStrongTextBlockStyle}"
                        Margin="0,0,0,8"/>
 
@@ -47,7 +46,7 @@
                        Margin="0,0,12,8"/>
             <TextBlock Grid.Row="2" Grid.Column="1"
                        x:Name="actualBalanceText"
-                       Text="{x:Bind ViewModel.Report.ActualBalance}"
+                       Text="{x:Bind ViewModel.FormattedActualBalance}"
                        Style="{StaticResource BodyStrongTextBlockStyle}"
                        Margin="0,0,0,8"/>
 
@@ -57,7 +56,7 @@
                        Margin="0,0,12,8"/>
             <TextBlock Grid.Row="3" Grid.Column="1"
                        x:Name="differenceText"
-                       Text="{x:Bind ViewModel.Report.Difference}"
+                       Text="{x:Bind ViewModel.FormattedDifference}"
                        Style="{StaticResource BodyStrongTextBlockStyle}"
                        Margin="0,0,0,8"/>
         </Grid>

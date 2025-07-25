@@ -40,8 +40,6 @@ public class Order {
     @Column(name = "is_cash" )
     private Boolean isCash;
 
-
-
     @Column(name = "is_use_customer_point")
     private Boolean isUseCustomerPoint;
 

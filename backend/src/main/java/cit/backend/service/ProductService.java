@@ -106,12 +106,7 @@ public class ProductService {
                 sendLowWarningQuantityEmail(userEmail, product.getName(), productRequest.getStockQuantity());
             }
         }
-        if (productRequest.getSize() != null) {
-            product.setSize(productRequest.getSize());
-        }
-        if (productRequest.getColor() != null) {
-            product.setColor(productRequest.getColor());
-        }
+
 
 
         return productMapper.toResponse(productRepository.save(product));
@@ -296,6 +291,10 @@ public class ProductService {
                 newProduct.setPrice(productDto.getPrice());
                 newProduct.setCostPrice(productDto.getCostPrice());
                 newProduct.setStockQuantity(productDto.getStockQuantity());
+                newProduct.setImageUrl(productDto.getImageUrl());
+                Category category = categoryRepository.findById(productDto.getCategoryId())
+                                .orElseThrow(()-> new CategoryNotFoundException("Category not found"));
+                newProduct.setCategory(category);
                 productsToCreate.add(newProduct);
             }
         }

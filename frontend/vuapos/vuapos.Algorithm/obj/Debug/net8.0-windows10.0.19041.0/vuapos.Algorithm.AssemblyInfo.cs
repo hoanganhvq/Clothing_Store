@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("vuapos.Algorithm")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+02bd380ff6888472c5ffb65465b59ce83c1119c9")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+05debdf78dfb7a1d136db0c79ca00100a4a5f015")]
 [assembly: System.Reflection.AssemblyProductAttribute("vuapos.Algorithm")]
 [assembly: System.Reflection.AssemblyTitleAttribute("vuapos.Algorithm")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

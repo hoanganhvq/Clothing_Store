@@ -37,12 +37,6 @@ public class Product {
     @Column(name = "stockQuantity")
     private int stockQuantity;
 
-    @Column(name = "size", length = 50)
-    private String size;
-
-    @Column(name = "color")
-    private String color;
-
     @Column(name = "imageUrl")
     private String imageUrl;
 
