@@ -448,24 +448,27 @@
                 </Grid>
                 
                 <!--Method-->
-                <TextBlock Grid.Row="3" 
-                           Text="Payment method"
-                           FontWeight="SemiBold"
-                           FontSize="16"
-                           Margin="0,40,0,8" />
+                <!--
+<TextBlock Grid.Row="3" 
+           Text="Payment method"
+           FontWeight="SemiBold"
+           FontSize="16"
+           Margin="0,40,0,8" />
 
-                <StackPanel Grid.Row="4" 
-                            Orientation="Horizontal"
-                            HorizontalAlignment="Center"
-                            Spacing="20"
-                            Margin="0,8,0,0">
-                    <RadioButton Content="Cash"
-                                 GroupName="PaymentMethod"
-                                 IsChecked="{x:Bind ViewModel.IsCash, Mode=TwoWay}" />
+<StackPanel Grid.Row="4" 
+            Orientation="Horizontal"
+            HorizontalAlignment="Center"
+            Spacing="20"
+            Margin="0,8,0,0">
+    <RadioButton Content="Cash"
+                 GroupName="PaymentMethod"
+                 IsChecked="{x:Bind ViewModel.IsCash, Mode=TwoWay}" />
 
-                    <RadioButton Content="Bank Transfer"
-                                 GroupName="PaymentMethod"/>
-                </StackPanel>
+    <RadioButton Content="Bank Transfer"
+                 GroupName="PaymentMethod"/>
+</StackPanel>
+-->
+
                 <!-- Action Buttons -->
           <StackPanel Grid.Row="5" 
             Orientation="Horizontal" 

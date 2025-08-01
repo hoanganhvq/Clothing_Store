@@ -55,13 +55,13 @@
                             <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
 
-                        <TextBox x:ConnectionId='27' Grid.Column="0" 
+                        <TextBox x:ConnectionId='26' Grid.Column="0" 
                          Style="{StaticResource TextInputStyle}"
                          PlaceholderText="Enter product name or description" 
                                                                             
                          Margin="0,0,12,0" />
 
-                        <Button x:ConnectionId='28' Grid.Column="1" 
+                        <Button x:ConnectionId='27' Grid.Column="1" 
                         Content="Search" 
                         Style="{StaticResource ActionButtonOrderStyle}"
                                                                           />
@@ -74,7 +74,7 @@
                             <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
 
-                        <ListView x:ConnectionId='19' Grid.Row="0" 
+                        <ListView x:ConnectionId='18' Grid.Row="0" 
                                                                                       
                                                                                         
                           BorderThickness="1"
@@ -93,7 +93,7 @@
                             </ListView.ItemContainerStyle>
                             <ListView.ItemTemplate>
                                 <DataTemplate                            >
-                                    <Grid x:ConnectionId='23' Padding="12">
+                                    <Grid x:ConnectionId='22' Padding="12">
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="Auto" />
                                             <ColumnDefinition Width="*" />
@@ -106,16 +106,16 @@
                                         Margin="0,0,16,0"
                                         CornerRadius="6"
                                         Background="{ThemeResource SystemControlBackgroundBaseLowBrush}">
-                                            <Image x:ConnectionId='26'                                                                                                       
+                                            <Image x:ConnectionId='25'                                                                                                       
                                            Stretch="UniformToFill"/>
                                         </Border>
 
                                         <!-- Product Info -->
                                         <StackPanel Grid.Column="1" VerticalAlignment="Center">
-                                            <TextBlock x:ConnectionId='24'                              
+                                            <TextBlock x:ConnectionId='23'                              
                                                FontWeight="SemiBold"
                                                FontSize="14" />
-                                            <TextBlock x:ConnectionId='25'                               
+                                            <TextBlock x:ConnectionId='24'                               
                                                Foreground="{ThemeResource SystemBaseMediumColor}"
                                                FontSize="12"
                                                Margin="0,4,0,0" />
@@ -156,7 +156,7 @@
                                VerticalAlignment="Center" 
                                Margin="0,0,12,0" />
 
-                            <NumberBox x:ConnectionId='20' Grid.Column="1" 
+                            <NumberBox x:ConnectionId='19' Grid.Column="1" 
                                                                                        
                                Minimum="1" 
                                SpinButtonPlacementMode="Inline" 
@@ -164,7 +164,7 @@
                                CornerRadius="4"
                                Width="150" />
 
-                            <Button x:ConnectionId='21' Grid.Column="3" 
+                            <Button x:ConnectionId='20' Grid.Column="3" 
                             Content="Add to Order" 
                             Style="{StaticResource ActionButtonOrderStyle}"
                                                                            />
@@ -201,19 +201,19 @@
                                 <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
 
-                            <TextBox x:ConnectionId='16' Grid.Row="0" Grid.Column="0"
+                            <TextBox x:ConnectionId='15' Grid.Row="0" Grid.Column="0"
              Style="{StaticResource TextInputStyle}"
              Header="Customer Name" 
                                                                  
              Margin="0,0,8,12" />
 
-                            <TextBox x:ConnectionId='17' Grid.Row="0" Grid.Column="1"
+                            <TextBox x:ConnectionId='16' Grid.Row="0" Grid.Column="1"
              Style="{StaticResource TextInputStyle}"
              Header="Customer Phone" 
                                                                   
              Margin="8,0,0,12" />
 
-                            <TextBox x:ConnectionId='18' Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
+                            <TextBox x:ConnectionId='17' Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
              Style="{StaticResource TextInputStyle}"
              Header="Customer Email" 
                                                                  />
@@ -241,7 +241,7 @@
               Style="{StaticResource SectionHeaderStyle}" 
               Margin="0,0,0,16" />
 
-                            <ListView x:ConnectionId='9' Grid.Row="1" 
+                            <ListView x:ConnectionId='8' Grid.Row="1" 
                                                                         
               BorderThickness="1"
               BorderBrush="{StaticResource BorderColor}"
@@ -278,7 +278,7 @@
 
                                 <ListView.ItemTemplate>
                                     <DataTemplate                               >
-                                        <Grid x:ConnectionId='12' Padding="16,12" BorderThickness="0,0,0,1" BorderBrush="{StaticResource BorderColor}">
+                                        <Grid x:ConnectionId='11' Padding="16,12" BorderThickness="0,0,0,1" BorderBrush="{StaticResource BorderColor}">
                                             <Grid.ColumnDefinitions>
                                                 <ColumnDefinition Width="40*" />
                                                 <ColumnDefinition Width="15*" />
@@ -287,7 +287,7 @@
                                                 <ColumnDefinition Width="15*" />
                                             </Grid.ColumnDefinitions>
 
-                                            <TextBlock x:ConnectionId='13' Grid.Column="0" 
+                                            <TextBlock x:ConnectionId='12' Grid.Column="0" 
                                                                    
                               VerticalAlignment="Center" />
 
@@ -296,7 +296,7 @@
                               Margin="20,0" 
                               VerticalAlignment="Center" />
 
-                                            <TextBlock x:ConnectionId='14' Grid.Column="2" 
+                                            <TextBlock x:ConnectionId='13' Grid.Column="2" 
                                                                     
                               Margin="20,0" 
                               VerticalAlignment="Center" />
@@ -307,7 +307,7 @@
                               FontWeight="SemiBold"
                               VerticalAlignment="Center" />
 
-                                            <Button x:ConnectionId='15' Grid.Column="4" 
+                                            <Button x:ConnectionId='14' Grid.Column="4" 
                            Content="Remove" 
                            Visibility="{Binding ViewModel.VisibilityUI, ElementName=MainRootUser}"               
                            Command="{Binding ViewModel.RemoveOrderDetailCommand, ElementName=MainRootUser}"
@@ -345,14 +345,14 @@
                                     <ColumnDefinition Width="Auto" />
                                 </Grid.ColumnDefinitions>
 
-                                <TextBox x:ConnectionId='7' Grid.Column="0" 
+                                <TextBox x:ConnectionId='6' Grid.Column="0" 
                  Style="{StaticResource TextInputStyle}"
                  Header="Mã Giảm Giá" 
                  PlaceholderText="Nhập mã khuyến mãi"
                                                                       
                  Margin="0,0,12,0" />
 
-                                <Button x:ConnectionId='8' Grid.Column="1" 
+                                <Button x:ConnectionId='7' Grid.Column="1" 
                 Content="Áp Dụng" 
                 Style="{StaticResource SecondaryButtonStyle}"
                                                                       
@@ -367,7 +367,7 @@
                                     <ColumnDefinition Width="Auto" />
                                 </Grid.ColumnDefinitions>
 
-                                <CheckBox x:ConnectionId='6' Grid.Column="0"
+                                <CheckBox x:ConnectionId='5' Grid.Column="0"
                   Content="Sử dụng điểm khách hàng" 
                                                                                
                   Foreground="{StaticResource PrimaryDarkColor}"
@@ -448,24 +448,27 @@
                 </Grid>
                 
                 <!--Method-->
-                <TextBlock Grid.Row="3" 
-                           Text="Payment method"
-                           FontWeight="SemiBold"
-                           FontSize="16"
-                           Margin="0,40,0,8" />
+                <!--
+<TextBlock Grid.Row="3" 
+           Text="Payment method"
+           FontWeight="SemiBold"
+           FontSize="16"
+           Margin="0,40,0,8" />
 
-                <StackPanel Grid.Row="4" 
-                            Orientation="Horizontal"
-                            HorizontalAlignment="Center"
-                            Spacing="20"
-                            Margin="0,8,0,0">
-                    <RadioButton x:ConnectionId='5' Content="Cash"
-                                 GroupName="PaymentMethod"
-                                                                                    />
+<StackPanel Grid.Row="4" 
+            Orientation="Horizontal"
+            HorizontalAlignment="Center"
+            Spacing="20"
+            Margin="0,8,0,0">
+    <RadioButton Content="Cash"
+                 GroupName="PaymentMethod"
+                 IsChecked="{x:Bind ViewModel.IsCash, Mode=TwoWay}" />
 
-                    <RadioButton Content="Bank Transfer"
-                                 GroupName="PaymentMethod"/>
-                </StackPanel>
+    <RadioButton Content="Bank Transfer"
+                 GroupName="PaymentMethod"/>
+</StackPanel>
+-->
+
                 <!-- Action Buttons -->
           <StackPanel Grid.Row="5" 
             Orientation="Horizontal" 

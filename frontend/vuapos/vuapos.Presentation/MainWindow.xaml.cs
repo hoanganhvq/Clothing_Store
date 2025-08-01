@@ -186,7 +186,7 @@ namespace vuapos.Presentation
                         MainLayout.PageContent = frequentlyBoughtTogetherPage;
                         break;
                     case "staffs":
-                        MainLayout.Title = "Staffs";
+                        MainLayout.Title = "Staff";
                         MainLayout.PageContent = staffPage;
                         break;
 

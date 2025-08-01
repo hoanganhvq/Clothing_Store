@@ -43,7 +43,7 @@ namespace vuapos.Presentation.ViewModels
 
         public int PromotionId { get; set; }
 
-        public bool isCash { get; set; } = false;
+        public bool isCash { get; set; } = true;
 
         public decimal PromotionDiscount { get; set; } = 0;
 
@@ -254,7 +254,7 @@ namespace vuapos.Presentation.ViewModels
 
         public XamlRoot XamlRoot { get; set; }
 
-        public bool IsCash = false;
+        public bool IsCash = true;
 
 
         public decimal OrderTotal => SubTotal - TotalDiscount;

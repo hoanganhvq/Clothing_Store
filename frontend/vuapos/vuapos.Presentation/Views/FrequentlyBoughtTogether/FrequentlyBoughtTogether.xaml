@@ -34,7 +34,7 @@
                                             <TextBlock FontSize="16" Foreground="White" FontWeight="Bold" Text="🛒" Margin="0,0,4,0"/>
                                             <TextBlock FontSize="16" Foreground="White" FontWeight="SemiBold">
                                                     <Run Text="{x:Bind OrderCount}" />
-                                                    <Run Text="% đơn hàng" />
+                                                     <Run Text="% đơn hàng" />
                                             </TextBlock>
                                         </StackPanel>
                                     </Border>
@@ -54,7 +54,7 @@
                                                         <GradientStop Color="White" Offset="0" />
                                                         <GradientStop Color="LightCyan" Offset="1" />
                                                     </LinearGradientBrush>
-                                                </Border.Background>
+                                                </Border.Background>    
                                                 <StackPanel>
                                                     <Image Width="100" Height="100">
                                                         <Image.Source>
